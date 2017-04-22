@@ -165,8 +165,12 @@ Partial Class FormTarjetas
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.ImeMode = System.Windows.Forms.ImeMode.Off
+        Me.MaximizeBox = False
         Me.Name = "FormTarjetas"
+        Me.ShowInTaskbar = False
         Me.Text = "FormTarjetas"
+        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
