@@ -8,6 +8,7 @@ CONSTRAINT pk_rubros PRIMARY KEY (id_rubro)
 create table fabricas(
 id_fabrica integer,
 nombre varchar(30),
+telefono varchar(30),
 CONSTRAINT pk_fabricas PRIMARY KEY (id_fabrica)
 )
 
