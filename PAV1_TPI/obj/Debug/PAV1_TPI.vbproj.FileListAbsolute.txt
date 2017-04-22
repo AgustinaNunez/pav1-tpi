@@ -1,0 +1,39 @@
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\TPI_2017\PAV_TPI2017\PAV1_TPI\PAV1_TPI\bin\Debug\PAV1_TPI.exe.config
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\TPI_2017\PAV_TPI2017\PAV1_TPI\PAV1_TPI\bin\Debug\PAV1_TPI.exe
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\TPI_2017\PAV_TPI2017\PAV1_TPI\PAV1_TPI\bin\Debug\PAV1_TPI.pdb
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\TPI_2017\PAV_TPI2017\PAV1_TPI\PAV1_TPI\bin\Debug\PAV1_TPI.xml
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\TPI_2017\PAV_TPI2017\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.vbprojResolveAssemblyReference.cache
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\TPI_2017\PAV_TPI2017\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.Frm_Principal.resources
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\TPI_2017\PAV_TPI2017\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.Resources.resources
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\TPI_2017\PAV_TPI2017\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.vbproj.GenerateResource.Cache
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\TPI_2017\PAV_TPI2017\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.exe
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\TPI_2017\PAV_TPI2017\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.xml
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\TPI_2017\PAV_TPI2017\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.pdb
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\TPI_2017\PAV_TPI2017\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.FormInicio.resources
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\TPI_2017\PAV_TPI2017\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.FormClientes.resources
+C:\Users\juani\Desktop\PAV1_TPI-20170418T194105Z-001\PAV1_TPI\PAV1_TPI\bin\Debug\PAV1_TPI.exe.config
+C:\Users\juani\Desktop\PAV1_TPI-20170418T194105Z-001\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.exe
+C:\Users\juani\Desktop\PAV1_TPI-20170418T194105Z-001\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.xml
+C:\Users\juani\Desktop\PAV1_TPI-20170418T194105Z-001\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.pdb
+C:\Users\juani\Desktop\PAV1_TPI-20170418T194105Z-001\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.vbprojResolveAssemblyReference.cache
+C:\Users\juani\Desktop\PAV1_TPI-20170418T194105Z-001\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.FormClientes.resources
+C:\Users\juani\Desktop\PAV1_TPI-20170418T194105Z-001\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.FormInicio.resources
+C:\Users\juani\Desktop\PAV1_TPI-20170418T194105Z-001\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.Frm_Principal.resources
+C:\Users\juani\Desktop\PAV1_TPI-20170418T194105Z-001\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.Resources.resources
+C:\Users\juani\Desktop\PAV1_TPI-20170418T194105Z-001\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.vbproj.GenerateResource.Cache
+C:\Users\juani\Desktop\PAV1_TPI-20170418T194105Z-001\PAV1_TPI\PAV1_TPI\bin\Debug\PAV1_TPI.exe
+C:\Users\juani\Desktop\PAV1_TPI-20170418T194105Z-001\PAV1_TPI\PAV1_TPI\bin\Debug\PAV1_TPI.pdb
+C:\Users\juani\Desktop\PAV1_TPI-20170418T194105Z-001\PAV1_TPI\PAV1_TPI\bin\Debug\PAV1_TPI.xml
+C:\Users\Luciana\Desktop\ENTREGA MIERCOLES 18%2F04 CLIENTES\PAV1_TPI\PAV1_TPI\bin\Debug\PAV1_TPI.exe.config
+C:\Users\Luciana\Desktop\ENTREGA MIERCOLES 18%2F04 CLIENTES\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.exe
+C:\Users\Luciana\Desktop\ENTREGA MIERCOLES 18%2F04 CLIENTES\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.xml
+C:\Users\Luciana\Desktop\ENTREGA MIERCOLES 18%2F04 CLIENTES\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.pdb
+C:\Users\Luciana\Desktop\ENTREGA MIERCOLES 18%2F04 CLIENTES\PAV1_TPI\PAV1_TPI\bin\Debug\PAV1_TPI.exe
+C:\Users\Luciana\Desktop\ENTREGA MIERCOLES 18%2F04 CLIENTES\PAV1_TPI\PAV1_TPI\bin\Debug\PAV1_TPI.pdb
+C:\Users\Luciana\Desktop\ENTREGA MIERCOLES 18%2F04 CLIENTES\PAV1_TPI\PAV1_TPI\bin\Debug\PAV1_TPI.xml
+C:\Users\Luciana\Desktop\ENTREGA MIERCOLES 18%2F04 CLIENTES\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.vbprojResolveAssemblyReference.cache
+C:\Users\Luciana\Desktop\ENTREGA MIERCOLES 18%2F04 CLIENTES\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.FormClientes.resources
+C:\Users\Luciana\Desktop\ENTREGA MIERCOLES 18%2F04 CLIENTES\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.FormInicio.resources
+C:\Users\Luciana\Desktop\ENTREGA MIERCOLES 18%2F04 CLIENTES\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.Frm_Principal.resources
+C:\Users\Luciana\Desktop\ENTREGA MIERCOLES 18%2F04 CLIENTES\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.Resources.resources
+C:\Users\Luciana\Desktop\ENTREGA MIERCOLES 18%2F04 CLIENTES\PAV1_TPI\PAV1_TPI\obj\Debug\PAV1_TPI.vbproj.GenerateResource.Cache
