@@ -54,7 +54,7 @@ CONSTRAINT pk_tipo_documento PRIMARY KEY (id_tipo_documento)
 
 
 create table clientes(
-numero_documento integer,
+numero_documento varchar(20),
 tipo_documento integer,
 nombre_cliente varchar(30),
 apellido_cliente varchar(30),
@@ -102,7 +102,7 @@ id_venta integer,
 fecha_venta date, 
 hora_venta date,
 id_usuario varchar(30),
-numero_documento_cliente integer,
+numero_documento_cliente varchar(20),
 tipo_documento_cliente integer,
 CONSTRAINT pk_ventas PRIMARY KEY (id_venta),
 CONSTRAINT fk_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
@@ -125,9 +125,8 @@ CONSTRAINT fk_producto_ventas FOREIGN KEY (id_producto) REFERENCES productos(id_
 
 create table tarjetas(
 id_tarjeta integer,
-nombre_tarjeta varchar(30),
-apellido_tarjeta varchar(20),
-fecha_vencimiento date,
+apellido_nombre_tarjeta varchar(80),
+fecha_vencimiento varchar(30),
 id_banco integer,
 id_entidad_crediticia integer,
 CONSTRAINT pk_tarjetas PRIMARY KEY (id_tarjeta),
@@ -159,3 +158,24 @@ INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (4
 
 INSERT INTO clientes (numero_documento, tipo_documento, nombre_cliente , apellido_cliente , telefono_cliente , e_mail_cliente  ) 
 VALUES (11,2,'JA','JA',203040,'jajaja.com')
+
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (1,'Galicia',013842)
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (2,'Santander Rio',083143)
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (3,'Banco Nación',083202)
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (4,'Macro', 83104)
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (5,'BanCor', 2349932)
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (6,'BBVA Francés',3249)
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (7,'HSBC',349203)
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (8,'ICBC',24390)
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (9,'Credicoop',32990243)
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (10,'Patagonia',23940443)
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (11,'Banco Provincia',083083)
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (12,'Hipotecario',4308424)
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (13,'Supervielle',208434)
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (14,'City Bank', 3284)
+
+INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (1,'VISA',32480)
+INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (2,'Master Card',32483)
+INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (3,'American Express',32040)
+INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (4,'Maestro',2384028)
+INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (5,'Cabal',42397)

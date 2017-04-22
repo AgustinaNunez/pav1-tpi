@@ -1,0 +1,13 @@
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\bin\Release\PAV1_TPI.exe.config
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\bin\Release\PAV1_TPI.exe
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\bin\Release\PAV1_TPI.pdb
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\bin\Release\PAV1_TPI.xml
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Release\PAV1_TPI.FormClientes.resources
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Release\PAV1_TPI.FormInicio.resources
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Release\PAV1_TPI.Frm_Principal.resources
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Release\PAV1_TPI.FormTarjetas.resources
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Release\PAV1_TPI.Resources.resources
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Release\PAV1_TPI.vbproj.GenerateResource.Cache
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Release\PAV1_TPI.exe
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Release\PAV1_TPI.xml
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Release\PAV1_TPI.pdb

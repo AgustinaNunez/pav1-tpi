@@ -41,3 +41,17 @@ C:\Users\Georgina\Desktop\PAV_CLOTTA\pav1-tpi\PAV1_TPI\bin\Debug\PAV1_TPI.exe.co
 C:\Users\Georgina\Desktop\PAV_CLOTTA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.exe
 C:\Users\Georgina\Desktop\PAV_CLOTTA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.xml
 C:\Users\Georgina\Desktop\PAV_CLOTTA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.pdb
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\bin\Debug\PAV1_TPI.exe.config
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.exe
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.xml
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.pdb
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\bin\Debug\PAV1_TPI.exe
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\bin\Debug\PAV1_TPI.pdb
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\bin\Debug\PAV1_TPI.xml
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.vbprojResolveAssemblyReference.cache
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormClientes.resources
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormInicio.resources
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.Frm_Principal.resources
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormTarjetas.resources
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.Resources.resources
+C:\Users\Luciana\Desktop\PAV 1\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.vbproj.GenerateResource.Cache
