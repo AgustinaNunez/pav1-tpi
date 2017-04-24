@@ -1,6 +1,6 @@
 ﻿Public Class FormFabrica
 
-    Dim cadena_conexion As String = "Provider=SQLNCLI10;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA "
+    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=(localdb)\Servidor;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
     Dim seleccion As String
 
@@ -30,11 +30,10 @@
         Dim tabla As New DataTable
         Dim sql_cargar_grilla As String = ""
 
-        sql_cargar_grilla &= " SELECT dbo.fabricas.nombre"
-        sql_cargar_grilla &= ", dbo.fabricas.telefono"
-        sql_cargar_grilla &= ",dbo.productos.id_fabrica"
-        sql_cargar_grilla &= " FROM dbo.fabricas INNER JOIN dbo.productos"
-        sql_cargar_grilla &= " ON dbo.fabricas.id_fabrica = dbo.productos.id_fabrica"
+        sql_cargar_grilla &= " SELECT nombre"
+        sql_cargar_grilla &= ", telefono"
+        sql_cargar_grilla &= ", id_fabrica"
+        sql_cargar_grilla &= " FROM fabricas "
 
         tabla = ejecuto_sql(sql_cargar_grilla)
 
@@ -42,6 +41,7 @@
         Me.Grilla_Fabrica.Rows.Clear()
         For c = 0 To tabla.Rows.Count - 1
 
+            Me.Grilla_Fabrica.Rows.Add()
             Me.Grilla_Fabrica.Rows(c).Cells(0).Value = tabla.Rows(c)("nombre")
             Me.Grilla_Fabrica.Rows(c).Cells(1).Value = tabla.Rows(c)("telefono")
             Me.Grilla_Fabrica.Rows(c).Cells(2).Value = tabla.Rows(c)("id_fabrica")
@@ -79,6 +79,7 @@
 
         conexion.ConnectionString = cadena_conexion
         conexion.Open()
+        cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
         cmd.CommandText = sql
         cmd.ExecuteNonQuery()
@@ -99,9 +100,6 @@
             End If
         Next
     End Sub
-
-
-
 
 
     Private Sub btn_nueva_fabrica_Click(sender As Object, e As EventArgs) Handles btn_nueva_fabrica.Click
@@ -135,7 +133,7 @@
     Private Function validar_fabrica() As respuesta_validacion
         Dim tabla As New DataTable
         Dim sql As String = ""
-        sql &= " SELECT     nombre  FROM dbo.fabricas WHERE nombre = " & Me.txt_nombre_fabrica.Text
+        sql &= " SELECT * FROM fabricas WHERE nombre = '" & Me.txt_nombre_fabrica.Text & "'"
 
         tabla = ejecuto_sql(sql)
 
@@ -157,8 +155,11 @@
 
                 If validar_fabrica() = respuesta_validacion._ok Then
                     insertar()
-
+                Else
+                    MsgBox("El nombre de la fabrica ya existe, por favor, modificarlo", MsgBoxStyle.OkOnly, "Error")
                 End If
+
+
             Else
                 modificar()
 
@@ -169,13 +170,17 @@
 
     Private Sub insertar()
         Dim sql As String = ""
+        Randomize()
+        Dim aleatorio As Integer
+        aleatorio = Rnd() * 10
 
         sql &= "INSERT INTO fabricas("
         sql &= "id_fabrica,"
         sql &= "nombre,"
         sql &= "telefono)"
-        sql &= "VALUES("
-        sql &= " '" & Me.txt_nombre_fabrica.Text & "'"
+        sql &= " VALUES( "
+        sql &= aleatorio
+        sql &= ", '" & Me.txt_nombre_fabrica.Text & "'"
         sql &= ", " & Me.txt_telefono_fabrica.Text & ")"
 
         grabar_borrar(sql)
@@ -196,12 +201,13 @@
         Dim tabla As New DataTable
 
         sql &= " SELECT * FROM fabricas "
-        sql &= " WHERE nombre = " & Me.Grilla_Fabrica.CurrentRow.Cells(0).Value
+        sql &= " WHERE nombre = '" & Me.Grilla_Fabrica.CurrentRow.Cells(0).Value & "'"
 
         tabla = Me.ejecuto_sql(sql)
 
-        Me.txt_nombre_fabrica = tabla.Rows(0)("nombre")
-        Me.txt_telefono_fabrica = tabla.Rows(0)("telefono")
+
+        Me.txt_nombre_fabrica.Text = tabla.Rows(0)("nombre")
+        Me.txt_telefono_fabrica.Text = tabla.Rows(0)("telefono")
 
         Me.accion = tipo_grabacion.modificar
         Me.txt_nombre_fabrica.Enabled = True
@@ -217,31 +223,37 @@
 
         sql &= "UPDATE fabricas SET "
         sql &= "nombre = '" & Me.txt_nombre_fabrica.Text & "'"
-        sql &= ", telefono = " & Me.txt_telefono_fabrica.Text & ""
+        sql &= ", telefono = " & Me.txt_telefono_fabrica.Text
 
         grabar_borrar(sql)
-        MsgBox("La fabrica fue borrada exitosamente ", MessageBoxButtons.OK, "Exito")
+        MsgBox("La fabrica fue modificada exitosamente ", MessageBoxButtons.OK, "Exito")
         cargar_grilla_fabrica()
 
     End Sub
 
 
-
     Private Sub btn_eliminar_fabrica_Click(sender As Object, e As EventArgs) Handles btn_eliminar_fabrica.Click
         Dim sql As String = ""
-        sql &= "DELETE fabricas WHERE nombre = " & Me.Grilla_Fabrica.CurrentRow.Cells(0).Value
+
+        sql &= "DELETE FROM fabricas WHERE nombre = '" & Me.Grilla_Fabrica.CurrentRow.Cells(0).Value & "'"
+
         If MessageBox.Show("¿Está seguro que quiere eliminar el registro ?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
             Me.grabar_borrar(sql)
             MsgBox("Se borraron los datos exitosamente", MessageBoxButtons.OK, "Eliminación de Fabrica")
             cargar_grilla_fabrica()
 
         End If
-        If Me.Grilla_Fabrica.CurrentCell.Selected = False Then
-            MessageBox.Show("Falta sereccionar dato en grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
-        End If
+        'If Me.Grilla_Fabrica.CurrentCell.Selected = False Then
+        '    MessageBox.Show("Falta sereccionar dato en grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        'End If
 
 
     End Sub
+
+    
+
+
 
 End Class
