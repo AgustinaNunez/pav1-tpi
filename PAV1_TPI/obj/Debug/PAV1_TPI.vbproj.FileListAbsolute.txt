@@ -101,3 +101,19 @@ C:\Users\Brian\Desktop\clottaLPM\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormTarjet
 C:\Users\Brian\Desktop\clottaLPM\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormUsuarios.resources
 C:\Users\Brian\Desktop\clottaLPM\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.Resources.resources
 C:\Users\Brian\Desktop\clottaLPM\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.vbproj.GenerateResource.Cache
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\bin\Debug\PAV1_TPI.exe.config
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\bin\Debug\PAV1_TPI.exe
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\bin\Debug\PAV1_TPI.pdb
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\bin\Debug\PAV1_TPI.xml
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.vbprojResolveAssemblyReference.cache
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormClientes.resources
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormFabrica.resources
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.Frm_Principal.resources
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormTarjetas.resources
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormUsuarios.resources
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.Resources.resources
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.vbproj.GenerateResource.Cache
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.exe
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.xml
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.pdb
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormProductos.resources

@@ -68,7 +68,7 @@ Partial Class Frm_Principal
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(183, 34)
         Me.Button2.TabIndex = 4
-        Me.Button2.Text = "Button2"
+        Me.Button2.Text = "Fábricas"
         Me.Button2.UseVisualStyleBackColor = False
         '
         'Button3
@@ -81,7 +81,7 @@ Partial Class Frm_Principal
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(183, 34)
         Me.Button3.TabIndex = 5
-        Me.Button3.Text = "Button3"
+        Me.Button3.Text = "Productos"
         Me.Button3.UseVisualStyleBackColor = False
         '
         'Button4
@@ -94,7 +94,7 @@ Partial Class Frm_Principal
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(183, 34)
         Me.Button4.TabIndex = 6
-        Me.Button4.Text = "Button4"
+        Me.Button4.Text = "Tarjetas"
         Me.Button4.UseVisualStyleBackColor = False
         '
         'Button5
@@ -107,7 +107,7 @@ Partial Class Frm_Principal
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(183, 34)
         Me.Button5.TabIndex = 7
-        Me.Button5.Text = "Button5"
+        Me.Button5.Text = "Usuarios"
         Me.Button5.UseVisualStyleBackColor = False
         '
         'Label4
