@@ -5,11 +5,11 @@ Venta de artículos de indumentaria.
 ### Objetivo del sistema
 Gestionar las ventas de un local de ropa controlando el stock disponible y generando informes de utilidad para el negocio.
 ### Alcances
-* Gestionar venta.
-* Gestionar compra.
+* Gestionar ventas.
+* Gestionar compras.
 * Administrar stock.
-* Administrar empleado.
-* Administrar producto.
+* Administrar empleados.
+* Administrar productos.
 * Administrar tarjetas.
 * Administrar clientes.
 ### Solución propuesta
@@ -18,5 +18,5 @@ El sistema permitirá registrar artículos, registrar la compra de artículos, r
 Se podrá buscar que monto y que artículo/s se vendieron en un determinado día y hora.
 Se podrá buscar un artículo filtrando por fábrica y/o por rubro.
 El sistema permitirá generar informes respecto al comportamiento de las ventas en determinados momentos.
-### DBMS a utilizar: 
+### DBMS a utilizar
 SQL Management Studio 2008
