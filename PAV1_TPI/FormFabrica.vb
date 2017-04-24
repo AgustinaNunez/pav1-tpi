@@ -1,6 +1,6 @@
 ﻿Public Class FormFabrica
 
-    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=(localdb)\Servidor;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
+    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
     Dim seleccion As String
 

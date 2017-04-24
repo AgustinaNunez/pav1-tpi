@@ -30,7 +30,7 @@
         Dim tabla As New DataTable
         Dim sql_cargar_grilla As String = ""
 
-        sql_cargar_grilla &= "SELECT usuarios.* FROM usuarios"
+        sql_cargar_grilla &= " SELECT id_usuario, apellido, nombre, fecha_alta FROM usuarios"
 
 
         tabla = ejecuto_sql(sql_cargar_grilla)
@@ -40,14 +40,15 @@
         For c = 0 To tabla.Rows.Count - 1
 
             Me.grilla_usuarios.Rows.Add()
-            Me.grilla_usuarios.Rows(c).Cells(0).Value = tabla.Rows(c)("nombre")
-            Me.grilla_usuarios.Rows(c).Cells(1).Value = tabla.Rows(c)("apellido")
-            Me.grilla_usuarios.Rows(c).Cells(2).Value = tabla.Rows(c)("fecha_alta")
+            Me.grilla_usuarios.Rows(c).Cells(0).Value = tabla.Rows(c)("id_usuario")
+            Me.grilla_usuarios.Rows(c).Cells(1).Value = tabla.Rows(c)("nombre")
+            Me.grilla_usuarios.Rows(c).Cells(2).Value = tabla.Rows(c)("apellido")
+            Me.grilla_usuarios.Rows(c).Cells(3).Value = tabla.Rows(c)("fecha_alta")
 
 
         Next
 
-        Me.txt_nombre.Focus()
+        Me.txt_id_usuario.Focus()
 
     End Sub
 
@@ -114,12 +115,13 @@
         Me.borrar_datos()
         Me.accion = tipo_grabacion.insertar
         Me.cmd_grabar.Enabled = True
+        Me.txt_id_usuario.Enabled = True
         Me.txt_apellido.Enabled = True
         Me.txt_nombre.Enabled = True
         Me.txt_contraseña1.Enabled = True
         Me.txt_contraseña2.Enabled = True
         Me.txt_fecha_alta.Enabled = True
-        Me.txt_nombre.Focus()
+        Me.txt_id_usuario.Focus()
         Me.cargar_grilla_usuarios()
         ' End If
 
@@ -157,7 +159,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql &= "SELECT nombre FROM usuarios WHERE nombre = " & Me.txt_nombre.Text
+        sql &= "SELECT id_usuario FROM usuarios WHERE id_usuario = '" & Me.txt_id_usuario.Text & "'"
 
         tabla = ejecuto_sql(sql)
 
@@ -197,26 +199,29 @@
         Dim sql As String = ""
 
         sql &= "INSERT INTO usuarios("
+        sql &= "id_usuario"
         sql &= "apellido,"
         sql &= "nombre,"
         sql &= "contraseña,"
         sql &= "fecha_alta) "
         sql &= " VALUES("
+        sql &= " '" & Me.txt_id_usuario.Text & "'"
         sql &= " '" & Me.txt_nombre.Text & "'"
         sql &= ",  '" & Me.txt_apellido.Text & "'"
         sql &= ", '" & Me.txt_contraseña1.Text & "'"
-        sql &= "," & Me.txt_fecha_alta.Text & "')"
-        If Me.txt_contraseña1.Text = Me.txt_contraseña2.Text Then
-            MsgBox("La carga del usuario fue exitosa", MessageBoxButtons.OK, "Carga Usuario")
-        Else
-            MsgBox("Error al cargar la contraseña nuevamente, vuelva a ingresarla", MessageBoxButtons.OK, "Carga Usuario")
-            Me.txt_contraseña1.Focus()
-            Me.txt_contraseña1.Text = ""
-            Me.txt_contraseña2.Text = ""
-        End If
+        sql &= "," & Me.txt_fecha_alta.Text & "' )"
+        'If Me.txt_contraseña1.Text = Me.txt_contraseña2.Text Then
+        MsgBox("La carga del usuario fue exitosa", MessageBoxButtons.OK, "Carga Usuario")
+        'Else
+        'MsgBox("Error al cargar la contraseña nuevamente, vuelva a ingresarla", MessageBoxButtons.OK, "Carga Usuario")
+        'Me.txt_contraseña1.Focus()
+        'Me.txt_contraseña1.Text = ""
+        'Me.txt_contraseña2.Text = ""
+        'End If
         Me.grabar_borrar(sql)
         Me.cargar_grilla_usuarios()
         Me.cmd_grabar.Enabled = False
+        Me.txt_id_usuario.Enabled = False
         Me.txt_apellido.Enabled = False
         Me.txt_nombre.Enabled = False
         Me.txt_contraseña1.Enabled = False
@@ -235,16 +240,17 @@
         Dim tabla As New DataTable
 
         sql &= " SELECT * FROM usuarios "
-        sql &= " WHERE nombre = " & Me.grilla_usuarios.CurrentRow.Cells(0).Value
+        sql &= " WHERE id_usuario = " & Me.grilla_usuarios.CurrentRow.Cells(0).Value
 
         tabla = Me.ejecuto_sql(sql)
 
-
+        Me.txt_id_usuario.Text = tabla.Rows(0)("id_usuario")
         Me.txt_nombre.Text = tabla.Rows(0)("nombre")
         Me.txt_apellido.Text = tabla.Rows(0)("apellido")
         Me.txt_fecha_alta.Text = tabla.Rows(0)("fecha_alta")
 
         Me.accion = tipo_grabacion.modificar
+        Me.txt_id_usuario.Enabled = True
         Me.txt_apellido.Enabled = True
         Me.txt_nombre.Enabled = True
         Me.txt_fecha_alta.Enabled = False
@@ -258,11 +264,12 @@
         Dim sql As String = ""
 
         sql &= "UPDATE usuarios SET "
+        sql &= "id_usuario = '" & Me.txt_id_usuario.Text & "'"
         sql &= "apellido = '" & Me.txt_apellido.Text & "'"
         sql &= ", nombre = '" & Me.txt_nombre.Text & "'"
         sql &= ", contraseña = '" & Me.txt_contraseña1.Text & "'"
         sql &= ", fecha_alta = " & Me.txt_fecha_alta.Text
-        sql &= " WHERE nombre = " & Me.txt_nombre.Text
+        sql &= " WHERE id_usuario= " & Me.txt_id_usuario.Text
 
 
         grabar_borrar(sql)
@@ -277,7 +284,7 @@
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
         Dim sql As String = ""
 
-        sql &= "DELETE usuarios WHERE nombre = " & Me.grilla_usuarios.CurrentRow.Cells(0).Value
+        sql &= "DELETE usuarios WHERE id_usuario = " & Me.grilla_usuarios.CurrentRow.Cells(0).Value
 
         If MessageBox.Show("¿Está seguro que quiere eliminar el registro?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
             Me.grabar_borrar(sql)
@@ -302,8 +309,8 @@
     Private Sub cmd_buscar_Click(sender As Object, e As EventArgs) Handles cmd_buscar.Click
         Dim sql As String = ""
         Dim tabla As New DataTable
-        sql &= "SELECT * FROM usuarios c JOIN nombre td ON nombre = td.nombre "
-        sql &= " WHERE td.nombre = '" & Me.txt_buscar_usuario.Text & "'"
+        sql &= "SELECT * FROM usuarios c JOIN id_usuario td ON id_usuario = td.id_usuario "
+        sql &= " WHERE td.id_usuario = '" & Me.txt_buscar_usuario.Text & "'"
 
         tabla = Me.ejecuto_sql(sql)
 
@@ -312,9 +319,10 @@
         For c = 0 To tabla.Rows.Count - 1
 
             Me.grilla_usuarios.Rows.Add()
-            Me.grilla_usuarios.Rows(c).Cells(0).Value = tabla.Rows(c)("nombre")
-            Me.grilla_usuarios.Rows(c).Cells(1).Value = tabla.Rows(c)("apellido")
-            Me.grilla_usuarios.Rows(c).Cells(2).Value = tabla.Rows(c)("fecha_alta")
+            Me.grilla_usuarios.Rows(c).Cells(0).Value = tabla.Rows(c)("id_usuario")
+            Me.grilla_usuarios.Rows(c).Cells(1).Value = tabla.Rows(c)("nombre")
+            Me.grilla_usuarios.Rows(c).Cells(2).Value = tabla.Rows(c)("apellido")
+            Me.grilla_usuarios.Rows(c).Cells(3).Value = tabla.Rows(c)("fecha_alta")
 
 
         Next
