@@ -29,7 +29,6 @@ Partial Class FormFabrica
         Me.id_fabrica = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt_nombre_fabrica = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.btn_guardar_fabrica = New System.Windows.Forms.Button()
         Me.btn_eliminar_fabrica = New System.Windows.Forms.Button()
         Me.btn_nueva_fabrica = New System.Windows.Forms.Button()
@@ -41,7 +40,11 @@ Partial Class FormFabrica
         Me.btn_buscar_fabrica = New System.Windows.Forms.Button()
         Me.labelbuscar = New System.Windows.Forms.Label()
         Me.txt_bucar_fabrica = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txt_codigo_fabrica = New System.Windows.Forms.TextBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         CType(Me.Grilla_Fabrica, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Grilla_Fabrica
@@ -51,11 +54,11 @@ Partial Class FormFabrica
         Me.Grilla_Fabrica.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders
         Me.Grilla_Fabrica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Grilla_Fabrica.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Nombre, Me.Telefono, Me.id_fabrica})
-        Me.Grilla_Fabrica.Location = New System.Drawing.Point(17, 136)
+        Me.Grilla_Fabrica.Location = New System.Drawing.Point(0, 85)
         Me.Grilla_Fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Grilla_Fabrica.Name = "Grilla_Fabrica"
         Me.Grilla_Fabrica.ReadOnly = True
-        Me.Grilla_Fabrica.Size = New System.Drawing.Size(387, 293)
+        Me.Grilla_Fabrica.Size = New System.Drawing.Size(400, 293)
         Me.Grilla_Fabrica.TabIndex = 39
         '
         'Nombre
@@ -94,23 +97,11 @@ Partial Class FormFabrica
         '
         Me.txt_nombre_fabrica.Enabled = False
         Me.txt_nombre_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_nombre_fabrica.Location = New System.Drawing.Point(496, 100)
+        Me.txt_nombre_fabrica.Location = New System.Drawing.Point(496, 102)
         Me.txt_nombre_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_nombre_fabrica.Name = "txt_nombre_fabrica"
         Me.txt_nombre_fabrica.Size = New System.Drawing.Size(259, 25)
         Me.txt_nombre_fabrica.TabIndex = 44
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(14, 68)
-        Me.Label7.Name = "Label7"
-        Me.Label7.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label7.Size = New System.Drawing.Size(135, 17)
-        Me.Label7.TabIndex = 43
-        Me.Label7.Text = "Búsqueda de Fábrica"
         '
         'btn_guardar_fabrica
         '
@@ -162,7 +153,7 @@ Partial Class FormFabrica
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(430, 136)
+        Me.Label3.Location = New System.Drawing.Point(431, 136)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(62, 17)
         Me.Label3.TabIndex = 37
@@ -183,7 +174,7 @@ Partial Class FormFabrica
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(426, 68)
+        Me.Label10.Location = New System.Drawing.Point(430, 44)
         Me.Label10.Name = "Label10"
         Me.Label10.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label10.Size = New System.Drawing.Size(100, 17)
@@ -204,7 +195,7 @@ Partial Class FormFabrica
         'btn_buscar_fabrica
         '
         Me.btn_buscar_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_buscar_fabrica.Location = New System.Drawing.Point(253, 93)
+        Me.btn_buscar_fabrica.Location = New System.Drawing.Point(250, 43)
         Me.btn_buscar_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_buscar_fabrica.Name = "btn_buscar_fabrica"
         Me.btn_buscar_fabrica.Size = New System.Drawing.Size(150, 35)
@@ -216,39 +207,70 @@ Partial Class FormFabrica
         '
         Me.labelbuscar.AutoSize = True
         Me.labelbuscar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelbuscar.Location = New System.Drawing.Point(12, 104)
+        Me.labelbuscar.Location = New System.Drawing.Point(5, 51)
         Me.labelbuscar.Name = "labelbuscar"
-        Me.labelbuscar.Size = New System.Drawing.Size(53, 17)
+        Me.labelbuscar.Size = New System.Drawing.Size(64, 17)
         Me.labelbuscar.TabIndex = 28
-        Me.labelbuscar.Text = "Buscar :"
+        Me.labelbuscar.Text = "Nombre :"
         '
         'txt_bucar_fabrica
         '
         Me.txt_bucar_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_bucar_fabrica.Location = New System.Drawing.Point(75, 101)
+        Me.txt_bucar_fabrica.Location = New System.Drawing.Point(72, 48)
         Me.txt_bucar_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_bucar_fabrica.Name = "txt_bucar_fabrica"
         Me.txt_bucar_fabrica.Size = New System.Drawing.Size(172, 25)
         Me.txt_bucar_fabrica.TabIndex = 29
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(437, 73)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(51, 17)
+        Me.Label4.TabIndex = 36
+        Me.Label4.Text = "Codigo"
+        '
+        'txt_codigo_fabrica
+        '
+        Me.txt_codigo_fabrica.Enabled = False
+        Me.txt_codigo_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_codigo_fabrica.Location = New System.Drawing.Point(496, 71)
+        Me.txt_codigo_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_codigo_fabrica.Name = "txt_codigo_fabrica"
+        Me.txt_codigo_fabrica.Size = New System.Drawing.Size(259, 25)
+        Me.txt_codigo_fabrica.TabIndex = 44
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Grilla_Fabrica)
+        Me.GroupBox1.Controls.Add(Me.labelbuscar)
+        Me.GroupBox1.Controls.Add(Me.btn_buscar_fabrica)
+        Me.GroupBox1.Controls.Add(Me.txt_bucar_fabrica)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 53)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(408, 394)
+        Me.GroupBox1.TabIndex = 46
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Búsqueda de Fabricas"
         '
         'FormFabrica
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(792, 444)
-        Me.Controls.Add(Me.btn_buscar_fabrica)
-        Me.Controls.Add(Me.labelbuscar)
-        Me.Controls.Add(Me.txt_bucar_fabrica)
-        Me.Controls.Add(Me.Grilla_Fabrica)
+        Me.ClientSize = New System.Drawing.Size(778, 451)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.txt_codigo_fabrica)
         Me.Controls.Add(Me.txt_nombre_fabrica)
-        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.btn_guardar_fabrica)
         Me.Controls.Add(Me.btn_eliminar_fabrica)
         Me.Controls.Add(Me.btn_nueva_fabrica)
         Me.Controls.Add(Me.txt_telefono_fabrica)
         Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label1)
@@ -260,6 +282,8 @@ Partial Class FormFabrica
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CLOTTA Fábrica"
         CType(Me.Grilla_Fabrica, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -267,7 +291,6 @@ Partial Class FormFabrica
     Friend WithEvents Grilla_Fabrica As System.Windows.Forms.DataGridView
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txt_nombre_fabrica As System.Windows.Forms.TextBox
-    Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents btn_guardar_fabrica As System.Windows.Forms.Button
     Friend WithEvents btn_eliminar_fabrica As System.Windows.Forms.Button
     Friend WithEvents btn_nueva_fabrica As System.Windows.Forms.Button
@@ -279,7 +302,10 @@ Partial Class FormFabrica
     Friend WithEvents btn_buscar_fabrica As System.Windows.Forms.Button
     Friend WithEvents labelbuscar As System.Windows.Forms.Label
     Friend WithEvents txt_bucar_fabrica As System.Windows.Forms.TextBox
-    Friend WithEvents Nombre As DataGridViewTextBoxColumn
-    Friend WithEvents Telefono As DataGridViewTextBoxColumn
-    Friend WithEvents id_fabrica As DataGridViewTextBoxColumn
+    Friend WithEvents Nombre As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Telefono As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_fabrica As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents txt_codigo_fabrica As System.Windows.Forms.TextBox
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
 End Class

@@ -1,7 +1,10 @@
-﻿Public Class FormFabrica
+﻿Imports System.Data.OleDb
+
+Public Class FormFabrica
 
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
     Dim seleccion As String
+    Dim MA As New Soporte
 
 
     Enum tipo_grabacion
@@ -18,7 +21,7 @@
 
     Private Sub FormFabrica_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla_fabrica()
-
+        txt_codigo_fabrica.Text = Format(GENERARCODIGO, "000")
     End Sub
 
 
@@ -67,6 +70,7 @@
 
     Private Sub btn_nueva_fabrica_Click(sender As Object, e As EventArgs) Handles btn_nueva_fabrica.Click
         Me.borrar_datos()
+        Me.txt_codigo_fabrica.Text = Me.GENERARCODIGO()
         Me.accion = tipo_grabacion.insertar
         Me.btn_guardar_fabrica.Enabled = True
         Me.txt_nombre_fabrica.Enabled = True
@@ -132,16 +136,14 @@
 
     Private Sub insertar()
         Dim sql As String = ""
-        Randomize()
-        Dim aleatorio As Integer
-        aleatorio = Rnd() * 10
+      
 
         sql &= "INSERT INTO fabricas("
         sql &= "id_fabrica,"
         sql &= "nombre,"
         sql &= "telefono)"
         sql &= " VALUES( "
-        sql &= aleatorio
+        sql &= Me.GENERARCODIGO()
         sql &= ", '" & Me.txt_nombre_fabrica.Text & "'"
         sql &= ", " & Me.txt_telefono_fabrica.Text & ")"
 
@@ -163,13 +165,14 @@
         Dim tabla As New DataTable
 
         sql &= " SELECT * FROM fabricas "
-        sql &= " WHERE nombre = '" & Me.Grilla_Fabrica.CurrentRow.Cells(0).Value & "'"
+        sql &= " WHERE id_fabrica = " & Me.Grilla_Fabrica.CurrentRow.Cells(2).Value
 
         tabla = Soporte.consultarBD(sql)
 
 
         Me.txt_nombre_fabrica.Text = tabla.Rows(0)("nombre")
         Me.txt_telefono_fabrica.Text = tabla.Rows(0)("telefono")
+        Me.txt_codigo_fabrica.Text = tabla.Rows(0)("id_fabrica")
 
         Me.accion = tipo_grabacion.modificar
         Me.txt_nombre_fabrica.Enabled = True
@@ -183,9 +186,11 @@
     Private Sub modificar()
         Dim sql As String = ""
 
+
         sql &= "UPDATE fabricas SET "
-        sql &= "nombre = '" & Me.txt_nombre_fabrica.Text & "'"
+        sql &= " nombre = '" & Me.txt_nombre_fabrica.Text & "'"
         sql &= ", telefono = " & Me.txt_telefono_fabrica.Text
+        sql &= "WHERE id_fabrica = " & Me.txt_codigo_fabrica.Text
 
         Soporte.consultarBD(sql)
         MsgBox("La fabrica fue modificada exitosamente ", MessageBoxButtons.OK, "Exito")
@@ -203,7 +208,8 @@
             Soporte.actualizarBD(sql)
             MsgBox("Se borraron los datos exitosamente", MessageBoxButtons.OK, "Eliminación de Fabrica")
             cargar_grilla_fabrica()
-
+            Me.txt_nombre_fabrica.Enabled = False
+            Me.txt_telefono_fabrica.Enabled = False
         End If
 
         'If Me.Grilla_Fabrica.CurrentCell.Selected = False Then
@@ -214,8 +220,48 @@
 
     End Sub
 
-    
+
+    Private Function GENERARCODIGO() As Integer
+
+        Dim RG As New OleDbCommand
+        Dim conexion As New Data.OleDb.OleDbConnection
+        Dim cmd As New Data.OleDb.OleDbCommand
+        Dim cadena_conexion_juan As String = "Provider=SQLNCLI11;Data Source=(localdb)\Servidor;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
+
+        conexion.ConnectionString = cadena_conexion_juan
+        conexion.Open()
+        cmd.Connection = conexion
+        RG = New OleDbCommand("AUTOGENERARCODIGO", conexion)
+        Dim PARAM As New OleDbParameter("@CODIGO", SqlDbType.Int)
+        PARAM.Direction = ParameterDirection.Output
+        With RG
+            .CommandType = CommandType.StoredProcedure
+            .Parameters.Add(PARAM)
+            .ExecuteNonQuery()
+            conexion.Close()
+            Return .Parameters("@CODIGO").Value
+        End With
+
+    End Function
 
 
+    Private Sub btn_buscar_fabrica_Click(sender As Object, e As EventArgs) Handles btn_buscar_fabrica.Click
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+
+        sql &= " SELECT * FROM fabricas WHERE nombre = '" & Me.txt_bucar_fabrica.Text & "'"
+
+        tabla = Soporte.consultarBD(sql)
+
+        Dim c As Integer
+        Me.Grilla_Fabrica.Rows.Clear()
+        For c = 0 To tabla.Rows.Count - 1
+
+            Me.Grilla_Fabrica.Rows.Add()
+            Me.Grilla_Fabrica.Rows(c).Cells(0).Value = tabla.Rows(c)("nombre")
+            Me.Grilla_Fabrica.Rows(c).Cells(1).Value = tabla.Rows(c)("telefono")
+            Me.Grilla_Fabrica.Rows(c).Cells(2).Value = tabla.Rows(c)("id_fabrica")
+        Next
+    End Sub
 
 End Class

@@ -124,15 +124,11 @@ CONSTRAINT fk_producto_ventas FOREIGN KEY (id_producto) REFERENCES productos(id_
 )
 
 
-create table tarjetas(
-id_tarjeta integer,
-apellido_nombre_tarjeta varchar(80),
-fecha_vencimiento varchar(30),
-id_banco integer,
-id_entidad_crediticia integer,
-CONSTRAINT pk_tarjetas PRIMARY KEY (id_tarjeta),
-CONSTRAINT fk_banco FOREIGN KEY (id_banco) REFERENCES bancos(id_banco),
-CONSTRAINT fk_entidad FOREIGN KEY (id_entidad_crediticia) REFERENCES entidades_crediticias(id_entidad_crediticia)
+create table cupon(
+id_cupon integer,
+numero_lote integer,
+numero_autorizacion_online integer,
+CONSTRAINT pk_cupon PRIMARY KEY (id_cupon)
 )
 
 
@@ -141,15 +137,18 @@ numero_orden integer,
 id_venta integer,
 id_forma_pago integer,
 monto_vxfp float,
-numero_lote integer,
-numero_autorizacion_online integer,
-numero_cupon integer,
-id_tarjeta integer,
+id_cupon integer,
+id_banco integer,
+id_entidad_crediticia integer,
 CONSTRAINT pk_ventas_forma_pago PRIMARY KEY (numero_orden, id_forma_pago, id_venta),
 CONSTRAINT fk_venta_fp FOREIGN KEY (id_venta) REFERENCES ventas(id_venta),
 CONSTRAINT fk_forma_pago_fp FOREIGN KEY (id_forma_pago) REFERENCES formas_pago(id_forma_pago),
-CONSTRAINT fk_tarjeta_fp FOREIGN KEY (id_tarjeta) REFERENCES tarjetas(id_tarjeta)
+CONSTRAINT fk_cupon FOREIGN KEY (id_cupon) REFERENCES cupon(id_cupon),
+CONSTRAINT fk_banco FOREIGN KEY (id_banco) REFERENCES bancos(id_banco),
+CONSTRAINT fk_entidad FOREIGN KEY (id_entidad_crediticia) REFERENCES entidades_crediticias(id_entidad_crediticia)
 )
+
+
 
 
 INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (1,'DNI')
@@ -157,8 +156,6 @@ INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (2
 INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (3,'LE')
 INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (4,'S/D')
 
-INSERT INTO clientes (numero_documento, tipo_documento, nombre_cliente , apellido_cliente , telefono_cliente , e_mail_cliente  ) 
-VALUES (11,2,'JA','JA',203040,'jajaja.com')
 
 INSERT INTO bancos(id_banco, nombre, telefono) VALUES (1,'Galicia',013842)
 INSERT INTO bancos(id_banco, nombre, telefono) VALUES (2,'Santander Rio',083143)
@@ -180,3 +177,17 @@ INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUE
 INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (3,'American Express',32040)
 INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (4,'Maestro',2384028)
 INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (5,'Cabal',42397)
+
+
+INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (1,'EFECTIVO',0.25)
+INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (2,'DÉBITO',0.15)
+INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (3,'CRÉDITO',0.00)
+
+
+CREATE PROCEDURE AUTOGENERARCODIGO (@CODIGO CHAR(10) OUTPUT)
+AS
+IF (SELECT COUNT(*) FROM fabricas)= 0
+SET @CODIGO = '0'
+ELSE
+SET
+@CODIGO = (SELECT MAX(id_fabrica) FROM fabricas) + 1
