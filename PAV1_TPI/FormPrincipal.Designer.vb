@@ -23,29 +23,29 @@ Partial Class Frm_Principal
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Principal))
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_clientes = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.btn_fabricas = New System.Windows.Forms.Button()
+        Me.btn_productos = New System.Windows.Forms.Button()
+        Me.btn_tarjetas = New System.Windows.Forms.Button()
+        Me.btn_usuarios = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'Button1
+        'btn_clientes
         '
-        Me.Button1.BackColor = System.Drawing.Color.MediumVioletRed
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button1.Location = New System.Drawing.Point(744, 98)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(183, 34)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Clientes"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btn_clientes.BackColor = System.Drawing.Color.MediumVioletRed
+        Me.btn_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_clientes.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_clientes.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btn_clientes.Location = New System.Drawing.Point(744, 98)
+        Me.btn_clientes.Name = "btn_clientes"
+        Me.btn_clientes.Size = New System.Drawing.Size(183, 34)
+        Me.btn_clientes.TabIndex = 2
+        Me.btn_clientes.Text = "Clientes"
+        Me.btn_clientes.UseVisualStyleBackColor = False
         '
         'Label3
         '
@@ -58,57 +58,57 @@ Partial Class Frm_Principal
         Me.Label3.Text = "Usuario logueado"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Button2
+        'btn_fabricas
         '
-        Me.Button2.BackColor = System.Drawing.Color.MediumVioletRed
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button2.Location = New System.Drawing.Point(744, 138)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(183, 34)
-        Me.Button2.TabIndex = 4
-        Me.Button2.Text = "Fábricas"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btn_fabricas.BackColor = System.Drawing.Color.MediumVioletRed
+        Me.btn_fabricas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_fabricas.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_fabricas.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btn_fabricas.Location = New System.Drawing.Point(744, 138)
+        Me.btn_fabricas.Name = "btn_fabricas"
+        Me.btn_fabricas.Size = New System.Drawing.Size(183, 34)
+        Me.btn_fabricas.TabIndex = 4
+        Me.btn_fabricas.Text = "Fábricas"
+        Me.btn_fabricas.UseVisualStyleBackColor = False
         '
-        'Button3
+        'btn_productos
         '
-        Me.Button3.BackColor = System.Drawing.Color.MediumVioletRed
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button3.Location = New System.Drawing.Point(744, 178)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(183, 34)
-        Me.Button3.TabIndex = 5
-        Me.Button3.Text = "Productos"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.btn_productos.BackColor = System.Drawing.Color.MediumVioletRed
+        Me.btn_productos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_productos.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_productos.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btn_productos.Location = New System.Drawing.Point(744, 178)
+        Me.btn_productos.Name = "btn_productos"
+        Me.btn_productos.Size = New System.Drawing.Size(183, 34)
+        Me.btn_productos.TabIndex = 5
+        Me.btn_productos.Text = "Productos"
+        Me.btn_productos.UseVisualStyleBackColor = False
         '
-        'Button4
+        'btn_tarjetas
         '
-        Me.Button4.BackColor = System.Drawing.Color.MediumVioletRed
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button4.Location = New System.Drawing.Point(744, 218)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(183, 34)
-        Me.Button4.TabIndex = 6
-        Me.Button4.Text = "Tarjetas"
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.btn_tarjetas.BackColor = System.Drawing.Color.MediumVioletRed
+        Me.btn_tarjetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_tarjetas.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_tarjetas.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btn_tarjetas.Location = New System.Drawing.Point(744, 218)
+        Me.btn_tarjetas.Name = "btn_tarjetas"
+        Me.btn_tarjetas.Size = New System.Drawing.Size(183, 34)
+        Me.btn_tarjetas.TabIndex = 6
+        Me.btn_tarjetas.Text = "Tarjetas"
+        Me.btn_tarjetas.UseVisualStyleBackColor = False
         '
-        'Button5
+        'btn_usuarios
         '
-        Me.Button5.BackColor = System.Drawing.Color.MediumVioletRed
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button5.Location = New System.Drawing.Point(744, 258)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(183, 34)
-        Me.Button5.TabIndex = 7
-        Me.Button5.Text = "Usuarios"
-        Me.Button5.UseVisualStyleBackColor = False
+        Me.btn_usuarios.BackColor = System.Drawing.Color.MediumVioletRed
+        Me.btn_usuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_usuarios.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_usuarios.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btn_usuarios.Location = New System.Drawing.Point(744, 258)
+        Me.btn_usuarios.Name = "btn_usuarios"
+        Me.btn_usuarios.Size = New System.Drawing.Size(183, 34)
+        Me.btn_usuarios.TabIndex = 7
+        Me.btn_usuarios.Text = "Usuarios"
+        Me.btn_usuarios.UseVisualStyleBackColor = False
         '
         'Label4
         '
@@ -144,12 +144,12 @@ Partial Class Frm_Principal
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(975, 614)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btn_usuarios)
+        Me.Controls.Add(Me.btn_tarjetas)
+        Me.Controls.Add(Me.btn_productos)
+        Me.Controls.Add(Me.btn_fabricas)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btn_clientes)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -164,11 +164,11 @@ Partial Class Frm_Principal
 
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btn_clientes As Button
     Friend WithEvents Label3 As Label
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents btn_fabricas As Button
+    Friend WithEvents btn_productos As Button
+    Friend WithEvents btn_tarjetas As Button
+    Friend WithEvents btn_usuarios As Button
     Friend WithEvents Label4 As Label
 End Class

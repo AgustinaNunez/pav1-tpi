@@ -1,6 +1,5 @@
 ﻿Public Class FormFabrica
 
-    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=AGUSTINA-PC;Integrated Security=SSPI;Initial Catalog=DB_CLOTTA"
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
     Dim seleccion As String
 
@@ -23,9 +22,6 @@
     End Sub
 
 
-
-
-
     Private Sub cargar_grilla_fabrica()
         Dim tabla As New DataTable
         Dim sql_cargar_grilla As String = ""
@@ -35,7 +31,7 @@
         sql_cargar_grilla &= ", id_fabrica"
         sql_cargar_grilla &= " FROM fabricas "
 
-        tabla = ejecuto_sql(sql_cargar_grilla)
+        tabla = Soporte.consultarBD(sql_cargar_grilla)
 
         Dim c As Integer
         Me.Grilla_Fabrica.Rows.Clear()
@@ -51,41 +47,8 @@
     End Sub
 
     Private Function leo_tabla(ByRef nombre_tabla As String) As Data.DataTable
-        Return Me.ejecuto_sql("SELECT * FROM " + nombre_tabla)
+        Return Soporte.consultarBD("SELECT * FROM " + nombre_tabla)
     End Function
-
-
-    Private Function ejecuto_sql(ByVal sql As String)
-
-        Dim conexion As New Data.OleDb.OleDbConnection
-        Dim cmd As New Data.OleDb.OleDbCommand
-        Dim tabla As New DataTable
-
-        conexion.ConnectionString = cadena_conexion
-        conexion.Open()
-        cmd.Connection = conexion
-        cmd.CommandType = CommandType.Text
-        cmd.CommandText = sql
-        tabla.Load(cmd.ExecuteReader())
-        conexion.Close()
-        Return tabla
-    End Function
-
-
-    Private Sub grabar_borrar(ByRef sql As String)
-        Dim conexion As New OleDb.OleDbConnection
-        Dim cmd As New OleDb.OleDbCommand
-        Dim tabla As New DataTable
-
-        conexion.ConnectionString = cadena_conexion
-        conexion.Open()
-        cmd.Connection = conexion
-        cmd.CommandType = CommandType.Text
-        cmd.CommandText = sql
-        cmd.ExecuteNonQuery()
-        conexion.Close()
-
-    End Sub
 
     Private Sub borrar_datos()
         For Each obj As Windows.Forms.Control In Me.Controls
@@ -135,7 +98,7 @@
         Dim sql As String = ""
         sql &= " SELECT * FROM fabricas WHERE nombre = '" & Me.txt_nombre_fabrica.Text & "'"
 
-        tabla = ejecuto_sql(sql)
+        tabla = Soporte.consultarBD(sql)
 
         If tabla.Rows.Count = 1 Then
             Return respuesta_validacion._error
@@ -145,7 +108,6 @@
         Return respuesta_validacion._ok
 
     End Function
-
 
 
     Private Sub btn_guardar_fabrica_Click(sender As Object, e As EventArgs) Handles btn_guardar_fabrica.Click
@@ -183,7 +145,7 @@
         sql &= ", '" & Me.txt_nombre_fabrica.Text & "'"
         sql &= ", " & Me.txt_telefono_fabrica.Text & ")"
 
-        grabar_borrar(sql)
+        Soporte.actualizarBD(sql)
         Me.cargar_grilla_fabrica()
         Me.btn_guardar_fabrica.Enabled = False
         Me.txt_nombre_fabrica.Enabled = False
@@ -203,7 +165,7 @@
         sql &= " SELECT * FROM fabricas "
         sql &= " WHERE nombre = '" & Me.Grilla_Fabrica.CurrentRow.Cells(0).Value & "'"
 
-        tabla = Me.ejecuto_sql(sql)
+        tabla = Soporte.consultarBD(sql)
 
 
         Me.txt_nombre_fabrica.Text = tabla.Rows(0)("nombre")
@@ -225,7 +187,7 @@
         sql &= "nombre = '" & Me.txt_nombre_fabrica.Text & "'"
         sql &= ", telefono = " & Me.txt_telefono_fabrica.Text
 
-        grabar_borrar(sql)
+        Soporte.consultarBD(sql)
         MsgBox("La fabrica fue modificada exitosamente ", MessageBoxButtons.OK, "Exito")
         cargar_grilla_fabrica()
 
@@ -238,7 +200,7 @@
         sql &= "DELETE FROM fabricas WHERE nombre = '" & Me.Grilla_Fabrica.CurrentRow.Cells(0).Value & "'"
 
         If MessageBox.Show("¿Está seguro que quiere eliminar el registro ?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-            Me.grabar_borrar(sql)
+            Soporte.actualizarBD(sql)
             MsgBox("Se borraron los datos exitosamente", MessageBoxButtons.OK, "Eliminación de Fabrica")
             cargar_grilla_fabrica()
 

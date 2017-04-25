@@ -1,12 +1,15 @@
 ﻿Public Class Soporte
-    Shared cadena_conexion As String = "Provider=SQLNCLI11;Data Source=AGUSTINA-PC;Integrated Security=SSPI;Initial Catalog=DB_CLOTTA"
+    'Shared cadena_conexion_agus As String = "Provider=SQLNCLI11;Data Source=AGUSTINA-PC;Integrated Security=SSPI;Initial Catalog=DB_CLOTTA"
+    Shared cadena_conexion_juan As String = "Provider=SQLNCLI11;Data Source=(localdb)\Servidor;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
+    'Shared cadena_conexion_gio As String = ""
+    'Shared cadena_conexion_brian As String = ""
 
     Public Shared Function consultarBD(ByVal sql As String)
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion
+        conexion.ConnectionString = cadena_conexion_juan
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -21,7 +24,7 @@
         Dim cmd As New Data.OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion
+        conexion.ConnectionString = cadena_conexion_juan
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text

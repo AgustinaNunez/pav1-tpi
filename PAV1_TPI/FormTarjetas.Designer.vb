@@ -36,12 +36,17 @@ Partial Class FormTarjetas
         Me.cmb_entidad_crediticia = New System.Windows.Forms.ComboBox()
         Me.btn_cancelar = New System.Windows.Forms.Button()
         Me.btn_aceptar = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(173, 40)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(112, 17)
@@ -138,23 +143,69 @@ Partial Class FormTarjetas
         '
         'btn_cancelar
         '
-        Me.btn_cancelar.Location = New System.Drawing.Point(334, 285)
+        Me.btn_cancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_cancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btn_cancelar.Location = New System.Drawing.Point(334, 296)
         Me.btn_cancelar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_cancelar.Name = "btn_cancelar"
         Me.btn_cancelar.Size = New System.Drawing.Size(100, 35)
         Me.btn_cancelar.TabIndex = 7
         Me.btn_cancelar.Text = "Cancelar"
-        Me.btn_cancelar.UseVisualStyleBackColor = True
+        Me.btn_cancelar.UseVisualStyleBackColor = False
         '
         'btn_aceptar
         '
-        Me.btn_aceptar.Location = New System.Drawing.Point(228, 285)
+        Me.btn_aceptar.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_aceptar.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btn_aceptar.Location = New System.Drawing.Point(228, 296)
         Me.btn_aceptar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_aceptar.Name = "btn_aceptar"
         Me.btn_aceptar.Size = New System.Drawing.Size(100, 35)
         Me.btn_aceptar.TabIndex = 6
         Me.btn_aceptar.Text = "Aceptar"
-        Me.btn_aceptar.UseVisualStyleBackColor = True
+        Me.btn_aceptar.UseVisualStyleBackColor = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.ForeColor = System.Drawing.Color.Red
+        Me.Label4.Location = New System.Drawing.Point(81, 95)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(13, 17)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "*"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.ForeColor = System.Drawing.Color.Red
+        Me.Label8.Location = New System.Drawing.Point(16, 163)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(13, 17)
+        Me.Label8.TabIndex = 8
+        Me.Label8.Text = "*"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.ForeColor = System.Drawing.Color.Red
+        Me.Label9.Location = New System.Drawing.Point(33, 130)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(13, 17)
+        Me.Label9.TabIndex = 8
+        Me.Label9.Text = "*"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.ForeColor = System.Drawing.Color.Red
+        Me.Label10.Location = New System.Drawing.Point(81, 263)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(142, 17)
+        Me.Label10.TabIndex = 8
+        Me.Label10.Text = "* Campos Obligatorios"
         '
         'FormTarjetas
         '
@@ -162,6 +213,10 @@ Partial Class FormTarjetas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(468, 353)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btn_aceptar)
         Me.Controls.Add(Me.btn_cancelar)
         Me.Controls.Add(Me.cmb_entidad_crediticia)
@@ -202,4 +257,8 @@ Partial Class FormTarjetas
     Friend WithEvents cmb_entidad_crediticia As System.Windows.Forms.ComboBox
     Friend WithEvents btn_cancelar As System.Windows.Forms.Button
     Friend WithEvents btn_aceptar As System.Windows.Forms.Button
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
 End Class
