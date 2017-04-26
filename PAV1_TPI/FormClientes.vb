@@ -1,6 +1,6 @@
 ﻿Public Class FormClientes
 
-    Dim cadena_conexion As String = "Data Source=AGUSTINA-PC;Initial Catalog=DB_CLOTTA;Integrated Security=True"
+    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
     Dim seleccion As String
 

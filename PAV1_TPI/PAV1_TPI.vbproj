@@ -183,5 +183,11 @@
   <ItemGroup>
     <None Include="Resources\buscar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BUSCAR01.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BUSCAR011.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

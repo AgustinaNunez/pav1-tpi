@@ -27,6 +27,14 @@ PAV1_TPI
 	<summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.BUSCAR01">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.BUSCAR011">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
 </member><member name="P:PAV1_TPI.My.Resources.Resources.clotta_logo">
 	<summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
