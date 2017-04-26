@@ -81,7 +81,6 @@ C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.vbprojResolv
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormClientes.resources
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormFabrica.resources
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.Frm_Principal.resources
-C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormTarjetas.resources
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.Resources.resources
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.vbproj.GenerateResource.Cache
 C:\Users\Brian\Desktop\clottaLPM\pav1-tpi\PAV1_TPI\bin\Debug\PAV1_TPI.exe.config
@@ -118,3 +117,4 @@ D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_T
 D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\PAV_TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormProductos.resources
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormProductos.resources
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormUsuarios.resources
+C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormCupon.resources

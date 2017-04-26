@@ -59,7 +59,7 @@ Partial Class FormFabrica
         Me.Grilla_Fabrica.Name = "Grilla_Fabrica"
         Me.Grilla_Fabrica.ReadOnly = True
         Me.Grilla_Fabrica.Size = New System.Drawing.Size(400, 293)
-        Me.Grilla_Fabrica.TabIndex = 39
+        Me.Grilla_Fabrica.TabIndex = 2
         '
         'Nombre
         '
@@ -101,7 +101,7 @@ Partial Class FormFabrica
         Me.txt_nombre_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_nombre_fabrica.Name = "txt_nombre_fabrica"
         Me.txt_nombre_fabrica.Size = New System.Drawing.Size(259, 25)
-        Me.txt_nombre_fabrica.TabIndex = 44
+        Me.txt_nombre_fabrica.TabIndex = 1
         '
         'btn_guardar_fabrica
         '
@@ -111,7 +111,7 @@ Partial Class FormFabrica
         Me.btn_guardar_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_guardar_fabrica.Name = "btn_guardar_fabrica"
         Me.btn_guardar_fabrica.Size = New System.Drawing.Size(150, 35)
-        Me.btn_guardar_fabrica.TabIndex = 41
+        Me.btn_guardar_fabrica.TabIndex = 4
         Me.btn_guardar_fabrica.Text = "Guardar Fábrica"
         Me.btn_guardar_fabrica.UseVisualStyleBackColor = True
         '
@@ -122,7 +122,7 @@ Partial Class FormFabrica
         Me.btn_eliminar_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_eliminar_fabrica.Name = "btn_eliminar_fabrica"
         Me.btn_eliminar_fabrica.Size = New System.Drawing.Size(150, 35)
-        Me.btn_eliminar_fabrica.TabIndex = 42
+        Me.btn_eliminar_fabrica.TabIndex = 5
         Me.btn_eliminar_fabrica.Text = "Eliminar Fábrica"
         Me.btn_eliminar_fabrica.UseVisualStyleBackColor = True
         '
@@ -134,7 +134,7 @@ Partial Class FormFabrica
         Me.btn_nueva_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_nueva_fabrica.Name = "btn_nueva_fabrica"
         Me.btn_nueva_fabrica.Size = New System.Drawing.Size(150, 35)
-        Me.btn_nueva_fabrica.TabIndex = 40
+        Me.btn_nueva_fabrica.TabIndex = 3
         Me.btn_nueva_fabrica.Text = "Nueva Fábrica"
         Me.btn_nueva_fabrica.UseVisualStyleBackColor = True
         '
@@ -147,7 +147,7 @@ Partial Class FormFabrica
         Me.txt_telefono_fabrica.Mask = "99999999999"
         Me.txt_telefono_fabrica.Name = "txt_telefono_fabrica"
         Me.txt_telefono_fabrica.Size = New System.Drawing.Size(116, 25)
-        Me.txt_telefono_fabrica.TabIndex = 38
+        Me.txt_telefono_fabrica.TabIndex = 2
         '
         'Label3
         '
@@ -199,7 +199,7 @@ Partial Class FormFabrica
         Me.btn_buscar_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_buscar_fabrica.Name = "btn_buscar_fabrica"
         Me.btn_buscar_fabrica.Size = New System.Drawing.Size(150, 35)
-        Me.btn_buscar_fabrica.TabIndex = 30
+        Me.btn_buscar_fabrica.TabIndex = 1
         Me.btn_buscar_fabrica.Text = "Buscar Fábrica"
         Me.btn_buscar_fabrica.UseVisualStyleBackColor = True
         '
@@ -220,7 +220,7 @@ Partial Class FormFabrica
         Me.txt_bucar_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_bucar_fabrica.Name = "txt_bucar_fabrica"
         Me.txt_bucar_fabrica.Size = New System.Drawing.Size(172, 25)
-        Me.txt_bucar_fabrica.TabIndex = 29
+        Me.txt_bucar_fabrica.TabIndex = 0
         '
         'Label4
         '
@@ -240,7 +240,7 @@ Partial Class FormFabrica
         Me.txt_codigo_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_codigo_fabrica.Name = "txt_codigo_fabrica"
         Me.txt_codigo_fabrica.Size = New System.Drawing.Size(259, 25)
-        Me.txt_codigo_fabrica.TabIndex = 44
+        Me.txt_codigo_fabrica.TabIndex = 0
         '
         'GroupBox1
         '

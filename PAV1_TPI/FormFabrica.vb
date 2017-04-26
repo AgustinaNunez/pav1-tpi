@@ -226,9 +226,8 @@ Public Class FormFabrica
         Dim RG As New OleDbCommand
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
-        Dim cadena_conexion_juan As String = "Provider=SQLNCLI11;Data Source=(localdb)\Servidor;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
 
-        conexion.ConnectionString = cadena_conexion_juan
+        conexion.ConnectionString = Soporte.cadena_conexion_juan
         conexion.Open()
         cmd.Connection = conexion
         RG = New OleDbCommand("AUTOGENERARCODIGO", conexion)

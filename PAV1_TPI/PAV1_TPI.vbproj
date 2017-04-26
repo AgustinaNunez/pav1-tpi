@@ -98,10 +98,10 @@
     <Compile Include="FormProductos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTarjetas.Designer.vb">
-      <DependentUpon>FormTarjetas.vb</DependentUpon>
+    <Compile Include="FormCupon.Designer.vb">
+      <DependentUpon>FormCupon.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormTarjetas.vb">
+    <Compile Include="FormCupon.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormUsuarios.Designer.vb">
@@ -140,8 +140,8 @@
     <EmbeddedResource Include="FormProductos.resx">
       <DependentUpon>FormProductos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTarjetas.resx">
-      <DependentUpon>FormTarjetas.vb</DependentUpon>
+    <EmbeddedResource Include="FormCupon.resx">
+      <DependentUpon>FormCupon.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarios.resx">
       <DependentUpon>FormUsuarios.vb</DependentUpon>

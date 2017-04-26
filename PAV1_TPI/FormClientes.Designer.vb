@@ -35,7 +35,6 @@ Partial Class FormClientes
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txt_email_cliente_cliente_carga = New System.Windows.Forms.TextBox()
         Me.cmb_tipo_documento_cliente_carga = New System.Windows.Forms.ComboBox()
-        Me.txt_numero_documento_carga = New System.Windows.Forms.MaskedTextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt_telefono_cliente_carga = New System.Windows.Forms.MaskedTextBox()
         Me.cmb_tipo_documento_cliente_busqueda = New System.Windows.Forms.ComboBox()
@@ -58,6 +57,7 @@ Partial Class FormClientes
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.txt_numero_documento_carga = New System.Windows.Forms.TextBox()
         CType(Me.grid_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -185,16 +185,6 @@ Partial Class FormClientes
         Me.cmb_tipo_documento_cliente_carga.Name = "cmb_tipo_documento_cliente_carga"
         Me.cmb_tipo_documento_cliente_carga.Size = New System.Drawing.Size(237, 25)
         Me.cmb_tipo_documento_cliente_carga.TabIndex = 2
-        '
-        'txt_numero_documento_carga
-        '
-        Me.txt_numero_documento_carga.Enabled = False
-        Me.txt_numero_documento_carga.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_numero_documento_carga.Location = New System.Drawing.Point(822, 192)
-        Me.txt_numero_documento_carga.Mask = "99999999"
-        Me.txt_numero_documento_carga.Name = "txt_numero_documento_carga"
-        Me.txt_numero_documento_carga.Size = New System.Drawing.Size(70, 25)
-        Me.txt_numero_documento_carga.TabIndex = 3
         '
         'Label6
         '
@@ -338,7 +328,7 @@ Partial Class FormClientes
         Me.txt_numero_documento_cliente_busqueda.Location = New System.Drawing.Point(381, 44)
         Me.txt_numero_documento_cliente_busqueda.Name = "txt_numero_documento_cliente_busqueda"
         Me.txt_numero_documento_cliente_busqueda.Size = New System.Drawing.Size(100, 25)
-        Me.txt_numero_documento_cliente_busqueda.TabIndex = 17
+        Me.txt_numero_documento_cliente_busqueda.TabIndex = 1
         '
         'Label7
         '
@@ -402,12 +392,21 @@ Partial Class FormClientes
         Me.Label15.TabIndex = 16
         Me.Label15.Text = "Administración de Clientes"
         '
+        'txt_numero_documento_carga
+        '
+        Me.txt_numero_documento_carga.Enabled = False
+        Me.txt_numero_documento_carga.Location = New System.Drawing.Point(822, 192)
+        Me.txt_numero_documento_carga.Name = "txt_numero_documento_carga"
+        Me.txt_numero_documento_carga.Size = New System.Drawing.Size(237, 25)
+        Me.txt_numero_documento_carga.TabIndex = 3
+        '
         'FormClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1095, 643)
+        Me.Controls.Add(Me.txt_numero_documento_carga)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label13)
@@ -419,7 +418,6 @@ Partial Class FormClientes
         Me.Controls.Add(Me.txt_telefono_cliente_carga)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.btn_guardar_cliente_carga)
-        Me.Controls.Add(Me.txt_numero_documento_carga)
         Me.Controls.Add(Me.cmb_tipo_documento_cliente_carga)
         Me.Controls.Add(Me.btn_eliminar_cliente_carga)
         Me.Controls.Add(Me.txt_email_cliente_cliente_carga)
@@ -458,7 +456,6 @@ Partial Class FormClientes
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents txt_email_cliente_cliente_carga As System.Windows.Forms.TextBox
     Friend WithEvents cmb_tipo_documento_cliente_carga As System.Windows.Forms.ComboBox
-    Friend WithEvents txt_numero_documento_carga As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txt_telefono_cliente_carga As System.Windows.Forms.MaskedTextBox
     Friend WithEvents cmb_tipo_documento_cliente_busqueda As System.Windows.Forms.ComboBox
@@ -481,4 +478,5 @@ Partial Class FormClientes
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents txt_numero_documento_carga As System.Windows.Forms.TextBox
 End Class

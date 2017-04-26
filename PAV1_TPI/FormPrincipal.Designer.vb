@@ -94,7 +94,7 @@ Partial Class Frm_Principal
         Me.btn_tarjetas.Name = "btn_tarjetas"
         Me.btn_tarjetas.Size = New System.Drawing.Size(183, 34)
         Me.btn_tarjetas.TabIndex = 6
-        Me.btn_tarjetas.Text = "Tarjetas"
+        Me.btn_tarjetas.Text = "Cupones"
         Me.btn_tarjetas.UseVisualStyleBackColor = False
         '
         'btn_usuarios

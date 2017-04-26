@@ -1,7 +1,7 @@
 ﻿Imports System.Data.OleDb
 Public Class Soporte
     'Shared cadena_conexion_agus As String = "Provider=SQLNCLI11;Data Source=AGUSTINA-PC;Integrated Security=SSPI;Initial Catalog=DB_CLOTTA"
-    Shared cadena_conexion_juan As String = "Provider=SQLNCLI11;Data Source=(localdb)\Servidor;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
+    Public Shared cadena_conexion_juan As String = "Provider=SQLNCLI11;Data Source=(localdb)\Servidor;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
     'Shared cadena_conexion_gio As String = ""
     'Shared cadena_conexion_brian As String = ""
 

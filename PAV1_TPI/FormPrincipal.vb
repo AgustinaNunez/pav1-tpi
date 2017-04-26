@@ -16,7 +16,7 @@
     End Sub
 
     Private Sub btn_tarjetas_Click(sender As Object, e As EventArgs) Handles btn_tarjetas.Click
-        Dim frmTarjetas = New FormTarjetas
+        Dim frmTarjetas = New FormCupon
         frmTarjetas.Visible = True
     End Sub
 
@@ -24,5 +24,6 @@
         Dim frmUsuarios = New FormUsuarios
         frmUsuarios.Visible = True
     End Sub
+
 
 End Class

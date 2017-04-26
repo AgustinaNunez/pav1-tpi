@@ -109,7 +109,7 @@
     Private Function validar_persona() As respuesta_validacion
         Dim tabla As New DataTable
         Dim sql As String = ""
-        sql &= "SELECT numero_documento FROM clientes WHERE numero_documento = " & Me.txt_numero_documento_carga.Text
+        sql &= "SELECT numero_documento FROM clientes WHERE numero_documento = '" & Me.txt_numero_documento_carga.Text & "'"
 
         tabla = Soporte.consultarBD(sql)
 
@@ -145,7 +145,7 @@
         sql &= "telefono_cliente,"
         sql &= "e_mail_cliente)"
         sql &= " VALUES("
-        sql &= "  " & Me.txt_numero_documento_carga.Text
+        sql &= " ' " & Me.txt_numero_documento_carga.Text & "'"
         sql &= "," & Me.cmb_tipo_documento_cliente_carga.SelectedValue
         sql &= ", '" & Me.txt_nombre_cliente_carga.Text & "'"
         sql &= ", '" & Me.txt_apellido_cliente_carga.Text & "'"
@@ -170,7 +170,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
         sql &= " SELECT * FROM clientes "
-        sql &= " WHERE numero_documento = " & Me.grid_clientes.CurrentRow.Cells(3).Value
+        sql &= " WHERE numero_documento = '" & Me.grid_clientes.CurrentRow.Cells(3).Value & "'"
 
         tabla = Soporte.consultarBD(sql)
 
@@ -199,7 +199,7 @@
         sql &= ", nombre_cliente = '" & Me.txt_nombre_cliente_carga.Text & "'"
         sql &= ", e_mail_cliente = '" & Me.txt_email_cliente_cliente_carga.Text & "'"
         sql &= ", telefono_cliente = " & Me.txt_telefono_cliente_carga.Text
-        sql &= " WHERE numero_documento = " & Me.txt_numero_documento_carga.Text
+        sql &= " WHERE numero_documento = '" & Me.txt_numero_documento_carga.Text & "'"
 
         Soporte.actualizarBD(sql)
         MsgBox("El cliente fue modificado", MessageBoxButtons.OK, "Exito")
@@ -209,7 +209,7 @@
     'SUBRUTINA PARA BORRAR CLIENTES
     Private Sub btn_eliminar_cliente_carga_Click(sender As Object, e As EventArgs) Handles btn_eliminar_cliente_carga.Click
         Dim sql As String = ""
-        sql &= "DELETE clientes WHERE numero_documento = " & Me.grid_clientes.CurrentRow.Cells(3).Value
+        sql &= "DELETE clientes WHERE numero_documento = '" & Me.grid_clientes.CurrentRow.Cells(3).Value & "'"
 
         If MessageBox.Show("¿Está seguro que quiere eliminar el registro?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
             Soporte.actualizarBD(sql)
@@ -217,9 +217,13 @@
             cargar_grilla_cliente()
         End If
 
-        If Me.grid_clientes.CurrentCell.Selected = False Then
-            MessageBox.Show("Falta seleccionar dato en grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
+        Me.btn_guardar_cliente_carga.Enabled = False
+        Me.txt_apellido_cliente_carga.Enabled = False
+        Me.txt_email_cliente_cliente_carga.Enabled = False
+        Me.txt_nombre_cliente_carga.Enabled = False
+        Me.txt_telefono_cliente_carga.Enabled = False
+
+
     End Sub
 
     'SUBRUTINA PARA PREGUNTAR CUANDO SE CIERRA EL FORMULARIO

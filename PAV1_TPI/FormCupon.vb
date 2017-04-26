@@ -1,34 +1,28 @@
-﻿Public Class FormTarjetas
+﻿Public Class FormCupon
     Enum respuesta_validacion
         _error
         _ok
     End Enum
 
     Private Sub FormTarjetas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Soporte.cargar_combo(cmb_banco_adherido, Soporte.consultarBD("SELECT * FROM bancos"), "id_banco", "nombre")
-        Soporte.cargar_combo(cmb_entidad_crediticia, Soporte.consultarBD("SELECT * FROM entidades_crediticias"), "id_entidad_crediticia", "nombre")
-        Me.txt_numero_tarjeta.Focus()
+        Me.txt_numero_cupon.Focus()
     End Sub
 
 
     'SUBRUTINA PARA INSERTAR TARJETAS A LA BD
     Private Sub insertar()
         Dim sql As String = ""
-        sql &= "INSERT INTO tarjetas( "
-        sql &= "id_tarjeta, "
-        sql &= "apellido_nombre_tarjeta,"
-        sql &= "fecha_vencimiento,"
-        sql &= "id_banco,"
-        sql &= "id_entidad_crediticia)"
+        sql &= "INSERT INTO cupon( "
+        sql &= "id_cupon, "
+        sql &= "numero_lote,"
+        sql &= "numero_autorizacion_online)"
         sql &= "VALUES("
-        sql &= txt_numero_tarjeta.Text
-        sql &= ", '" & txt_nombre.Text & "'"
-        sql &= ", '" & txt_fecha_vencimiento.Text & "'"
-        sql &= ", " & cmb_banco_adherido.SelectedValue
-        sql &= ", " & cmb_entidad_crediticia.SelectedValue
+        sql &= txt_numero_cupon.Text
+        sql &= ", " & txt_numero_lote.Text
+        sql &= ", " & txt_numero_autorizacion.Text
         sql &= ") "
 
-        Soporte.consultarBD(sql)
+        Soporte.actualizarBD(sql)
     End Sub
 
     'SUBRUTINA PARA VALIDAR DATOS INGRESADOS
@@ -72,7 +66,7 @@
             End If
 
         End If
-       
+
     End Sub
 
 
