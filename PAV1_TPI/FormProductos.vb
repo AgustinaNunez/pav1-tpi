@@ -140,7 +140,43 @@
         cargar_productos()
     End Sub
 
-    Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
+    Private Sub btn_buscar_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub btn_nuevo_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub btn_guardar_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub btn_eliminar_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub cargar_productos()
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        sql &= "SELECT * FROM productos"
+        tabla = Soporte.consultarBD(sql)
+
+        Dim c As Integer
+        Me.dgv_productos.Rows.Clear()
+        For c = 0 To tabla.Rows.Count - 1
+            Me.dgv_productos.Rows.Add()
+            Me.dgv_productos.Rows(c).Cells(0).Value = tabla.Rows(c)("id_producto")
+            Me.dgv_productos.Rows(c).Cells(1).Value = tabla.Rows(c)("descrip")
+            Me.dgv_productos.Rows(c).Cells(2).Value = tabla.Rows(c)("stock")
+            Me.dgv_productos.Rows(c).Cells(3).Value = tabla.Rows(c)("precio")
+            Me.dgv_productos.Rows(c).Cells(4).Value = tabla.Rows(c)("id_rubro")
+            Me.dgv_productos.Rows(c).Cells(5).Value = tabla.Rows(c)("id_fabrica")
+        Next
+        Me.txt_id.Focus()
+    End Sub
+
+    Private Sub BtnBuscar_Load(sender As Object, e As EventArgs) Handles BtnBuscar.Load
         Dim sql As String = ""
         Dim tabla As New DataTable
         sql &= "SELECT * FROM productos"
@@ -166,7 +202,7 @@
         End If
     End Sub
 
-    Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
+    Private Sub BtnNuevo_Load(sender As Object, e As EventArgs) Handles BtnNuevo.Load
         Me.limpiar_campos()
         Me.accion = tipo_grabacion.insertar
         Me.txt_id.Enabled = True
@@ -179,7 +215,7 @@
         Me.cargar_productos()
     End Sub
 
-    Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
+    Private Sub BtnGuardar_Load(sender As Object, e As EventArgs) Handles BtnGuardar.Load
         If validar_datos() = respuesta_validacion._ok Then
             If accion = tipo_grabacion.insertar Then
                 If validar_producto() = respuesta_validacion._ok Then
@@ -191,7 +227,7 @@
         End If
     End Sub
 
-    Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
+    Private Sub BtnEliminar_Load(sender As Object, e As EventArgs) Handles BtnEliminar.Load
         Dim sql As String = ""
         sql &= "DELETE productos WHERE id_producto = " & Me.dgv_productos.CurrentRow.Cells(0).Value
 
@@ -204,25 +240,5 @@
         If Me.dgv_productos.CurrentCell.Selected = False Then
             MessageBox.Show("Falta seleccionar dato.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
-    End Sub
-
-    Private Sub cargar_productos()
-        Dim tabla As New DataTable
-        Dim sql As String = ""
-        sql &= "SELECT * FROM productos"
-        tabla = Soporte.consultarBD(sql)
-
-        Dim c As Integer
-        Me.dgv_productos.Rows.Clear()
-        For c = 0 To tabla.Rows.Count - 1
-            Me.dgv_productos.Rows.Add()
-            Me.dgv_productos.Rows(c).Cells(0).Value = tabla.Rows(c)("id_producto")
-            Me.dgv_productos.Rows(c).Cells(1).Value = tabla.Rows(c)("descrip")
-            Me.dgv_productos.Rows(c).Cells(2).Value = tabla.Rows(c)("stock")
-            Me.dgv_productos.Rows(c).Cells(3).Value = tabla.Rows(c)("precio")
-            Me.dgv_productos.Rows(c).Cells(4).Value = tabla.Rows(c)("id_rubro")
-            Me.dgv_productos.Rows(c).Cells(5).Value = tabla.Rows(c)("id_fabrica")
-        Next
-        Me.txt_id.Focus()
     End Sub
 End Class

@@ -63,7 +63,7 @@
         Me.txt_nombre.Enabled = True
         Me.txt_contraseña1.Enabled = True
         Me.txt_contraseña2.Enabled = True
-        Me.txt_fecha_alta.Text = DateTime.Now.ToString("dd/MM/yyyy")
+        'Me.txt_fecha_alta.Text = DateTime.Now.ToString("dd/MM/yyyy")
         Me.txt_id_usuario.Focus()
         Me.cargar_grilla_usuarios()
         ' End If
@@ -127,7 +127,7 @@
         Me.txt_nombre.Enabled = False
         Me.txt_contraseña1.Enabled = False
         Me.txt_contraseña2.Enabled = False
-        Me.txt_fecha_alta.Enabled = False
+        'Me.txt_fecha_alta.Enabled = False
     End Sub
 
 
@@ -208,7 +208,7 @@
         Me.txt_nombre.Enabled = True
         Me.txt_contraseña1.Enabled = True
         Me.txt_contraseña2.Enabled = True
-        Me.txt_fecha_alta.Text = txt_fecha_alta.Text
+        Me.txt_fecha_alta.Text = DateTime.Now.ToString("dd/MM/yyyy")
         Me.txt_id_usuario.Focus()
         Me.cargar_grilla_usuarios()
     End Sub
@@ -228,7 +228,7 @@
         Me.txt_apellido.Enabled = False
         Me.txt_nombre.Enabled = False
         Me.txt_contraseña1.Enabled = False
-        Me.txt_fecha_alta.Enabled = False
+        'Me.txt_fecha_alta.Enabled = False
     End Sub
 
     Private Sub cmd_grabar_Click_1(sender As Object, e As EventArgs) Handles cmd_grabar.Click
@@ -295,7 +295,7 @@
         Me.txt_id_usuario.Enabled = True
         Me.txt_apellido.Enabled = True
         Me.txt_nombre.Enabled = True
-        Me.txt_fecha_alta.Enabled = False
+        'Me.txt_fecha_alta.Enabled = False
         Me.txt_contraseña1.Enabled = False
         Me.txt_contraseña2.Enabled = True
         Me.cmd_grabar.Enabled = True

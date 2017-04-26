@@ -139,6 +139,7 @@ Partial Class FormUsuarios
         '
         'txt_fecha_alta
         '
+        Me.txt_fecha_alta.Enabled = False
         Me.txt_fecha_alta.Location = New System.Drawing.Point(219, 283)
         Me.txt_fecha_alta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_fecha_alta.Mask = "00/00/0000"
