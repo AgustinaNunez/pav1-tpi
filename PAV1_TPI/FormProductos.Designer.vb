@@ -57,7 +57,7 @@ Partial Class FormProductos
         Me.dgv_productos.Location = New System.Drawing.Point(19, 59)
         Me.dgv_productos.Name = "dgv_productos"
         Me.dgv_productos.Size = New System.Drawing.Size(583, 461)
-        Me.dgv_productos.TabIndex = 37
+        Me.dgv_productos.TabIndex = 2
         '
         'Label7
         '
@@ -67,7 +67,7 @@ Partial Class FormProductos
         Me.Label7.Location = New System.Drawing.Point(16, 31)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(80, 17)
-        Me.Label7.TabIndex = 36
+        Me.Label7.TabIndex = 3
         Me.Label7.Text = "Id. producto"
         '
         'txt_idBuscar
@@ -77,7 +77,7 @@ Partial Class FormProductos
         Me.txt_idBuscar.Mask = "99999"
         Me.txt_idBuscar.Name = "txt_idBuscar"
         Me.txt_idBuscar.Size = New System.Drawing.Size(184, 25)
-        Me.txt_idBuscar.TabIndex = 19
+        Me.txt_idBuscar.TabIndex = 0
         Me.txt_idBuscar.ValidatingType = GetType(Integer)
         '
         'cbo_fabrica
@@ -89,7 +89,7 @@ Partial Class FormProductos
         Me.cbo_fabrica.Location = New System.Drawing.Point(132, 186)
         Me.cbo_fabrica.Name = "cbo_fabrica"
         Me.cbo_fabrica.Size = New System.Drawing.Size(207, 25)
-        Me.cbo_fabrica.TabIndex = 26
+        Me.cbo_fabrica.TabIndex = 5
         '
         'cbo_rubro
         '
@@ -100,7 +100,7 @@ Partial Class FormProductos
         Me.cbo_rubro.Location = New System.Drawing.Point(132, 155)
         Me.cbo_rubro.Name = "cbo_rubro"
         Me.cbo_rubro.Size = New System.Drawing.Size(207, 25)
-        Me.cbo_rubro.TabIndex = 25
+        Me.cbo_rubro.TabIndex = 4
         '
         'Label5
         '
@@ -110,7 +110,7 @@ Partial Class FormProductos
         Me.Label5.Location = New System.Drawing.Point(76, 189)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(50, 17)
-        Me.Label5.TabIndex = 35
+        Me.Label5.TabIndex = 11
         Me.Label5.Text = "Fábrica"
         '
         'Label6
@@ -121,7 +121,7 @@ Partial Class FormProductos
         Me.Label6.Location = New System.Drawing.Point(82, 158)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(44, 17)
-        Me.Label6.TabIndex = 34
+        Me.Label6.TabIndex = 10
         Me.Label6.Text = "Rubro"
         '
         'txt_precio
@@ -133,7 +133,7 @@ Partial Class FormProductos
         Me.txt_precio.Mask = "99999"
         Me.txt_precio.Name = "txt_precio"
         Me.txt_precio.Size = New System.Drawing.Size(124, 25)
-        Me.txt_precio.TabIndex = 24
+        Me.txt_precio.TabIndex = 3
         Me.txt_precio.ValidatingType = GetType(Integer)
         '
         'Label4
@@ -144,7 +144,7 @@ Partial Class FormProductos
         Me.Label4.Location = New System.Drawing.Point(36, 127)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(90, 17)
-        Me.Label4.TabIndex = 33
+        Me.Label4.TabIndex = 9
         Me.Label4.Text = "Precio de lista"
         '
         'txt_stock
@@ -156,7 +156,7 @@ Partial Class FormProductos
         Me.txt_stock.Mask = "99999"
         Me.txt_stock.Name = "txt_stock"
         Me.txt_stock.Size = New System.Drawing.Size(124, 25)
-        Me.txt_stock.TabIndex = 23
+        Me.txt_stock.TabIndex = 2
         Me.txt_stock.ValidatingType = GetType(Integer)
         '
         'Label3
@@ -167,7 +167,7 @@ Partial Class FormProductos
         Me.Label3.Location = New System.Drawing.Point(87, 96)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(39, 17)
-        Me.Label3.TabIndex = 32
+        Me.Label3.TabIndex = 8
         Me.Label3.Text = "Stock"
         '
         'txt_id
@@ -179,7 +179,7 @@ Partial Class FormProductos
         Me.txt_id.Mask = "99999"
         Me.txt_id.Name = "txt_id"
         Me.txt_id.Size = New System.Drawing.Size(207, 25)
-        Me.txt_id.TabIndex = 21
+        Me.txt_id.TabIndex = 0
         Me.txt_id.ValidatingType = GetType(Integer)
         '
         'txt_descrip
@@ -190,7 +190,7 @@ Partial Class FormProductos
         Me.txt_descrip.Location = New System.Drawing.Point(132, 62)
         Me.txt_descrip.Name = "txt_descrip"
         Me.txt_descrip.Size = New System.Drawing.Size(207, 25)
-        Me.txt_descrip.TabIndex = 22
+        Me.txt_descrip.TabIndex = 1
         '
         'Label2
         '
@@ -200,7 +200,7 @@ Partial Class FormProductos
         Me.Label2.Location = New System.Drawing.Point(50, 65)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(76, 17)
-        Me.Label2.TabIndex = 31
+        Me.Label2.TabIndex = 7
         Me.Label2.Text = "Descripción"
         '
         'Label1
@@ -211,7 +211,7 @@ Partial Class FormProductos
         Me.Label1.Location = New System.Drawing.Point(46, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(80, 17)
-        Me.Label1.TabIndex = 30
+        Me.Label1.TabIndex = 6
         Me.Label1.Text = "Id. producto"
         '
         'GroupBox1
@@ -222,10 +222,10 @@ Partial Class FormProductos
         Me.GroupBox1.Controls.Add(Me.txt_idBuscar)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 64)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 53)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(624, 539)
-        Me.GroupBox1.TabIndex = 38
+        Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Listado de Productos"
         '
@@ -236,7 +236,7 @@ Partial Class FormProductos
         Me.BtnBuscar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BtnBuscar.Name = "BtnBuscar"
         Me.BtnBuscar.Size = New System.Drawing.Size(80, 25)
-        Me.BtnBuscar.TabIndex = 38
+        Me.BtnBuscar.TabIndex = 1
         '
         'GroupBox2
         '
@@ -254,57 +254,57 @@ Partial Class FormProductos
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.GroupBox2.Location = New System.Drawing.Point(642, 64)
+        Me.GroupBox2.Location = New System.Drawing.Point(642, 53)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(397, 235)
-        Me.GroupBox2.TabIndex = 40
+        Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos del Producto"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(12, 9)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(358, 37)
-        Me.Label8.TabIndex = 36
+        Me.Label8.Size = New System.Drawing.Size(299, 30)
+        Me.Label8.TabIndex = 5
         Me.Label8.Text = "Administración de Productos"
         '
         'BtnNuevo
         '
         Me.BtnNuevo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnNuevo.Location = New System.Drawing.Point(642, 306)
+        Me.BtnNuevo.Location = New System.Drawing.Point(642, 295)
         Me.BtnNuevo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BtnNuevo.Name = "BtnNuevo"
         Me.BtnNuevo.Size = New System.Drawing.Size(105, 45)
-        Me.BtnNuevo.TabIndex = 41
+        Me.BtnNuevo.TabIndex = 1
         '
         'BtnGuardar
         '
         Me.BtnGuardar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnGuardar.Location = New System.Drawing.Point(753, 306)
+        Me.BtnGuardar.Location = New System.Drawing.Point(753, 295)
         Me.BtnGuardar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(105, 45)
-        Me.BtnGuardar.TabIndex = 42
+        Me.BtnGuardar.TabIndex = 3
         '
         'BtnEliminar
         '
         Me.BtnEliminar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEliminar.Location = New System.Drawing.Point(865, 306)
+        Me.BtnEliminar.Location = New System.Drawing.Point(865, 295)
         Me.BtnEliminar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BtnEliminar.Name = "BtnEliminar"
         Me.BtnEliminar.Size = New System.Drawing.Size(105, 45)
-        Me.BtnEliminar.TabIndex = 43
+        Me.BtnEliminar.TabIndex = 4
         '
         'FormProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(1053, 615)
+        Me.ClientSize = New System.Drawing.Size(1053, 604)
         Me.Controls.Add(Me.BtnEliminar)
         Me.Controls.Add(Me.BtnGuardar)
         Me.Controls.Add(Me.BtnNuevo)

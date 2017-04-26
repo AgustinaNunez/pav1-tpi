@@ -1,5 +1,4 @@
 ﻿Public Class FormProductos
-    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
     Enum tipo_grabacion
         insertar
         modificar
@@ -138,22 +137,6 @@
         Soporte.actualizarBD(sql)
         MsgBox("Producto modificado.", MessageBoxButtons.OK, "Éxito")
         cargar_productos()
-    End Sub
-
-    Private Sub btn_buscar_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub btn_nuevo_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub btn_guardar_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub btn_eliminar_Click(sender As Object, e As EventArgs)
-
     End Sub
 
     Private Sub cargar_productos()
