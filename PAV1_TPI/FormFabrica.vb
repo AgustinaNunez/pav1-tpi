@@ -227,7 +227,7 @@ Public Class FormFabrica
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = Soporte.cadena_conexion_agus
+        conexion.ConnectionString = Soporte.cadena_conexion_georgi
         conexion.Open()
         cmd.Connection = conexion
         RG = New OleDbCommand("AUTOGENERARCODIGO", conexion)
@@ -262,5 +262,6 @@ Public Class FormFabrica
             Me.Grilla_Fabrica.Rows(c).Cells(2).Value = tabla.Rows(c)("id_fabrica")
         Next
     End Sub
+
 
 End Class

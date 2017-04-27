@@ -154,3 +154,23 @@ D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\pav1-tpi\PAV1_TPI\obj\D
 D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.BtnEliminar.resources
 D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.BtnBuscar.resources
 D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.vbprojResolveAssemblyReference.cache
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\bin\Debug\PAV1_TPI.exe.config
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.exe
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.xml
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.pdb
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.vbprojResolveAssemblyReference.cache
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormClientes.resources
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormFabrica.resources
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.Frm_Principal.resources
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormProductos.resources
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormCupon.resources
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormUsuarios.resources
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.Resources.resources
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.BtnBuscar.resources
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.BtnEliminar.resources
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.BtnGuardar.resources
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.BtnNuevo.resources
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.vbproj.GenerateResource.Cache
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\bin\Debug\PAV1_TPI.exe
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\bin\Debug\PAV1_TPI.pdb
+C:\Users\Georgina\Desktop\PAV_CLOTAAA\pav1-tpi\PAV1_TPI\bin\Debug\PAV1_TPI.xml
