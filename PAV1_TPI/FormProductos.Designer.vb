@@ -333,7 +333,7 @@ Partial Class FormProductos
         '
         'btn_buscarID
         '
-        Me.btn_buscarID.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_buscarID.Cursor = System.Windows.Forms.Cursors.Default
         Me.btn_buscarID.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_buscarID.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_buscarID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
@@ -456,7 +456,7 @@ Partial Class FormProductos
         '
         'btn_guardar
         '
-        Me.btn_guardar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_guardar.Cursor = System.Windows.Forms.Cursors.Default
         Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_guardar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_guardar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
@@ -471,7 +471,7 @@ Partial Class FormProductos
         '
         'btn_eliminar
         '
-        Me.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Default
         Me.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_eliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_eliminar.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
@@ -486,7 +486,7 @@ Partial Class FormProductos
         '
         'btn_nuevo
         '
-        Me.btn_nuevo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_nuevo.Cursor = System.Windows.Forms.Cursors.Default
         Me.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_nuevo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_nuevo.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
@@ -568,7 +568,7 @@ Partial Class FormProductos
         '
         'btn_buscarRUBRO
         '
-        Me.btn_buscarRUBRO.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_buscarRUBRO.Cursor = System.Windows.Forms.Cursors.Default
         Me.btn_buscarRUBRO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_buscarRUBRO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_buscarRUBRO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
@@ -583,7 +583,7 @@ Partial Class FormProductos
         '
         'btn_buscarFABRICA
         '
-        Me.btn_buscarFABRICA.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_buscarFABRICA.Cursor = System.Windows.Forms.Cursors.Default
         Me.btn_buscarFABRICA.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_buscarFABRICA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_buscarFABRICA.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
