@@ -62,7 +62,7 @@
         lbl_idERROR.Visible = False
         lbl_precioERROR.Visible = False
         lbl_rubroERROR.Visible = False
-        lbl_fabrica.Visible = False
+        lbl_fabricaERROR.Visible = False
     End Sub
 
     Private Function validar_producto() As respuesta_validacion
