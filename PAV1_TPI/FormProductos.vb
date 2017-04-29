@@ -28,6 +28,7 @@
         lbl_msj.Text = ""
         Me.ocultar_lblERROR()
         lbl_msj.Visible = False
+        lbl_msjBuscar.Visible = False
     End Sub
 
     Private Function validar_campos() As respuesta_validacion
@@ -233,7 +234,8 @@
     End Sub
 
     Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
-        Dim sql As String = "SELECT * FROM productos WHERE id_producto = " & Me.txt_id.Text
+        Me.limpiar_campos()
+        Dim sql As String = "SELECT * FROM productos WHERE id_producto = " & Me.txt_idBuscar.Text
         Dim tabla As New DataTable
         tabla = Soporte.consultarBD(sql)
 
@@ -250,7 +252,11 @@
         Next
 
         If tabla.Rows.Count = 0 Then
-            MsgBox("No se encontró ningún resultado.", MsgBoxStyle.OkOnly, "Error")
+            'MsgBox("No se encontró ningún resultado.", MsgBoxStyle.OkOnly, "Error")
+            lbl_msjBuscar.Text = "No se encontró el producto buscado."
+            lbl_msjBuscar.Visible = True
+            txt_idBuscar.Text = ""
+            txt_idBuscar.Focus()
             cargar_productos()
         End If
     End Sub

@@ -51,6 +51,9 @@ Partial Class FormProductos
         Me.gb_listado = New System.Windows.Forms.GroupBox()
         Me.btn_buscar = New System.Windows.Forms.Button()
         Me.gb_datos = New System.Windows.Forms.GroupBox()
+        Me.lbl_fabricaERROR = New System.Windows.Forms.Label()
+        Me.lbl_rubroERROR = New System.Windows.Forms.Label()
+        Me.lbl_precioERROR = New System.Windows.Forms.Label()
         Me.lbl_idERROR = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -58,9 +61,7 @@ Partial Class FormProductos
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
-        Me.lbl_precioERROR = New System.Windows.Forms.Label()
-        Me.lbl_rubroERROR = New System.Windows.Forms.Label()
-        Me.lbl_fabricaERROR = New System.Windows.Forms.Label()
+        Me.lbl_msjBuscar = New System.Windows.Forms.Label()
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_listado.SuspendLayout()
         Me.gb_datos.SuspendLayout()
@@ -313,6 +314,7 @@ Partial Class FormProductos
         '
         Me.gb_listado.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.gb_listado.Controls.Add(Me.lbl_msjBuscar)
         Me.gb_listado.Controls.Add(Me.btn_buscar)
         Me.gb_listado.Controls.Add(Me.Label7)
         Me.gb_listado.Controls.Add(Me.dgv_productos)
@@ -369,6 +371,39 @@ Partial Class FormProductos
         Me.gb_datos.TabIndex = 4
         Me.gb_datos.TabStop = False
         Me.gb_datos.Text = "Datos del Producto"
+        '
+        'lbl_fabricaERROR
+        '
+        Me.lbl_fabricaERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_fabricaERROR.ForeColor = System.Drawing.Color.Black
+        Me.lbl_fabricaERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_fabricaERROR.Location = New System.Drawing.Point(345, 189)
+        Me.lbl_fabricaERROR.Name = "lbl_fabricaERROR"
+        Me.lbl_fabricaERROR.Size = New System.Drawing.Size(17, 17)
+        Me.lbl_fabricaERROR.TabIndex = 15
+        Me.lbl_fabricaERROR.Visible = False
+        '
+        'lbl_rubroERROR
+        '
+        Me.lbl_rubroERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_rubroERROR.ForeColor = System.Drawing.Color.Black
+        Me.lbl_rubroERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_rubroERROR.Location = New System.Drawing.Point(345, 158)
+        Me.lbl_rubroERROR.Name = "lbl_rubroERROR"
+        Me.lbl_rubroERROR.Size = New System.Drawing.Size(17, 17)
+        Me.lbl_rubroERROR.TabIndex = 14
+        Me.lbl_rubroERROR.Visible = False
+        '
+        'lbl_precioERROR
+        '
+        Me.lbl_precioERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_precioERROR.ForeColor = System.Drawing.Color.Black
+        Me.lbl_precioERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_precioERROR.Location = New System.Drawing.Point(262, 127)
+        Me.lbl_precioERROR.Name = "lbl_precioERROR"
+        Me.lbl_precioERROR.Size = New System.Drawing.Size(17, 17)
+        Me.lbl_precioERROR.TabIndex = 14
+        Me.lbl_precioERROR.Visible = False
         '
         'lbl_idERROR
         '
@@ -463,38 +498,19 @@ Partial Class FormProductos
         Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_nuevo.UseVisualStyleBackColor = True
         '
-        'lbl_precioERROR
+        'lbl_msjBuscar
         '
-        Me.lbl_precioERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_precioERROR.ForeColor = System.Drawing.Color.Black
-        Me.lbl_precioERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_precioERROR.Location = New System.Drawing.Point(262, 127)
-        Me.lbl_precioERROR.Name = "lbl_precioERROR"
-        Me.lbl_precioERROR.Size = New System.Drawing.Size(17, 17)
-        Me.lbl_precioERROR.TabIndex = 14
-        Me.lbl_precioERROR.Visible = False
-        '
-        'lbl_rubroERROR
-        '
-        Me.lbl_rubroERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_rubroERROR.ForeColor = System.Drawing.Color.Black
-        Me.lbl_rubroERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_rubroERROR.Location = New System.Drawing.Point(345, 158)
-        Me.lbl_rubroERROR.Name = "lbl_rubroERROR"
-        Me.lbl_rubroERROR.Size = New System.Drawing.Size(17, 17)
-        Me.lbl_rubroERROR.TabIndex = 14
-        Me.lbl_rubroERROR.Visible = False
-        '
-        'lbl_fabricaERROR
-        '
-        Me.lbl_fabricaERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_fabricaERROR.ForeColor = System.Drawing.Color.Black
-        Me.lbl_fabricaERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_fabricaERROR.Location = New System.Drawing.Point(345, 189)
-        Me.lbl_fabricaERROR.Name = "lbl_fabricaERROR"
-        Me.lbl_fabricaERROR.Size = New System.Drawing.Size(17, 17)
-        Me.lbl_fabricaERROR.TabIndex = 15
-        Me.lbl_fabricaERROR.Visible = False
+        Me.lbl_msjBuscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.lbl_msjBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lbl_msjBuscar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_msjBuscar.ForeColor = System.Drawing.Color.White
+        Me.lbl_msjBuscar.Location = New System.Drawing.Point(384, 28)
+        Me.lbl_msjBuscar.Name = "lbl_msjBuscar"
+        Me.lbl_msjBuscar.Size = New System.Drawing.Size(318, 25)
+        Me.lbl_msjBuscar.TabIndex = 7
+        Me.lbl_msjBuscar.Text = " Mensajes"
+        Me.lbl_msjBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lbl_msjBuscar.Visible = False
         '
         'FormProductos
         '
@@ -560,4 +576,5 @@ Partial Class FormProductos
     Friend WithEvents lbl_fabricaERROR As Label
     Friend WithEvents lbl_rubroERROR As Label
     Friend WithEvents lbl_precioERROR As Label
+    Friend WithEvents lbl_msjBuscar As Label
 End Class
