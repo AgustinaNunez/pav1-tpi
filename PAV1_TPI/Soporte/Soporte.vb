@@ -1,8 +1,8 @@
 ﻿Imports System.Data.OleDb
 Public Class Soporte
-    'Public Shared cadena_conexion_agus As String = "Provider=SQLNCLI11;Data Source=AGUSTINA-PC;Integrated Security=SSPI;Initial Catalog=DB_CLOTTA"
+    Public Shared cadena_conexion_agus As String = "Provider=SQLNCLI11;Data Source=AGUSTINA-PC;Integrated Security=SSPI;Initial Catalog=DB_CLOTTA"
     'Public Shared cadena_conexion_juan As String = "Provider=SQLNCLI11;Data Source=(localdb)\Servidor;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
-    Public Shared cadena_conexion_georgi As String = "Provider=SQLNCLI10;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
+    'Public Shared cadena_conexion_georgi As String = "Provider=SQLNCLI10;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
     'Public Shared cadena_conexion_brian As String = "Provider=SQLNCLI11;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
 
     Public Shared Function consultarBD(ByVal sql As String)
@@ -10,7 +10,7 @@ Public Class Soporte
         Dim cmd As New Data.OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_georgi
+        conexion.ConnectionString = cadena_conexion_agus
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -25,7 +25,7 @@ Public Class Soporte
         Dim cmd As New Data.OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_georgi
+        conexion.ConnectionString = cadena_conexion_agus
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -39,9 +39,5 @@ Public Class Soporte
         combo.DisplayMember = descriptor
         combo.ValueMember = pk
     End Sub
-
-
-
-   
 
 End Class

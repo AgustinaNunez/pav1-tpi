@@ -125,30 +125,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Soporte\BtnBuscar.Designer.vb">
-      <DependentUpon>BtnBuscar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Soporte\BtnBuscar.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Soporte\BtnEliminar.Designer.vb">
-      <DependentUpon>BtnEliminar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Soporte\BtnEliminar.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Soporte\BtnGuardar.Designer.vb">
-      <DependentUpon>BtnGuardar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Soporte\BtnGuardar.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Soporte\BtnNuevo.Designer.vb">
-      <DependentUpon>BtnNuevo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Soporte\BtnNuevo.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Soporte\Soporte.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -175,18 +151,6 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Soporte\BtnBuscar.resx">
-      <DependentUpon>BtnBuscar.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Soporte\BtnEliminar.resx">
-      <DependentUpon>BtnEliminar.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Soporte\BtnGuardar.resx">
-      <DependentUpon>BtnGuardar.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Soporte\BtnNuevo.resx">
-      <DependentUpon>BtnNuevo.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -239,6 +203,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\magnifier16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-mark24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-cross16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
