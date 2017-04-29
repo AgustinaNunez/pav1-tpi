@@ -206,7 +206,7 @@
     End Sub
 
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
-        If tipo_grabacion.ninguna Then
+        If accion = tipo_grabacion.ninguna Then
             lbl_msj.Text = " No hay cambios para guardar."
             lbl_msj.Visible = True
             Return
