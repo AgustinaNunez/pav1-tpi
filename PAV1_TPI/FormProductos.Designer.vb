@@ -328,6 +328,7 @@ Partial Class FormProductos
         '
         'btn_buscar
         '
+        Me.btn_buscar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_buscar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_buscar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
@@ -413,11 +414,12 @@ Partial Class FormProductos
         Me.lbl_msj.Name = "lbl_msj"
         Me.lbl_msj.Size = New System.Drawing.Size(397, 35)
         Me.lbl_msj.TabIndex = 0
-        Me.lbl_msj.Text = "Mensajes"
+        Me.lbl_msj.Text = " Mensajes"
         Me.lbl_msj.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btn_guardar
         '
+        Me.btn_guardar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_guardar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_guardar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
@@ -432,6 +434,7 @@ Partial Class FormProductos
         '
         'btn_eliminar
         '
+        Me.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_eliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_eliminar.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
@@ -446,6 +449,7 @@ Partial Class FormProductos
         '
         'btn_nuevo
         '
+        Me.btn_nuevo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_nuevo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_nuevo.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
@@ -454,6 +458,7 @@ Partial Class FormProductos
         Me.btn_nuevo.Name = "btn_nuevo"
         Me.btn_nuevo.Size = New System.Drawing.Size(105, 45)
         Me.btn_nuevo.TabIndex = 2
+        Me.btn_nuevo.Tag = ""
         Me.btn_nuevo.Text = "Nuevo"
         Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_nuevo.UseVisualStyleBackColor = True
