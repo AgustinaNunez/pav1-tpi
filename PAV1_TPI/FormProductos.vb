@@ -14,7 +14,9 @@
     Private Sub FormProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.cargar_productos()
         Soporte.cargar_combo(cbo_rubro, Soporte.consultarBD("SELECT * FROM rubros"), "id_rubro", "nombre")
+        Soporte.cargar_combo(cbo_rubroBUSCAR, Soporte.consultarBD("SELECT * FROM rubros"), "id_rubro", "nombre")
         Soporte.cargar_combo(cbo_fabrica, Soporte.consultarBD("SELECT * FROM fabricas"), "id_fabrica", "nombre")
+        Soporte.cargar_combo(cbo_fabricaBUSCAR, Soporte.consultarBD("SELECT * FROM fabricas"), "id_fabrica", "nombre")
         Me.limpiar_campos()
     End Sub
 
@@ -25,10 +27,11 @@
         txt_stock.Text = ""
         cbo_fabrica.Text = "(seleccione fábrica)"
         cbo_rubro.Text = "(seleccione rubro)"
+        cbo_fabricaBUSCAR.Text = "(seleccione fábrica)"
+        cbo_rubroBUSCAR.Text = "(seleccione rubro)"
         lbl_msj.Text = ""
         Me.ocultar_lblERROR()
         lbl_msj.Visible = False
-        lbl_msjBuscar.Visible = False
     End Sub
 
     Private Function validar_campos() As respuesta_validacion
@@ -122,11 +125,18 @@
 
         Me.accion = tipo_grabacion.modificar
         Me.txt_id.Enabled = False
-        Me.txt_descrip.Enabled = False
+        Me.txt_descrip.Enabled = True
         Me.txt_stock.Enabled = True
         Me.txt_precio.Enabled = True
         Me.cbo_rubro.Enabled = True
         Me.cbo_fabrica.Enabled = True
+
+        Me.lbl_descripcion.Enabled = True
+        Me.lbl_stock.Enabled = True
+        Me.lbl_precio.Enabled = True
+        Me.lbl_stock.Enabled = True
+        Me.lbl_rubro.Enabled = True
+        Me.lbl_fabrica.Enabled = True
     End Sub
 
     Private Sub modificar()
@@ -141,27 +151,6 @@
 
         Soporte.actualizarBD(sql)
         cargar_productos()
-    End Sub
-
-    Private Sub cargar_productos()
-        Dim tabla As New DataTable
-        Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, r.nombre AS n_rubro, f.nombre AS n_fabrica FROM productos p "
-        sql &= "JOIN rubros r ON p.id_rubro = r.id_rubro "
-        sql &= "JOIN fabricas f ON p.id_fabrica = f.id_fabrica"
-        tabla = Soporte.consultarBD(sql)
-
-        Dim c As Integer
-        Me.dgv_productos.Rows.Clear()
-        For c = 0 To tabla.Rows.Count - 1
-            Me.dgv_productos.Rows.Add()
-            Me.dgv_productos.Rows(c).Cells(0).Value = tabla.Rows(c)("id_producto")
-            Me.dgv_productos.Rows(c).Cells(1).Value = tabla.Rows(c)("descripcion")
-            Me.dgv_productos.Rows(c).Cells(2).Value = tabla.Rows(c)("stock")
-            Me.dgv_productos.Rows(c).Cells(3).Value = tabla.Rows(c)("precio_lista")
-            Me.dgv_productos.Rows(c).Cells(4).Value = tabla.Rows(c)("n_rubro")
-            Me.dgv_productos.Rows(c).Cells(5).Value = tabla.Rows(c)("n_fabrica")
-        Next
-        Me.txt_id.Focus()
     End Sub
 
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
@@ -233,9 +222,29 @@
         End If
     End Sub
 
-    Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
+    Private Sub cargar_productos()
+        Dim tabla As New DataTable
+        Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, r.nombre AS n_rubro, f.nombre AS n_fabrica FROM productos p "
+        sql &= "JOIN rubros r ON p.id_rubro = r.id_rubro "
+        sql &= "JOIN fabricas f ON p.id_fabrica = f.id_fabrica"
+        tabla = Soporte.consultarBD(sql)
+
+        Dim c As Integer
+        Me.dgv_productos.Rows.Clear()
+        For c = 0 To tabla.Rows.Count - 1
+            Me.dgv_productos.Rows.Add()
+            Me.dgv_productos.Rows(c).Cells(0).Value = tabla.Rows(c)("id_producto")
+            Me.dgv_productos.Rows(c).Cells(1).Value = tabla.Rows(c)("descripcion")
+            Me.dgv_productos.Rows(c).Cells(2).Value = tabla.Rows(c)("stock")
+            Me.dgv_productos.Rows(c).Cells(3).Value = tabla.Rows(c)("precio_lista")
+            Me.dgv_productos.Rows(c).Cells(4).Value = tabla.Rows(c)("n_rubro")
+            Me.dgv_productos.Rows(c).Cells(5).Value = tabla.Rows(c)("n_fabrica")
+        Next
+        'Me.txt_id.Focus()
+    End Sub
+
+    Private Sub buscar(ByVal sql As String)
         Me.limpiar_campos()
-        Dim sql As String = "SELECT * FROM productos WHERE id_producto = " & Me.txt_idBuscar.Text
         Dim tabla As New DataTable
         tabla = Soporte.consultarBD(sql)
 
@@ -247,17 +256,52 @@
             Me.dgv_productos.Rows(c).Cells(1).Value = tabla.Rows(c)("descripcion")
             Me.dgv_productos.Rows(c).Cells(2).Value = tabla.Rows(c)("stock")
             Me.dgv_productos.Rows(c).Cells(3).Value = tabla.Rows(c)("precio_lista")
-            Me.dgv_productos.Rows(c).Cells(4).Value = tabla.Rows(c)("id_rubro")
-            Me.dgv_productos.Rows(c).Cells(5).Value = tabla.Rows(c)("id_fabrica")
+            Me.dgv_productos.Rows(c).Cells(4).Value = tabla.Rows(c)("n_rubro")
+            Me.dgv_productos.Rows(c).Cells(5).Value = tabla.Rows(c)("n_fabrica")
         Next
 
         If tabla.Rows.Count = 0 Then
-            'MsgBox("No se encontró ningún resultado.", MsgBoxStyle.OkOnly, "Error")
-            lbl_msjBuscar.Text = "No se encontró el producto buscado."
-            lbl_msjBuscar.Visible = True
-            txt_idBuscar.Text = ""
-            txt_idBuscar.Focus()
+            lbl_msj.Text = "No se encontraron resultados."
+            lbl_msj.Visible = True
+            txt_idBUSCAR.Text = ""
+            txt_idBUSCAR.Focus()
             cargar_productos()
         End If
+    End Sub
+
+    Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscarID.Click
+        If txt_idBUSCAR.Text = "" Then
+            Me.cargar_productos()
+            Return
+        End If
+        Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, r.nombre AS n_rubro, f.nombre AS n_fabrica FROM productos p"
+        sql &= " JOIN rubros r ON p.id_rubro = r.id_rubro"
+        sql &= " JOIN fabricas f ON p.id_fabrica = f.id_fabrica"
+        sql &= " WHERE p.id_producto = " & Me.txt_idBUSCAR.Text
+        Me.buscar(sql)
+    End Sub
+
+    Private Sub btn_buscarRUBRO_Click(sender As Object, e As EventArgs) Handles btn_buscarRUBRO.Click
+        If cbo_rubroBUSCAR.Text = "(seleccione rubro)" Then
+            Me.cargar_productos()
+            Return
+        End If
+        Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, r.nombre AS n_rubro, f.nombre AS n_fabrica FROM productos p"
+        sql &= " JOIN rubros r ON p.id_rubro = r.id_rubro"
+        sql &= " JOIN fabricas f ON p.id_fabrica = f.id_fabrica"
+        sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
+        Me.buscar(sql)
+    End Sub
+
+    Private Sub btn_buscarFABRICA_Click(sender As Object, e As EventArgs) Handles btn_buscarFABRICA.Click
+        If cbo_fabricaBUSCAR.Text = "(seleccione fábrica)" Then
+            Me.cargar_productos()
+            Return
+        End If
+        Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, r.nombre AS n_rubro, f.nombre AS n_fabrica FROM productos p"
+        sql &= " JOIN rubros r ON p.id_rubro = r.id_rubro"
+        sql &= " JOIN fabricas f ON p.id_fabrica = f.id_fabrica"
+        sql &= " WHERE f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
+        Me.buscar(sql)
     End Sub
 End Class
