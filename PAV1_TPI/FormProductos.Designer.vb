@@ -62,12 +62,13 @@ Partial Class FormProductos
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.gb_busqueda = New System.Windows.Forms.GroupBox()
+        Me.btn_buscarFABRICA = New System.Windows.Forms.Button()
+        Me.btn_buscarRUBRO = New System.Windows.Forms.Button()
         Me.cbo_fabricaBUSCAR = New System.Windows.Forms.ComboBox()
         Me.cbo_rubroBUSCAR = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btn_buscarRUBRO = New System.Windows.Forms.Button()
-        Me.btn_buscarFABRICA = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_listado.SuspendLayout()
         Me.gb_datos.SuspendLayout()
@@ -109,7 +110,7 @@ Partial Class FormProductos
         Me.dgv_productos.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgv_productos.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.dgv_productos.Size = New System.Drawing.Size(683, 522)
+        Me.dgv_productos.Size = New System.Drawing.Size(683, 531)
         Me.dgv_productos.TabIndex = 3
         '
         'id_producto
@@ -324,9 +325,9 @@ Partial Class FormProductos
         Me.gb_listado.Controls.Add(Me.dgv_productos)
         Me.gb_listado.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gb_listado.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.gb_listado.Location = New System.Drawing.Point(12, 53)
+        Me.gb_listado.Location = New System.Drawing.Point(12, 50)
         Me.gb_listado.Name = "gb_listado"
-        Me.gb_listado.Size = New System.Drawing.Size(725, 565)
+        Me.gb_listado.Size = New System.Drawing.Size(725, 574)
         Me.gb_listado.TabIndex = 1
         Me.gb_listado.TabStop = False
         Me.gb_listado.Text = "Listado de Productos"
@@ -367,9 +368,9 @@ Partial Class FormProductos
         Me.gb_datos.Controls.Add(Me.lbl_rubro)
         Me.gb_datos.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gb_datos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.gb_datos.Location = New System.Drawing.Point(746, 53)
+        Me.gb_datos.Location = New System.Drawing.Point(746, 50)
         Me.gb_datos.Name = "gb_datos"
-        Me.gb_datos.Size = New System.Drawing.Size(397, 262)
+        Me.gb_datos.Size = New System.Drawing.Size(382, 262)
         Me.gb_datos.TabIndex = 4
         Me.gb_datos.TabStop = False
         Me.gb_datos.Text = "Datos del Producto"
@@ -432,14 +433,15 @@ Partial Class FormProductos
         '
         'Label8
         '
-        Me.Label8.AutoSize = True
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(12, 9)
+        Me.Label8.Location = New System.Drawing.Point(0, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(299, 30)
+        Me.Label8.Size = New System.Drawing.Size(1148, 47)
         Me.Label8.TabIndex = 0
-        Me.Label8.Text = "Administración de Productos"
+        Me.Label8.Text = "  Administración de Productos"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lbl_msj
         '
@@ -447,9 +449,9 @@ Partial Class FormProductos
         Me.lbl_msj.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lbl_msj.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_msj.ForeColor = System.Drawing.Color.White
-        Me.lbl_msj.Location = New System.Drawing.Point(746, 517)
+        Me.lbl_msj.Location = New System.Drawing.Point(746, 514)
         Me.lbl_msj.Name = "lbl_msj"
-        Me.lbl_msj.Size = New System.Drawing.Size(397, 35)
+        Me.lbl_msj.Size = New System.Drawing.Size(382, 35)
         Me.lbl_msj.TabIndex = 0
         Me.lbl_msj.Text = " Mensajes"
         Me.lbl_msj.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -461,7 +463,7 @@ Partial Class FormProductos
         Me.btn_guardar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_guardar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
         Me.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_guardar.Location = New System.Drawing.Point(968, 321)
+        Me.btn_guardar.Location = New System.Drawing.Point(968, 318)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(105, 45)
         Me.btn_guardar.TabIndex = 6
@@ -476,7 +478,7 @@ Partial Class FormProductos
         Me.btn_eliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_eliminar.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
         Me.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_eliminar.Location = New System.Drawing.Point(857, 321)
+        Me.btn_eliminar.Location = New System.Drawing.Point(857, 318)
         Me.btn_eliminar.Name = "btn_eliminar"
         Me.btn_eliminar.Size = New System.Drawing.Size(105, 45)
         Me.btn_eliminar.TabIndex = 5
@@ -491,7 +493,7 @@ Partial Class FormProductos
         Me.btn_nuevo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_nuevo.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
         Me.btn_nuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_nuevo.Location = New System.Drawing.Point(746, 321)
+        Me.btn_nuevo.Location = New System.Drawing.Point(746, 318)
         Me.btn_nuevo.Name = "btn_nuevo"
         Me.btn_nuevo.Size = New System.Drawing.Size(105, 45)
         Me.btn_nuevo.TabIndex = 2
@@ -513,12 +515,42 @@ Partial Class FormProductos
         Me.gb_busqueda.Controls.Add(Me.txt_idBUSCAR)
         Me.gb_busqueda.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gb_busqueda.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.gb_busqueda.Location = New System.Drawing.Point(746, 381)
+        Me.gb_busqueda.Location = New System.Drawing.Point(746, 378)
         Me.gb_busqueda.Name = "gb_busqueda"
-        Me.gb_busqueda.Size = New System.Drawing.Size(397, 133)
+        Me.gb_busqueda.Size = New System.Drawing.Size(382, 133)
         Me.gb_busqueda.TabIndex = 7
         Me.gb_busqueda.TabStop = False
         Me.gb_busqueda.Text = "Búsqueda"
+        '
+        'btn_buscarFABRICA
+        '
+        Me.btn_buscarFABRICA.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_buscarFABRICA.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_buscarFABRICA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_buscarFABRICA.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_buscarFABRICA.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
+        Me.btn_buscarFABRICA.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_buscarFABRICA.Location = New System.Drawing.Point(345, 96)
+        Me.btn_buscarFABRICA.Name = "btn_buscarFABRICA"
+        Me.btn_buscarFABRICA.Size = New System.Drawing.Size(25, 25)
+        Me.btn_buscarFABRICA.TabIndex = 16
+        Me.btn_buscarFABRICA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_buscarFABRICA.UseVisualStyleBackColor = True
+        '
+        'btn_buscarRUBRO
+        '
+        Me.btn_buscarRUBRO.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_buscarRUBRO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_buscarRUBRO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_buscarRUBRO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_buscarRUBRO.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
+        Me.btn_buscarRUBRO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_buscarRUBRO.Location = New System.Drawing.Point(345, 65)
+        Me.btn_buscarRUBRO.Name = "btn_buscarRUBRO"
+        Me.btn_buscarRUBRO.Size = New System.Drawing.Size(25, 25)
+        Me.btn_buscarRUBRO.TabIndex = 8
+        Me.btn_buscarRUBRO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_buscarRUBRO.UseVisualStyleBackColor = True
         '
         'cbo_fabricaBUSCAR
         '
@@ -566,42 +598,23 @@ Partial Class FormProductos
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Rubro"
         '
-        'btn_buscarRUBRO
+        'Label3
         '
-        Me.btn_buscarRUBRO.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_buscarRUBRO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_buscarRUBRO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_buscarRUBRO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_buscarRUBRO.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
-        Me.btn_buscarRUBRO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscarRUBRO.Location = New System.Drawing.Point(345, 65)
-        Me.btn_buscarRUBRO.Name = "btn_buscarRUBRO"
-        Me.btn_buscarRUBRO.Size = New System.Drawing.Size(25, 25)
-        Me.btn_buscarRUBRO.TabIndex = 8
-        Me.btn_buscarRUBRO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_buscarRUBRO.UseVisualStyleBackColor = True
-        '
-        'btn_buscarFABRICA
-        '
-        Me.btn_buscarFABRICA.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_buscarFABRICA.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_buscarFABRICA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_buscarFABRICA.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_buscarFABRICA.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
-        Me.btn_buscarFABRICA.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscarFABRICA.Location = New System.Drawing.Point(345, 96)
-        Me.btn_buscarFABRICA.Name = "btn_buscarFABRICA"
-        Me.btn_buscarFABRICA.Size = New System.Drawing.Size(25, 25)
-        Me.btn_buscarFABRICA.TabIndex = 16
-        Me.btn_buscarFABRICA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_buscarFABRICA.UseVisualStyleBackColor = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Black
+        Me.Label3.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
+        Me.Label3.Location = New System.Drawing.Point(1019, 591)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(109, 33)
+        Me.Label3.TabIndex = 16
         '
         'FormProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(1163, 630)
+        Me.ClientSize = New System.Drawing.Size(1148, 636)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.gb_busqueda)
         Me.Controls.Add(Me.lbl_msj)
         Me.Controls.Add(Me.btn_guardar)
@@ -624,7 +637,6 @@ Partial Class FormProductos
         Me.gb_busqueda.ResumeLayout(False)
         Me.gb_busqueda.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -669,4 +681,5 @@ Partial Class FormProductos
     Friend WithEvents Label2 As Label
     Friend WithEvents btn_buscarFABRICA As Button
     Friend WithEvents btn_buscarRUBRO As Button
+    Friend WithEvents Label3 As Label
 End Class
