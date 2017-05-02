@@ -58,22 +58,19 @@
     Private Function validar_datos() As respuesta_validacion
         For Each obj As Windows.Forms.Control In Me.Controls
             If obj.GetType().Name = "TextBox" Or obj.GetType().Name = "MaskedTextBox" Then
-                If obj.ProductName = Me.txt_nombre.Text Or obj.ProductName = Me.txt_apellido.Text Then
-                    If obj.Text = "" Then
-                        MsgBox("El campo " + obj.Name + "esta vacio.", MsgBoxStyle.OkOnly, "Error")
-                        obj.Focus()
-                        Return respuesta_validacion._error
-                    End If
-                    If Me.txt_contraseña1.Text <> Me.txt_contraseña2.Text Then
-                        MsgBox("Error al repetir la contraseña, vuelva a ingresarla", MessageBoxButtons.OK, "Carga Usuario")
-                        Me.txt_contraseña1.Text = ""
-                        Me.txt_contraseña2.Text = ""
-                        Me.txt_contraseña1.Focus()
-                    End If
+                  
+                If Me.txt_contraseña1.Text <> Me.txt_contraseña2.Text Then
+                    MsgBox("Error al repetir la contraseña, vuelva a ingresarla", MessageBoxButtons.OK, "Carga Usuario")
+                    Me.txt_contraseña1.Text = ""
+                    Me.txt_contraseña2.Text = ""
+                    Me.txt_contraseña1.Focus()
+                End If
+                If obj.Text = "" Then
+                    MsgBox("El campo " + obj.Name + "esta vacio.", MsgBoxStyle.OkOnly, "Error")
+                    obj.Focus()
+                    Return respuesta_validacion._error
                 End If
             End If
-
-
         Next
         Return respuesta_validacion._ok
     End Function
@@ -110,6 +107,7 @@
         MsgBox("La carga del usuario fue exitosa", MessageBoxButtons.OK, "Carga Usuario")
         Soporte.actualizarBD(sql)
         Me.cargar_grilla_usuarios()
+        borrar_datos()
         Me.cmd_grabar.Enabled = False
         Me.txt_id_usuario.Enabled = False
         Me.txt_apellido.Enabled = False
@@ -127,12 +125,11 @@
         Dim sql As String = ""
         sql &= " UPDATE usuarios SET "
         sql &= "id_usuario = '" & Me.txt_id_usuario.Text & "'"
-        sql &= ", apellido = '" & Me.txt_apellido.Text & "'"
         sql &= ", nombre = '" & Me.txt_nombre.Text & "'"
+        sql &= ", apellido = '" & Me.txt_apellido.Text & "'"
         sql &= ", contraseña = '" & Me.txt_contraseña1.Text & "'"
         sql &= ", fecha_alta = '" & Me.txt_fecha_alta.Text & "'"
         sql &= " WHERE id_usuario= '" & Me.txt_id_usuario.Text & "'"
-
         Soporte.actualizarBD(sql)
         MsgBox("El usuario fue modificado", MessageBoxButtons.OK, "Exito")
         cargar_grilla_usuarios()
@@ -151,20 +148,20 @@
 
     'BOTON PARA BLANQUEAR NUEVO usuario
     Private Sub cmd_nuevo_Click_1(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
-        If MessageBox.Show("¿Está seguro que desea eliminar los datos ingresados?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-            Me.borrar_datos()
-            Me.accion = tipo_grabacion.insertar
-            Me.cmd_grabar.Enabled = True
-            Me.txt_id_usuario.Enabled = True
-            Me.txt_apellido.Enabled = True
-            Me.txt_nombre.Enabled = True
-            Me.txt_contraseña1.Enabled = True
-            Me.txt_contraseña2.Enabled = True
-            Me.txt_fecha_alta.Enabled = True
-            Me.txt_fecha_alta.Text = DateTime.Now.ToString("dd/MM/yyyy")
-            Me.txt_id_usuario.Focus()
-            Me.cargar_grilla_usuarios()
-        End If
+        'If MessageBox.Show("¿Está seguro que desea eliminar los datos ingresados?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+        Me.borrar_datos()
+        Me.accion = tipo_grabacion.insertar
+        Me.cmd_grabar.Enabled = True
+        Me.txt_id_usuario.Enabled = True
+        Me.txt_apellido.Enabled = True
+        Me.txt_nombre.Enabled = True
+        Me.txt_contraseña1.Enabled = True
+        Me.txt_contraseña2.Enabled = True
+        Me.txt_fecha_alta.Enabled = True
+        Me.txt_fecha_alta.Text = DateTime.Now.ToString("dd/MM/yyyy")
+        Me.txt_id_usuario.Focus()
+        Me.cargar_grilla_usuarios()
+        'End If
     End Sub
     'SUBRUTINA PARA BORRAR usuarios
     Private Sub cmd_eliminar_Click_1(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
@@ -180,13 +177,15 @@
             MessageBox.Show("Falta seleccionar dato en grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
         Me.cmd_grabar.Enabled = False
+        Me.cmd_eliminar.Enabled = True
         Me.txt_id_usuario.Enabled = False
         Me.txt_apellido.Enabled = False
         Me.txt_nombre.Enabled = False
         Me.txt_contraseña1.Enabled = False
         Me.txt_contraseña2.Enabled = False
         Me.txt_fecha_alta.Enabled = False
-        Me.cmd_eliminar.Enabled = False
+        Me.cmd_nuevo.Enabled = True
+        Me.txt_buscar_usuario.Focus()
     End Sub
     'BOTON GRABAR
     Private Sub cmd_grabar_Click_1(sender As Object, e As EventArgs) Handles cmd_grabar.Click
@@ -204,7 +203,9 @@
                 End If
             Else
                 modificar()
+              
             End If
+
         End If
     End Sub
     'BUSCAR UN USUARIO POR SU ID_USUARIO
@@ -250,6 +251,7 @@
         Me.txt_contraseña1.Text = tabla.Rows(0)("contraseña")
         Me.txt_fecha_alta.Text = tabla.Rows(0)("fecha_alta")
         Me.accion = tipo_grabacion.modificar
+        Me.cmd_eliminar.Enabled = True
         Me.txt_id_usuario.Enabled = True
         Me.txt_apellido.Enabled = True
         Me.txt_nombre.Enabled = True
@@ -257,6 +259,6 @@
         Me.txt_contraseña1.Enabled = True
         Me.txt_contraseña2.Enabled = True
         Me.cmd_grabar.Enabled = True
-        Me.cmd_eliminar.Enabled = True
+        Me.cmd_nuevo.Enabled = False
     End Sub
 End Class
