@@ -227,7 +227,7 @@ Public Class FormFabrica
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = Soporte.cadena_conexion_agus
+        conexion.ConnectionString = Soporte.cadena_conexion_brian
         conexion.Open()
         cmd.Connection = conexion
         RG = New OleDbCommand("AUTOGENERARCODIGO", conexion)

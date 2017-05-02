@@ -90,11 +90,14 @@ Partial Class FormUsuarios
         '
         'grilla_usuarios
         '
+        Me.grilla_usuarios.AllowUserToAddRows = False
+        Me.grilla_usuarios.AllowUserToDeleteRows = False
         Me.grilla_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla_usuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_usuario, Me.nombre, Me.apellido, Me.fecha_alta})
         Me.grilla_usuarios.Location = New System.Drawing.Point(30, 89)
         Me.grilla_usuarios.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.grilla_usuarios.Name = "grilla_usuarios"
+        Me.grilla_usuarios.ReadOnly = True
         Me.grilla_usuarios.Size = New System.Drawing.Size(443, 300)
         Me.grilla_usuarios.TabIndex = 27
         '
@@ -102,21 +105,25 @@ Partial Class FormUsuarios
         '
         Me.id_usuario.HeaderText = "User Name"
         Me.id_usuario.Name = "id_usuario"
+        Me.id_usuario.ReadOnly = True
         '
         'nombre
         '
         Me.nombre.HeaderText = "Nombre"
         Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
         '
         'apellido
         '
         Me.apellido.HeaderText = "Apellido"
         Me.apellido.Name = "apellido"
+        Me.apellido.ReadOnly = True
         '
         'fecha_alta
         '
         Me.fecha_alta.HeaderText = "Fecha Alta"
         Me.fecha_alta.Name = "fecha_alta"
+        Me.fecha_alta.ReadOnly = True
         '
         'Label9
         '
@@ -192,8 +199,7 @@ Partial Class FormUsuarios
         Me.txt_buscar_usuario.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_buscar_usuario.Name = "txt_buscar_usuario"
         Me.txt_buscar_usuario.Size = New System.Drawing.Size(116, 25)
-        Me.txt_buscar_usuario.TabIndex = 1
-        Me.txt_buscar_usuario.Text = "Buscar..."
+        Me.txt_buscar_usuario.TabIndex = 0
         '
         'Label7
         '
@@ -314,7 +320,7 @@ Partial Class FormUsuarios
         Me.cmd_buscar.Location = New System.Drawing.Point(298, 55)
         Me.cmd_buscar.Name = "cmd_buscar"
         Me.cmd_buscar.Size = New System.Drawing.Size(77, 27)
-        Me.cmd_buscar.TabIndex = 42
+        Me.cmd_buscar.TabIndex = 1
         Me.cmd_buscar.Text = "Buscar"
         Me.cmd_buscar.UseVisualStyleBackColor = False
         '
@@ -326,7 +332,7 @@ Partial Class FormUsuarios
         Me.cmd_nuevo.Location = New System.Drawing.Point(24, 377)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(100, 30)
-        Me.cmd_nuevo.TabIndex = 39
+        Me.cmd_nuevo.TabIndex = 6
         Me.cmd_nuevo.Text = "Nuevo"
         Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
@@ -339,7 +345,7 @@ Partial Class FormUsuarios
         Me.cmd_grabar.Location = New System.Drawing.Point(24, 470)
         Me.cmd_grabar.Name = "cmd_grabar"
         Me.cmd_grabar.Size = New System.Drawing.Size(100, 30)
-        Me.cmd_grabar.TabIndex = 40
+        Me.cmd_grabar.TabIndex = 8
         Me.cmd_grabar.Text = "Guardar"
         Me.cmd_grabar.UseVisualStyleBackColor = False
         '
@@ -352,7 +358,7 @@ Partial Class FormUsuarios
         Me.cmd_eliminar.Location = New System.Drawing.Point(24, 423)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(100, 30)
-        Me.cmd_eliminar.TabIndex = 41
+        Me.cmd_eliminar.TabIndex = 7
         Me.cmd_eliminar.Text = "Eliminar"
         Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
