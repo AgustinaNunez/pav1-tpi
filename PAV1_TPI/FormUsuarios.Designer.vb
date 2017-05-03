@@ -121,10 +121,11 @@ Partial Class FormUsuarios
         '
         'txt_fecha_alta
         '
+        Me.txt_fecha_alta.Culture = New System.Globalization.CultureInfo("en-US")
         Me.txt_fecha_alta.Enabled = False
         Me.txt_fecha_alta.Location = New System.Drawing.Point(219, 283)
         Me.txt_fecha_alta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txt_fecha_alta.Mask = "00/00/0000"
+        Me.txt_fecha_alta.Mask = "0/0/0000"
         Me.txt_fecha_alta.Name = "txt_fecha_alta"
         Me.txt_fecha_alta.Size = New System.Drawing.Size(143, 25)
         Me.txt_fecha_alta.TabIndex = 5

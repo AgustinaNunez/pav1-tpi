@@ -134,7 +134,7 @@
         Me.txt_contraseña1.Enabled = True
         Me.txt_contraseña2.Enabled = True
         Me.txt_fecha_alta.Enabled = True
-        Me.txt_fecha_alta.Text = DateTime.Now.ToString("dd/MM/yyyy")
+        Me.txt_fecha_alta.Text = DateTime.Now.ToString("d/M/yyyy")
         Me.txt_id_usuario.Focus()
         Me.cargar_grilla_usuarios()
         'End If
@@ -338,5 +338,7 @@
         Next
         Return respuesta_validacion._ok
     End Function
+
+
 
 End Class
