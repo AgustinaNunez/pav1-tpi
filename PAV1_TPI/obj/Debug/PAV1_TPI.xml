@@ -75,6 +75,10 @@ PAV1_TPI
 	<summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.puerta">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
 </member><member name="P:PAV1_TPI.My.Resources.Resources.trash_bin32">
 	<summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.

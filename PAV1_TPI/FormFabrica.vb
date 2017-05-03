@@ -227,7 +227,8 @@ Public Class FormFabrica
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = Soporte.cadena_conexion_brian
+        conexion.ConnectionString = Soporte.cadena_conexion_georgi
+
         conexion.Open()
         cmd.Connection = conexion
         RG = New OleDbCommand("AUTOGENERARCODIGO", conexion)
@@ -263,5 +264,11 @@ Public Class FormFabrica
         Next
     End Sub
 
-
+    Private Sub FormFabrica_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        If MessageBox.Show("¿Está seguro que quiere salir del formulario?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+            e.Cancel = False
+        Else
+            e.Cancel = True
+        End If
+    End Sub
 End Class

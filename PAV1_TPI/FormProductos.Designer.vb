@@ -51,6 +51,7 @@ Partial Class FormProductos
         Me.gb_listado = New System.Windows.Forms.GroupBox()
         Me.btn_buscarID = New System.Windows.Forms.Button()
         Me.gb_datos = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.lbl_fabricaERROR = New System.Windows.Forms.Label()
         Me.lbl_rubroERROR = New System.Windows.Forms.Label()
         Me.lbl_precioERROR = New System.Windows.Forms.Label()
@@ -68,7 +69,6 @@ Partial Class FormProductos
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_listado.SuspendLayout()
         Me.gb_datos.SuspendLayout()
@@ -277,11 +277,10 @@ Partial Class FormProductos
         Me.txt_id.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_id.ForeColor = System.Drawing.Color.Black
         Me.txt_id.Location = New System.Drawing.Point(132, 31)
-        Me.txt_id.Mask = "999"
+        Me.txt_id.Mask = "9999999999"
         Me.txt_id.Name = "txt_id"
         Me.txt_id.Size = New System.Drawing.Size(124, 25)
         Me.txt_id.TabIndex = 1
-        Me.txt_id.ValidatingType = GetType(Integer)
         '
         'txt_descrip
         '
@@ -374,6 +373,17 @@ Partial Class FormProductos
         Me.gb_datos.TabIndex = 4
         Me.gb_datos.TabStop = False
         Me.gb_datos.Text = "Datos del Producto"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Black
+        Me.Label4.Location = New System.Drawing.Point(6, 231)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(344, 17)
+        Me.Label4.TabIndex = 25
+        Me.Label4.Text = "Observación: Los campos marcados con (*) son obligatorios."
         '
         'lbl_fabricaERROR
         '
@@ -595,17 +605,6 @@ Partial Class FormProductos
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(109, 33)
         Me.Label3.TabIndex = 16
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.Black
-        Me.Label4.Location = New System.Drawing.Point(6, 231)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(344, 17)
-        Me.Label4.TabIndex = 25
-        Me.Label4.Text = "Observación: Los campos marcados con (*) son obligatorios."
         '
         'FormProductos
         '
