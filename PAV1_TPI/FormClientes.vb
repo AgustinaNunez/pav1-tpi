@@ -62,6 +62,7 @@
                 Dim local As ComboBox = obj
                 local.SelectedValue = -1
             End If
+            Me.ocultar_lblERROR()
         Next
     End Sub
 
@@ -82,38 +83,63 @@
         ' End If
     End Sub
 
-    'FUNCION PARA VALIDAR DATOS A GUARDAR
-    Private Function validar_datos() As respuesta_validacion
-        For Each obj As Windows.Forms.Control In Me.Controls
-            If obj.GetType().Name = "TextBox" Or obj.GetType().Name = "MaskedTextBox" Then
-                If obj.Text = "" Then
-                    MsgBox("El campo " + obj.Name + "esta vacio.", MsgBoxStyle.OkOnly, "Error")
-                    obj.Focus()
-                    Return respuesta_validacion._error
-                End If
-            End If
 
-            If obj.GetType().Name = "ComboBox" Then
-                Dim local As ComboBox = obj
-                If local.SelectedValue = -1 Then
-                    MsgBox("El campo " + obj.Name + "esta vacio.", MsgBoxStyle.OkOnly, "Error")
-                    obj.Focus()
-                    Return respuesta_validacion._error
-                End If
-            End If
-        Next
-        Return respuesta_validacion._ok
+    'FUNCION PARA VALIDAR DATOS INGRESADOS
+    Private Function validar_datos() As respuesta_validacion
+        Me.ocultar_lblERROR()
+        Dim rdo = respuesta_validacion._ok
+        If txt_apellido_cliente_carga.Text = "" Then
+            lbl_apellidoERROR.Visible = True
+            txt_apellido_cliente_carga.Focus()
+            rdo = respuesta_validacion._error
+            MsgBox("El apellido no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+        End If
+        If txt_nombre_cliente_carga.Text = "" Then
+            lbl_nombreERROR.Visible = True
+            txt_nombre_cliente_carga.Focus()
+            rdo = respuesta_validacion._error
+            MsgBox("El nombre no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+        End If
+
+        If cmb_tipo_documento_cliente_carga.Text = "" Then
+            lbl_tipodocERROR.Visible = True
+            cmb_tipo_documento_cliente_carga.Focus()
+            rdo = respuesta_validacion._error
+            MsgBox("El tipo de documento no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+        End If
+        
+        If txt_numero_documento_carga.Text = "" Then
+            lbl_documentoERROR.Visible = True
+            txt_numero_documento_carga.Focus()
+            rdo = respuesta_validacion._error
+            MsgBox("El numero de documento no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+        End If
+
+        Return rdo
+
     End Function
+
+
+    'SUBRUTINA PARA OCULTAR LOS LABELS X
+    Private Sub ocultar_lblERROR()
+        lbl_apellidoERROR.Visible = False
+        lbl_documentoERROR.Visible = False
+        lbl_nombreERROR.Visible = False
+        lbl_tipodocERROR.Visible = False
+
+    End Sub
 
     'FUNCION PARA VALIDAR UNA PERSONA (PARA QUE NO EXISTA)
     Private Function validar_persona() As respuesta_validacion
         Dim tabla As New DataTable
         Dim sql As String = ""
-        sql &= "SELECT numero_documento FROM clientes WHERE numero_documento = '" & Me.txt_numero_documento_carga.Text & "'"
+        sql &= "SELECT numero_documento, tipo_documento FROM clientes WHERE numero_documento = " & Me.txt_numero_documento_carga.Text
+        sql &= "AND tipo_documento =" & Me.cmb_tipo_documento_cliente_carga.SelectedValue
 
         tabla = Soporte.consultarBD(sql)
 
         If tabla.Rows.Count = 1 Then
+            MsgBox("La combinacion de tipo y numero de docuento ya existe", MsgBoxStyle.OkOnly, "Error")
             Return respuesta_validacion._error
         End If
 
@@ -189,6 +215,7 @@
         Me.txt_email_cliente_cliente_carga.Enabled = True
         Me.txt_telefono_cliente_carga.Enabled = True
         Me.btn_guardar_cliente_carga.Enabled = True
+        Me.btn_eliminar_cliente_carga.Enabled = True
     End Sub
 
     'SUBRUTINA PARA MODIFICAR CLIENTES
@@ -204,6 +231,12 @@
         Soporte.actualizarBD(sql)
         MsgBox("El cliente fue modificado", MessageBoxButtons.OK, "Exito")
         cargar_grilla_cliente()
+        txt_apellido_cliente_carga.Enabled = False
+        txt_email_cliente_cliente_carga.Enabled = False
+        txt_nombre_cliente_carga.Enabled = False
+        txt_telefono_cliente_carga.Enabled = False
+        btn_eliminar_cliente_carga.Enabled = False
+        btn_guardar_cliente_carga.Enabled = False
     End Sub
 
     'SUBRUTINA PARA BORRAR CLIENTES
@@ -218,6 +251,7 @@
         End If
 
         Me.btn_guardar_cliente_carga.Enabled = False
+        Me.btn_eliminar_cliente_carga.Enabled = False
         Me.txt_apellido_cliente_carga.Enabled = False
         Me.txt_email_cliente_cliente_carga.Enabled = False
         Me.txt_nombre_cliente_carga.Enabled = False
@@ -243,24 +277,52 @@
         sql &= " WHERE td.nombre_tipo_documento = '" & Me.cmb_tipo_documento_cliente_busqueda.Text & "'"
         sql &= " AND c.numero_documento = " & Me.txt_numero_documento_cliente_busqueda.Text
 
-        tabla = Soporte.consultarBD(sql)
+        If txt_numero_documento_cliente_busqueda.Text = "" Then
+            MsgBox("No existe valor de busqueda", MsgBoxStyle.OkOnly, "Error")
+            txt_numero_documento_cliente_busqueda.Focus()
 
-        Dim c As Integer
-        Me.grid_clientes.Rows.Clear()
-        For c = 0 To tabla.Rows.Count - 1
-            Me.grid_clientes.Rows.Add()
-            Me.grid_clientes.Rows(c).Cells(0).Value = tabla.Rows(c)("apellido_cliente")
-            Me.grid_clientes.Rows(c).Cells(1).Value = tabla.Rows(c)("nombre_cliente")
-            Me.grid_clientes.Rows(c).Cells(2).Value = tabla.Rows(c)("nombre_tipo_documento")
-            Me.grid_clientes.Rows(c).Cells(3).Value = tabla.Rows(c)("numero_documento")
-            Me.grid_clientes.Rows(c).Cells(4).Value = tabla.Rows(c)("e_mail_cliente")
-            Me.grid_clientes.Rows(c).Cells(5).Value = tabla.Rows(c)("telefono_cliente")
-        Next
-
-        If tabla.Rows.Count = 0 Then
-            MsgBox("No se encontró ningun resultado", MsgBoxStyle.OkOnly, "Error")
-            cargar_grilla_cliente()
+        Else
+            tabla = Soporte.consultarBD(sql)
+            Dim c As Integer
+            Me.grid_clientes.Rows.Clear()
+            For c = 0 To tabla.Rows.Count - 1
+                Me.grid_clientes.Rows.Add()
+                Me.grid_clientes.Rows(c).Cells(0).Value = tabla.Rows(c)("apellido_cliente")
+                Me.grid_clientes.Rows(c).Cells(1).Value = tabla.Rows(c)("nombre_cliente")
+                Me.grid_clientes.Rows(c).Cells(2).Value = tabla.Rows(c)("nombre_tipo_documento")
+                Me.grid_clientes.Rows(c).Cells(3).Value = tabla.Rows(c)("numero_documento")
+                Me.grid_clientes.Rows(c).Cells(4).Value = tabla.Rows(c)("e_mail_cliente")
+                Me.grid_clientes.Rows(c).Cells(5).Value = tabla.Rows(c)("telefono_cliente")
+            Next
+            If tabla.Rows.Count = 0 Then
+                MsgBox("No se encontró ningun resultado", MsgBoxStyle.OkOnly, "Error")
+                cargar_grilla_cliente()
+            End If
         End If
+
     End Sub
+
+    'FUNCION PARA VALIDAR DATOS A GUARDAR
+    'Private Function validar_datos() As respuesta_validacion
+    '    For Each obj As Windows.Forms.Control In Me.Controls
+    '        If obj.GetType().Name = "TextBox" Or obj.GetType().Name = "MaskedTextBox" Then
+    '            If obj.Text = "" Then
+    '                MsgBox("El campo " + obj.Name + "esta vacio.", MsgBoxStyle.OkOnly, "Error")
+    '                obj.Focus()
+    '                Return respuesta_validacion._error
+    '            End If
+    '        End If
+
+    '        If obj.GetType().Name = "ComboBox" Then
+    '            Dim local As ComboBox = obj
+    '            If local.SelectedValue = -1 Then
+    '                MsgBox("El campo " + obj.Name + "esta vacio.", MsgBoxStyle.OkOnly, "Error")
+    '                obj.Focus()
+    '                Return respuesta_validacion._error
+    '            End If
+    '        End If
+    '    Next
+    '    Return respuesta_validacion._ok
+    'End Function
 
 End Class

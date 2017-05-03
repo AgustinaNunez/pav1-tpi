@@ -25,39 +25,44 @@
         txt_descrip.Text = ""
         txt_precio.Text = ""
         txt_stock.Text = ""
-        cbo_fabrica.Text = "(seleccione fábrica)"
-        cbo_rubro.Text = "(seleccione rubro)"
-        cbo_fabricaBUSCAR.Text = "(seleccione fábrica)"
-        cbo_rubroBUSCAR.Text = "(seleccione rubro)"
-        lbl_msj.Text = ""
+        cbo_fabrica.Text = "(Seleccione fábrica)"
+        cbo_rubro.Text = "(Seleccione rubro)"
+        cbo_fabricaBUSCAR.Text = "(Seleccione fábrica)"
+        cbo_rubroBUSCAR.Text = "(Seleccione rubro)"
+        'lbl_msj.Text = ""
         Me.ocultar_lblERROR()
-        lbl_msj.Visible = False
+        'lbl_msj.Visible = False
     End Sub
 
     Private Function validar_campos() As respuesta_validacion
-        lbl_msj.Visible = False
+        'lbl_msj.Visible = False
         Me.ocultar_lblERROR()
         Dim rdo = respuesta_validacion._ok
-        If cbo_fabrica.Text = "(seleccione fábrica)" Then
-            lbl_fabricaERROR.Visible = True
-            cbo_fabrica.Focus()
+        If txt_id.Text = "" Then
+            lbl_idERROR.Visible = True
+            txt_id.Focus()
             rdo = respuesta_validacion._error
-        End If
-        If cbo_rubro.Text = "(seleccione rubro)" Then
-            lbl_rubroERROR.Visible = True
-            cbo_rubro.Focus()
-            rdo = respuesta_validacion._error
+            MsgBox("El id no fue ingresado", MsgBoxStyle.OkOnly, "Error")
         End If
         If txt_precio.Text = "" Then
             lbl_precioERROR.Visible = True
             txt_precio.Focus()
             rdo = respuesta_validacion._error
+            MsgBox("El precio no fue ingresado", MsgBoxStyle.OkOnly, "Error")
         End If
-        If txt_id.Text = "" Then
-            lbl_idERROR.Visible = True
-            txt_id.Focus()
+        If cbo_rubro.Text = "(Seleccione rubro)" Then
+            lbl_rubroERROR.Visible = True
+            cbo_rubro.Focus()
             rdo = respuesta_validacion._error
+            MsgBox("El rubro no fue ingresado", MsgBoxStyle.OkOnly, "Error")
         End If
+        If cbo_fabrica.Text = "(Seleccione fábrica)" Then
+            lbl_fabricaERROR.Visible = True
+            cbo_fabrica.Focus()
+            rdo = respuesta_validacion._error
+            MsgBox("La fabrica no fue ingresada", MsgBoxStyle.OkOnly, "Error")
+        End If
+
         Return rdo
     End Function
 
@@ -105,6 +110,7 @@
         Me.txt_precio.Enabled = False
         Me.cbo_rubro.Enabled = False
         Me.cbo_fabrica.Enabled = False
+        Me.btn_guardar.Enabled = False
     End Sub
 
     Private Sub dgv_productos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_productos.CellContentClick, dgv_productos.CellContentDoubleClick, dgv_productos.CellDoubleClick
@@ -131,6 +137,9 @@
         Me.cbo_rubro.Enabled = True
         Me.cbo_fabrica.Enabled = True
 
+        Me.btn_guardar.Enabled = True
+        Me.btn_eliminar.Enabled = True
+
         Me.lbl_descripcion.Enabled = True
         Me.lbl_stock.Enabled = True
         Me.lbl_precio.Enabled = True
@@ -151,6 +160,15 @@
 
         Soporte.actualizarBD(sql)
         cargar_productos()
+        MsgBox("El producto fue modificado exitosamente ", MessageBoxButtons.OK, "Exito")
+        Me.btn_guardar.Enabled = False
+        Me.btn_eliminar.Enabled = False
+        Me.txt_descrip.Enabled = False
+        Me.txt_precio.Enabled = False
+        Me.txt_stock.Enabled = False
+        Me.cbo_fabrica.Enabled = False
+        Me.cbo_rubro.Enabled = False
+
     End Sub
 
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
@@ -173,6 +191,7 @@
 
         Me.txt_id.Focus()
         Me.cargar_productos()
+        Me.btn_guardar.Enabled = True
     End Sub
 
     Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
@@ -181,45 +200,53 @@
 
         If MessageBox.Show("¿Está seguro que quiere eliminar el producto " & Me.dgv_productos.CurrentRow.Cells(0).Value & "?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
             Soporte.actualizarBD(sql)
-            'MsgBox("Se eliminó el producto.", MessageBoxButtons.OK, "Eliminación de Producto")
-            Dim id_prod As String = txt_id.Text
+            MsgBox("Se eliminó el producto.", MessageBoxButtons.OK, "Eliminación de Producto")
+            'Dim id_prod As String = txt_id.Text
             Me.limpiar_campos()
-            lbl_msj.Text = " Se eliminó el producto " & id_prod & "."
-            lbl_msj.Visible = True
+            'lbl_msj.Text = " Se eliminó el producto " & id_prod & "."
+            'lbl_msj.Visible = True
             cargar_productos()
         End If
 
-        If Me.dgv_productos.CurrentCell.Selected = False Then
-            lbl_msj.Text = " Falta seleccionar dato."
-        End If
+        'If Me.dgv_productos.CurrentCell.Selected = False Then
+        '    'lbl_msj.Text = " Falta seleccionar dato."
+        'End If
     End Sub
 
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
-        If accion = tipo_grabacion.ninguna Then
-            lbl_msj.Text = " No hay cambios para guardar."
-            lbl_msj.Visible = True
-            Return
-        End If
+        'If accion = tipo_grabacion.ninguna Then
+        'lbl_msj.Text = " No hay cambios para guardar."
+        'lbl_msj.Visible = True
+        'Return
+        ' End If
         If validar_campos() = respuesta_validacion._ok Then
             If accion = tipo_grabacion.insertar Then
                 If validar_producto() = respuesta_validacion._ok Then
                     insertar()
-                    Dim id_prod As String = txt_id.Text
-                    Me.limpiar_campos()
-                    lbl_msj.Text = " El producto " & id_prod & " se cargó correctamente."
-                    lbl_msj.Visible = True
+                    MsgBox("La carga del producto fue exitosa", MessageBoxButtons.OK, "Cargar Producto")
+                    'Dim id_prod As String = txt_id.Text
+                    'Me.limpiar_campos()
+                    'lbl_msj.Text = " El producto " & id_prod & " se cargó correctamente."
+                    'lbl_msj.Visible = True
+                Else
+                    MsgBox("El producto ya existe, por favor, modificarlo", MsgBoxStyle.OkOnly, "Error")
                 End If
+
             Else
                 modificar()
-                Dim id_prod As String = txt_id.Text
-                Me.limpiar_campos()
-                lbl_msj.Text = " El producto " & id_prod & " se modificó correctamente."
-                lbl_msj.Visible = True
+
+                'Dim id_prod As String = txt_id.Text
+                'Me.limpiar_campos()
+                'lbl_msj.Text = " El producto " & id_prod & " se modificó correctamente."
+                'lbl_msj.Visible = True
+                'End If
+                'Else
+                'lbl_msj.Text = " Faltan campos obligatorios."
+                'lbl_msj.Visible = True
             End If
-        Else
-            lbl_msj.Text = " Faltan campos obligatorios."
-            lbl_msj.Visible = True
+
         End If
+
     End Sub
 
     Private Sub cargar_productos()
@@ -261,8 +288,9 @@
         Next
 
         If tabla.Rows.Count = 0 Then
-            lbl_msj.Text = "No se encontraron resultados."
-            lbl_msj.Visible = True
+            MsgBox("No se encontraron resultados", MsgBoxStyle.OkOnly, "Error")
+            'lbl_msj.Text = "No se encontraron resultados."
+            'lbl_msj.Visible = True
             txt_idBUSCAR.Text = ""
             txt_idBUSCAR.Focus()
             cargar_productos()
@@ -272,6 +300,7 @@
     Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscarID.Click
         If txt_idBUSCAR.Text = "" Then
             Me.cargar_productos()
+            MsgBox("No existe valor de búsqueda", MsgBoxStyle.OkOnly, "Error")
             Return
         End If
         Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, r.nombre AS n_rubro, f.nombre AS n_fabrica FROM productos p"
@@ -282,8 +311,9 @@
     End Sub
 
     Private Sub btn_buscarRUBRO_Click(sender As Object, e As EventArgs) Handles btn_buscarRUBRO.Click
-        If cbo_rubroBUSCAR.Text = "(seleccione rubro)" Then
+        If cbo_rubroBUSCAR.Text = "(Seleccione rubro)" Then
             Me.cargar_productos()
+            MsgBox("No existe valor de búsqueda", MsgBoxStyle.OkOnly, "Error")
             Return
         End If
         Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, r.nombre AS n_rubro, f.nombre AS n_fabrica FROM productos p"
@@ -294,8 +324,9 @@
     End Sub
 
     Private Sub btn_buscarFABRICA_Click(sender As Object, e As EventArgs) Handles btn_buscarFABRICA.Click
-        If cbo_fabricaBUSCAR.Text = "(seleccione fábrica)" Then
+        If cbo_fabricaBUSCAR.Text = "(Seleccione fábrica)" Then
             Me.cargar_productos()
+            MsgBox("No existe valor de búsqueda", MsgBoxStyle.OkOnly, "Error")
             Return
         End If
         Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, r.nombre AS n_rubro, f.nombre AS n_fabrica FROM productos p"
@@ -305,7 +336,11 @@
         Me.buscar(sql)
     End Sub
 
-    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
-
+    Private Sub FormFabrica_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        If MessageBox.Show("¿Está seguro que quiere salir del formulario?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+            e.Cancel = False
+        Else
+            e.Cancel = True
+        End If
     End Sub
 End Class

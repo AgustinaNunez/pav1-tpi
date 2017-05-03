@@ -52,29 +52,6 @@
         Next
     End Sub
 
-
-
-    'FUNCION PARA VALIDAR DATOS A GUARDAR
-    Private Function validar_datos() As respuesta_validacion
-        For Each obj As Windows.Forms.Control In Me.Controls
-            If obj.GetType().Name = "TextBox" Or obj.GetType().Name = "MaskedTextBox" Then
-                  
-                If Me.txt_contraseña1.Text <> Me.txt_contraseña2.Text Then
-                    MsgBox("Error al repetir la contraseña, vuelva a ingresarla", MessageBoxButtons.OK, "Carga Usuario")
-                    Me.txt_contraseña1.Text = ""
-                    Me.txt_contraseña2.Text = ""
-                    Me.txt_contraseña1.Focus()
-                End If
-                If obj.Text = "" Then
-                    MsgBox("El campo " + obj.Name + "esta vacio.", MsgBoxStyle.OkOnly, "Error")
-                    obj.Focus()
-                    Return respuesta_validacion._error
-                End If
-            End If
-        Next
-        Return respuesta_validacion._ok
-    End Function
-
     'FUNCION PARA VALIDAR UN USUARIO (QUE NO EXISTIESE UN USUARIO PREVIAMENTE CON ESE NOMBRE DE USUARIO)
     Private Function validar_persona() As respuesta_validacion
         Dim tabla As New DataTable
@@ -119,14 +96,11 @@
         Me.txt_fecha_alta.Enabled = False
     End Sub
 
-
-
-
     'SUBRUTINA PARA MODIFICAR USUARIOS
     Private Sub modificar()
         Dim sql As String = ""
         sql &= " UPDATE usuarios SET "
-        sql &= "id_usuario = '" & Me.txt_id_usuario.Text & "'"
+        sql &= " id_usuario = '" & Me.txt_id_usuario.Text & "'"
         sql &= ", nombre = '" & Me.txt_nombre.Text & "'"
         sql &= ", apellido = '" & Me.txt_apellido.Text & "'"
         sql &= ", contraseña = '" & Me.txt_contraseña1.Text & "'"
@@ -138,7 +112,6 @@
         cargar_grilla_usuarios()
     End Sub
 
-
     'SUBRUTINA PARA PREGUNTAR CUANDO SE CIERRA EL FORMULARIO
     Private Sub FormUsuarios_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         If MessageBox.Show("¿Está seguro que quiere salir del formulario?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
@@ -147,7 +120,6 @@
             e.Cancel = True
         End If
     End Sub
-
 
     'BOTON PARA BLANQUEAR NUEVO USUARIO
     Private Sub cmd_nuevo_Click_1(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
@@ -169,6 +141,72 @@
 
     End Sub
 
+    'FUNCION QUE VALIDA LOS CAMPOS X
+    Private Function validar_campos() As respuesta_validacion
+        Me.ocultar_lblERROR()
+        Dim rdo = respuesta_validacion._ok
+        If txt_id_usuario.Text = "" Then
+            lbl_usuarioERROR.Visible = True
+            txt_id_usuario.Focus()
+            rdo = respuesta_validacion._error
+            MsgBox("El id de usuario no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+        End If
+        If txt_nombre.Text = "" Then
+            lbl_nombreERROR.Visible = True
+            txt_nombre.Focus()
+            rdo = respuesta_validacion._error
+            MsgBox("El nombre no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+        End If
+        If txt_apellido.Text = "" Then
+            lbl_apellidoERROR.Visible = True
+            txt_apellido.Focus()
+            rdo = respuesta_validacion._error
+            MsgBox("El apellido no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+        End If
+        If txt_contraseña1.Text = "" Then
+            lbl_constraseñaERROR.Visible = True
+            txt_contraseña1.Focus()
+            rdo = respuesta_validacion._error
+            MsgBox("La contraseña no fue ingresada", MsgBoxStyle.OkOnly, "Error")
+        End If
+
+        'If txt_contraseña2.Text = "" Then
+        '    lbl_contraseña2ERROR.Visible = True
+        '    txt_contraseña2.Focus()
+        '    rdo = respuesta_validacion._error
+        '    MsgBox("La contraseña no fue ingresada", MsgBoxStyle.OkOnly, "Error")
+        'End If
+
+        If Me.txt_contraseña1.Text <> Me.txt_contraseña2.Text Then
+            MsgBox("Error al repetir la contraseña, vuelva a ingresarla", MessageBoxButtons.OK, "Carga Usuario")
+            Me.txt_contraseña1.Text = ""
+            Me.txt_contraseña2.Text = ""
+            rdo = respuesta_validacion._error
+            lbl_contraseña2ERROR.Visible = True
+            Me.txt_contraseña1.Focus()
+        End If
+
+        If txt_fecha_alta.Text = "" Then
+            lbl_fechaERROR.Visible = True
+            txt_fecha_alta.Focus()
+            rdo = respuesta_validacion._error
+            MsgBox("La fecha de alta no fue ingresada", MsgBoxStyle.OkOnly, "Error")
+        End If
+
+
+        Return rdo
+
+    End Function
+
+    'SUBRUTINA QUE OCULTA LOS X
+    Private Sub ocultar_lblERROR()
+        lbl_apellidoERROR.Visible = False
+        lbl_constraseñaERROR.Visible = False
+        lbl_contraseña2ERROR.Visible = False
+        lbl_fechaERROR.Visible = False
+        lbl_nombreERROR.Visible = False
+        lbl_usuarioERROR.Visible = False
+    End Sub
 
     'SUBRUTINA PARA BORRAR USUARIOS
     Private Sub cmd_eliminar_Click_1(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
@@ -197,10 +235,9 @@
 
     End Sub
 
-
     'BOTON GRABAR
     Private Sub cmd_grabar_Click_1(sender As Object, e As EventArgs) Handles cmd_grabar.Click
-        If validar_datos() = respuesta_validacion._ok Then
+        If validar_campos() = respuesta_validacion._ok Then
 
             If accion = tipo_grabacion.insertar Then
 
@@ -214,14 +251,13 @@
                 End If
             Else
                 modificar()
-              
+
             End If
 
         End If
     End Sub
 
     'BUSCAR UN USUARIO POR SU ID_USUARIO
-
     Private Sub cmd_buscar_Click_1(sender As Object, e As EventArgs) Handles cmd_buscar.Click
         Dim sql As String = ""
         Dim tabla As New DataTable
@@ -248,6 +284,7 @@
             cargar_grilla_usuarios()
         End If
     End Sub
+
     'INTERACCION CON LA GRILLA (DOBLE CLICK)
     Private Sub grilla_usuarios_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grilla_usuarios.CellContentDoubleClick
         Dim sql As String = ""
@@ -284,5 +321,22 @@
     'End If
 
     'End Sub
+
+    'FUNCION PARA VALIDAR DATOS A GUARDAR
+
+    Private Function validar_datos() As respuesta_validacion
+        For Each obj As Windows.Forms.Control In Me.Controls
+            If obj.GetType().Name = "TextBox" Or obj.GetType().Name = "MaskedTextBox" Then
+
+
+                If obj.Text = "" Then
+                    MsgBox("El campo " + obj.Name + "esta vacio.", MsgBoxStyle.OkOnly, "Error")
+                    obj.Focus()
+                    Return respuesta_validacion._error
+                End If
+            End If
+        Next
+        Return respuesta_validacion._ok
+    End Function
 
 End Class

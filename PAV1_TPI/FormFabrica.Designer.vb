@@ -44,6 +44,8 @@ Partial Class FormFabrica
         Me.btn_eliminar_fabrica = New System.Windows.Forms.Button()
         Me.btn_nueva_fabrica = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.lbl_nombreERROR = New System.Windows.Forms.Label()
+        Me.lbl_telefonoERROR = New System.Windows.Forms.Label()
         CType(Me.Grilla_Fabrica, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -101,7 +103,7 @@ Partial Class FormFabrica
         Me.txt_nombre_fabrica.Location = New System.Drawing.Point(514, 96)
         Me.txt_nombre_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_nombre_fabrica.Name = "txt_nombre_fabrica"
-        Me.txt_nombre_fabrica.Size = New System.Drawing.Size(259, 25)
+        Me.txt_nombre_fabrica.Size = New System.Drawing.Size(215, 25)
         Me.txt_nombre_fabrica.TabIndex = 1
         '
         'txt_telefono_fabrica
@@ -195,7 +197,7 @@ Partial Class FormFabrica
         Me.txt_codigo_fabrica.Location = New System.Drawing.Point(514, 65)
         Me.txt_codigo_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_codigo_fabrica.Name = "txt_codigo_fabrica"
-        Me.txt_codigo_fabrica.Size = New System.Drawing.Size(259, 25)
+        Me.txt_codigo_fabrica.Size = New System.Drawing.Size(215, 25)
         Me.txt_codigo_fabrica.TabIndex = 0
         '
         'GroupBox1
@@ -221,10 +223,10 @@ Partial Class FormFabrica
         Me.btn_buscar_fabrica.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_buscar_fabrica.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
         Me.btn_buscar_fabrica.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscar_fabrica.Location = New System.Drawing.Point(250, 43)
+        Me.btn_buscar_fabrica.Location = New System.Drawing.Point(250, 48)
         Me.btn_buscar_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_buscar_fabrica.Name = "btn_buscar_fabrica"
-        Me.btn_buscar_fabrica.Size = New System.Drawing.Size(150, 35)
+        Me.btn_buscar_fabrica.Size = New System.Drawing.Size(150, 25)
         Me.btn_buscar_fabrica.TabIndex = 1
         Me.btn_buscar_fabrica.Text = "Buscar Fábrica"
         Me.btn_buscar_fabrica.UseVisualStyleBackColor = False
@@ -250,6 +252,7 @@ Partial Class FormFabrica
         'btn_eliminar_fabrica
         '
         Me.btn_eliminar_fabrica.BackColor = System.Drawing.Color.White
+        Me.btn_eliminar_fabrica.Enabled = False
         Me.btn_eliminar_fabrica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_eliminar_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_eliminar_fabrica.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
@@ -291,12 +294,36 @@ Partial Class FormFabrica
         Me.Label5.Size = New System.Drawing.Size(109, 33)
         Me.Label5.TabIndex = 47
         '
+        'lbl_nombreERROR
+        '
+        Me.lbl_nombreERROR.AutoSize = True
+        Me.lbl_nombreERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_nombreERROR.Location = New System.Drawing.Point(736, 101)
+        Me.lbl_nombreERROR.Name = "lbl_nombreERROR"
+        Me.lbl_nombreERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_nombreERROR.TabIndex = 48
+        Me.lbl_nombreERROR.Text = "   "
+        Me.lbl_nombreERROR.Visible = False
+        '
+        'lbl_telefonoERROR
+        '
+        Me.lbl_telefonoERROR.AutoSize = True
+        Me.lbl_telefonoERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_telefonoERROR.Location = New System.Drawing.Point(636, 133)
+        Me.lbl_telefonoERROR.Name = "lbl_telefonoERROR"
+        Me.lbl_telefonoERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_telefonoERROR.TabIndex = 48
+        Me.lbl_telefonoERROR.Text = "   "
+        Me.lbl_telefonoERROR.Visible = False
+        '
         'FormFabrica
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(778, 451)
+        Me.Controls.Add(Me.lbl_telefonoERROR)
+        Me.Controls.Add(Me.lbl_nombreERROR)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label6)
@@ -346,4 +373,6 @@ Partial Class FormFabrica
     Friend WithEvents txt_codigo_fabrica As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents lbl_nombreERROR As System.Windows.Forms.Label
+    Friend WithEvents lbl_telefonoERROR As System.Windows.Forms.Label
 End Class

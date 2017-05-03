@@ -34,6 +34,9 @@ Partial Class FormCupon
         Me.btn_aceptar = New System.Windows.Forms.Button()
         Me.btn_cancelar = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.lbl_cuponERROR = New System.Windows.Forms.Label()
+        Me.lbl_loteERROR = New System.Windows.Forms.Label()
+        Me.lbl_autorizacionERROR = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -79,7 +82,7 @@ Partial Class FormCupon
         Me.txt_numero_cupon.Location = New System.Drawing.Point(128, 78)
         Me.txt_numero_cupon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_numero_cupon.Name = "txt_numero_cupon"
-        Me.txt_numero_cupon.Size = New System.Drawing.Size(268, 25)
+        Me.txt_numero_cupon.Size = New System.Drawing.Size(238, 25)
         Me.txt_numero_cupon.TabIndex = 0
         '
         'txt_numero_lote
@@ -87,7 +90,7 @@ Partial Class FormCupon
         Me.txt_numero_lote.Location = New System.Drawing.Point(128, 111)
         Me.txt_numero_lote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_numero_lote.Name = "txt_numero_lote"
-        Me.txt_numero_lote.Size = New System.Drawing.Size(268, 25)
+        Me.txt_numero_lote.Size = New System.Drawing.Size(238, 25)
         Me.txt_numero_lote.TabIndex = 1
         '
         'txt_numero_autorizacion
@@ -95,7 +98,7 @@ Partial Class FormCupon
         Me.txt_numero_autorizacion.Location = New System.Drawing.Point(128, 144)
         Me.txt_numero_autorizacion.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_numero_autorizacion.Name = "txt_numero_autorizacion"
-        Me.txt_numero_autorizacion.Size = New System.Drawing.Size(268, 25)
+        Me.txt_numero_autorizacion.Size = New System.Drawing.Size(238, 25)
         Me.txt_numero_autorizacion.TabIndex = 2
         '
         'Label6
@@ -150,12 +153,48 @@ Partial Class FormCupon
         Me.Label4.Size = New System.Drawing.Size(109, 33)
         Me.Label4.TabIndex = 26
         '
+        'lbl_cuponERROR
+        '
+        Me.lbl_cuponERROR.AutoSize = True
+        Me.lbl_cuponERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_cuponERROR.Location = New System.Drawing.Point(372, 81)
+        Me.lbl_cuponERROR.Name = "lbl_cuponERROR"
+        Me.lbl_cuponERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_cuponERROR.TabIndex = 27
+        Me.lbl_cuponERROR.Text = "   "
+        Me.lbl_cuponERROR.Visible = False
+        '
+        'lbl_loteERROR
+        '
+        Me.lbl_loteERROR.AutoSize = True
+        Me.lbl_loteERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_loteERROR.Location = New System.Drawing.Point(372, 114)
+        Me.lbl_loteERROR.Name = "lbl_loteERROR"
+        Me.lbl_loteERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_loteERROR.TabIndex = 27
+        Me.lbl_loteERROR.Text = "   "
+        Me.lbl_loteERROR.Visible = False
+        '
+        'lbl_autorizacionERROR
+        '
+        Me.lbl_autorizacionERROR.AutoSize = True
+        Me.lbl_autorizacionERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_autorizacionERROR.Location = New System.Drawing.Point(372, 148)
+        Me.lbl_autorizacionERROR.Name = "lbl_autorizacionERROR"
+        Me.lbl_autorizacionERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_autorizacionERROR.TabIndex = 27
+        Me.lbl_autorizacionERROR.Text = "   "
+        Me.lbl_autorizacionERROR.Visible = False
+        '
         'FormCupon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(419, 274)
+        Me.Controls.Add(Me.lbl_autorizacionERROR)
+        Me.Controls.Add(Me.lbl_loteERROR)
+        Me.Controls.Add(Me.lbl_cuponERROR)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.btn_aceptar)
@@ -192,4 +231,7 @@ Partial Class FormCupon
     Friend WithEvents txt_numero_autorizacion As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents lbl_cuponERROR As System.Windows.Forms.Label
+    Friend WithEvents lbl_loteERROR As System.Windows.Forms.Label
+    Friend WithEvents lbl_autorizacionERROR As System.Windows.Forms.Label
 End Class

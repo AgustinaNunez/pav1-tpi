@@ -55,6 +55,10 @@ Partial Class FormClientes
         Me.txt_numero_documento_carga = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.lbl_apellidoERROR = New System.Windows.Forms.Label()
+        Me.lbl_nombreERROR = New System.Windows.Forms.Label()
+        Me.lbl_tipodocERROR = New System.Windows.Forms.Label()
+        Me.lbl_documentoERROR = New System.Windows.Forms.Label()
         CType(Me.grid_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -77,6 +81,7 @@ Partial Class FormClientes
         'btn_eliminar_cliente_carga
         '
         Me.btn_eliminar_cliente_carga.BackColor = System.Drawing.Color.White
+        Me.btn_eliminar_cliente_carga.Enabled = False
         Me.btn_eliminar_cliente_carga.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_eliminar_cliente_carga.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_eliminar_cliente_carga.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
@@ -121,7 +126,7 @@ Partial Class FormClientes
         Me.txt_apellido_cliente_carga.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_apellido_cliente_carga.Location = New System.Drawing.Point(822, 99)
         Me.txt_apellido_cliente_carga.Name = "txt_apellido_cliente_carga"
-        Me.txt_apellido_cliente_carga.Size = New System.Drawing.Size(237, 25)
+        Me.txt_apellido_cliente_carga.Size = New System.Drawing.Size(217, 25)
         Me.txt_apellido_cliente_carga.TabIndex = 0
         '
         'Label2
@@ -140,7 +145,7 @@ Partial Class FormClientes
         Me.txt_nombre_cliente_carga.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_nombre_cliente_carga.Location = New System.Drawing.Point(822, 130)
         Me.txt_nombre_cliente_carga.Name = "txt_nombre_cliente_carga"
-        Me.txt_nombre_cliente_carga.Size = New System.Drawing.Size(237, 25)
+        Me.txt_nombre_cliente_carga.Size = New System.Drawing.Size(217, 25)
         Me.txt_nombre_cliente_carga.TabIndex = 1
         '
         'Label3
@@ -157,7 +162,7 @@ Partial Class FormClientes
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(719, 200)
+        Me.Label4.Location = New System.Drawing.Point(722, 200)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(95, 17)
         Me.Label4.TabIndex = 6
@@ -179,7 +184,7 @@ Partial Class FormClientes
         Me.txt_email_cliente_cliente_carga.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_email_cliente_cliente_carga.Location = New System.Drawing.Point(822, 223)
         Me.txt_email_cliente_cliente_carga.Name = "txt_email_cliente_cliente_carga"
-        Me.txt_email_cliente_cliente_carga.Size = New System.Drawing.Size(237, 25)
+        Me.txt_email_cliente_cliente_carga.Size = New System.Drawing.Size(217, 25)
         Me.txt_email_cliente_cliente_carga.TabIndex = 4
         '
         'cmb_tipo_documento_cliente_carga
@@ -189,7 +194,7 @@ Partial Class FormClientes
         Me.cmb_tipo_documento_cliente_carga.FormattingEnabled = True
         Me.cmb_tipo_documento_cliente_carga.Location = New System.Drawing.Point(822, 161)
         Me.cmb_tipo_documento_cliente_carga.Name = "cmb_tipo_documento_cliente_carga"
-        Me.cmb_tipo_documento_cliente_carga.Size = New System.Drawing.Size(237, 25)
+        Me.cmb_tipo_documento_cliente_carga.Size = New System.Drawing.Size(217, 25)
         Me.cmb_tipo_documento_cliente_carga.TabIndex = 2
         '
         'Label6
@@ -360,7 +365,7 @@ Partial Class FormClientes
         Me.txt_numero_documento_carga.Enabled = False
         Me.txt_numero_documento_carga.Location = New System.Drawing.Point(822, 192)
         Me.txt_numero_documento_carga.Name = "txt_numero_documento_carga"
-        Me.txt_numero_documento_carga.Size = New System.Drawing.Size(237, 25)
+        Me.txt_numero_documento_carga.Size = New System.Drawing.Size(217, 25)
         Me.txt_numero_documento_carga.TabIndex = 3
         '
         'Label14
@@ -383,12 +388,60 @@ Partial Class FormClientes
         Me.Label7.Size = New System.Drawing.Size(109, 33)
         Me.Label7.TabIndex = 26
         '
+        'lbl_apellidoERROR
+        '
+        Me.lbl_apellidoERROR.AutoSize = True
+        Me.lbl_apellidoERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_apellidoERROR.Location = New System.Drawing.Point(1045, 102)
+        Me.lbl_apellidoERROR.Name = "lbl_apellidoERROR"
+        Me.lbl_apellidoERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_apellidoERROR.TabIndex = 27
+        Me.lbl_apellidoERROR.Text = "   "
+        Me.lbl_apellidoERROR.Visible = False
+        '
+        'lbl_nombreERROR
+        '
+        Me.lbl_nombreERROR.AutoSize = True
+        Me.lbl_nombreERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_nombreERROR.Location = New System.Drawing.Point(1045, 133)
+        Me.lbl_nombreERROR.Name = "lbl_nombreERROR"
+        Me.lbl_nombreERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_nombreERROR.TabIndex = 27
+        Me.lbl_nombreERROR.Text = "   "
+        Me.lbl_nombreERROR.Visible = False
+        '
+        'lbl_tipodocERROR
+        '
+        Me.lbl_tipodocERROR.AutoSize = True
+        Me.lbl_tipodocERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_tipodocERROR.Location = New System.Drawing.Point(1045, 164)
+        Me.lbl_tipodocERROR.Name = "lbl_tipodocERROR"
+        Me.lbl_tipodocERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_tipodocERROR.TabIndex = 27
+        Me.lbl_tipodocERROR.Text = "   "
+        Me.lbl_tipodocERROR.Visible = False
+        '
+        'lbl_documentoERROR
+        '
+        Me.lbl_documentoERROR.AutoSize = True
+        Me.lbl_documentoERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_documentoERROR.Location = New System.Drawing.Point(1045, 195)
+        Me.lbl_documentoERROR.Name = "lbl_documentoERROR"
+        Me.lbl_documentoERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_documentoERROR.TabIndex = 27
+        Me.lbl_documentoERROR.Text = "   "
+        Me.lbl_documentoERROR.Visible = False
+        '
         'FormClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1095, 643)
+        Me.Controls.Add(Me.lbl_documentoERROR)
+        Me.Controls.Add(Me.lbl_tipodocERROR)
+        Me.Controls.Add(Me.lbl_nombreERROR)
+        Me.Controls.Add(Me.lbl_apellidoERROR)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.txt_numero_documento_carga)
@@ -456,4 +509,8 @@ Partial Class FormClientes
     Friend WithEvents txt_numero_documento_carga As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents lbl_apellidoERROR As System.Windows.Forms.Label
+    Friend WithEvents lbl_nombreERROR As System.Windows.Forms.Label
+    Friend WithEvents lbl_tipodocERROR As System.Windows.Forms.Label
+    Friend WithEvents lbl_documentoERROR As System.Windows.Forms.Label
 End Class

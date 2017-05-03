@@ -57,7 +57,6 @@ Partial Class FormProductos
         Me.lbl_precioERROR = New System.Windows.Forms.Label()
         Me.lbl_idERROR = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.lbl_msj = New System.Windows.Forms.Label()
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
@@ -77,6 +76,8 @@ Partial Class FormProductos
         '
         'dgv_productos
         '
+        Me.dgv_productos.AllowUserToAddRows = False
+        Me.dgv_productos.AllowUserToDeleteRows = False
         Me.dgv_productos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgv_productos.BackgroundColor = System.Drawing.Color.WhiteSmoke
@@ -100,6 +101,7 @@ Partial Class FormProductos
         Me.dgv_productos.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_productos.Location = New System.Drawing.Point(19, 24)
         Me.dgv_productos.Name = "dgv_productos"
+        Me.dgv_productos.ReadOnly = True
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -117,36 +119,42 @@ Partial Class FormProductos
         '
         Me.id_producto.HeaderText = "Id."
         Me.id_producto.Name = "id_producto"
+        Me.id_producto.ReadOnly = True
         Me.id_producto.Width = 50
         '
         'descrip
         '
         Me.descrip.HeaderText = "Descripción"
         Me.descrip.Name = "descrip"
+        Me.descrip.ReadOnly = True
         Me.descrip.Width = 210
         '
         'stock
         '
         Me.stock.HeaderText = "Stock"
         Me.stock.Name = "stock"
+        Me.stock.ReadOnly = True
         Me.stock.Width = 60
         '
         'precio_lista
         '
         Me.precio_lista.HeaderText = "Precio"
         Me.precio_lista.Name = "precio_lista"
+        Me.precio_lista.ReadOnly = True
         Me.precio_lista.Width = 60
         '
         'id_rubro
         '
         Me.id_rubro.HeaderText = "Rubro"
         Me.id_rubro.Name = "id_rubro"
+        Me.id_rubro.ReadOnly = True
         Me.id_rubro.Width = 120
         '
         'id_fabrica
         '
         Me.id_fabrica.HeaderText = "Fábrica"
         Me.id_fabrica.Name = "id_fabrica"
+        Me.id_fabrica.ReadOnly = True
         Me.id_fabrica.Width = 120
         '
         'Label7
@@ -181,7 +189,7 @@ Partial Class FormProductos
         Me.cbo_fabrica.Name = "cbo_fabrica"
         Me.cbo_fabrica.Size = New System.Drawing.Size(207, 25)
         Me.cbo_fabrica.TabIndex = 11
-        Me.cbo_fabrica.Text = "(seleccione fábrica)"
+        Me.cbo_fabrica.Text = "(Seleccione fábrica)"
         '
         'cbo_rubro
         '
@@ -194,7 +202,7 @@ Partial Class FormProductos
         Me.cbo_rubro.Name = "cbo_rubro"
         Me.cbo_rubro.Size = New System.Drawing.Size(207, 25)
         Me.cbo_rubro.TabIndex = 9
-        Me.cbo_rubro.Text = "(seleccione rubro)"
+        Me.cbo_rubro.Text = "(Seleccione rubro)"
         '
         'lbl_fabrica
         '
@@ -441,22 +449,10 @@ Partial Class FormProductos
         Me.Label8.Text = "  Administración de Productos"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'lbl_msj
-        '
-        Me.lbl_msj.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.lbl_msj.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lbl_msj.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_msj.ForeColor = System.Drawing.Color.White
-        Me.lbl_msj.Location = New System.Drawing.Point(746, 514)
-        Me.lbl_msj.Name = "lbl_msj"
-        Me.lbl_msj.Size = New System.Drawing.Size(382, 35)
-        Me.lbl_msj.TabIndex = 0
-        Me.lbl_msj.Text = " Mensajes"
-        Me.lbl_msj.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'btn_guardar
         '
         Me.btn_guardar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_guardar.Enabled = False
         Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_guardar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_guardar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
@@ -472,6 +468,7 @@ Partial Class FormProductos
         'btn_eliminar
         '
         Me.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_eliminar.Enabled = False
         Me.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_eliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_eliminar.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
@@ -614,7 +611,6 @@ Partial Class FormProductos
         Me.ClientSize = New System.Drawing.Size(1148, 636)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.gb_busqueda)
-        Me.Controls.Add(Me.lbl_msj)
         Me.Controls.Add(Me.btn_guardar)
         Me.Controls.Add(Me.btn_eliminar)
         Me.Controls.Add(Me.btn_nuevo)
@@ -660,7 +656,6 @@ Partial Class FormProductos
     Friend WithEvents btn_eliminar As Button
     Friend WithEvents btn_guardar As Button
     Friend WithEvents btn_buscarID As Button
-    Friend WithEvents lbl_msj As Label
     Friend WithEvents lbl_idERROR As Label
     Friend WithEvents id_producto As DataGridViewTextBoxColumn
     Friend WithEvents descrip As DataGridViewTextBoxColumn

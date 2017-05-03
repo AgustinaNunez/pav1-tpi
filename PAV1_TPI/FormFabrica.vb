@@ -18,12 +18,10 @@ Public Class FormFabrica
     End Enum
 
 
-
     Private Sub FormFabrica_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla_fabrica()
         txt_codigo_fabrica.Text = Format(GENERARCODIGO, "000")
     End Sub
-
 
     Private Sub cargar_grilla_fabrica()
         Dim tabla As New DataTable
@@ -64,9 +62,9 @@ Public Class FormFabrica
                 obj.Text = ""
 
             End If
+            Me.ocultar_lblERROR()
         Next
     End Sub
-
 
     Private Sub btn_nueva_fabrica_Click(sender As Object, e As EventArgs) Handles btn_nueva_fabrica.Click
         Me.borrar_datos()
@@ -78,24 +76,32 @@ Public Class FormFabrica
 
     End Sub
 
+    Private Sub ocultar_lblERROR()
+        lbl_nombreERROR.Visible = False
+        lbl_telefonoERROR.Visible = False
+
+    End Sub
+
     Private Function validar_datos() As respuesta_validacion
-        For Each obj As Windows.Forms.Control In Me.Controls
-            If obj.GetType().Name = "TextBox" Or obj.GetType().Name = "MaskedTextBox" Then
+        Me.ocultar_lblERROR()
+        Dim rdo = respuesta_validacion._ok
 
-                If obj.Text = "" Then
-                    MsgBox("El campo " + obj.Name + " está vacio.", MsgBoxStyle.OkOnly, "Error")
-                    obj.Focus()
-                    Return respuesta_validacion._error
-                End If
+        If txt_nombre_fabrica.Text = "" Then
+            lbl_nombreERROR.Visible = True
+            txt_nombre_fabrica.Focus()
+            rdo = respuesta_validacion._error
+            MsgBox("El nombre no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+        End If
 
+        If txt_telefono_fabrica.Text = "" Then
+            lbl_telefonoERROR.Visible = True
+            txt_telefono_fabrica.Focus()
+            rdo = respuesta_validacion._error
+            MsgBox("El telefono no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+        End If
 
-            End If
-
-        Next
-        Return respuesta_validacion._ok
-
+        Return rdo
     End Function
-
 
     Private Function validar_fabrica() As respuesta_validacion
         Dim tabla As New DataTable
@@ -112,7 +118,6 @@ Public Class FormFabrica
         Return respuesta_validacion._ok
 
     End Function
-
 
     Private Sub btn_guardar_fabrica_Click(sender As Object, e As EventArgs) Handles btn_guardar_fabrica.Click
         If validar_datos() = respuesta_validacion._ok Then
@@ -152,12 +157,13 @@ Public Class FormFabrica
         Me.btn_guardar_fabrica.Enabled = False
         Me.txt_nombre_fabrica.Enabled = False
         Me.txt_telefono_fabrica.Enabled = False
+        Me.btn_eliminar_fabrica.Enabled = False
 
         MsgBox("La carga de la fábrica fue exitosa", MessageBoxButtons.OK, "Cargar Fabrica")
 
+
+
     End Sub
-
-
 
     Private Sub Grilla_Fabrica_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles Grilla_Fabrica.CellContentDoubleClick
 
@@ -178,6 +184,7 @@ Public Class FormFabrica
         Me.txt_nombre_fabrica.Enabled = True
         Me.txt_telefono_fabrica.Enabled = True
         Me.btn_guardar_fabrica.Enabled = True
+        Me.btn_eliminar_fabrica.Enabled = True
 
 
 
@@ -196,8 +203,10 @@ Public Class FormFabrica
         MsgBox("La fabrica fue modificada exitosamente ", MessageBoxButtons.OK, "Exito")
         cargar_grilla_fabrica()
 
-    End Sub
+        Me.btn_eliminar_fabrica.Enabled = False
+        Me.btn_guardar_fabrica.Enabled = False
 
+    End Sub
 
     Private Sub btn_eliminar_fabrica_Click(sender As Object, e As EventArgs) Handles btn_eliminar_fabrica.Click
         Dim sql As String = ""
@@ -210,6 +219,8 @@ Public Class FormFabrica
             cargar_grilla_fabrica()
             Me.txt_nombre_fabrica.Enabled = False
             Me.txt_telefono_fabrica.Enabled = False
+            Me.btn_eliminar_fabrica.Enabled = False
+            Me.btn_guardar_fabrica.Enabled = False
         End If
 
         'If Me.Grilla_Fabrica.CurrentCell.Selected = False Then
@@ -220,14 +231,13 @@ Public Class FormFabrica
 
     End Sub
 
-
     Private Function GENERARCODIGO() As Integer
 
         Dim RG As New OleDbCommand
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = Soporte.cadena_conexion_georgi
+        conexion.ConnectionString = Soporte.cadena_conexion_juan
 
         conexion.Open()
         cmd.Connection = conexion
@@ -244,24 +254,36 @@ Public Class FormFabrica
 
     End Function
 
-
     Private Sub btn_buscar_fabrica_Click(sender As Object, e As EventArgs) Handles btn_buscar_fabrica.Click
         Dim tabla As New DataTable
         Dim sql As String = ""
 
         sql &= " SELECT * FROM fabricas WHERE nombre = '" & Me.txt_bucar_fabrica.Text & "'"
 
-        tabla = Soporte.consultarBD(sql)
+        If txt_bucar_fabrica.Text = "" Then
+            MsgBox("No existe valor de búsqueda", MsgBoxStyle.OkOnly, "Error")
+            txt_bucar_fabrica.Focus()
 
-        Dim c As Integer
-        Me.Grilla_Fabrica.Rows.Clear()
-        For c = 0 To tabla.Rows.Count - 1
+        Else
+            tabla = Soporte.consultarBD(sql)
 
-            Me.Grilla_Fabrica.Rows.Add()
-            Me.Grilla_Fabrica.Rows(c).Cells(0).Value = tabla.Rows(c)("nombre")
-            Me.Grilla_Fabrica.Rows(c).Cells(1).Value = tabla.Rows(c)("telefono")
-            Me.Grilla_Fabrica.Rows(c).Cells(2).Value = tabla.Rows(c)("id_fabrica")
-        Next
+            Dim c As Integer
+            Me.Grilla_Fabrica.Rows.Clear()
+            For c = 0 To tabla.Rows.Count - 1
+
+                Me.Grilla_Fabrica.Rows.Add()
+                Me.Grilla_Fabrica.Rows(c).Cells(0).Value = tabla.Rows(c)("nombre")
+                Me.Grilla_Fabrica.Rows(c).Cells(1).Value = tabla.Rows(c)("telefono")
+                Me.Grilla_Fabrica.Rows(c).Cells(2).Value = tabla.Rows(c)("id_fabrica")
+            Next
+
+            If tabla.Rows.Count = 0 Then
+                MsgBox("No se encontró ningun resultado", MsgBoxStyle.OkOnly, "Error")
+                cargar_grilla_fabrica()
+            End If
+
+        End If
+
     End Sub
 
     Private Sub FormFabrica_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
