@@ -55,7 +55,6 @@ Partial Class FormProductos
         Me.lbl_rubroERROR = New System.Windows.Forms.Label()
         Me.lbl_precioERROR = New System.Windows.Forms.Label()
         Me.lbl_idERROR = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.lbl_msj = New System.Windows.Forms.Label()
         Me.btn_guardar = New System.Windows.Forms.Button()
@@ -69,6 +68,7 @@ Partial Class FormProductos
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_listado.SuspendLayout()
         Me.gb_datos.SuspendLayout()
@@ -349,11 +349,11 @@ Partial Class FormProductos
         '
         'gb_datos
         '
+        Me.gb_datos.Controls.Add(Me.Label4)
         Me.gb_datos.Controls.Add(Me.lbl_fabricaERROR)
         Me.gb_datos.Controls.Add(Me.lbl_rubroERROR)
         Me.gb_datos.Controls.Add(Me.lbl_precioERROR)
         Me.gb_datos.Controls.Add(Me.lbl_idERROR)
-        Me.gb_datos.Controls.Add(Me.Label9)
         Me.gb_datos.Controls.Add(Me.txt_id)
         Me.gb_datos.Controls.Add(Me.lbl_id)
         Me.gb_datos.Controls.Add(Me.lbl_descripcion)
@@ -418,18 +418,6 @@ Partial Class FormProductos
         Me.lbl_idERROR.Size = New System.Drawing.Size(17, 17)
         Me.lbl_idERROR.TabIndex = 13
         Me.lbl_idERROR.Visible = False
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Enabled = False
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.Black
-        Me.Label9.Location = New System.Drawing.Point(19, 234)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(139, 17)
-        Me.Label9.TabIndex = 12
-        Me.Label9.Text = "(*) Campos obligatorios"
         '
         'Label8
         '
@@ -608,6 +596,17 @@ Partial Class FormProductos
         Me.Label3.Size = New System.Drawing.Size(109, 33)
         Me.Label3.TabIndex = 16
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Black
+        Me.Label4.Location = New System.Drawing.Point(6, 231)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(344, 17)
+        Me.Label4.TabIndex = 25
+        Me.Label4.Text = "Observación: Los campos marcados con (*) son obligatorios."
+        '
         'FormProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -662,7 +661,6 @@ Partial Class FormProductos
     Friend WithEvents btn_eliminar As Button
     Friend WithEvents btn_guardar As Button
     Friend WithEvents btn_buscarID As Button
-    Friend WithEvents Label9 As Label
     Friend WithEvents lbl_msj As Label
     Friend WithEvents lbl_idERROR As Label
     Friend WithEvents id_producto As DataGridViewTextBoxColumn
@@ -682,4 +680,5 @@ Partial Class FormProductos
     Friend WithEvents btn_buscarFABRICA As Button
     Friend WithEvents btn_buscarRUBRO As Button
     Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
 End Class

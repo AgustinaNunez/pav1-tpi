@@ -23,10 +23,11 @@ Partial Class FormUsuarios
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormUsuarios))
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.grilla_usuarios = New System.Windows.Forms.DataGridView()
+        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fecha_alta = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txt_fecha_alta = New System.Windows.Forms.MaskedTextBox()
@@ -44,51 +45,15 @@ Partial Class FormUsuarios
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt_id_usuario = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.groupBox = New System.Windows.Forms.GroupBox()
-        Me.cmd_buscar = New System.Windows.Forms.Button()
-        Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.cmd_grabar = New System.Windows.Forms.Button()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
-        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fecha_alta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmd_grabar = New System.Windows.Forms.Button()
+        Me.cmd_nuevo = New System.Windows.Forms.Button()
+        Me.cmd_buscar = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         CType(Me.grilla_usuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.groupBox.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label14.Location = New System.Drawing.Point(200, 286)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(13, 17)
-        Me.Label14.TabIndex = 35
-        Me.Label14.Text = "*"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label13.Location = New System.Drawing.Point(200, 253)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(13, 17)
-        Me.Label13.TabIndex = 34
-        Me.Label13.Text = "*"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label12.Location = New System.Drawing.Point(200, 220)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(13, 17)
-        Me.Label12.TabIndex = 33
-        Me.Label12.Text = "*"
         '
         'grilla_usuarios
         '
@@ -103,12 +68,38 @@ Partial Class FormUsuarios
         Me.grilla_usuarios.Size = New System.Drawing.Size(443, 300)
         Me.grilla_usuarios.TabIndex = 27
         '
+        'id_usuario
+        '
+        Me.id_usuario.HeaderText = "User Name"
+        Me.id_usuario.Name = "id_usuario"
+        Me.id_usuario.ReadOnly = True
+        '
+        'apellido
+        '
+        Me.apellido.HeaderText = "Apellido"
+        Me.apellido.Name = "apellido"
+        Me.apellido.ReadOnly = True
+        '
+        'nombre
+        '
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
+        '
+        'fecha_alta
+        '
+        Me.fecha_alta.HeaderText = "Fecha Alta"
+        Me.fecha_alta.Name = "fecha_alta"
+        Me.fecha_alta.ReadOnly = True
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.Black
         Me.Label9.Location = New System.Drawing.Point(61, 63)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(111, 17)
+        Me.Label9.Size = New System.Drawing.Size(109, 17)
         Me.Label9.TabIndex = 25
         Me.Label9.Text = "Nombre Usuario:"
         '
@@ -182,55 +173,56 @@ Partial Class FormUsuarios
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(113, 286)
+        Me.Label7.Location = New System.Drawing.Point(101, 291)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(89, 17)
+        Me.Label7.Size = New System.Drawing.Size(106, 17)
         Me.Label7.TabIndex = 17
-        Me.Label7.Text = "Fecha de Alta:"
+        Me.Label7.Text = "Fecha de Alta: (*)"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(16, 253)
+        Me.Label6.Location = New System.Drawing.Point(4, 258)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(186, 17)
+        Me.Label6.Size = New System.Drawing.Size(203, 17)
         Me.Label6.TabIndex = 16
-        Me.Label6.Text = "Vuelva a cargar la Contraseña:"
+        Me.Label6.Text = "Vuelva a cargar la Contraseña: (*)"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(125, 220)
+        Me.Label5.Location = New System.Drawing.Point(113, 225)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(77, 17)
+        Me.Label5.Size = New System.Drawing.Size(94, 17)
         Me.Label5.TabIndex = 15
-        Me.Label5.Text = "Contraseña:"
+        Me.Label5.Text = "Contraseña: (*)"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(143, 154)
+        Me.Label4.Location = New System.Drawing.Point(130, 159)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(60, 17)
+        Me.Label4.Size = New System.Drawing.Size(77, 17)
         Me.Label4.TabIndex = 14
-        Me.Label4.Text = "Nombre:"
+        Me.Label4.Text = "Nombre: (*)"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(143, 187)
+        Me.Label3.Location = New System.Drawing.Point(131, 192)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(59, 17)
+        Me.Label3.Size = New System.Drawing.Size(76, 17)
         Me.Label3.TabIndex = 13
-        Me.Label3.Text = "Apellido:"
+        Me.Label3.Text = "Apellido: (*)"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(21, 78)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(101, 17)
+        Me.Label2.Size = New System.Drawing.Size(102, 17)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Carga de Datos"
         '
@@ -257,21 +249,11 @@ Partial Class FormUsuarios
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(75, 121)
+        Me.Label15.Location = New System.Drawing.Point(62, 126)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(128, 17)
+        Me.Label15.Size = New System.Drawing.Size(145, 17)
         Me.Label15.TabIndex = 36
-        Me.Label15.Text = "Nombre de Usuario:"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label16.Location = New System.Drawing.Point(200, 121)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(13, 17)
-        Me.Label16.TabIndex = 37
-        Me.Label16.Text = "*"
+        Me.Label15.Text = "Nombre de Usuario: (*)"
         '
         'groupBox
         '
@@ -279,7 +261,8 @@ Partial Class FormUsuarios
         Me.groupBox.Controls.Add(Me.grilla_usuarios)
         Me.groupBox.Controls.Add(Me.txt_buscar_usuario)
         Me.groupBox.Controls.Add(Me.Label9)
-        Me.groupBox.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.groupBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.groupBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.groupBox.Location = New System.Drawing.Point(427, 78)
         Me.groupBox.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.groupBox.Name = "groupBox"
@@ -289,100 +272,78 @@ Partial Class FormUsuarios
         Me.groupBox.TabStop = False
         Me.groupBox.Text = "Listado de Usuarios"
         '
+        'cmd_eliminar
+        '
+        Me.cmd_eliminar.AutoEllipsis = True
+        Me.cmd_eliminar.BackColor = System.Drawing.Color.White
+        Me.cmd_eliminar.Enabled = False
+        Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_eliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.cmd_eliminar.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
+        Me.cmd_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_eliminar.Location = New System.Drawing.Point(24, 413)
+        Me.cmd_eliminar.Name = "cmd_eliminar"
+        Me.cmd_eliminar.Size = New System.Drawing.Size(100, 40)
+        Me.cmd_eliminar.TabIndex = 7
+        Me.cmd_eliminar.Text = "Eliminar"
+        Me.cmd_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmd_eliminar.UseVisualStyleBackColor = False
+        '
+        'cmd_grabar
+        '
+        Me.cmd_grabar.BackColor = System.Drawing.Color.White
+        Me.cmd_grabar.Enabled = False
+        Me.cmd_grabar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_grabar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.cmd_grabar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
+        Me.cmd_grabar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_grabar.Location = New System.Drawing.Point(24, 459)
+        Me.cmd_grabar.Name = "cmd_grabar"
+        Me.cmd_grabar.Size = New System.Drawing.Size(100, 41)
+        Me.cmd_grabar.TabIndex = 8
+        Me.cmd_grabar.Text = "Guardar"
+        Me.cmd_grabar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmd_grabar.UseVisualStyleBackColor = False
+        '
+        'cmd_nuevo
+        '
+        Me.cmd_nuevo.BackColor = System.Drawing.Color.White
+        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmd_nuevo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.cmd_nuevo.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
+        Me.cmd_nuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_nuevo.Location = New System.Drawing.Point(24, 367)
+        Me.cmd_nuevo.Name = "cmd_nuevo"
+        Me.cmd_nuevo.Size = New System.Drawing.Size(99, 40)
+        Me.cmd_nuevo.TabIndex = 6
+        Me.cmd_nuevo.Text = "Nuevo"
+        Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmd_nuevo.UseVisualStyleBackColor = False
+        '
         'cmd_buscar
         '
-        Me.cmd_buscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.cmd_buscar.BackColor = System.Drawing.Color.White
         Me.cmd_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmd_buscar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd_buscar.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.cmd_buscar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.cmd_buscar.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
+        Me.cmd_buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_buscar.Location = New System.Drawing.Point(298, 55)
         Me.cmd_buscar.Name = "cmd_buscar"
-        Me.cmd_buscar.Size = New System.Drawing.Size(77, 27)
+        Me.cmd_buscar.Size = New System.Drawing.Size(118, 27)
         Me.cmd_buscar.TabIndex = 1
         Me.cmd_buscar.Text = "Buscar"
         Me.cmd_buscar.UseVisualStyleBackColor = False
         '
-        'cmd_nuevo
-        '
-        Me.cmd_nuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.cmd_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_nuevo.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.cmd_nuevo.Location = New System.Drawing.Point(24, 377)
-        Me.cmd_nuevo.Name = "cmd_nuevo"
-        Me.cmd_nuevo.Size = New System.Drawing.Size(100, 30)
-        Me.cmd_nuevo.TabIndex = 6
-        Me.cmd_nuevo.Text = "Nuevo"
-        Me.cmd_nuevo.UseVisualStyleBackColor = False
-        '
-        'cmd_grabar
-        '
-        Me.cmd_grabar.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.cmd_grabar.Enabled = False
-        Me.cmd_grabar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_grabar.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.cmd_grabar.Location = New System.Drawing.Point(24, 470)
-        Me.cmd_grabar.Name = "cmd_grabar"
-        Me.cmd_grabar.Size = New System.Drawing.Size(100, 30)
-        Me.cmd_grabar.TabIndex = 8
-        Me.cmd_grabar.Text = "Guardar"
-        Me.cmd_grabar.UseVisualStyleBackColor = False
-        '
-        'cmd_eliminar
-        '
-        Me.cmd_eliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.cmd_eliminar.Enabled = False
-        Me.cmd_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_eliminar.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.cmd_eliminar.Location = New System.Drawing.Point(24, 423)
-        Me.cmd_eliminar.Name = "cmd_eliminar"
-        Me.cmd_eliminar.Size = New System.Drawing.Size(100, 30)
-        Me.cmd_eliminar.TabIndex = 7
-        Me.cmd_eliminar.Text = "Eliminar"
-        Me.cmd_eliminar.UseVisualStyleBackColor = False
-        '
-        'id_usuario
-        '
-        Me.id_usuario.HeaderText = "User Name"
-        Me.id_usuario.Name = "id_usuario"
-        Me.id_usuario.ReadOnly = True
-        '
-        'apellido
-        '
-        Me.apellido.HeaderText = "Apellido"
-        Me.apellido.Name = "apellido"
-        Me.apellido.ReadOnly = True
-        '
-        'nombre
-        '
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        '
-        'fecha_alta
-        '
-        Me.fecha_alta.HeaderText = "Fecha Alta"
-        Me.fecha_alta.Name = "fecha_alta"
-        Me.fecha_alta.ReadOnly = True
-        '
         'Label10
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(200, 187)
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.Black
+        Me.Label10.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
+        Me.Label10.Location = New System.Drawing.Point(824, 11)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(13, 17)
-        Me.Label10.TabIndex = 37
-        Me.Label10.Text = "*"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(200, 154)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(13, 17)
-        Me.Label11.TabIndex = 37
-        Me.Label11.Text = "*"
+        Me.Label10.Size = New System.Drawing.Size(109, 33)
+        Me.Label10.TabIndex = 28
         '
         'FormUsuarios
         '
@@ -390,17 +351,12 @@ Partial Class FormUsuarios
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(945, 512)
+        Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_grabar)
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.groupBox)
-        Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.Label14)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txt_fecha_alta)
         Me.Controls.Add(Me.txt_contraseña2)
@@ -429,9 +385,6 @@ Partial Class FormUsuarios
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents grilla_usuarios As System.Windows.Forms.DataGridView
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
@@ -450,7 +403,6 @@ Partial Class FormUsuarios
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txt_id_usuario As System.Windows.Forms.TextBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents groupBox As System.Windows.Forms.GroupBox
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
     Friend WithEvents cmd_grabar As System.Windows.Forms.Button
@@ -461,5 +413,4 @@ Partial Class FormUsuarios
     Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents fecha_alta As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Label11 As System.Windows.Forms.Label
 End Class

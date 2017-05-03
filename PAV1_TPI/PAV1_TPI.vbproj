@@ -210,5 +210,8 @@
   <ItemGroup>
     <None Include="Resources\close-cross16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\puerta.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

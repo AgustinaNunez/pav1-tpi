@@ -29,20 +29,21 @@ Partial Class FormFabrica
         Me.id_fabrica = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt_nombre_fabrica = New System.Windows.Forms.TextBox()
-        Me.btn_guardar_fabrica = New System.Windows.Forms.Button()
-        Me.btn_eliminar_fabrica = New System.Windows.Forms.Button()
-        Me.btn_nueva_fabrica = New System.Windows.Forms.Button()
         Me.txt_telefono_fabrica = New System.Windows.Forms.MaskedTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btn_buscar_fabrica = New System.Windows.Forms.Button()
         Me.labelbuscar = New System.Windows.Forms.Label()
         Me.txt_bucar_fabrica = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txt_codigo_fabrica = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btn_buscar_fabrica = New System.Windows.Forms.Button()
+        Me.btn_guardar_fabrica = New System.Windows.Forms.Button()
+        Me.btn_eliminar_fabrica = New System.Windows.Forms.Button()
+        Me.btn_nueva_fabrica = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.Grilla_Fabrica, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -97,52 +98,17 @@ Partial Class FormFabrica
         '
         Me.txt_nombre_fabrica.Enabled = False
         Me.txt_nombre_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_nombre_fabrica.Location = New System.Drawing.Point(496, 102)
+        Me.txt_nombre_fabrica.Location = New System.Drawing.Point(514, 96)
         Me.txt_nombre_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_nombre_fabrica.Name = "txt_nombre_fabrica"
         Me.txt_nombre_fabrica.Size = New System.Drawing.Size(259, 25)
         Me.txt_nombre_fabrica.TabIndex = 1
         '
-        'btn_guardar_fabrica
-        '
-        Me.btn_guardar_fabrica.Enabled = False
-        Me.btn_guardar_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_guardar_fabrica.Location = New System.Drawing.Point(429, 253)
-        Me.btn_guardar_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_guardar_fabrica.Name = "btn_guardar_fabrica"
-        Me.btn_guardar_fabrica.Size = New System.Drawing.Size(150, 35)
-        Me.btn_guardar_fabrica.TabIndex = 4
-        Me.btn_guardar_fabrica.Text = "Guardar Fábrica"
-        Me.btn_guardar_fabrica.UseVisualStyleBackColor = True
-        '
-        'btn_eliminar_fabrica
-        '
-        Me.btn_eliminar_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_eliminar_fabrica.Location = New System.Drawing.Point(429, 296)
-        Me.btn_eliminar_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_eliminar_fabrica.Name = "btn_eliminar_fabrica"
-        Me.btn_eliminar_fabrica.Size = New System.Drawing.Size(150, 35)
-        Me.btn_eliminar_fabrica.TabIndex = 5
-        Me.btn_eliminar_fabrica.Text = "Eliminar Fábrica"
-        Me.btn_eliminar_fabrica.UseVisualStyleBackColor = True
-        '
-        'btn_nueva_fabrica
-        '
-        Me.btn_nueva_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_nueva_fabrica.ForeColor = System.Drawing.Color.Black
-        Me.btn_nueva_fabrica.Location = New System.Drawing.Point(429, 210)
-        Me.btn_nueva_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_nueva_fabrica.Name = "btn_nueva_fabrica"
-        Me.btn_nueva_fabrica.Size = New System.Drawing.Size(150, 35)
-        Me.btn_nueva_fabrica.TabIndex = 3
-        Me.btn_nueva_fabrica.Text = "Nueva Fábrica"
-        Me.btn_nueva_fabrica.UseVisualStyleBackColor = True
-        '
         'txt_telefono_fabrica
         '
         Me.txt_telefono_fabrica.Enabled = False
         Me.txt_telefono_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_telefono_fabrica.Location = New System.Drawing.Point(496, 133)
+        Me.txt_telefono_fabrica.Location = New System.Drawing.Point(514, 128)
         Me.txt_telefono_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_telefono_fabrica.Mask = "99999999999"
         Me.txt_telefono_fabrica.Name = "txt_telefono_fabrica"
@@ -155,19 +121,19 @@ Partial Class FormFabrica
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(431, 136)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(62, 17)
+        Me.Label3.Size = New System.Drawing.Size(82, 17)
         Me.Label3.TabIndex = 37
-        Me.Label3.Text = "Teléfono "
+        Me.Label3.Text = "Teléfono : (*)"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(431, 104)
+        Me.Label2.Location = New System.Drawing.Point(436, 104)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(61, 17)
+        Me.Label2.Size = New System.Drawing.Size(77, 17)
         Me.Label2.TabIndex = 36
-        Me.Label2.Text = "Nombre "
+        Me.Label2.Text = "Nombre: (*)"
         '
         'Label10
         '
@@ -192,21 +158,11 @@ Partial Class FormFabrica
         Me.Label1.TabIndex = 34
         Me.Label1.Text = "Administración de Fábricas"
         '
-        'btn_buscar_fabrica
-        '
-        Me.btn_buscar_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_buscar_fabrica.Location = New System.Drawing.Point(250, 43)
-        Me.btn_buscar_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_buscar_fabrica.Name = "btn_buscar_fabrica"
-        Me.btn_buscar_fabrica.Size = New System.Drawing.Size(150, 35)
-        Me.btn_buscar_fabrica.TabIndex = 1
-        Me.btn_buscar_fabrica.Text = "Buscar Fábrica"
-        Me.btn_buscar_fabrica.UseVisualStyleBackColor = True
-        '
         'labelbuscar
         '
         Me.labelbuscar.AutoSize = True
         Me.labelbuscar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelbuscar.ForeColor = System.Drawing.Color.Black
         Me.labelbuscar.Location = New System.Drawing.Point(5, 51)
         Me.labelbuscar.Name = "labelbuscar"
         Me.labelbuscar.Size = New System.Drawing.Size(64, 17)
@@ -226,17 +182,17 @@ Partial Class FormFabrica
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(437, 73)
+        Me.Label4.Location = New System.Drawing.Point(442, 73)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(51, 17)
+        Me.Label4.Size = New System.Drawing.Size(71, 17)
         Me.Label4.TabIndex = 36
-        Me.Label4.Text = "Codigo"
+        Me.Label4.Text = "Codigo: (*)"
         '
         'txt_codigo_fabrica
         '
         Me.txt_codigo_fabrica.Enabled = False
         Me.txt_codigo_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_codigo_fabrica.Location = New System.Drawing.Point(496, 71)
+        Me.txt_codigo_fabrica.Location = New System.Drawing.Point(514, 65)
         Me.txt_codigo_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_codigo_fabrica.Name = "txt_codigo_fabrica"
         Me.txt_codigo_fabrica.Size = New System.Drawing.Size(259, 25)
@@ -248,6 +204,8 @@ Partial Class FormFabrica
         Me.GroupBox1.Controls.Add(Me.labelbuscar)
         Me.GroupBox1.Controls.Add(Me.btn_buscar_fabrica)
         Me.GroupBox1.Controls.Add(Me.txt_bucar_fabrica)
+        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 53)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(408, 394)
@@ -255,12 +213,91 @@ Partial Class FormFabrica
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Búsqueda de Fabricas"
         '
+        'btn_buscar_fabrica
+        '
+        Me.btn_buscar_fabrica.BackColor = System.Drawing.Color.White
+        Me.btn_buscar_fabrica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_buscar_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_buscar_fabrica.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_buscar_fabrica.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
+        Me.btn_buscar_fabrica.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_buscar_fabrica.Location = New System.Drawing.Point(250, 43)
+        Me.btn_buscar_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_buscar_fabrica.Name = "btn_buscar_fabrica"
+        Me.btn_buscar_fabrica.Size = New System.Drawing.Size(150, 35)
+        Me.btn_buscar_fabrica.TabIndex = 1
+        Me.btn_buscar_fabrica.Text = "Buscar Fábrica"
+        Me.btn_buscar_fabrica.UseVisualStyleBackColor = False
+        '
+        'btn_guardar_fabrica
+        '
+        Me.btn_guardar_fabrica.BackColor = System.Drawing.Color.White
+        Me.btn_guardar_fabrica.Enabled = False
+        Me.btn_guardar_fabrica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_guardar_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_guardar_fabrica.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_guardar_fabrica.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
+        Me.btn_guardar_fabrica.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_guardar_fabrica.Location = New System.Drawing.Point(429, 315)
+        Me.btn_guardar_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_guardar_fabrica.Name = "btn_guardar_fabrica"
+        Me.btn_guardar_fabrica.Size = New System.Drawing.Size(150, 43)
+        Me.btn_guardar_fabrica.TabIndex = 4
+        Me.btn_guardar_fabrica.Text = "Guardar Fábrica"
+        Me.btn_guardar_fabrica.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_guardar_fabrica.UseVisualStyleBackColor = False
+        '
+        'btn_eliminar_fabrica
+        '
+        Me.btn_eliminar_fabrica.BackColor = System.Drawing.Color.White
+        Me.btn_eliminar_fabrica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_eliminar_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_eliminar_fabrica.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_eliminar_fabrica.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
+        Me.btn_eliminar_fabrica.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_eliminar_fabrica.Location = New System.Drawing.Point(429, 262)
+        Me.btn_eliminar_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_eliminar_fabrica.Name = "btn_eliminar_fabrica"
+        Me.btn_eliminar_fabrica.Size = New System.Drawing.Size(150, 45)
+        Me.btn_eliminar_fabrica.TabIndex = 5
+        Me.btn_eliminar_fabrica.Text = "Eliminar Fábrica"
+        Me.btn_eliminar_fabrica.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_eliminar_fabrica.UseVisualStyleBackColor = False
+        '
+        'btn_nueva_fabrica
+        '
+        Me.btn_nueva_fabrica.BackColor = System.Drawing.Color.White
+        Me.btn_nueva_fabrica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_nueva_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_nueva_fabrica.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_nueva_fabrica.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
+        Me.btn_nueva_fabrica.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_nueva_fabrica.Location = New System.Drawing.Point(429, 211)
+        Me.btn_nueva_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_nueva_fabrica.Name = "btn_nueva_fabrica"
+        Me.btn_nueva_fabrica.Size = New System.Drawing.Size(150, 43)
+        Me.btn_nueva_fabrica.TabIndex = 3
+        Me.btn_nueva_fabrica.Text = "Nueva Fábrica"
+        Me.btn_nueva_fabrica.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_nueva_fabrica.UseVisualStyleBackColor = False
+        '
+        'Label5
+        '
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Black
+        Me.Label5.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
+        Me.Label5.Location = New System.Drawing.Point(657, 409)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(109, 33)
+        Me.Label5.TabIndex = 47
+        '
         'FormFabrica
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(778, 451)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txt_codigo_fabrica)
@@ -308,4 +345,5 @@ Partial Class FormFabrica
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txt_codigo_fabrica As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
 End Class

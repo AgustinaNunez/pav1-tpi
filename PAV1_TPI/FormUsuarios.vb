@@ -75,7 +75,7 @@
         Return respuesta_validacion._ok
     End Function
 
-    'FUNCION PARA VALIDAR UN usuario (PARA QUE NO EXISTA)
+    'FUNCION PARA VALIDAR UN USUARIO (QUE NO EXISTIESE UN USUARIO PREVIAMENTE CON ESE NOMBRE DE USUARIO)
     Private Function validar_persona() As respuesta_validacion
         Dim tabla As New DataTable
         Dim sql As String = ""
@@ -89,6 +89,8 @@
 
         Return respuesta_validacion._ok
     End Function
+
+
     'SUBRUTINA PARA INSERTAR DATOS
     Private Sub insertar()
         Dim sql As String = ""
@@ -120,7 +122,7 @@
 
 
 
-    'SUBRUTINA PARA MODIFICAR usuarios
+    'SUBRUTINA PARA MODIFICAR USUARIOS
     Private Sub modificar()
         Dim sql As String = ""
         sql &= " UPDATE usuarios SET "
@@ -132,6 +134,7 @@
         sql &= " WHERE id_usuario= '" & Me.txt_id_usuario.Text & "'"
         Soporte.actualizarBD(sql)
         MsgBox("El usuario fue modificado", MessageBoxButtons.OK, "Exito")
+        borrar_datos()
         cargar_grilla_usuarios()
     End Sub
 
@@ -146,8 +149,9 @@
     End Sub
 
 
-    'BOTON PARA BLANQUEAR NUEVO usuario
+    'BOTON PARA BLANQUEAR NUEVO USUARIO
     Private Sub cmd_nuevo_Click_1(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
+
         'If MessageBox.Show("¿Está seguro que desea eliminar los datos ingresados?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
         Me.borrar_datos()
         Me.accion = tipo_grabacion.insertar
@@ -162,8 +166,11 @@
         Me.txt_id_usuario.Focus()
         Me.cargar_grilla_usuarios()
         'End If
+
     End Sub
-    'SUBRUTINA PARA BORRAR usuarios
+
+
+    'SUBRUTINA PARA BORRAR USUARIOS
     Private Sub cmd_eliminar_Click_1(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
         Dim sql As String = ""
         sql &= "DELETE usuarios WHERE id_usuario = '" & Me.grilla_usuarios.CurrentRow.Cells(0).Value & "'"
@@ -177,7 +184,7 @@
             MessageBox.Show("Falta seleccionar dato en grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
         Me.cmd_grabar.Enabled = False
-        Me.cmd_eliminar.Enabled = True
+        Me.cmd_eliminar.Enabled = False
         Me.txt_id_usuario.Enabled = False
         Me.txt_apellido.Enabled = False
         Me.txt_nombre.Enabled = False
@@ -185,8 +192,12 @@
         Me.txt_contraseña2.Enabled = False
         Me.txt_fecha_alta.Enabled = False
         Me.cmd_nuevo.Enabled = True
-        Me.txt_buscar_usuario.Focus()
+        borrar_datos()
+        Me.txt_id_usuario.Focus()
+
     End Sub
+
+
     'BOTON GRABAR
     Private Sub cmd_grabar_Click_1(sender As Object, e As EventArgs) Handles cmd_grabar.Click
         If validar_datos() = respuesta_validacion._ok Then
@@ -198,7 +209,7 @@
                     insertar()
                 Else
                     MsgBox("El nombre de usuario ya existe, por favor, modificarlo", MsgBoxStyle.OkOnly, "Error")
-                    Me.borrar_datos()
+                    Me.txt_id_usuario.Text = ""
 
                 End If
             Else
@@ -208,7 +219,9 @@
 
         End If
     End Sub
+
     'BUSCAR UN USUARIO POR SU ID_USUARIO
+
     Private Sub cmd_buscar_Click_1(sender As Object, e As EventArgs) Handles cmd_buscar.Click
         Dim sql As String = ""
         Dim tabla As New DataTable
@@ -235,7 +248,7 @@
             cargar_grilla_usuarios()
         End If
     End Sub
-    'INTERACCION CON LA GRILLA
+    'INTERACCION CON LA GRILLA (DOBLE CLICK)
     Private Sub grilla_usuarios_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grilla_usuarios.CellContentDoubleClick
         Dim sql As String = ""
         Dim tabla As New DataTable
@@ -251,6 +264,7 @@
         Me.txt_contraseña1.Text = tabla.Rows(0)("contraseña")
         Me.txt_fecha_alta.Text = tabla.Rows(0)("fecha_alta")
         Me.accion = tipo_grabacion.modificar
+        Me.txt_contraseña2.Text = Me.txt_contraseña1.Text
         Me.cmd_eliminar.Enabled = True
         Me.txt_id_usuario.Enabled = True
         Me.txt_apellido.Enabled = True
@@ -259,6 +273,16 @@
         Me.txt_contraseña1.Enabled = True
         Me.txt_contraseña2.Enabled = True
         Me.cmd_grabar.Enabled = True
-        Me.cmd_nuevo.Enabled = False
+        Me.cmd_nuevo.Enabled = True
     End Sub
+
+    'Private Sub txt_apellido_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_apellido.KeyPress
+    'If e.KeyChar() Like "*" Then
+    'Else
+    'e.KeyChar = ""
+    'MsgBox("Valor ingresado incorrecto, solo letras")
+    'End If
+
+    'End Sub
+
 End Class
