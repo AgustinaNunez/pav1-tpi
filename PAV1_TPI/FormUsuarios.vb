@@ -16,7 +16,6 @@
 
     Private Sub FormUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla_usuarios()
-
     End Sub
 
     'SUBRUTINA PARA CARGAR GRILLAS
@@ -25,7 +24,7 @@
         Dim sql_cargar_grilla As String = ""
 
         sql_cargar_grilla &= " SELECT * FROM  usuarios "
-        tabla = Soporte.consultarBD(sql_cargar_grilla)
+        tabla = Soporte.leerBD(sql_cargar_grilla)
 
         Dim c As Integer
         Me.grilla_usuarios.Rows.Clear()
@@ -57,9 +56,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
         sql &= "SELECT id_usuario FROM usuarios WHERE id_usuario = '" & Me.txt_id_usuario.Text & "'"
-
-        tabla = Soporte.consultarBD(sql)
-
+        tabla = Soporte.leerBD(sql)
         If tabla.Rows.Count = 1 Then
             Return respuesta_validacion._error
         End If
@@ -84,7 +81,7 @@
         sql &= ", '" & Me.txt_contraseña1.Text & "'"
         sql &= ", '" & Me.txt_fecha_alta.Text & " ')"
         MsgBox("La carga del usuario fue exitosa", MessageBoxButtons.OK, "Carga Usuario")
-        Soporte.actualizarBD(sql)
+        Soporte.escribirBD(sql)
         Me.cargar_grilla_usuarios()
         borrar_datos()
         Me.cmd_grabar.Enabled = False
@@ -106,7 +103,7 @@
         sql &= ", contraseña = '" & Me.txt_contraseña1.Text & "'"
         sql &= ", fecha_alta = '" & Me.txt_fecha_alta.Text & "'"
         sql &= " WHERE id_usuario= '" & Me.txt_id_usuario.Text & "'"
-        Soporte.actualizarBD(sql)
+        Soporte.escribirBD(sql)
         MsgBox("El usuario fue modificado", MessageBoxButtons.OK, "Exito")
         borrar_datos()
         cargar_grilla_usuarios()
@@ -133,10 +130,11 @@
         Me.txt_nombre.Enabled = True
         Me.txt_contraseña1.Enabled = True
         Me.txt_contraseña2.Enabled = True
-        Me.txt_fecha_alta.Enabled = True
+        Me.txt_fecha_alta.Enabled = False
         Me.txt_fecha_alta.Text = DateTime.Now.ToString("d/M/yyyy")
         Me.txt_id_usuario.Focus()
         Me.cargar_grilla_usuarios()
+        lbl_msj.Visible = False
         'End If
 
     End Sub
@@ -145,29 +143,11 @@
     Private Function validar_campos() As respuesta_validacion
         Me.ocultar_lblERROR()
         Dim rdo = respuesta_validacion._ok
-        If txt_id_usuario.Text = "" Then
-            lbl_usuarioERROR.Visible = True
-            txt_id_usuario.Focus()
-            rdo = respuesta_validacion._error
-            MsgBox("El id de usuario no fue ingresado", MsgBoxStyle.OkOnly, "Error")
-        End If
-        If txt_nombre.Text = "" Then
-            lbl_nombreERROR.Visible = True
-            txt_nombre.Focus()
-            rdo = respuesta_validacion._error
-            MsgBox("El nombre no fue ingresado", MsgBoxStyle.OkOnly, "Error")
-        End If
-        If txt_apellido.Text = "" Then
-            lbl_apellidoERROR.Visible = True
-            txt_apellido.Focus()
-            rdo = respuesta_validacion._error
-            MsgBox("El apellido no fue ingresado", MsgBoxStyle.OkOnly, "Error")
-        End If
         If txt_contraseña1.Text = "" Then
             lbl_constraseñaERROR.Visible = True
             txt_contraseña1.Focus()
             rdo = respuesta_validacion._error
-            MsgBox("La contraseña no fue ingresada", MsgBoxStyle.OkOnly, "Error")
+            'MsgBox("La contraseña no fue ingresada", MsgBoxStyle.OkOnly, "Error")
         End If
 
         'If txt_contraseña2.Text = "" Then
@@ -178,24 +158,38 @@
         'End If
 
         If Me.txt_contraseña1.Text <> Me.txt_contraseña2.Text Then
-            MsgBox("Error al repetir la contraseña, vuelva a ingresarla", MessageBoxButtons.OK, "Carga Usuario")
+            MessageBox.Show("Error al repetir la contraseña, vuelva a ingresarla", "Carga Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Me.txt_contraseña1.Text = ""
             Me.txt_contraseña2.Text = ""
             rdo = respuesta_validacion._error
             lbl_contraseña2ERROR.Visible = True
             Me.txt_contraseña1.Focus()
         End If
-
-        If txt_fecha_alta.Text = "" Then
-            lbl_fechaERROR.Visible = True
-            txt_fecha_alta.Focus()
+        'If txt_fecha_alta.Text = "" Then
+        '    lbl_fechaERROR.Visible = True
+        '    txt_fecha_alta.Focus()
+        '    rdo = respuesta_validacion._error
+        '    MsgBox("La fecha de alta no fue ingresada", MsgBoxStyle.OkOnly, "Error")
+        'End If
+        If txt_apellido.Text = "" Then
+            lbl_apellidoERROR.Visible = True
+            txt_apellido.Focus()
             rdo = respuesta_validacion._error
-            MsgBox("La fecha de alta no fue ingresada", MsgBoxStyle.OkOnly, "Error")
+            'MsgBox("El apellido no fue ingresado", MsgBoxStyle.OkOnly, "Error")
         End If
-
-
+        If txt_nombre.Text = "" Then
+            lbl_nombreERROR.Visible = True
+            txt_nombre.Focus()
+            rdo = respuesta_validacion._error
+            'MsgBox("El nombre no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+        End If
+        If txt_id_usuario.Text = "" Then
+            lbl_usuarioERROR.Visible = True
+            txt_id_usuario.Focus()
+            rdo = respuesta_validacion._error
+            'MsgBox("El id de usuario no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+        End If
         Return rdo
-
     End Function
 
     'SUBRUTINA QUE OCULTA LOS X
@@ -214,7 +208,7 @@
         sql &= "DELETE usuarios WHERE id_usuario = '" & Me.grilla_usuarios.CurrentRow.Cells(0).Value & "'"
 
         If MessageBox.Show("¿Está seguro que quiere eliminar el registro?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-            Soporte.actualizarBD(sql)
+            Soporte.escribirBD(sql)
             MsgBox("Se borraron los datos exitosamente", MessageBoxButtons.OK, "Eliminación Usuario")
             cargar_grilla_usuarios()
         End If
@@ -238,22 +232,19 @@
     'BOTON GRABAR
     Private Sub cmd_grabar_Click_1(sender As Object, e As EventArgs) Handles cmd_grabar.Click
         If validar_campos() = respuesta_validacion._ok Then
-
             If accion = tipo_grabacion.insertar Then
-
                 If validar_persona() = respuesta_validacion._ok Then
-
                     insertar()
                 Else
                     MsgBox("El nombre de usuario ya existe, por favor, modificarlo", MsgBoxStyle.OkOnly, "Error")
                     Me.txt_id_usuario.Text = ""
-
                 End If
             Else
                 modificar()
-
             End If
-
+        Else
+            lbl_msj.Text = " Faltan campos obligatorios."
+            lbl_msj.Visible = True
         End If
     End Sub
 
@@ -263,20 +254,15 @@
         Dim tabla As New DataTable
         sql &= "SELECT * FROM usuarios "
         sql &= " WHERE id_usuario = '" & Me.txt_buscar_usuario.Text & "'"
-
-        tabla = Soporte.consultarBD(sql)
-
+        tabla = Soporte.leerBD(sql)
         Dim c As Integer
         Me.grilla_usuarios.Rows.Clear()
         For c = 0 To tabla.Rows.Count - 1
-
             Me.grilla_usuarios.Rows.Add()
             Me.grilla_usuarios.Rows(c).Cells(0).Value = tabla.Rows(c)("id_usuario")
             Me.grilla_usuarios.Rows(c).Cells(1).Value = tabla.Rows(c)("nombre")
             Me.grilla_usuarios.Rows(c).Cells(2).Value = tabla.Rows(c)("apellido")
             Me.grilla_usuarios.Rows(c).Cells(3).Value = tabla.Rows(c)("fecha_alta")
-
-
         Next
 
         If tabla.Rows.Count = 0 Then
@@ -289,11 +275,9 @@
     Private Sub grilla_usuarios_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grilla_usuarios.CellContentDoubleClick
         Dim sql As String = ""
         Dim tabla As New DataTable
-
         sql &= " SELECT * FROM usuarios "
         sql &= " WHERE id_usuario = '" & Me.grilla_usuarios.CurrentRow.Cells(0).Value & "'"
-
-        tabla = Soporte.consultarBD(sql)
+        tabla = Soporte.leerBD(sql)
 
         Me.txt_id_usuario.Text = tabla.Rows(0)("id_usuario")
         Me.txt_nombre.Text = tabla.Rows(0)("nombre")
@@ -327,8 +311,6 @@
     Private Function validar_datos() As respuesta_validacion
         For Each obj As Windows.Forms.Control In Me.Controls
             If obj.GetType().Name = "TextBox" Or obj.GetType().Name = "MaskedTextBox" Then
-
-
                 If obj.Text = "" Then
                     MsgBox("El campo " + obj.Name + "esta vacio.", MsgBoxStyle.OkOnly, "Error")
                     obj.Focus()
@@ -338,7 +320,5 @@
         Next
         Return respuesta_validacion._ok
     End Function
-
-
 
 End Class

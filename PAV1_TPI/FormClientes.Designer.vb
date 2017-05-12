@@ -41,17 +41,9 @@ Partial Class FormClientes
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btn_buscar_cliente = New System.Windows.Forms.Button()
         Me.grid_clientes = New System.Windows.Forms.DataGridView()
-        Me.col_apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_tipo_documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_email = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txt_numero_documento_cliente_busqueda = New System.Windows.Forms.TextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.txt_numero_documento_carga = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -59,8 +51,17 @@ Partial Class FormClientes
         Me.lbl_nombreERROR = New System.Windows.Forms.Label()
         Me.lbl_tipodocERROR = New System.Windows.Forms.Label()
         Me.lbl_documentoERROR = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.col_apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_tipo_documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_email = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.grid_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'btn_nuevo_cliente_carga
@@ -70,11 +71,11 @@ Partial Class FormClientes
         Me.btn_nuevo_cliente_carga.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_nuevo_cliente_carga.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
         Me.btn_nuevo_cliente_carga.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_nuevo_cliente_carga.Location = New System.Drawing.Point(714, 327)
+        Me.btn_nuevo_cliente_carga.Location = New System.Drawing.Point(692, 331)
         Me.btn_nuevo_cliente_carga.Name = "btn_nuevo_cliente_carga"
-        Me.btn_nuevo_cliente_carga.Size = New System.Drawing.Size(150, 42)
+        Me.btn_nuevo_cliente_carga.Size = New System.Drawing.Size(103, 42)
         Me.btn_nuevo_cliente_carga.TabIndex = 6
-        Me.btn_nuevo_cliente_carga.Text = "Nuevo Cliente"
+        Me.btn_nuevo_cliente_carga.Text = "Nuevo"
         Me.btn_nuevo_cliente_carga.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_nuevo_cliente_carga.UseVisualStyleBackColor = False
         '
@@ -86,11 +87,11 @@ Partial Class FormClientes
         Me.btn_eliminar_cliente_carga.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_eliminar_cliente_carga.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
         Me.btn_eliminar_cliente_carga.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_eliminar_cliente_carga.Location = New System.Drawing.Point(714, 388)
+        Me.btn_eliminar_cliente_carga.Location = New System.Drawing.Point(800, 331)
         Me.btn_eliminar_cliente_carga.Name = "btn_eliminar_cliente_carga"
-        Me.btn_eliminar_cliente_carga.Size = New System.Drawing.Size(150, 44)
+        Me.btn_eliminar_cliente_carga.Size = New System.Drawing.Size(103, 42)
         Me.btn_eliminar_cliente_carga.TabIndex = 8
-        Me.btn_eliminar_cliente_carga.Text = "Eliminar Cliente"
+        Me.btn_eliminar_cliente_carga.Text = "Eliminar"
         Me.btn_eliminar_cliente_carga.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_eliminar_cliente_carga.UseVisualStyleBackColor = False
         '
@@ -102,11 +103,11 @@ Partial Class FormClientes
         Me.btn_guardar_cliente_carga.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_guardar_cliente_carga.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
         Me.btn_guardar_cliente_carga.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_guardar_cliente_carga.Location = New System.Drawing.Point(714, 451)
+        Me.btn_guardar_cliente_carga.Location = New System.Drawing.Point(909, 331)
         Me.btn_guardar_cliente_carga.Name = "btn_guardar_cliente_carga"
-        Me.btn_guardar_cliente_carga.Size = New System.Drawing.Size(150, 42)
+        Me.btn_guardar_cliente_carga.Size = New System.Drawing.Size(103, 42)
         Me.btn_guardar_cliente_carga.TabIndex = 7
-        Me.btn_guardar_cliente_carga.Text = "Guardar Cliente"
+        Me.btn_guardar_cliente_carga.Text = "Guardar"
         Me.btn_guardar_cliente_carga.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_guardar_cliente_carga.UseVisualStyleBackColor = False
         '
@@ -114,7 +115,8 @@ Partial Class FormClientes
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(741, 107)
+        Me.Label1.ForeColor = System.Drawing.Color.Black
+        Me.Label1.Location = New System.Drawing.Point(60, 41)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(76, 17)
         Me.Label1.TabIndex = 0
@@ -124,7 +126,8 @@ Partial Class FormClientes
         '
         Me.txt_apellido_cliente_carga.Enabled = False
         Me.txt_apellido_cliente_carga.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_apellido_cliente_carga.Location = New System.Drawing.Point(822, 99)
+        Me.txt_apellido_cliente_carga.ForeColor = System.Drawing.Color.Black
+        Me.txt_apellido_cliente_carga.Location = New System.Drawing.Point(141, 33)
         Me.txt_apellido_cliente_carga.Name = "txt_apellido_cliente_carga"
         Me.txt_apellido_cliente_carga.Size = New System.Drawing.Size(217, 25)
         Me.txt_apellido_cliente_carga.TabIndex = 0
@@ -133,7 +136,8 @@ Partial Class FormClientes
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(740, 138)
+        Me.Label2.ForeColor = System.Drawing.Color.Black
+        Me.Label2.Location = New System.Drawing.Point(59, 72)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(77, 17)
         Me.Label2.TabIndex = 2
@@ -143,7 +147,8 @@ Partial Class FormClientes
         '
         Me.txt_nombre_cliente_carga.Enabled = False
         Me.txt_nombre_cliente_carga.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_nombre_cliente_carga.Location = New System.Drawing.Point(822, 130)
+        Me.txt_nombre_cliente_carga.ForeColor = System.Drawing.Color.Black
+        Me.txt_nombre_cliente_carga.Location = New System.Drawing.Point(141, 64)
         Me.txt_nombre_cliente_carga.Name = "txt_nombre_cliente_carga"
         Me.txt_nombre_cliente_carga.Size = New System.Drawing.Size(217, 25)
         Me.txt_nombre_cliente_carga.TabIndex = 1
@@ -152,7 +157,8 @@ Partial Class FormClientes
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(692, 169)
+        Me.Label3.ForeColor = System.Drawing.Color.Black
+        Me.Label3.Location = New System.Drawing.Point(11, 103)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(125, 17)
         Me.Label3.TabIndex = 4
@@ -162,7 +168,8 @@ Partial Class FormClientes
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(722, 200)
+        Me.Label4.ForeColor = System.Drawing.Color.Black
+        Me.Label4.Location = New System.Drawing.Point(41, 134)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(95, 17)
         Me.Label4.TabIndex = 6
@@ -172,7 +179,8 @@ Partial Class FormClientes
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(767, 231)
+        Me.Label5.ForeColor = System.Drawing.Color.Black
+        Me.Label5.Location = New System.Drawing.Point(86, 165)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(47, 17)
         Me.Label5.TabIndex = 8
@@ -182,7 +190,8 @@ Partial Class FormClientes
         '
         Me.txt_email_cliente_cliente_carga.Enabled = False
         Me.txt_email_cliente_cliente_carga.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_email_cliente_cliente_carga.Location = New System.Drawing.Point(822, 223)
+        Me.txt_email_cliente_cliente_carga.ForeColor = System.Drawing.Color.Black
+        Me.txt_email_cliente_cliente_carga.Location = New System.Drawing.Point(141, 157)
         Me.txt_email_cliente_cliente_carga.Name = "txt_email_cliente_cliente_carga"
         Me.txt_email_cliente_cliente_carga.Size = New System.Drawing.Size(217, 25)
         Me.txt_email_cliente_cliente_carga.TabIndex = 4
@@ -191,8 +200,9 @@ Partial Class FormClientes
         '
         Me.cmb_tipo_documento_cliente_carga.Enabled = False
         Me.cmb_tipo_documento_cliente_carga.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmb_tipo_documento_cliente_carga.ForeColor = System.Drawing.Color.Black
         Me.cmb_tipo_documento_cliente_carga.FormattingEnabled = True
-        Me.cmb_tipo_documento_cliente_carga.Location = New System.Drawing.Point(822, 161)
+        Me.cmb_tipo_documento_cliente_carga.Location = New System.Drawing.Point(141, 95)
         Me.cmb_tipo_documento_cliente_carga.Name = "cmb_tipo_documento_cliente_carga"
         Me.cmb_tipo_documento_cliente_carga.Size = New System.Drawing.Size(217, 25)
         Me.cmb_tipo_documento_cliente_carga.TabIndex = 2
@@ -201,7 +211,8 @@ Partial Class FormClientes
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(753, 262)
+        Me.Label6.ForeColor = System.Drawing.Color.Black
+        Me.Label6.Location = New System.Drawing.Point(72, 196)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(61, 17)
         Me.Label6.TabIndex = 12
@@ -211,7 +222,8 @@ Partial Class FormClientes
         '
         Me.txt_telefono_cliente_carga.Enabled = False
         Me.txt_telefono_cliente_carga.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_telefono_cliente_carga.Location = New System.Drawing.Point(822, 254)
+        Me.txt_telefono_cliente_carga.ForeColor = System.Drawing.Color.Black
+        Me.txt_telefono_cliente_carga.Location = New System.Drawing.Point(141, 188)
         Me.txt_telefono_cliente_carga.Mask = "99999999999"
         Me.txt_telefono_cliente_carga.Name = "txt_telefono_cliente_carga"
         Me.txt_telefono_cliente_carga.Size = New System.Drawing.Size(91, 25)
@@ -221,7 +233,7 @@ Partial Class FormClientes
         '
         Me.cmb_tipo_documento_cliente_busqueda.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_tipo_documento_cliente_busqueda.FormattingEnabled = True
-        Me.cmb_tipo_documento_cliente_busqueda.Location = New System.Drawing.Point(127, 44)
+        Me.cmb_tipo_documento_cliente_busqueda.Location = New System.Drawing.Point(126, 33)
         Me.cmb_tipo_documento_cliente_busqueda.Name = "cmb_tipo_documento_cliente_busqueda"
         Me.cmb_tipo_documento_cliente_busqueda.Size = New System.Drawing.Size(111, 25)
         Me.cmb_tipo_documento_cliente_busqueda.TabIndex = 0
@@ -231,7 +243,7 @@ Partial Class FormClientes
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Black
-        Me.Label8.Location = New System.Drawing.Point(300, 47)
+        Me.Label8.Location = New System.Drawing.Point(262, 36)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(78, 17)
         Me.Label8.TabIndex = 1
@@ -245,9 +257,9 @@ Partial Class FormClientes
         Me.btn_buscar_cliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_buscar_cliente.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
         Me.btn_buscar_cliente.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscar_cliente.Location = New System.Drawing.Point(521, 44)
+        Me.btn_buscar_cliente.Location = New System.Drawing.Point(472, 33)
         Me.btn_buscar_cliente.Name = "btn_buscar_cliente"
-        Me.btn_buscar_cliente.Size = New System.Drawing.Size(140, 30)
+        Me.btn_buscar_cliente.Size = New System.Drawing.Size(140, 25)
         Me.btn_buscar_cliente.TabIndex = 2
         Me.btn_buscar_cliente.Text = "Buscar Cliente"
         Me.btn_buscar_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -259,70 +271,22 @@ Partial Class FormClientes
         Me.grid_clientes.AllowUserToDeleteRows = False
         Me.grid_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grid_clientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_apellido, Me.col_nombre, Me.col_tipo_documento, Me.col_documento, Me.col_email, Me.col_telefono})
-        Me.grid_clientes.Location = New System.Drawing.Point(18, 104)
+        Me.grid_clientes.Location = New System.Drawing.Point(18, 72)
         Me.grid_clientes.Name = "grid_clientes"
         Me.grid_clientes.ReadOnly = True
-        Me.grid_clientes.Size = New System.Drawing.Size(643, 445)
+        Me.grid_clientes.Size = New System.Drawing.Size(643, 477)
         Me.grid_clientes.TabIndex = 3
-        '
-        'col_apellido
-        '
-        Me.col_apellido.HeaderText = "Apellido"
-        Me.col_apellido.Name = "col_apellido"
-        Me.col_apellido.ReadOnly = True
-        '
-        'col_nombre
-        '
-        Me.col_nombre.HeaderText = "Nombre"
-        Me.col_nombre.Name = "col_nombre"
-        Me.col_nombre.ReadOnly = True
-        '
-        'col_tipo_documento
-        '
-        Me.col_tipo_documento.HeaderText = "Tipo Documento"
-        Me.col_tipo_documento.Name = "col_tipo_documento"
-        Me.col_tipo_documento.ReadOnly = True
-        '
-        'col_documento
-        '
-        Me.col_documento.HeaderText = "Documento"
-        Me.col_documento.Name = "col_documento"
-        Me.col_documento.ReadOnly = True
-        '
-        'col_email
-        '
-        Me.col_email.HeaderText = "E-mail"
-        Me.col_email.Name = "col_email"
-        Me.col_email.ReadOnly = True
-        '
-        'col_telefono
-        '
-        Me.col_telefono.HeaderText = "Telefono"
-        Me.col_telefono.Name = "col_telefono"
-        Me.col_telefono.ReadOnly = True
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Black
-        Me.Label9.Location = New System.Drawing.Point(16, 47)
+        Me.Label9.Location = New System.Drawing.Point(15, 36)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(108, 17)
         Me.Label9.TabIndex = 14
         Me.Label9.Text = "Tipo Documento:"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(739, 55)
-        Me.Label10.Name = "Label10"
-        Me.Label10.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label10.Size = New System.Drawing.Size(145, 25)
-        Me.Label10.TabIndex = 16
-        Me.Label10.Text = "Carga de datos"
         '
         'GroupBox1
         '
@@ -343,27 +307,17 @@ Partial Class FormClientes
         '
         'txt_numero_documento_cliente_busqueda
         '
-        Me.txt_numero_documento_cliente_busqueda.Location = New System.Drawing.Point(381, 44)
+        Me.txt_numero_documento_cliente_busqueda.Location = New System.Drawing.Point(343, 33)
         Me.txt_numero_documento_cliente_busqueda.Name = "txt_numero_documento_cliente_busqueda"
         Me.txt_numero_documento_cliente_busqueda.Size = New System.Drawing.Size(100, 25)
         Me.txt_numero_documento_cliente_busqueda.TabIndex = 1
         '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label15.Location = New System.Drawing.Point(425, 9)
-        Me.Label15.Name = "Label15"
-        Me.Label15.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label15.Size = New System.Drawing.Size(248, 25)
-        Me.Label15.TabIndex = 16
-        Me.Label15.Text = "Administración de Clientes"
-        '
         'txt_numero_documento_carga
         '
         Me.txt_numero_documento_carga.Enabled = False
-        Me.txt_numero_documento_carga.Location = New System.Drawing.Point(822, 192)
+        Me.txt_numero_documento_carga.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_numero_documento_carga.ForeColor = System.Drawing.Color.Black
+        Me.txt_numero_documento_carga.Location = New System.Drawing.Point(141, 126)
         Me.txt_numero_documento_carga.Name = "txt_numero_documento_carga"
         Me.txt_numero_documento_carga.Size = New System.Drawing.Size(217, 25)
         Me.txt_numero_documento_carga.TabIndex = 3
@@ -372,7 +326,8 @@ Partial Class FormClientes
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(715, 298)
+        Me.Label14.ForeColor = System.Drawing.Color.Black
+        Me.Label14.Location = New System.Drawing.Point(14, 234)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(344, 17)
         Me.Label14.TabIndex = 25
@@ -383,7 +338,7 @@ Partial Class FormClientes
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Black
         Me.Label7.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
-        Me.Label7.Location = New System.Drawing.Point(974, 601)
+        Me.Label7.Location = New System.Drawing.Point(988, 600)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(109, 33)
         Me.Label7.TabIndex = 26
@@ -392,7 +347,7 @@ Partial Class FormClientes
         '
         Me.lbl_apellidoERROR.AutoSize = True
         Me.lbl_apellidoERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_apellidoERROR.Location = New System.Drawing.Point(1045, 102)
+        Me.lbl_apellidoERROR.Location = New System.Drawing.Point(364, 36)
         Me.lbl_apellidoERROR.Name = "lbl_apellidoERROR"
         Me.lbl_apellidoERROR.Size = New System.Drawing.Size(20, 17)
         Me.lbl_apellidoERROR.TabIndex = 27
@@ -403,7 +358,7 @@ Partial Class FormClientes
         '
         Me.lbl_nombreERROR.AutoSize = True
         Me.lbl_nombreERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_nombreERROR.Location = New System.Drawing.Point(1045, 133)
+        Me.lbl_nombreERROR.Location = New System.Drawing.Point(364, 67)
         Me.lbl_nombreERROR.Name = "lbl_nombreERROR"
         Me.lbl_nombreERROR.Size = New System.Drawing.Size(20, 17)
         Me.lbl_nombreERROR.TabIndex = 27
@@ -414,7 +369,7 @@ Partial Class FormClientes
         '
         Me.lbl_tipodocERROR.AutoSize = True
         Me.lbl_tipodocERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_tipodocERROR.Location = New System.Drawing.Point(1045, 164)
+        Me.lbl_tipodocERROR.Location = New System.Drawing.Point(364, 98)
         Me.lbl_tipodocERROR.Name = "lbl_tipodocERROR"
         Me.lbl_tipodocERROR.Size = New System.Drawing.Size(20, 17)
         Me.lbl_tipodocERROR.TabIndex = 27
@@ -425,43 +380,102 @@ Partial Class FormClientes
         '
         Me.lbl_documentoERROR.AutoSize = True
         Me.lbl_documentoERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_documentoERROR.Location = New System.Drawing.Point(1045, 195)
+        Me.lbl_documentoERROR.Location = New System.Drawing.Point(364, 129)
         Me.lbl_documentoERROR.Name = "lbl_documentoERROR"
         Me.lbl_documentoERROR.Size = New System.Drawing.Size(20, 17)
         Me.lbl_documentoERROR.TabIndex = 27
         Me.lbl_documentoERROR.Text = "   "
         Me.lbl_documentoERROR.Visible = False
         '
+        'Label11
+        '
+        Me.Label11.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.Label11.Location = New System.Drawing.Point(0, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(1111, 47)
+        Me.Label11.TabIndex = 28
+        Me.Label11.Text = "  Administración de Clientes"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.txt_apellido_cliente_carga)
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.lbl_documentoERROR)
+        Me.GroupBox2.Controls.Add(Me.txt_nombre_cliente_carga)
+        Me.GroupBox2.Controls.Add(Me.lbl_tipodocERROR)
+        Me.GroupBox2.Controls.Add(Me.Label3)
+        Me.GroupBox2.Controls.Add(Me.lbl_nombreERROR)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.lbl_apellidoERROR)
+        Me.GroupBox2.Controls.Add(Me.Label4)
+        Me.GroupBox2.Controls.Add(Me.Label5)
+        Me.GroupBox2.Controls.Add(Me.Label14)
+        Me.GroupBox2.Controls.Add(Me.txt_email_cliente_cliente_carga)
+        Me.GroupBox2.Controls.Add(Me.txt_numero_documento_carga)
+        Me.GroupBox2.Controls.Add(Me.cmb_tipo_documento_cliente_carga)
+        Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Controls.Add(Me.txt_telefono_cliente_carga)
+        Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.GroupBox2.Location = New System.Drawing.Point(692, 55)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(405, 270)
+        Me.GroupBox2.TabIndex = 29
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Carga de Clientes"
+        '
+        'col_apellido
+        '
+        Me.col_apellido.HeaderText = "Apellido"
+        Me.col_apellido.Name = "col_apellido"
+        Me.col_apellido.ReadOnly = True
+        '
+        'col_nombre
+        '
+        Me.col_nombre.HeaderText = "Nombre"
+        Me.col_nombre.Name = "col_nombre"
+        Me.col_nombre.ReadOnly = True
+        '
+        'col_tipo_documento
+        '
+        Me.col_tipo_documento.HeaderText = "Tipo Doc."
+        Me.col_tipo_documento.Name = "col_tipo_documento"
+        Me.col_tipo_documento.ReadOnly = True
+        '
+        'col_documento
+        '
+        Me.col_documento.HeaderText = "Documento"
+        Me.col_documento.Name = "col_documento"
+        Me.col_documento.ReadOnly = True
+        '
+        'col_email
+        '
+        Me.col_email.HeaderText = "E-mail"
+        Me.col_email.Name = "col_email"
+        Me.col_email.ReadOnly = True
+        '
+        'col_telefono
+        '
+        Me.col_telefono.HeaderText = "Teléfono"
+        Me.col_telefono.Name = "col_telefono"
+        Me.col_telefono.ReadOnly = True
+        '
         'FormClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1095, 643)
-        Me.Controls.Add(Me.lbl_documentoERROR)
-        Me.Controls.Add(Me.lbl_tipodocERROR)
-        Me.Controls.Add(Me.lbl_nombreERROR)
-        Me.Controls.Add(Me.lbl_apellidoERROR)
+        Me.ClientSize = New System.Drawing.Size(1111, 646)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Label14)
-        Me.Controls.Add(Me.txt_numero_documento_carga)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.txt_telefono_cliente_carga)
-        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.btn_guardar_cliente_carga)
-        Me.Controls.Add(Me.cmb_tipo_documento_cliente_carga)
         Me.Controls.Add(Me.btn_eliminar_cliente_carga)
-        Me.Controls.Add(Me.txt_email_cliente_cliente_carga)
         Me.Controls.Add(Me.btn_nuevo_cliente_carga)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txt_apellido_cliente_carga)
-        Me.Controls.Add(Me.txt_nombre_cliente_carga)
-        Me.Controls.Add(Me.Label2)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -472,8 +486,9 @@ Partial Class FormClientes
         CType(Me.grid_clientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -495,17 +510,9 @@ Partial Class FormClientes
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents btn_buscar_cliente As System.Windows.Forms.Button
     Friend WithEvents grid_clientes As System.Windows.Forms.DataGridView
-    Friend WithEvents col_apellido As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents col_nombre As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents col_tipo_documento As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents col_documento As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents col_email As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents col_telefono As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents txt_numero_documento_cliente_busqueda As System.Windows.Forms.TextBox
-    Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents txt_numero_documento_carga As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
@@ -513,4 +520,12 @@ Partial Class FormClientes
     Friend WithEvents lbl_nombreERROR As System.Windows.Forms.Label
     Friend WithEvents lbl_tipodocERROR As System.Windows.Forms.Label
     Friend WithEvents lbl_documentoERROR As System.Windows.Forms.Label
+    Friend WithEvents col_apellido As DataGridViewTextBoxColumn
+    Friend WithEvents col_nombre As DataGridViewTextBoxColumn
+    Friend WithEvents col_tipo_documento As DataGridViewTextBoxColumn
+    Friend WithEvents col_documento As DataGridViewTextBoxColumn
+    Friend WithEvents col_email As DataGridViewTextBoxColumn
+    Friend WithEvents col_telefono As DataGridViewTextBoxColumn
+    Friend WithEvents Label11 As Label
+    Friend WithEvents GroupBox2 As GroupBox
 End Class

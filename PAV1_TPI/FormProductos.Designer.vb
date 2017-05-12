@@ -68,6 +68,7 @@ Partial Class FormProductos
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.lbl_msj = New System.Windows.Forms.Label()
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_listado.SuspendLayout()
         Me.gb_datos.SuspendLayout()
@@ -603,12 +604,25 @@ Partial Class FormProductos
         Me.Label3.Size = New System.Drawing.Size(109, 33)
         Me.Label3.TabIndex = 16
         '
+        'lbl_msj
+        '
+        Me.lbl_msj.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.lbl_msj.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_msj.ForeColor = System.Drawing.Color.White
+        Me.lbl_msj.Location = New System.Drawing.Point(746, 514)
+        Me.lbl_msj.Name = "lbl_msj"
+        Me.lbl_msj.Size = New System.Drawing.Size(382, 36)
+        Me.lbl_msj.TabIndex = 17
+        Me.lbl_msj.Text = "Id. producto"
+        Me.lbl_msj.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'FormProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1148, 636)
+        Me.Controls.Add(Me.lbl_msj)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.gb_busqueda)
         Me.Controls.Add(Me.btn_guardar)
@@ -675,4 +689,5 @@ Partial Class FormProductos
     Friend WithEvents btn_buscarRUBRO As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents lbl_msj As Label
 End Class

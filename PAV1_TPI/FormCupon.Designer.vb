@@ -23,7 +23,6 @@ Partial Class FormCupon
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormCupon))
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -37,23 +36,13 @@ Partial Class FormCupon
         Me.lbl_cuponERROR = New System.Windows.Forms.Label()
         Me.lbl_loteERROR = New System.Windows.Forms.Label()
         Me.lbl_autorizacionERROR = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(23, 23)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(117, 17)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Carga de cupones"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(37, 86)
+        Me.Label2.Location = New System.Drawing.Point(52, 54)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(85, 17)
         Me.Label2.TabIndex = 0
@@ -62,7 +51,7 @@ Partial Class FormCupon
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(50, 119)
+        Me.Label3.Location = New System.Drawing.Point(65, 87)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(72, 17)
         Me.Label3.TabIndex = 0
@@ -71,41 +60,41 @@ Partial Class FormCupon
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(3, 152)
+        Me.Label5.Location = New System.Drawing.Point(18, 120)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(119, 17)
         Me.Label5.TabIndex = 0
-        Me.Label5.Text = "N° Autorizacion: (*)"
+        Me.Label5.Text = "N° Autorización: (*)"
         '
         'txt_numero_cupon
         '
-        Me.txt_numero_cupon.Location = New System.Drawing.Point(128, 78)
+        Me.txt_numero_cupon.Location = New System.Drawing.Point(143, 51)
         Me.txt_numero_cupon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_numero_cupon.Name = "txt_numero_cupon"
-        Me.txt_numero_cupon.Size = New System.Drawing.Size(238, 25)
+        Me.txt_numero_cupon.Size = New System.Drawing.Size(216, 25)
         Me.txt_numero_cupon.TabIndex = 0
         '
         'txt_numero_lote
         '
-        Me.txt_numero_lote.Location = New System.Drawing.Point(128, 111)
+        Me.txt_numero_lote.Location = New System.Drawing.Point(143, 84)
         Me.txt_numero_lote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_numero_lote.Name = "txt_numero_lote"
-        Me.txt_numero_lote.Size = New System.Drawing.Size(238, 25)
+        Me.txt_numero_lote.Size = New System.Drawing.Size(216, 25)
         Me.txt_numero_lote.TabIndex = 1
         '
         'txt_numero_autorizacion
         '
-        Me.txt_numero_autorizacion.Location = New System.Drawing.Point(128, 144)
+        Me.txt_numero_autorizacion.Location = New System.Drawing.Point(143, 117)
         Me.txt_numero_autorizacion.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_numero_autorizacion.Name = "txt_numero_autorizacion"
-        Me.txt_numero_autorizacion.Size = New System.Drawing.Size(238, 25)
+        Me.txt_numero_autorizacion.Size = New System.Drawing.Size(216, 25)
         Me.txt_numero_autorizacion.TabIndex = 2
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(42, 179)
+        Me.Label6.Location = New System.Drawing.Point(35, 151)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(344, 17)
         Me.Label6.TabIndex = 25
@@ -118,7 +107,7 @@ Partial Class FormCupon
         Me.btn_aceptar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_aceptar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
         Me.btn_aceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_aceptar.Location = New System.Drawing.Point(85, 216)
+        Me.btn_aceptar.Location = New System.Drawing.Point(21, 203)
         Me.btn_aceptar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_aceptar.Name = "btn_aceptar"
         Me.btn_aceptar.Size = New System.Drawing.Size(100, 41)
@@ -134,7 +123,7 @@ Partial Class FormCupon
         Me.btn_cancelar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_cancelar.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
         Me.btn_cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_cancelar.Location = New System.Drawing.Point(234, 216)
+        Me.btn_cancelar.Location = New System.Drawing.Point(127, 203)
         Me.btn_cancelar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_cancelar.Name = "btn_cancelar"
         Me.btn_cancelar.Size = New System.Drawing.Size(100, 41)
@@ -148,7 +137,7 @@ Partial Class FormCupon
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Black
         Me.Label4.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
-        Me.Label4.Location = New System.Drawing.Point(298, 9)
+        Me.Label4.Location = New System.Drawing.Point(291, 211)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(109, 33)
         Me.Label4.TabIndex = 26
@@ -157,7 +146,7 @@ Partial Class FormCupon
         '
         Me.lbl_cuponERROR.AutoSize = True
         Me.lbl_cuponERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_cuponERROR.Location = New System.Drawing.Point(372, 81)
+        Me.lbl_cuponERROR.Location = New System.Drawing.Point(365, 54)
         Me.lbl_cuponERROR.Name = "lbl_cuponERROR"
         Me.lbl_cuponERROR.Size = New System.Drawing.Size(20, 17)
         Me.lbl_cuponERROR.TabIndex = 27
@@ -168,7 +157,7 @@ Partial Class FormCupon
         '
         Me.lbl_loteERROR.AutoSize = True
         Me.lbl_loteERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_loteERROR.Location = New System.Drawing.Point(372, 114)
+        Me.lbl_loteERROR.Location = New System.Drawing.Point(365, 87)
         Me.lbl_loteERROR.Name = "lbl_loteERROR"
         Me.lbl_loteERROR.Size = New System.Drawing.Size(20, 17)
         Me.lbl_loteERROR.TabIndex = 27
@@ -179,19 +168,32 @@ Partial Class FormCupon
         '
         Me.lbl_autorizacionERROR.AutoSize = True
         Me.lbl_autorizacionERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_autorizacionERROR.Location = New System.Drawing.Point(372, 148)
+        Me.lbl_autorizacionERROR.Location = New System.Drawing.Point(365, 120)
         Me.lbl_autorizacionERROR.Name = "lbl_autorizacionERROR"
         Me.lbl_autorizacionERROR.Size = New System.Drawing.Size(20, 17)
         Me.lbl_autorizacionERROR.TabIndex = 27
         Me.lbl_autorizacionERROR.Text = "   "
         Me.lbl_autorizacionERROR.Visible = False
         '
+        'Label8
+        '
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.Label8.Location = New System.Drawing.Point(0, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(419, 47)
+        Me.Label8.TabIndex = 28
+        Me.Label8.Text = "   Carga de Cupones"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'FormCupon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(419, 274)
+        Me.ClientSize = New System.Drawing.Size(419, 261)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.lbl_autorizacionERROR)
         Me.Controls.Add(Me.lbl_loteERROR)
         Me.Controls.Add(Me.lbl_cuponERROR)
@@ -205,7 +207,6 @@ Partial Class FormCupon
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.ImeMode = System.Windows.Forms.ImeMode.Off
@@ -220,7 +221,6 @@ Partial Class FormCupon
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
@@ -234,4 +234,5 @@ Partial Class FormCupon
     Friend WithEvents lbl_cuponERROR As System.Windows.Forms.Label
     Friend WithEvents lbl_loteERROR As System.Windows.Forms.Label
     Friend WithEvents lbl_autorizacionERROR As System.Windows.Forms.Label
+    Friend WithEvents Label8 As Label
 End Class

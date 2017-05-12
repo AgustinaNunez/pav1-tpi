@@ -32,7 +32,7 @@ Public Class FormFabrica
         sql_cargar_grilla &= ", id_fabrica"
         sql_cargar_grilla &= " FROM fabricas "
 
-        tabla = Soporte.consultarBD(sql_cargar_grilla)
+        tabla = Soporte.leerBD(sql_cargar_grilla)
 
         Dim c As Integer
         Me.Grilla_Fabrica.Rows.Clear()
@@ -48,7 +48,7 @@ Public Class FormFabrica
     End Sub
 
     Private Function leo_tabla(ByRef nombre_tabla As String) As Data.DataTable
-        Return Soporte.consultarBD("SELECT * FROM " + nombre_tabla)
+        Return Soporte.leerBD("SELECT * FROM " + nombre_tabla)
     End Function
 
     Private Sub borrar_datos()
@@ -108,7 +108,7 @@ Public Class FormFabrica
         Dim sql As String = ""
         sql &= " SELECT * FROM fabricas WHERE nombre = '" & Me.txt_nombre_fabrica.Text & "'"
 
-        tabla = Soporte.consultarBD(sql)
+        tabla = Soporte.leerBD(sql)
 
         If tabla.Rows.Count = 1 Then
             Return respuesta_validacion._error
@@ -152,7 +152,7 @@ Public Class FormFabrica
         sql &= ", '" & Me.txt_nombre_fabrica.Text & "'"
         sql &= ", " & Me.txt_telefono_fabrica.Text & ")"
 
-        Soporte.actualizarBD(sql)
+        Soporte.escribirBD(sql)
         Me.cargar_grilla_fabrica()
         Me.btn_guardar_fabrica.Enabled = False
         Me.txt_nombre_fabrica.Enabled = False
@@ -173,7 +173,7 @@ Public Class FormFabrica
         sql &= " SELECT * FROM fabricas "
         sql &= " WHERE id_fabrica = " & Me.Grilla_Fabrica.CurrentRow.Cells(2).Value
 
-        tabla = Soporte.consultarBD(sql)
+        tabla = Soporte.leerBD(sql)
 
 
         Me.txt_nombre_fabrica.Text = tabla.Rows(0)("nombre")
@@ -199,7 +199,7 @@ Public Class FormFabrica
         sql &= ", telefono = " & Me.txt_telefono_fabrica.Text
         sql &= "WHERE id_fabrica = " & Me.txt_codigo_fabrica.Text
 
-        Soporte.consultarBD(sql)
+        Soporte.leerBD(sql)
         MsgBox("La fabrica fue modificada exitosamente ", MessageBoxButtons.OK, "Exito")
         cargar_grilla_fabrica()
 
@@ -214,7 +214,7 @@ Public Class FormFabrica
         sql &= "DELETE FROM fabricas WHERE nombre = '" & Me.Grilla_Fabrica.CurrentRow.Cells(0).Value & "'"
 
         If MessageBox.Show("¿Está seguro que quiere eliminar el registro ?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-            Soporte.actualizarBD(sql)
+            Soporte.escribirBD(sql)
             MsgBox("Se borraron los datos exitosamente", MessageBoxButtons.OK, "Eliminación de Fabrica")
             cargar_grilla_fabrica()
             Me.txt_nombre_fabrica.Enabled = False
@@ -237,7 +237,7 @@ Public Class FormFabrica
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = Soporte.cadena_conexion_juan
+        conexion.ConnectionString = Soporte.cadena_conexion_agus
 
         conexion.Open()
         cmd.Connection = conexion
@@ -265,7 +265,7 @@ Public Class FormFabrica
             txt_bucar_fabrica.Focus()
 
         Else
-            tabla = Soporte.consultarBD(sql)
+            tabla = Soporte.leerBD(sql)
 
             Dim c As Integer
             Me.Grilla_Fabrica.Rows.Clear()
