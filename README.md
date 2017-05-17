@@ -15,6 +15,7 @@ Gestionar las ventas de un local de ropa, controlando el stock disponible y gene
 * Administrar productos.
 * Administrar cupones.
 * Administrar clientes.
+
 No aplica:
 * Gestión de gastos de insumos.
 * Administración de pagos de sueldos, comisiones a empleados.
