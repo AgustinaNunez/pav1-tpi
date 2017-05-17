@@ -79,6 +79,12 @@
     <Compile Include="FormClientes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormCompras.Designer.vb">
+      <DependentUpon>FormCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormFabrica.Designer.vb">
       <DependentUpon>FormFabrica.vb</DependentUpon>
     </Compile>
@@ -130,6 +136,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FormClientes.resx">
       <DependentUpon>FormClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCompras.resx">
+      <DependentUpon>FormCompras.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFabrica.resx">
       <DependentUpon>FormFabrica.vb</DependentUpon>

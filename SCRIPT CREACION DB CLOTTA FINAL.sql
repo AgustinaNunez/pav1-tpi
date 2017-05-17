@@ -81,8 +81,8 @@ CONSTRAINT fk_farbrica FOREIGN KEY (id_fabrica) REFERENCES fabricas(id_fabrica)
 
 create table compras(
 id_compra integer,
-fecha_compra date,
-hora_compra date,
+fecha_compra varchar(90),
+hora_compra varchar(90),
 monto float,
 CONSTRAINT pk_compras PRIMARY KEY (id_compra)
 )
@@ -100,8 +100,8 @@ CONSTRAINT fk_producto FOREIGN KEY (id_producto) REFERENCES productos(id_product
 
 create table ventas(
 id_venta integer,
-fecha_venta date, 
-hora_venta date,
+fecha_venta varchar(90), 
+hora_venta varchar(90),
 id_usuario varchar(30),
 numero_documento_cliente varchar(20),
 tipo_documento_cliente integer,
@@ -182,6 +182,50 @@ INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUE
 INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (1,'EFECTIVO',0.25)
 INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (2,'DÉBITO',0.15)
 INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (3,'CRÉDITO',0.00)
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(0,'Remeras')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(1,'Jean')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(2,'Jean Chupin')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(3,'Calzas')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(4,'Sweters')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(5,'Remeras basicas')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(6,'Babuchas')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(7,'Camisas')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(8,'Zapatillas')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(9,'Pañuelos')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(10,'Zapatos')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(11,'Camperas')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(12,'Buzos')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(13,'Saquitos')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(14,'Accesorios')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(15,'Polleras')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(16,'Ropa Interior')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(17,'Carteras')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(18,'Mochila')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(19,'Tapados')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(20,'Vestidos')
+
+INSERT INTO rubros(id_rubro,nombre) VALUES(21,'Chalecos')
 
 
 CREATE PROCEDURE AUTOGENERARCODIGO (@CODIGO CHAR(10) OUTPUT)

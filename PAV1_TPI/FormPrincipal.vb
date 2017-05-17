@@ -26,4 +26,8 @@
     End Sub
 
 
+    Private Sub btn_compras_Click(sender As Object, e As EventArgs) Handles btn_compras.Click
+        Dim frmCompras = New FormCompras
+        frmCompras.Visible = True
+    End Sub
 End Class

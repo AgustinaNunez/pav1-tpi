@@ -32,6 +32,7 @@ Partial Class Frm_Principal
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btn_compras = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btn_clientes
@@ -136,6 +137,19 @@ Partial Class Frm_Principal
         Me.Label1.Size = New System.Drawing.Size(915, 622)
         Me.Label1.TabIndex = 0
         '
+        'btn_compras
+        '
+        Me.btn_compras.BackColor = System.Drawing.Color.MediumVioletRed
+        Me.btn_compras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_compras.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_compras.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btn_compras.Location = New System.Drawing.Point(744, 298)
+        Me.btn_compras.Name = "btn_compras"
+        Me.btn_compras.Size = New System.Drawing.Size(183, 34)
+        Me.btn_compras.TabIndex = 7
+        Me.btn_compras.Text = "Compras"
+        Me.btn_compras.UseVisualStyleBackColor = False
+        '
         'Frm_Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -144,6 +158,7 @@ Partial Class Frm_Principal
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(975, 614)
         Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.btn_compras)
         Me.Controls.Add(Me.btn_usuarios)
         Me.Controls.Add(Me.btn_tarjetas)
         Me.Controls.Add(Me.btn_productos)
@@ -171,4 +186,5 @@ Partial Class Frm_Principal
     Friend WithEvents btn_tarjetas As Button
     Friend WithEvents btn_usuarios As Button
     Friend WithEvents Label4 As Label
+    Friend WithEvents btn_compras As System.Windows.Forms.Button
 End Class
