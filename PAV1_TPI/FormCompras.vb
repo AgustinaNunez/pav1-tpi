@@ -39,7 +39,7 @@ Public Class FormCompras
     'SUBRUTINA PARA CONECTAR MEDIANTE UNA TRANSACCION A LA BD
     Public Sub conectar()
         If conexion.State.ToString <> "Open" Then
-            conexion.ConnectionString = Soporte.cadena_conexion_agus
+            conexion.ConnectionString = Soporte.cadena_conexion_juan
             conexion.Open()
             cmd.Connection = conexion
             cmd.CommandType = CommandType.Text
@@ -175,13 +175,11 @@ Public Class FormCompras
                     sql_insertar_detalle &= "," & Me.grid_compras.Rows(c).Cells("col_cantidad").Value
                     sql_insertar_detalle &= "," & Me.grid_compras.Rows(c).Cells("col_precio").Value & ")"
                     Me.ejecutar_transaccion_bd(sql_insertar_detalle)
+                    sql_insertar_detalle = ""
                 Next
 
-                sql &= "SELECT * FROM detalles_compras WHERE id_compra = " & Me.txt_id_compra.Text
-                tabla = Soporte.leerBD(sql)
-                If tabla.Rows.Count >= 1 Then
-                    MsgBox("Datos almacenados", MsgBoxStyle.OkOnly, "Carga Correcta")
-                End If
+                MsgBox("Datos almacenados", MsgBoxStyle.OkOnly, "Carga Correcta")
+
 
                 Me.cerrar_conexion_con_transaccion()
 
