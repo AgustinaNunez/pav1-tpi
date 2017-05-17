@@ -1,5 +1,5 @@
 # pav1-tpi
-## Clotta
+## Clotta: Tienda de indumentaria femenina
     Universidad Tecnológica Nacional - Facultad Regional Córdoba
 <hr>
 
