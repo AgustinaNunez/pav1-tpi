@@ -69,6 +69,7 @@ Partial Class FormProductos
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lbl_msj = New System.Windows.Forms.Label()
+        Me.lbl_descripcionERROR = New System.Windows.Forms.Label()
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_listado.SuspendLayout()
         Me.gb_datos.SuspendLayout()
@@ -308,11 +309,11 @@ Partial Class FormProductos
         Me.lbl_descripcion.Enabled = False
         Me.lbl_descripcion.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_descripcion.ForeColor = System.Drawing.Color.Black
-        Me.lbl_descripcion.Location = New System.Drawing.Point(50, 65)
+        Me.lbl_descripcion.Location = New System.Drawing.Point(33, 65)
         Me.lbl_descripcion.Name = "lbl_descripcion"
-        Me.lbl_descripcion.Size = New System.Drawing.Size(76, 17)
+        Me.lbl_descripcion.Size = New System.Drawing.Size(93, 17)
         Me.lbl_descripcion.TabIndex = 2
-        Me.lbl_descripcion.Text = "Descripción"
+        Me.lbl_descripcion.Text = "Descripción (*)"
         '
         'lbl_id
         '
@@ -357,6 +358,7 @@ Partial Class FormProductos
         '
         'gb_datos
         '
+        Me.gb_datos.Controls.Add(Me.lbl_descripcionERROR)
         Me.gb_datos.Controls.Add(Me.Label4)
         Me.gb_datos.Controls.Add(Me.lbl_fabricaERROR)
         Me.gb_datos.Controls.Add(Me.lbl_rubroERROR)
@@ -616,6 +618,17 @@ Partial Class FormProductos
         Me.lbl_msj.Text = "Id. producto"
         Me.lbl_msj.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'lbl_descripcionERROR
+        '
+        Me.lbl_descripcionERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_descripcionERROR.ForeColor = System.Drawing.Color.Black
+        Me.lbl_descripcionERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_descripcionERROR.Location = New System.Drawing.Point(345, 65)
+        Me.lbl_descripcionERROR.Name = "lbl_descripcionERROR"
+        Me.lbl_descripcionERROR.Size = New System.Drawing.Size(17, 17)
+        Me.lbl_descripcionERROR.TabIndex = 26
+        Me.lbl_descripcionERROR.Visible = False
+        '
         'FormProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -690,4 +703,5 @@ Partial Class FormProductos
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents lbl_msj As Label
+    Friend WithEvents lbl_descripcionERROR As Label
 End Class

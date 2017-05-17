@@ -260,15 +260,6 @@
 
     End Sub
 
-    'SUBRUTINA PARA PREGUNTAR CUANDO SE CIERRA EL FORMULARIO
-    Private Sub formClientes_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        If MessageBox.Show("¿Está seguro que quiere salir del formulario?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-            e.Cancel = False
-        Else
-            e.Cancel = True
-        End If
-    End Sub
-
     'SUBRUTINA PARA BUSCAR Y ENCONTRAR UN CLIENTE X NUMERO Y TIPO DE DOCUMENTO
     Private Sub btn_buscar_cliente_Click(sender As Object, e As EventArgs) Handles btn_buscar_cliente.Click
         Dim sql As String = ""

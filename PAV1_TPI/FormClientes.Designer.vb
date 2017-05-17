@@ -22,6 +22,11 @@ Partial Class FormClientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormClientes))
         Me.btn_nuevo_cliente_carga = New System.Windows.Forms.Button()
         Me.btn_eliminar_cliente_carga = New System.Windows.Forms.Button()
@@ -41,6 +46,12 @@ Partial Class FormClientes
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btn_buscar_cliente = New System.Windows.Forms.Button()
         Me.grid_clientes = New System.Windows.Forms.DataGridView()
+        Me.col_apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_tipo_documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_email = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txt_numero_documento_cliente_busqueda = New System.Windows.Forms.TextBox()
@@ -53,12 +64,6 @@ Partial Class FormClientes
         Me.lbl_documentoERROR = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.col_apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_tipo_documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_email = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.grid_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -269,13 +274,77 @@ Partial Class FormClientes
         '
         Me.grid_clientes.AllowUserToAddRows = False
         Me.grid_clientes.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grid_clientes.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grid_clientes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grid_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grid_clientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_apellido, Me.col_nombre, Me.col_tipo_documento, Me.col_documento, Me.col_email, Me.col_telefono})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grid_clientes.DefaultCellStyle = DataGridViewCellStyle3
         Me.grid_clientes.Location = New System.Drawing.Point(18, 72)
         Me.grid_clientes.Name = "grid_clientes"
         Me.grid_clientes.ReadOnly = True
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grid_clientes.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grid_clientes.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.grid_clientes.Size = New System.Drawing.Size(643, 477)
         Me.grid_clientes.TabIndex = 3
+        '
+        'col_apellido
+        '
+        Me.col_apellido.HeaderText = "Apellido"
+        Me.col_apellido.Name = "col_apellido"
+        Me.col_apellido.ReadOnly = True
+        '
+        'col_nombre
+        '
+        Me.col_nombre.HeaderText = "Nombre"
+        Me.col_nombre.Name = "col_nombre"
+        Me.col_nombre.ReadOnly = True
+        '
+        'col_tipo_documento
+        '
+        Me.col_tipo_documento.HeaderText = "Tipo Doc."
+        Me.col_tipo_documento.Name = "col_tipo_documento"
+        Me.col_tipo_documento.ReadOnly = True
+        '
+        'col_documento
+        '
+        Me.col_documento.HeaderText = "Documento"
+        Me.col_documento.Name = "col_documento"
+        Me.col_documento.ReadOnly = True
+        '
+        'col_email
+        '
+        Me.col_email.HeaderText = "E-mail"
+        Me.col_email.Name = "col_email"
+        Me.col_email.ReadOnly = True
+        '
+        'col_telefono
+        '
+        Me.col_telefono.HeaderText = "Teléfono"
+        Me.col_telefono.Name = "col_telefono"
+        Me.col_telefono.ReadOnly = True
         '
         'Label9
         '
@@ -297,7 +366,7 @@ Partial Class FormClientes
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.btn_buscar_cliente)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.GroupBox1.Location = New System.Drawing.Point(8, 55)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(678, 578)
@@ -426,42 +495,6 @@ Partial Class FormClientes
         Me.GroupBox2.TabIndex = 29
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Carga de Clientes"
-        '
-        'col_apellido
-        '
-        Me.col_apellido.HeaderText = "Apellido"
-        Me.col_apellido.Name = "col_apellido"
-        Me.col_apellido.ReadOnly = True
-        '
-        'col_nombre
-        '
-        Me.col_nombre.HeaderText = "Nombre"
-        Me.col_nombre.Name = "col_nombre"
-        Me.col_nombre.ReadOnly = True
-        '
-        'col_tipo_documento
-        '
-        Me.col_tipo_documento.HeaderText = "Tipo Doc."
-        Me.col_tipo_documento.Name = "col_tipo_documento"
-        Me.col_tipo_documento.ReadOnly = True
-        '
-        'col_documento
-        '
-        Me.col_documento.HeaderText = "Documento"
-        Me.col_documento.Name = "col_documento"
-        Me.col_documento.ReadOnly = True
-        '
-        'col_email
-        '
-        Me.col_email.HeaderText = "E-mail"
-        Me.col_email.Name = "col_email"
-        Me.col_email.ReadOnly = True
-        '
-        'col_telefono
-        '
-        Me.col_telefono.HeaderText = "Teléfono"
-        Me.col_telefono.Name = "col_telefono"
-        Me.col_telefono.ReadOnly = True
         '
         'FormClientes
         '

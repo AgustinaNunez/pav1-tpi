@@ -1,4 +1,6 @@
-﻿Public Class FormCompras
+﻿Imports System.ComponentModel
+
+Public Class FormCompras
 
     'VARIABLES QUE YA CONOCEMOS
     Dim conexion As New Data.OleDb.OleDbConnection
@@ -9,13 +11,11 @@
     Dim control_transaccion As resultado_transaccion = resultado_transaccion._ok
     Dim transaccion As OleDb.OleDbTransaction
 
-
     'ENUMERACION DE TIPOS DE CONEXION
     Enum tipo_conexion
         simple
         transaccion
     End Enum
-
 
     'ENUMERACION DE RESULTADOS DE TRANSACCIONES
     Enum resultado_transaccion
@@ -23,28 +23,23 @@
         _error
     End Enum
 
-
     'ENUMERAODR DE RESPUESTAS DE VALIDACION
     Enum respuesta_validacion
         _ok
         _error
     End Enum
 
-
-
     'LOADER DE COMPRAS
     Private Sub form_compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Soporte.cargar_combo(cmb_producto, Soporte.leerBD("SELECT * FROM productos"), "id_producto", "descripcion")
-        txt_fecha.Text = Date.Today
-        txt_hora.Text = TimeOfDay
+        'txt_fecha.Text = Date.Today
+        'txt_hora.Text = TimeOfDay
     End Sub
-
-
 
     'SUBRUTINA PARA CONECTAR MEDIANTE UNA TRANSACCION A LA BD
     Public Sub conectar()
         If conexion.State.ToString <> "Open" Then
-            conexion.ConnectionString = Soporte.cadena_conexion_juan
+            conexion.ConnectionString = Soporte.cadena_conexion_agus
             conexion.Open()
             cmd.Connection = conexion
             cmd.CommandType = CommandType.Text
@@ -56,8 +51,6 @@
         End If
     End Sub
 
-
-
     'SUBRUTINA PARA DESCONECTAR LA BD MEDIANTE TRANSACCION
     Private Sub desconectar()
         If configuracion_conexion = tipo_conexion.simple Then
@@ -66,15 +59,11 @@
 
     End Sub
 
-
-
     'SUBRUTINA INICIADORA DE TRANSACCIONES
     Private Sub iniciar_conexion_con_transaccion()
         Me.control_transaccion = resultado_transaccion._ok
         Me.configuracion_conexion = tipo_conexion.transaccion
     End Sub
-
-
 
     'SUBRUTINA PARA CERRAR TRANSACCIONES
     Private Sub cerrar_conexion_con_transaccion()
@@ -87,7 +76,7 @@
             Me.configuracion_conexion = tipo_conexion.simple
             Me.desconectar()
         End If
-        
+
     End Sub
 
 
@@ -142,12 +131,12 @@
         Me.txt_fecha.Text = Today
         Me.txt_hora.Text = TimeOfDay
         Me.txt_id_compra.Text = ""
-        Me.txt_monto.Text = ""
+        Me.txt_monto.Text = "0,00"
         Me.txt_precio.Text = ""
         Me.cmb_producto.Text = ""
 
         Me.txt_cantidad.Enabled = True
-        Me.txt_fecha.Enabled = True
+        'Me.txt_fecha.Enabled = True
         Me.txt_id_compra.Enabled = True
         Me.txt_monto.Enabled = False
         Me.txt_precio.Enabled = True
@@ -156,9 +145,9 @@
         Me.grid_compras.Enabled = True
         Me.btn_guardar.Enabled = True
         Me.btn_agregar.Enabled = True
+
+        Me.txt_id_compra.Focus()
     End Sub
-
-
 
 
     'BOTON GRABAR
@@ -208,15 +197,6 @@
                 Me.btn_agregar.Enabled = False
             End If
         End If
-
-
-    End Sub
-
-
-
-    'BOTON SALIR
-    Private Sub btn_salir_Click(sender As Object, e As EventArgs) Handles btn_salir.Click
-        Me.Close()
     End Sub
 
 
@@ -247,5 +227,11 @@
         Return respuesta_validacion._ok
     End Function
 
-
+    Private Sub FormCompras_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        If MessageBox.Show("¿Está seguro que desea salir?", "Gestión de Compras", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = DialogResult.OK Then
+            e.Cancel = False
+        Else
+            e.Cancel = True
+        End If
+    End Sub
 End Class

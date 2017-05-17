@@ -56,6 +56,12 @@
             rdo = respuesta_validacion._error
             'MsgBox("El precio no fue ingresado", MsgBoxStyle.OkOnly, "Error")
         End If
+        If txt_descrip.Text = "" Then
+            lbl_descripcionERROR.Visible = True
+            txt_id.Focus()
+            rdo = respuesta_validacion._error
+            'MsgBox("El id no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+        End If
         If txt_id.Text = "" Then
             lbl_idERROR.Visible = True
             txt_id.Focus()
@@ -324,4 +330,5 @@
             e.Cancel = True
         End If
     End Sub
+
 End Class
