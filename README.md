@@ -2,6 +2,7 @@
 ## Clotta
     Universidad Tecnológica Nacional - Facultad Regional Córdoba
 <hr>
+
 ### Ramo o actividad
 Venta de artículos de indumentaria.
 ### Objetivo del sistema
