@@ -44,9 +44,9 @@ Partial Class FormCompras
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btn_agregar = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.btn_agregar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
         CType(Me.grid_compras, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -152,7 +152,6 @@ Partial Class FormCompras
         Me.grid_compras.Location = New System.Drawing.Point(18, 117)
         Me.grid_compras.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.grid_compras.Name = "grid_compras"
-        Me.grid_compras.ReadOnly = True
         Me.grid_compras.Size = New System.Drawing.Size(645, 201)
         Me.grid_compras.TabIndex = 8
         '
@@ -167,19 +166,16 @@ Partial Class FormCompras
         '
         Me.col_cantidad.HeaderText = "Cantidad"
         Me.col_cantidad.Name = "col_cantidad"
-        Me.col_cantidad.ReadOnly = True
         '
         'col_precio
         '
         Me.col_precio.HeaderText = "Precio"
         Me.col_precio.Name = "col_precio"
-        Me.col_precio.ReadOnly = True
         '
         'col_id_producto
         '
         Me.col_id_producto.HeaderText = "id_producto"
         Me.col_id_producto.Name = "col_id_producto"
-        Me.col_id_producto.ReadOnly = True
         Me.col_id_producto.Visible = False
         '
         'cmb_producto
@@ -221,7 +217,7 @@ Partial Class FormCompras
         Me.txt_cantidad.Enabled = False
         Me.txt_cantidad.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_cantidad.ForeColor = System.Drawing.Color.Black
-        Me.txt_cantidad.Location = New System.Drawing.Point(82, 72)
+        Me.txt_cantidad.Location = New System.Drawing.Point(82, 73)
         Me.txt_cantidad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_cantidad.Name = "txt_cantidad"
         Me.txt_cantidad.Size = New System.Drawing.Size(73, 25)
@@ -282,10 +278,27 @@ Partial Class FormCompras
         Me.GroupBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.GroupBox2.Location = New System.Drawing.Point(312, 50)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(685, 339)
+        Me.GroupBox2.Size = New System.Drawing.Size(685, 336)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalles de la Compra"
+        '
+        'btn_agregar
+        '
+        Me.btn_agregar.Enabled = False
+        Me.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_agregar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_agregar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_agregar.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
+        Me.btn_agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_agregar.Location = New System.Drawing.Point(558, 35)
+        Me.btn_agregar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_agregar.Name = "btn_agregar"
+        Me.btn_agregar.Size = New System.Drawing.Size(105, 45)
+        Me.btn_agregar.TabIndex = 5
+        Me.btn_agregar.Text = "Agregar"
+        Me.btn_agregar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_agregar.UseVisualStyleBackColor = True
         '
         'Label8
         '
@@ -304,27 +317,10 @@ Partial Class FormCompras
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Black
         Me.Label9.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
-        Me.Label9.Location = New System.Drawing.Point(9, 356)
+        Me.Label9.Location = New System.Drawing.Point(2, 365)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(109, 33)
         Me.Label9.TabIndex = 17
-        '
-        'btn_agregar
-        '
-        Me.btn_agregar.Enabled = False
-        Me.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_agregar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_agregar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_agregar.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
-        Me.btn_agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_agregar.Location = New System.Drawing.Point(558, 35)
-        Me.btn_agregar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_agregar.Name = "btn_agregar"
-        Me.btn_agregar.Size = New System.Drawing.Size(105, 45)
-        Me.btn_agregar.TabIndex = 5
-        Me.btn_agregar.Text = "Agregar"
-        Me.btn_agregar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_agregar.UseVisualStyleBackColor = True
         '
         'btn_nuevo
         '
@@ -364,7 +360,7 @@ Partial Class FormCompras
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(1017, 410)
+        Me.ClientSize = New System.Drawing.Size(1017, 408)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.GroupBox2)
@@ -403,12 +399,12 @@ Partial Class FormCompras
     Friend WithEvents btn_agregar As System.Windows.Forms.Button
     Friend WithEvents btn_guardar As System.Windows.Forms.Button
     Friend WithEvents btn_nuevo As System.Windows.Forms.Button
-    Friend WithEvents col_producto As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents col_cantidad As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents col_precio As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents col_id_producto As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
+    Friend WithEvents col_producto As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents col_cantidad As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents col_precio As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents col_id_producto As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

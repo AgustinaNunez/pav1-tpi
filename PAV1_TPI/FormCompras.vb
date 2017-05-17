@@ -112,19 +112,6 @@ Public Class FormCompras
 
 
 
-    'BOTON AGREGAR
-    Private Sub btn_agregar_Click(sender As Object, e As EventArgs) Handles btn_agregar.Click
-        Me.grid_compras.Rows.Add(cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
-        Dim total As Double = 0
-        For c = 0 To Me.grid_compras.Rows.Count - 1
-            total = total + Convert.ToDouble(Me.grid_compras.Rows(c).Cells("col_cantidad").Value * Convert.ToDouble(Me.grid_compras.Rows(c).Cells("col_precio").Value))
-        Next
-        Me.txt_monto.Text = total
-        Me.txt_hora.Text = TimeOfDay
-    End Sub
-
-
-
     'BOTON NUEVO
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
         Me.txt_cantidad.Text = ""
@@ -148,6 +135,52 @@ Public Class FormCompras
 
         Me.txt_id_compra.Focus()
     End Sub
+
+
+
+    'BOTON AGREGAR
+    Private Sub btn_agregar_Click(sender As Object, e As EventArgs) Handles btn_agregar.Click
+
+        'PRIMERO VERIFICA SI LAS FILAS DE LA TABLA SON NULAS
+        If Me.grid_compras.Rows.Count = 0 Then
+            Me.grid_compras.Rows.Add(cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
+
+            Dim total As Double = 0
+            total = total + Convert.ToDouble(Me.grid_compras.Rows(0).Cells("col_cantidad").Value * Convert.ToDouble(Me.grid_compras.Rows(0).Cells("col_precio").Value))
+            Me.txt_monto.Text = total
+
+        Else
+            If existe_en_grid() = True Then
+                Me.grid_compras.Rows.Add(cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
+
+                Dim total As Double = 0
+                For c = 0 To Me.grid_compras.Rows.Count - 1
+                    total = total + Convert.ToDouble(Me.grid_compras.Rows(c).Cells("col_cantidad").Value * Convert.ToDouble(Me.grid_compras.Rows(c).Cells("col_precio").Value))
+                Next
+
+                Me.txt_monto.Text = total
+            End If
+
+
+        End If
+
+
+    End Sub
+
+
+
+    'FUNCION QUE DEVUELVE TRUE SI EXISTE UN ELEMENTO SELECCIONADO EN LA GRILLA
+    Private Function existe_en_grid()
+        Dim valor As Boolean = True
+        For a = 0 To Me.grid_compras.Rows.Count - 1
+            If Me.cmb_producto.SelectedValue = Me.grid_compras.Rows(a).Cells("col_id_producto").Value Then
+                MsgBox("El producto '" & cmb_producto.Text & "' ya fue cargado, seleccione otro", MsgBoxStyle.OkOnly, "Error")
+                valor = False
+            End If
+        Next
+        Return valor
+    End Function
+
 
 
     'BOTON GRABAR
@@ -198,6 +231,7 @@ Public Class FormCompras
     End Sub
 
 
+
     'VALIDAR CAMPOS
     Public Function validar_campos()
         If txt_cantidad.Text = "" Or txt_fecha.Text = "" Or txt_precio.Text = "" Or cmb_producto.SelectedValue = 0 Then
@@ -225,6 +259,8 @@ Public Class FormCompras
         Return respuesta_validacion._ok
     End Function
 
+
+    'CIERRE FORMULARIO
     Private Sub FormCompras_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         If MessageBox.Show("¿Está seguro que desea salir?", "Gestión de Compras", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = DialogResult.OK Then
             e.Cancel = False
@@ -232,4 +268,5 @@ Public Class FormCompras
             e.Cancel = True
         End If
     End Sub
+
 End Class
