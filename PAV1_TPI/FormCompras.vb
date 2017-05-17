@@ -35,13 +35,13 @@
 
     'SUBRUTINA PARA CONECTAR MEDIANTE UNA TRANSACCION A LA BD
     Public Sub conectar()
-        If Me.conexion.ConnectionString <> "Open" Then
+        If conexion.State.ToString <> "Open" Then
             conexion.ConnectionString = Soporte.cadena_conexion_juan
             conexion.Open()
             cmd.Connection = conexion
             cmd.CommandType = CommandType.Text
             If configuracion_conexion = tipo_conexion.transaccion Then
-                Me.transaccion = Me.conexion.BeginTransaction
+                Me.transaccion = Me.conexion.BeginTransaction()
                 Me.cmd.Transaction = Me.transaccion
                 Me.control_transaccion = resultado_transaccion._ok
             End If
@@ -52,7 +52,10 @@
 
     'SUBRUTINA PARA DESCONECTAR LA BD MEDIANTE TRANSACCION
     Private Sub desconectar()
-        Me.conexion.Close()
+        If configuracion_conexion = tipo_conexion.simple Then
+            Me.conexion.Close()
+        End If
+
     End Sub
 
 
@@ -73,9 +76,10 @@
             Else
                 Me.transaccion.Rollback()
             End If
+            Me.configuracion_conexion = tipo_conexion.simple
+            Me.desconectar()
         End If
-        Me.configuracion_conexion = tipo_conexion.simple
-        Me.desconectar()
+        
     End Sub
 
 
@@ -113,7 +117,7 @@
 
     'BOTON AGREGAR
     Private Sub btn_agregar_Click(sender As Object, e As EventArgs) Handles btn_agregar.Click
-        Me.grid_compras.Rows.Add(cmb_producto.SelectedValue, Me.txt_cantidad.Text, Me.txt_precio.Text)
+        Me.grid_compras.Rows.Add(cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text)
         Dim total As Double = 0
         For c = 0 To Me.grid_compras.Rows.Count - 1
             total = total + Convert.ToDouble(Me.grid_compras.Rows(c).Cells("col_cantidad").Value * Convert.ToDouble(Me.grid_compras.Rows(c).Cells("col_precio").Value))
@@ -128,21 +132,12 @@
 
         Me.iniciar_conexion_con_transaccion()
 
-        Dim insertar_factura As String = ""
-        Dim c As Integer
-        Dim total As Double
-
-        For c = 0 To Me.grid_compras.Rows.Count - 1
-            total = total + Convert.ToDouble(Me.grid_compras.Rows(c).Cells("col_cantidad").Value * Convert.ToDouble(Me.grid_compras.Rows(c).Cells("col_precio").Value))
-
-        Next
-
         Dim sql_insertar_compra As String = ""
 
         sql_insertar_compra &= "INSERT INTO compras(id_compra,fecha_compra,hora_compra,monto) VALUES(" & txt_id_compra.Text
         sql_insertar_compra &= ", '" & txt_fecha.Text & "'"
         sql_insertar_compra &= ", '" & txt_hora.Text & "'"
-        sql_insertar_compra &= "," & total & ")"
+        sql_insertar_compra &= "," & txt_monto.Text & ")"
 
         Me.ejecutar_transaccion_bd(sql_insertar_compra)
 
@@ -150,7 +145,7 @@
 
         For c = 0 To Me.grid_compras.Rows.Count - 1
             sql_insertar_detalle &= "INSERT INTO detalles_compras(id_compra,id_producto,cantidad,precio_unitario) VALUES (" & txt_id_compra.Text
-            sql_insertar_detalle &= "," & Me.grid_compras.Rows(c).Cells("col_producto").Value
+            sql_insertar_detalle &= "," & Me.cmb_producto.SelectedValue
             sql_insertar_detalle &= "," & Me.grid_compras.Rows(c).Cells("col_cantidad").Value
             sql_insertar_detalle &= "," & Me.grid_compras.Rows(c).Cells("col_precio").Value & ")"
             Me.ejecutar_transaccion_bd(sql_insertar_detalle)
