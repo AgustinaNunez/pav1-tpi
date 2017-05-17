@@ -32,9 +32,6 @@ Partial Class FormCompras
         Me.txt_hora = New System.Windows.Forms.TextBox()
         Me.txt_monto = New System.Windows.Forms.TextBox()
         Me.grid_compras = New System.Windows.Forms.DataGridView()
-        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmb_producto = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -44,6 +41,11 @@ Partial Class FormCompras
         Me.btn_agregar = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_salir = New System.Windows.Forms.Button()
+        Me.btn_nuevo = New System.Windows.Forms.Button()
+        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.grid_compras, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -85,6 +87,7 @@ Partial Class FormCompras
         '
         'txt_id_compra
         '
+        Me.txt_id_compra.Enabled = False
         Me.txt_id_compra.Location = New System.Drawing.Point(67, 22)
         Me.txt_id_compra.Name = "txt_id_compra"
         Me.txt_id_compra.Size = New System.Drawing.Size(100, 20)
@@ -92,6 +95,7 @@ Partial Class FormCompras
         '
         'txt_fecha
         '
+        Me.txt_fecha.Enabled = False
         Me.txt_fecha.Location = New System.Drawing.Point(207, 22)
         Me.txt_fecha.Name = "txt_fecha"
         Me.txt_fecha.Size = New System.Drawing.Size(100, 20)
@@ -118,34 +122,17 @@ Partial Class FormCompras
         Me.grid_compras.AllowUserToAddRows = False
         Me.grid_compras.AllowUserToDeleteRows = False
         Me.grid_compras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grid_compras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_producto, Me.col_cantidad, Me.col_precio})
+        Me.grid_compras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_producto, Me.col_cantidad, Me.col_precio, Me.col_id_producto})
+        Me.grid_compras.Enabled = False
         Me.grid_compras.Location = New System.Drawing.Point(10, 157)
         Me.grid_compras.Name = "grid_compras"
         Me.grid_compras.ReadOnly = True
         Me.grid_compras.Size = New System.Drawing.Size(553, 200)
         Me.grid_compras.TabIndex = 2
         '
-        'col_producto
-        '
-        Me.col_producto.HeaderText = "Producto"
-        Me.col_producto.Name = "col_producto"
-        Me.col_producto.ReadOnly = True
-        Me.col_producto.Width = 300
-        '
-        'col_cantidad
-        '
-        Me.col_cantidad.HeaderText = "Cantidad"
-        Me.col_cantidad.Name = "col_cantidad"
-        Me.col_cantidad.ReadOnly = True
-        '
-        'col_precio
-        '
-        Me.col_precio.HeaderText = "Precio"
-        Me.col_precio.Name = "col_precio"
-        Me.col_precio.ReadOnly = True
-        '
         'cmb_producto
         '
+        Me.cmb_producto.Enabled = False
         Me.cmb_producto.FormattingEnabled = True
         Me.cmb_producto.Location = New System.Drawing.Point(64, 73)
         Me.cmb_producto.Name = "cmb_producto"
@@ -172,6 +159,7 @@ Partial Class FormCompras
         '
         'txt_cantidad
         '
+        Me.txt_cantidad.Enabled = False
         Me.txt_cantidad.Location = New System.Drawing.Point(64, 101)
         Me.txt_cantidad.Name = "txt_cantidad"
         Me.txt_cantidad.Size = New System.Drawing.Size(201, 20)
@@ -188,6 +176,7 @@ Partial Class FormCompras
         '
         'txt_precio
         '
+        Me.txt_precio.Enabled = False
         Me.txt_precio.Location = New System.Drawing.Point(64, 131)
         Me.txt_precio.Name = "txt_precio"
         Me.txt_precio.Size = New System.Drawing.Size(201, 20)
@@ -195,6 +184,7 @@ Partial Class FormCompras
         '
         'btn_agregar
         '
+        Me.btn_agregar.Enabled = False
         Me.btn_agregar.Location = New System.Drawing.Point(297, 101)
         Me.btn_agregar.Name = "btn_agregar"
         Me.btn_agregar.Size = New System.Drawing.Size(75, 23)
@@ -205,7 +195,8 @@ Partial Class FormCompras
         'btn_guardar
         '
         Me.btn_guardar.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_guardar.Location = New System.Drawing.Point(15, 377)
+        Me.btn_guardar.Enabled = False
+        Me.btn_guardar.Location = New System.Drawing.Point(97, 379)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_guardar.TabIndex = 5
@@ -214,12 +205,48 @@ Partial Class FormCompras
         '
         'btn_salir
         '
-        Me.btn_salir.Location = New System.Drawing.Point(108, 377)
+        Me.btn_salir.Location = New System.Drawing.Point(190, 379)
         Me.btn_salir.Name = "btn_salir"
         Me.btn_salir.Size = New System.Drawing.Size(75, 23)
         Me.btn_salir.TabIndex = 5
         Me.btn_salir.Text = "Salir"
         Me.btn_salir.UseVisualStyleBackColor = True
+        '
+        'btn_nuevo
+        '
+        Me.btn_nuevo.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_nuevo.Location = New System.Drawing.Point(10, 379)
+        Me.btn_nuevo.Name = "btn_nuevo"
+        Me.btn_nuevo.Size = New System.Drawing.Size(75, 23)
+        Me.btn_nuevo.TabIndex = 5
+        Me.btn_nuevo.Text = "Nuevo"
+        Me.btn_nuevo.UseVisualStyleBackColor = True
+        '
+        'col_producto
+        '
+        Me.col_producto.HeaderText = "Producto"
+        Me.col_producto.Name = "col_producto"
+        Me.col_producto.ReadOnly = True
+        Me.col_producto.Width = 300
+        '
+        'col_cantidad
+        '
+        Me.col_cantidad.HeaderText = "Cantidad"
+        Me.col_cantidad.Name = "col_cantidad"
+        Me.col_cantidad.ReadOnly = True
+        '
+        'col_precio
+        '
+        Me.col_precio.HeaderText = "Precio"
+        Me.col_precio.Name = "col_precio"
+        Me.col_precio.ReadOnly = True
+        '
+        'col_id_producto
+        '
+        Me.col_id_producto.HeaderText = "id_producto"
+        Me.col_id_producto.Name = "col_id_producto"
+        Me.col_id_producto.ReadOnly = True
+        Me.col_id_producto.Visible = False
         '
         'FormCompras
         '
@@ -227,6 +254,7 @@ Partial Class FormCompras
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(575, 414)
         Me.Controls.Add(Me.btn_salir)
+        Me.Controls.Add(Me.btn_nuevo)
         Me.Controls.Add(Me.btn_guardar)
         Me.Controls.Add(Me.btn_agregar)
         Me.Controls.Add(Me.Label5)
@@ -270,7 +298,9 @@ Partial Class FormCompras
     Friend WithEvents btn_agregar As System.Windows.Forms.Button
     Friend WithEvents btn_guardar As System.Windows.Forms.Button
     Friend WithEvents btn_salir As System.Windows.Forms.Button
+    Friend WithEvents btn_nuevo As System.Windows.Forms.Button
     Friend WithEvents col_producto As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents col_cantidad As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents col_precio As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents col_id_producto As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

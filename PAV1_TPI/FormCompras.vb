@@ -24,6 +24,14 @@
     End Enum
 
 
+    'ENUMERAODR DE RESPUESTAS DE VALIDACION
+    Enum respuesta_validacion
+        _ok
+        _error
+    End Enum
+
+
+
     'LOADER DE COMPRAS
     Private Sub form_compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Soporte.cargar_combo(cmb_producto, Soporte.leerBD("SELECT * FROM productos"), "id_producto", "descripcion")
@@ -117,43 +125,90 @@
 
     'BOTON AGREGAR
     Private Sub btn_agregar_Click(sender As Object, e As EventArgs) Handles btn_agregar.Click
-        Me.grid_compras.Rows.Add(cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text)
+        Me.grid_compras.Rows.Add(cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
         Dim total As Double = 0
         For c = 0 To Me.grid_compras.Rows.Count - 1
             total = total + Convert.ToDouble(Me.grid_compras.Rows(c).Cells("col_cantidad").Value * Convert.ToDouble(Me.grid_compras.Rows(c).Cells("col_precio").Value))
         Next
         Me.txt_monto.Text = total
+        Me.txt_hora.Text = TimeOfDay
     End Sub
+
+
+
+    'BOTON NUEVO
+    Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
+        Me.txt_cantidad.Text = ""
+        Me.txt_fecha.Text = Today
+        Me.txt_hora.Text = TimeOfDay
+        Me.txt_id_compra.Text = ""
+        Me.txt_monto.Text = ""
+        Me.txt_precio.Text = ""
+        Me.cmb_producto.Text = ""
+
+        Me.txt_cantidad.Enabled = True
+        Me.txt_fecha.Enabled = True
+        Me.txt_id_compra.Enabled = True
+        Me.txt_monto.Enabled = False
+        Me.txt_precio.Enabled = True
+        Me.txt_hora.Enabled = False
+        Me.cmb_producto.Enabled = True
+        Me.grid_compras.Enabled = True
+        Me.btn_guardar.Enabled = True
+        Me.btn_agregar.Enabled = True
+    End Sub
+
 
 
 
     'BOTON GRABAR
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
+        If validar_campos() = respuesta_validacion._ok Then
+            If validar_compra() = respuesta_validacion._ok Then
+                Me.iniciar_conexion_con_transaccion()
 
-        Me.iniciar_conexion_con_transaccion()
+                Dim sql_insertar_compra As String = ""
 
-        Dim sql_insertar_compra As String = ""
+                sql_insertar_compra &= "INSERT INTO compras(id_compra,fecha_compra,hora_compra,monto) VALUES(" & txt_id_compra.Text
+                sql_insertar_compra &= ", '" & txt_fecha.Text & "'"
+                sql_insertar_compra &= ", '" & txt_hora.Text & "'"
+                sql_insertar_compra &= "," & txt_monto.Text & ")"
 
-        sql_insertar_compra &= "INSERT INTO compras(id_compra,fecha_compra,hora_compra,monto) VALUES(" & txt_id_compra.Text
-        sql_insertar_compra &= ", '" & txt_fecha.Text & "'"
-        sql_insertar_compra &= ", '" & txt_hora.Text & "'"
-        sql_insertar_compra &= "," & txt_monto.Text & ")"
+                Me.ejecutar_transaccion_bd(sql_insertar_compra)
 
-        Me.ejecutar_transaccion_bd(sql_insertar_compra)
+                Dim sql_insertar_detalle As String = ""
+                Dim tabla As New DataTable
+                Dim sql As String = ""
 
-        Dim sql_insertar_detalle As String = ""
+                For c = 0 To Me.grid_compras.Rows.Count - 1
+                    sql_insertar_detalle &= " INSERT INTO detalles_compras(id_compra,id_producto,cantidad,precio_unitario) VALUES (" & txt_id_compra.Text
+                    sql_insertar_detalle &= "," & Me.grid_compras.Rows(c).Cells("col_id_producto").Value
+                    sql_insertar_detalle &= "," & Me.grid_compras.Rows(c).Cells("col_cantidad").Value
+                    sql_insertar_detalle &= "," & Me.grid_compras.Rows(c).Cells("col_precio").Value & ")"
+                    Me.ejecutar_transaccion_bd(sql_insertar_detalle)
+                Next
 
-        For c = 0 To Me.grid_compras.Rows.Count - 1
-            sql_insertar_detalle &= "INSERT INTO detalles_compras(id_compra,id_producto,cantidad,precio_unitario) VALUES (" & txt_id_compra.Text
-            sql_insertar_detalle &= "," & Me.cmb_producto.SelectedValue
-            sql_insertar_detalle &= "," & Me.grid_compras.Rows(c).Cells("col_cantidad").Value
-            sql_insertar_detalle &= "," & Me.grid_compras.Rows(c).Cells("col_precio").Value & ")"
-            Me.ejecutar_transaccion_bd(sql_insertar_detalle)
-        Next
+                sql &= "SELECT * FROM detalles_compras WHERE id_compra = " & Me.txt_id_compra.Text
+                tabla = Soporte.leerBD(sql)
+                If tabla.Rows.Count >= 1 Then
+                    MsgBox("Datos almacenados", MsgBoxStyle.OkOnly, "Carga Correcta")
+                End If
 
-        Me.cerrar_conexion_con_transaccion()
+                Me.cerrar_conexion_con_transaccion()
 
-        MsgBox("Datos almacenados", MsgBoxStyle.OkOnly, "Carga Correcta")
+                Me.txt_cantidad.Enabled = False
+                Me.txt_fecha.Enabled = False
+                Me.txt_hora.Enabled = False
+                Me.txt_id_compra.Enabled = False
+                Me.txt_precio.Enabled = False
+                Me.txt_monto.Enabled = False
+                Me.btn_guardar.Enabled = False
+                Me.cmb_producto.Enabled = False
+                Me.grid_compras.Enabled = False
+                Me.btn_agregar.Enabled = False
+            End If
+        End If
+
 
     End Sub
 
@@ -163,5 +218,34 @@
     Private Sub btn_salir_Click(sender As Object, e As EventArgs) Handles btn_salir.Click
         Me.Close()
     End Sub
+
+
+    'VALIDAR CAMPOS
+    Public Function validar_campos()
+        If txt_cantidad.Text = "" Or txt_fecha.Text = "" Or txt_precio.Text = "" Or cmb_producto.SelectedValue = 0 Then
+            MsgBox("Alguno de los campos no fue completado", MsgBoxStyle.OkOnly, "Error")
+            Return respuesta_validacion._error
+        End If
+
+        Return respuesta_validacion._ok
+    End Function
+
+
+    'VALIDAR COMPRA
+    Public Function validar_compra()
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+        sql &= "SELECT * FROM compras WHERE id_compra = " & Me.txt_id_compra.Text
+
+        tabla = Soporte.leerBD(sql)
+
+        If tabla.Rows.Count = 1 Then
+            MsgBox("El numero de compra ya existe, ingrese otro", MsgBoxStyle.OkOnly, "Error")
+            Return respuesta_validacion._error
+        End If
+
+        Return respuesta_validacion._ok
+    End Function
+
 
 End Class
