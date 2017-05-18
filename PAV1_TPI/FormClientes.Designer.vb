@@ -45,7 +45,7 @@ Partial Class FormClientes
         Me.cmb_tipo_documento_cliente_busqueda = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btn_buscar_cliente = New System.Windows.Forms.Button()
-        Me.grid_clientes = New System.Windows.Forms.DataGridView()
+        Me.dgv_clientes = New System.Windows.Forms.DataGridView()
         Me.col_apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_tipo_documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -64,7 +64,8 @@ Partial Class FormClientes
         Me.lbl_documentoERROR = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        CType(Me.grid_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.lbl_msj = New System.Windows.Forms.Label()
+        CType(Me.dgv_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -76,7 +77,7 @@ Partial Class FormClientes
         Me.btn_nuevo_cliente_carga.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_nuevo_cliente_carga.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
         Me.btn_nuevo_cliente_carga.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_nuevo_cliente_carga.Location = New System.Drawing.Point(692, 331)
+        Me.btn_nuevo_cliente_carga.Location = New System.Drawing.Point(834, 326)
         Me.btn_nuevo_cliente_carga.Name = "btn_nuevo_cliente_carga"
         Me.btn_nuevo_cliente_carga.Size = New System.Drawing.Size(103, 42)
         Me.btn_nuevo_cliente_carga.TabIndex = 6
@@ -92,7 +93,7 @@ Partial Class FormClientes
         Me.btn_eliminar_cliente_carga.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_eliminar_cliente_carga.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
         Me.btn_eliminar_cliente_carga.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_eliminar_cliente_carga.Location = New System.Drawing.Point(800, 331)
+        Me.btn_eliminar_cliente_carga.Location = New System.Drawing.Point(942, 326)
         Me.btn_eliminar_cliente_carga.Name = "btn_eliminar_cliente_carga"
         Me.btn_eliminar_cliente_carga.Size = New System.Drawing.Size(103, 42)
         Me.btn_eliminar_cliente_carga.TabIndex = 8
@@ -108,7 +109,7 @@ Partial Class FormClientes
         Me.btn_guardar_cliente_carga.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_guardar_cliente_carga.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
         Me.btn_guardar_cliente_carga.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_guardar_cliente_carga.Location = New System.Drawing.Point(909, 331)
+        Me.btn_guardar_cliente_carga.Location = New System.Drawing.Point(1051, 326)
         Me.btn_guardar_cliente_carga.Name = "btn_guardar_cliente_carga"
         Me.btn_guardar_cliente_carga.Size = New System.Drawing.Size(103, 42)
         Me.btn_guardar_cliente_carga.TabIndex = 7
@@ -241,7 +242,7 @@ Partial Class FormClientes
         Me.cmb_tipo_documento_cliente_busqueda.FormattingEnabled = True
         Me.cmb_tipo_documento_cliente_busqueda.Location = New System.Drawing.Point(126, 33)
         Me.cmb_tipo_documento_cliente_busqueda.Name = "cmb_tipo_documento_cliente_busqueda"
-        Me.cmb_tipo_documento_cliente_busqueda.Size = New System.Drawing.Size(111, 25)
+        Me.cmb_tipo_documento_cliente_busqueda.Size = New System.Drawing.Size(89, 25)
         Me.cmb_tipo_documento_cliente_busqueda.TabIndex = 0
         '
         'Label8
@@ -249,7 +250,7 @@ Partial Class FormClientes
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Black
-        Me.Label8.Location = New System.Drawing.Point(262, 36)
+        Me.Label8.Location = New System.Drawing.Point(221, 36)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(78, 17)
         Me.Label8.TabIndex = 1
@@ -263,20 +264,20 @@ Partial Class FormClientes
         Me.btn_buscar_cliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_buscar_cliente.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
         Me.btn_buscar_cliente.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscar_cliente.Location = New System.Drawing.Point(472, 33)
+        Me.btn_buscar_cliente.Location = New System.Drawing.Point(408, 33)
         Me.btn_buscar_cliente.Name = "btn_buscar_cliente"
-        Me.btn_buscar_cliente.Size = New System.Drawing.Size(140, 25)
+        Me.btn_buscar_cliente.Size = New System.Drawing.Size(122, 25)
         Me.btn_buscar_cliente.TabIndex = 2
         Me.btn_buscar_cliente.Text = "Buscar Cliente"
         Me.btn_buscar_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_buscar_cliente.UseVisualStyleBackColor = False
         '
-        'grid_clientes
+        'dgv_clientes
         '
-        Me.grid_clientes.AllowUserToAddRows = False
-        Me.grid_clientes.AllowUserToDeleteRows = False
+        Me.dgv_clientes.AllowUserToAddRows = False
+        Me.dgv_clientes.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grid_clientes.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgv_clientes.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -284,9 +285,9 @@ Partial Class FormClientes
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grid_clientes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.grid_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grid_clientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_apellido, Me.col_nombre, Me.col_tipo_documento, Me.col_documento, Me.col_email, Me.col_telefono})
+        Me.dgv_clientes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgv_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_clientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_apellido, Me.col_nombre, Me.col_tipo_documento, Me.col_documento, Me.col_email, Me.col_telefono})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -294,10 +295,10 @@ Partial Class FormClientes
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grid_clientes.DefaultCellStyle = DataGridViewCellStyle3
-        Me.grid_clientes.Location = New System.Drawing.Point(18, 72)
-        Me.grid_clientes.Name = "grid_clientes"
-        Me.grid_clientes.ReadOnly = True
+        Me.dgv_clientes.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgv_clientes.Location = New System.Drawing.Point(18, 72)
+        Me.dgv_clientes.Name = "dgv_clientes"
+        Me.dgv_clientes.ReadOnly = True
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -305,29 +306,32 @@ Partial Class FormClientes
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grid_clientes.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgv_clientes.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grid_clientes.RowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.grid_clientes.Size = New System.Drawing.Size(643, 477)
-        Me.grid_clientes.TabIndex = 3
+        Me.dgv_clientes.RowsDefaultCellStyle = DataGridViewCellStyle5
+        Me.dgv_clientes.Size = New System.Drawing.Size(782, 490)
+        Me.dgv_clientes.TabIndex = 3
         '
         'col_apellido
         '
         Me.col_apellido.HeaderText = "Apellido"
         Me.col_apellido.Name = "col_apellido"
         Me.col_apellido.ReadOnly = True
+        Me.col_apellido.Width = 120
         '
         'col_nombre
         '
         Me.col_nombre.HeaderText = "Nombre"
         Me.col_nombre.Name = "col_nombre"
         Me.col_nombre.ReadOnly = True
+        Me.col_nombre.Width = 120
         '
         'col_tipo_documento
         '
         Me.col_tipo_documento.HeaderText = "Tipo Doc."
         Me.col_tipo_documento.Name = "col_tipo_documento"
         Me.col_tipo_documento.ReadOnly = True
+        Me.col_tipo_documento.Width = 95
         '
         'col_documento
         '
@@ -340,6 +344,7 @@ Partial Class FormClientes
         Me.col_email.HeaderText = "E-mail"
         Me.col_email.Name = "col_email"
         Me.col_email.ReadOnly = True
+        Me.col_email.Width = 180
         '
         'col_telefono
         '
@@ -360,24 +365,26 @@ Partial Class FormClientes
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.lbl_msj)
         Me.GroupBox1.Controls.Add(Me.txt_numero_documento_cliente_busqueda)
-        Me.GroupBox1.Controls.Add(Me.grid_clientes)
+        Me.GroupBox1.Controls.Add(Me.dgv_clientes)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.cmb_tipo_documento_cliente_busqueda)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.btn_buscar_cliente)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.GroupBox1.Location = New System.Drawing.Point(8, 55)
+        Me.GroupBox1.Location = New System.Drawing.Point(8, 50)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(678, 578)
+        Me.GroupBox1.Size = New System.Drawing.Size(820, 583)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Listado de Clientes"
         '
         'txt_numero_documento_cliente_busqueda
         '
-        Me.txt_numero_documento_cliente_busqueda.Location = New System.Drawing.Point(343, 33)
+        Me.txt_numero_documento_cliente_busqueda.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_numero_documento_cliente_busqueda.Location = New System.Drawing.Point(302, 33)
         Me.txt_numero_documento_cliente_busqueda.Name = "txt_numero_documento_cliente_busqueda"
         Me.txt_numero_documento_cliente_busqueda.Size = New System.Drawing.Size(100, 25)
         Me.txt_numero_documento_cliente_busqueda.TabIndex = 1
@@ -408,7 +415,7 @@ Partial Class FormClientes
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Black
         Me.Label7.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
-        Me.Label7.Location = New System.Drawing.Point(988, 600)
+        Me.Label7.Location = New System.Drawing.Point(1130, 600)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(109, 33)
         Me.Label7.TabIndex = 26
@@ -464,7 +471,7 @@ Partial Class FormClientes
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Label11.Location = New System.Drawing.Point(0, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(1111, 47)
+        Me.Label11.Size = New System.Drawing.Size(1251, 47)
         Me.Label11.TabIndex = 28
         Me.Label11.Text = "  Administración de Clientes"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -490,19 +497,32 @@ Partial Class FormClientes
         Me.GroupBox2.Controls.Add(Me.txt_telefono_cliente_carga)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.GroupBox2.Location = New System.Drawing.Point(692, 55)
+        Me.GroupBox2.Location = New System.Drawing.Point(834, 50)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(405, 270)
         Me.GroupBox2.TabIndex = 29
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Carga de Clientes"
         '
+        'lbl_msj
+        '
+        Me.lbl_msj.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.lbl_msj.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_msj.ForeColor = System.Drawing.Color.White
+        Me.lbl_msj.Location = New System.Drawing.Point(536, 33)
+        Me.lbl_msj.Name = "lbl_msj"
+        Me.lbl_msj.Size = New System.Drawing.Size(264, 25)
+        Me.lbl_msj.TabIndex = 30
+        Me.lbl_msj.Text = " mensaje"
+        Me.lbl_msj.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lbl_msj.Visible = False
+        '
         'FormClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1111, 646)
+        Me.ClientSize = New System.Drawing.Size(1251, 646)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label7)
@@ -517,7 +537,7 @@ Partial Class FormClientes
         Me.Name = "FormClientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CLOTTA Clientes"
-        CType(Me.grid_clientes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv_clientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -543,7 +563,7 @@ Partial Class FormClientes
     Friend WithEvents cmb_tipo_documento_cliente_busqueda As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents btn_buscar_cliente As System.Windows.Forms.Button
-    Friend WithEvents grid_clientes As System.Windows.Forms.DataGridView
+    Friend WithEvents dgv_clientes As System.Windows.Forms.DataGridView
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents txt_numero_documento_cliente_busqueda As System.Windows.Forms.TextBox
@@ -554,12 +574,13 @@ Partial Class FormClientes
     Friend WithEvents lbl_nombreERROR As System.Windows.Forms.Label
     Friend WithEvents lbl_tipodocERROR As System.Windows.Forms.Label
     Friend WithEvents lbl_documentoERROR As System.Windows.Forms.Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents col_apellido As DataGridViewTextBoxColumn
     Friend WithEvents col_nombre As DataGridViewTextBoxColumn
     Friend WithEvents col_tipo_documento As DataGridViewTextBoxColumn
     Friend WithEvents col_documento As DataGridViewTextBoxColumn
     Friend WithEvents col_email As DataGridViewTextBoxColumn
     Friend WithEvents col_telefono As DataGridViewTextBoxColumn
-    Friend WithEvents Label11 As Label
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents lbl_msj As Label
 End Class

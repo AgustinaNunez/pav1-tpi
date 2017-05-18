@@ -21,6 +21,7 @@
         cargar_grilla_cliente()
         Soporte.cargar_combo(cmb_tipo_documento_cliente_carga, Soporte.leerBD_simple("SELECT * FROM tipo_documento"), "id_tipo_documento", "nombre_tipo_documento")
         Soporte.cargar_combo(cmb_tipo_documento_cliente_busqueda, Soporte.leerBD_simple("SELECT * FROM tipo_documento"), "id_tipo_documento", "nombre_tipo_documento")
+        Me.limpiar_campos()
     End Sub
 
     'SUBRUTINA PARA CARGAR GRILLAS
@@ -33,43 +34,40 @@
         tabla = Soporte.leerBD_simple(sql_cargar_grilla)
 
         Dim c As Integer
-        Me.grid_clientes.Rows.Clear()
+        Me.dgv_clientes.Rows.Clear()
         For c = 0 To tabla.Rows.Count - 1
 
-            Me.grid_clientes.Rows.Add()
-            Me.grid_clientes.Rows(c).Cells(0).Value = tabla.Rows(c)("apellido_cliente")
-            Me.grid_clientes.Rows(c).Cells(1).Value = tabla.Rows(c)("nombre_cliente")
-            Me.grid_clientes.Rows(c).Cells(2).Value = tabla.Rows(c)("nombre_tipo_documento")
-            Me.grid_clientes.Rows(c).Cells(3).Value = tabla.Rows(c)("numero_documento")
-            Me.grid_clientes.Rows(c).Cells(4).Value = tabla.Rows(c)("e_mail_cliente")
-            Me.grid_clientes.Rows(c).Cells(5).Value = tabla.Rows(c)("telefono_cliente")
+            Me.dgv_clientes.Rows.Add()
+            Me.dgv_clientes.Rows(c).Cells(0).Value = tabla.Rows(c)("apellido_cliente")
+            Me.dgv_clientes.Rows(c).Cells(1).Value = tabla.Rows(c)("nombre_cliente")
+            Me.dgv_clientes.Rows(c).Cells(2).Value = tabla.Rows(c)("nombre_tipo_documento")
+            Me.dgv_clientes.Rows(c).Cells(3).Value = tabla.Rows(c)("numero_documento")
+            Me.dgv_clientes.Rows(c).Cells(4).Value = tabla.Rows(c)("e_mail_cliente")
+            Me.dgv_clientes.Rows(c).Cells(5).Value = tabla.Rows(c)("telefono_cliente")
         Next
         Me.txt_apellido_cliente_carga.Focus()
     End Sub
 
     'SUBRUTINA PARA BLANQUEAR LOS CAMPOS
-    Private Sub borrar_datos()
+    Private Sub limpiar_campos()
         For Each obj As Windows.Forms.Control In Me.Controls
-            If obj.GetType().Name = "TextBox" Then
-                obj.Text = ""
-            End If
-
-            If obj.GetType().Name = "MaskedTextBox" Then
-                obj.Text = ""
-            End If
-
-            If obj.GetType().Name = "ComboBox" Then
-                Dim local As ComboBox = obj
-                local.SelectedValue = -1
-            End If
+            Me.txt_apellido_cliente_carga.Text = ""
+            Me.txt_nombre_cliente_carga.Text = ""
+            Me.txt_numero_documento_carga.Text = ""
+            Me.txt_numero_documento_cliente_busqueda.Text = ""
+            Me.txt_email_cliente_cliente_carga.Text = ""
+            Me.cmb_tipo_documento_cliente_carga.SelectedIndex = -1
+            Me.cmb_tipo_documento_cliente_busqueda.SelectedIndex = -1
+            Me.txt_telefono_cliente_carga.Text = ""
             Me.ocultar_lblERROR()
+            Me.lbl_msj.Visible = False
         Next
     End Sub
 
     'BOTON PARA BLANQUEAR NUEVO CLIENTE
     Private Sub btn_nuevo_cliente_carga_Click(sender As Object, e As EventArgs) Handles btn_nuevo_cliente_carga.Click
         'If MessageBox.Show("¿Está seguro que desea eliminar los datos ingresados?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-        Me.borrar_datos()
+        Me.limpiar_campos()
         Me.accion = tipo_grabacion.insertar
         Me.btn_guardar_cliente_carga.Enabled = True
         Me.txt_apellido_cliente_carga.Enabled = True
@@ -110,12 +108,12 @@
             cadena &= " Tipo de Documento;"
             'MsgBox("El tipo de documento no fue ingresado", MsgBoxStyle.OkOnly, "Error")
         End If
-        
+
         If txt_numero_documento_carga.Text = "" Then
             lbl_documentoERROR.Visible = True
             txt_numero_documento_carga.Focus()
             rdo = respuesta_validacion._error
-            cadena &= " Numero de Documento;"
+            cadena &= " Número de Documento;"
             'MsgBox("El numero de documento no fue ingresado", MsgBoxStyle.OkOnly, "Error")
         End If
 
@@ -160,11 +158,12 @@
             If accion = tipo_grabacion.insertar Then
                 If validar_persona() = respuesta_validacion._ok Then
                     insertar()
-                    'Me.borrar_datos()
+                    'Me.limpiar_campos()
                 End If
             Else
                 modificar()
             End If
+            Me.limpiar_campos()
         End If
     End Sub
 
@@ -208,15 +207,15 @@
         Me.txt_email_cliente_cliente_carga.Enabled = False
         Me.txt_telefono_cliente_carga.Enabled = False
 
-        MsgBox("La carga del cliente fue exitosa", MessageBoxButtons.OK, "Carga Cliente")
+        'MsgBox("La carga del cliente fue exitosa", MessageBoxButtons.OK, "Carga Cliente")
     End Sub
 
     'SUBRUTINA PARA INTERACCION DE GRILLA
-    Private Sub grid_clientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid_clientes.CellContentClick
+    Private Sub grid_clientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_clientes.CellContentClick, dgv_clientes.CellContentDoubleClick
         Dim sql As String = ""
         Dim tabla As New DataTable
         sql &= " SELECT * FROM clientes "
-        sql &= " WHERE numero_documento = '" & Me.grid_clientes.CurrentRow.Cells(3).Value & "'"
+        sql &= " WHERE numero_documento = '" & Me.dgv_clientes.CurrentRow.Cells(3).Value & "'"
 
         tabla = Soporte.leerBD_simple(sql)
 
@@ -260,7 +259,7 @@
         sql &= " WHERE numero_documento = '" & Me.txt_numero_documento_carga.Text & "'"
 
         Soporte.escribirBD_simple(sql)
-        MsgBox("El cliente fue modificado", MessageBoxButtons.OK, "Exito")
+        'MsgBox("El cliente fue modificado", MessageBoxButtons.OK, "Exito")
         cargar_grilla_cliente()
         txt_apellido_cliente_carga.Enabled = False
         txt_email_cliente_cliente_carga.Enabled = False
@@ -273,7 +272,7 @@
     'SUBRUTINA PARA BORRAR CLIENTES
     Private Sub btn_eliminar_cliente_carga_Click(sender As Object, e As EventArgs) Handles btn_eliminar_cliente_carga.Click
         Dim sql As String = ""
-        sql &= "DELETE clientes WHERE numero_documento = '" & Me.grid_clientes.CurrentRow.Cells(3).Value & "'"
+        sql &= "DELETE clientes WHERE numero_documento = '" & Me.dgv_clientes.CurrentRow.Cells(3).Value & "'"
 
         If MessageBox.Show("¿Está seguro que quiere eliminar el registro?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
             Soporte.escribirBD_simple(sql)
@@ -300,26 +299,39 @@
         sql &= " AND c.numero_documento = " & Me.txt_numero_documento_cliente_busqueda.Text
 
         If txt_numero_documento_cliente_busqueda.Text = "" Then
-            MsgBox("No existe valor de busqueda", MsgBoxStyle.OkOnly, "Error")
-            txt_numero_documento_cliente_busqueda.Focus()
+            'MessageBox.Show("No existe valor de búsqueda.", "Clientes", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.cargar_grilla_cliente()
+            Me.txt_numero_documento_cliente_busqueda.Focus()
 
         Else
             tabla = Soporte.leerBD_simple(sql)
-            Dim c As Integer
-            Me.grid_clientes.Rows.Clear()
-            For c = 0 To tabla.Rows.Count - 1
-                Me.grid_clientes.Rows.Add()
-                Me.grid_clientes.Rows(c).Cells(0).Value = tabla.Rows(c)("apellido_cliente")
-                Me.grid_clientes.Rows(c).Cells(1).Value = tabla.Rows(c)("nombre_cliente")
-                Me.grid_clientes.Rows(c).Cells(2).Value = tabla.Rows(c)("nombre_tipo_documento")
-                Me.grid_clientes.Rows(c).Cells(3).Value = tabla.Rows(c)("numero_documento")
-                Me.grid_clientes.Rows(c).Cells(4).Value = tabla.Rows(c)("e_mail_cliente")
-                Me.grid_clientes.Rows(c).Cells(5).Value = tabla.Rows(c)("telefono_cliente")
-            Next
+
             If tabla.Rows.Count = 0 Then
-                MsgBox("No se encontró ningun resultado", MsgBoxStyle.OkOnly, "Error")
-                cargar_grilla_cliente()
+                'MessageBox.Show("No se encontró ningún cliente.", "Clientes", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.limpiar_campos()
+                Me.lbl_msj.Text = "No se encontró ningún cliente."
+                Me.lbl_msj.Visible = True
+                Me.cargar_grilla_cliente()
+                Return
             End If
+
+            Me.limpiar_campos()
+            Dim c As Integer
+            Me.dgv_clientes.Rows.Clear()
+            For c = 0 To tabla.Rows.Count - 1
+                Me.dgv_clientes.Rows.Add()
+                Me.dgv_clientes.Rows(c).Cells(0).Value = tabla.Rows(c)("apellido_cliente")
+                Me.dgv_clientes.Rows(c).Cells(1).Value = tabla.Rows(c)("nombre_cliente")
+                Me.dgv_clientes.Rows(c).Cells(2).Value = tabla.Rows(c)("nombre_tipo_documento")
+                Me.dgv_clientes.Rows(c).Cells(3).Value = tabla.Rows(c)("numero_documento")
+                Me.dgv_clientes.Rows(c).Cells(4).Value = tabla.Rows(c)("e_mail_cliente")
+                Me.dgv_clientes.Rows(c).Cells(5).Value = tabla.Rows(c)("telefono_cliente")
+            Next
+
+            'limpio campos
+            Me.txt_numero_documento_cliente_busqueda.Text = ""
+            Me.cmb_tipo_documento_cliente_busqueda.SelectedIndex = -1
+
         End If
 
     End Sub
@@ -346,7 +358,4 @@
     '    Next
     '    Return respuesta_validacion._ok
     'End Function
-
-
-
 End Class
