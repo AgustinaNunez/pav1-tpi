@@ -41,28 +41,53 @@ Public Class FormCompras
 
     'BOTON AGREGAR
     Private Sub btn_agregar_Click(sender As Object, e As EventArgs) Handles btn_agregar.Click
-        'PRIMERO VERIFICA SI LAS FILAS DE LA TABLA SON NULAS
-        If Me.dgv_compras.Rows.Count = 0 Then
-            Me.dgv_compras.Rows.Add(cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
-            Dim total As Double = 0
-            total = total + Convert.ToDouble(Me.dgv_compras.Rows(0).Cells("col_cantidad").Value * Convert.ToDouble(Me.dgv_compras.Rows(0).Cells("col_precio").Value))
-            Me.txt_monto.Text = total
-        Else
-            If existe_en_grid() = True Then
+        If validar_campos_detalle() Then
+            'PRIMERO VERIFICA SI LAS FILAS DE LA TABLA SON NULAS
+            If Me.dgv_compras.Rows.Count = 0 Then
                 Me.dgv_compras.Rows.Add(cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
                 Dim total As Double = 0
-                For c = 0 To Me.dgv_compras.Rows.Count - 1
-                    total = total + Convert.ToDouble(Me.dgv_compras.Rows(c).Cells("col_cantidad").Value * Convert.ToDouble(Me.dgv_compras.Rows(c).Cells("col_precio").Value))
-                Next
+                total = total + Convert.ToDouble(Me.dgv_compras.Rows(0).Cells("col_cantidad").Value * Convert.ToDouble(Me.dgv_compras.Rows(0).Cells("col_precio").Value))
                 Me.txt_monto.Text = total
+            Else
+                If existe_en_grid() = True Then
+                    Me.dgv_compras.Rows.Add(cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
+                    Dim total As Double = 0
+                    For c = 0 To Me.dgv_compras.Rows.Count - 1
+                        total = total + Convert.ToDouble(Me.dgv_compras.Rows(c).Cells("col_cantidad").Value * Convert.ToDouble(Me.dgv_compras.Rows(c).Cells("col_precio").Value))
+                    Next
+                    Me.txt_monto.Text = total
+                End If
             End If
+            'Me.limpiar_campos_detalle()
         End If
-        'Me.limpiar_campos_detalle()
     End Sub
+
+    Private Function validar_campos_detalle()
+        Dim mensaje As String = "Faltan campos requeridos para agregar un nuevo artículo:"
+        Dim flag As Boolean = True
+        If Me.cmb_producto.SelectedIndex = -1 Then
+            flag = False
+            mensaje &= vbCrLf & "- producto"
+        End If
+        If Me.txt_cantidad.Text = "" Then
+            flag = False
+            mensaje &= vbCrLf & "- cantidad"
+        End If
+        If Me.txt_precio.Text = "" Then
+            flag = False
+            mensaje &= vbCrLf & "- precio unitario del producto comprado"
+        End If
+        If flag = False Then
+            MessageBox.Show(mensaje, "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+        Return flag
+    End Function
 
     'BOTON ELIMINAR
     Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
-        Me.dgv_compras.Rows.Remove(Me.dgv_compras.CurrentRow)
+        If Me.dgv_compras.Rows.Count > 0 Then
+            Me.dgv_compras.Rows.Remove(Me.dgv_compras.CurrentRow)
+        End If
     End Sub
 
     'FUNCION QUE DEVUELVE TRUE SI EXISTE UN ELEMENTO SELECCIONADO EN LA GRILLA
@@ -194,7 +219,7 @@ Public Class FormCompras
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = Soporte.cadena_conexion_juan
+        conexion.ConnectionString = Soporte.cadena_conexion_agus
 
         conexion.Open()
         cmd.Connection = conexion
