@@ -88,31 +88,39 @@
     Private Function validar_datos() As respuesta_validacion
         Me.ocultar_lblERROR()
         Dim rdo = respuesta_validacion._ok
+        Dim cadena As String = "Los siguientes campos están vacíos:"
         If txt_apellido_cliente_carga.Text = "" Then
             lbl_apellidoERROR.Visible = True
             txt_apellido_cliente_carga.Focus()
             rdo = respuesta_validacion._error
-            MsgBox("El apellido no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+            cadena &= " Apellido;"
         End If
         If txt_nombre_cliente_carga.Text = "" Then
             lbl_nombreERROR.Visible = True
             txt_nombre_cliente_carga.Focus()
             rdo = respuesta_validacion._error
-            MsgBox("El nombre no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+            cadena &= " Nombre;"
+            'MsgBox("El nombre no fue ingresado", MsgBoxStyle.OkOnly, "Error")
         End If
 
         If cmb_tipo_documento_cliente_carga.Text = "" Then
             lbl_tipodocERROR.Visible = True
             cmb_tipo_documento_cliente_carga.Focus()
             rdo = respuesta_validacion._error
-            MsgBox("El tipo de documento no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+            cadena &= " Tipo de Documento;"
+            'MsgBox("El tipo de documento no fue ingresado", MsgBoxStyle.OkOnly, "Error")
         End If
         
         If txt_numero_documento_carga.Text = "" Then
             lbl_documentoERROR.Visible = True
             txt_numero_documento_carga.Focus()
             rdo = respuesta_validacion._error
-            MsgBox("El numero de documento no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+            cadena &= " Numero de Documento;"
+            'MsgBox("El numero de documento no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+        End If
+
+        If txt_apellido_cliente_carga.Text = "" Or txt_nombre_cliente_carga.Text = "" Or cmb_tipo_documento_cliente_carga.Text = "" Or txt_numero_documento_carga.Text = "" Then
+            MsgBox(cadena, MsgBoxStyle.OkCancel, "Error")
         End If
 
         Return rdo
@@ -134,7 +142,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
         sql &= "SELECT numero_documento, tipo_documento FROM clientes WHERE numero_documento = " & Me.txt_numero_documento_carga.Text
-        sql &= "AND tipo_documento =" & Me.cmb_tipo_documento_cliente_carga.SelectedValue
+        sql &= " AND tipo_documento = " & Me.cmb_tipo_documento_cliente_carga.SelectedValue
 
         tabla = Soporte.leerBD_simple(sql)
 
@@ -171,12 +179,24 @@
         sql &= "telefono_cliente,"
         sql &= "e_mail_cliente)"
         sql &= " VALUES("
-        sql &= " ' " & Me.txt_numero_documento_carga.Text & "'"
+        sql &= "'" & Me.txt_numero_documento_carga.Text & "'"
         sql &= "," & Me.cmb_tipo_documento_cliente_carga.SelectedValue
-        sql &= ", '" & Me.txt_nombre_cliente_carga.Text & "'"
-        sql &= ", '" & Me.txt_apellido_cliente_carga.Text & "'"
-        sql &= "," & Me.txt_telefono_cliente_carga.Text
-        sql &= ", '" & Me.txt_email_cliente_cliente_carga.Text & "')"
+        sql &= ",'" & Me.txt_nombre_cliente_carga.Text & "'"
+        sql &= ",'" & Me.txt_apellido_cliente_carga.Text & "'"
+
+        If txt_telefono_cliente_carga.Text = "" Then
+            sql &= ",0"
+        Else
+            sql &= "," & Me.txt_telefono_cliente_carga.Text
+        End If
+
+        If txt_email_cliente_cliente_carga.Text = "" Then
+            sql &= ",'')"
+        Else
+            sql &= ",'" & Me.txt_email_cliente_cliente_carga.Text & "')"
+        End If
+
+
 
         Soporte.escribirBD_simple(sql)
         Me.cargar_grilla_cliente()
@@ -204,8 +224,19 @@
         Me.txt_nombre_cliente_carga.Text = tabla.Rows(0)("nombre_cliente")
         Me.cmb_tipo_documento_cliente_carga.SelectedValue = tabla.Rows(0)("tipo_documento")
         Me.txt_numero_documento_carga.Text = tabla.Rows(0)("numero_documento")
-        Me.txt_email_cliente_cliente_carga.Text = tabla.Rows(0)("e_mail_cliente")
-        Me.txt_telefono_cliente_carga.Text = tabla.Rows(0)("telefono_cliente")
+
+        If tabla.Rows(0)("e_mail_cliente") = "" Then
+            Me.txt_email_cliente_cliente_carga.Text = ""
+        Else
+            Me.txt_email_cliente_cliente_carga.Text = tabla.Rows(0)("e_mail_cliente")
+        End If
+
+        If tabla.Rows(0)("telefono_cliente") = "0" Then
+            Me.txt_telefono_cliente_carga.Text = ""
+        Else
+            Me.txt_telefono_cliente_carga.Text = tabla.Rows(0)("telefono_cliente")
+        End If
+
 
         Me.accion = tipo_grabacion.modificar
         Me.txt_apellido_cliente_carga.Enabled = True
@@ -315,5 +346,7 @@
     '    Next
     '    Return respuesta_validacion._ok
     'End Function
+
+
 
 End Class

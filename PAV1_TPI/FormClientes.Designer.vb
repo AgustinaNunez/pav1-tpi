@@ -203,6 +203,7 @@ Partial Class FormClientes
         '
         'cmb_tipo_documento_cliente_carga
         '
+        Me.cmb_tipo_documento_cliente_carga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_tipo_documento_cliente_carga.Enabled = False
         Me.cmb_tipo_documento_cliente_carga.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_tipo_documento_cliente_carga.ForeColor = System.Drawing.Color.Black

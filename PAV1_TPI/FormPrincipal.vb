@@ -10,7 +10,7 @@
     End Sub
 
 
-    Private Sub btn_productos_Click(sender As Object, e As EventArgs) Handles btn_productos.Click
+    Private Sub btn_productos_Click(sender As Object, e As EventArgs)
         Dim frmProductos = New FormProductos
         frmProductos.Visible = True
     End Sub

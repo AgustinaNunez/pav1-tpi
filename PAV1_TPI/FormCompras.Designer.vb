@@ -36,6 +36,10 @@ Partial Class FormCompras
         Me.txt_hora = New System.Windows.Forms.TextBox()
         Me.txt_monto = New System.Windows.Forms.TextBox()
         Me.dgv_compras = New System.Windows.Forms.DataGridView()
+        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmb_producto = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -43,18 +47,14 @@ Partial Class FormCompras
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.btn_agregar = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btn_nuevo_producto = New System.Windows.Forms.Button()
+        Me.btn_eliminar = New System.Windows.Forms.Button()
+        Me.btn_agregar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
-        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.btn_eliminar = New System.Windows.Forms.Button()
+        Me.Label8 = New System.Windows.Forms.Label()
         CType(Me.dgv_compras, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -156,7 +156,7 @@ Partial Class FormCompras
         Me.dgv_compras.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -166,8 +166,8 @@ Partial Class FormCompras
         Me.dgv_compras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_producto, Me.col_cantidad, Me.col_precio, Me.col_id_producto})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
@@ -178,7 +178,7 @@ Partial Class FormCompras
         Me.dgv_compras.Name = "dgv_compras"
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -187,8 +187,33 @@ Partial Class FormCompras
         Me.dgv_compras.Size = New System.Drawing.Size(645, 196)
         Me.dgv_compras.TabIndex = 9
         '
+        'col_producto
+        '
+        Me.col_producto.HeaderText = "Producto"
+        Me.col_producto.Name = "col_producto"
+        Me.col_producto.ReadOnly = True
+        Me.col_producto.Width = 300
+        '
+        'col_cantidad
+        '
+        Me.col_cantidad.HeaderText = "Cantidad"
+        Me.col_cantidad.Name = "col_cantidad"
+        '
+        'col_precio
+        '
+        Me.col_precio.HeaderText = "Precio de compra"
+        Me.col_precio.Name = "col_precio"
+        Me.col_precio.Width = 150
+        '
+        'col_id_producto
+        '
+        Me.col_id_producto.HeaderText = "id_producto"
+        Me.col_id_producto.Name = "col_id_producto"
+        Me.col_id_producto.Visible = False
+        '
         'cmb_producto
         '
+        Me.cmb_producto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_producto.Enabled = False
         Me.cmb_producto.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_producto.ForeColor = System.Drawing.Color.Black
@@ -277,9 +302,19 @@ Partial Class FormCompras
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de la Compra"
         '
+        'Label9
+        '
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.Black
+        Me.Label9.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
+        Me.Label9.Location = New System.Drawing.Point(596, 480)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(109, 33)
+        Me.Label9.TabIndex = 0
+        '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.Controls.Add(Me.btn_nuevo_producto)
         Me.GroupBox2.Controls.Add(Me.btn_eliminar)
         Me.GroupBox2.Controls.Add(Me.cmb_producto)
         Me.GroupBox2.Controls.Add(Me.Label6)
@@ -298,6 +333,39 @@ Partial Class FormCompras
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalles de la Compra"
         '
+        'btn_nuevo_producto
+        '
+        Me.btn_nuevo_producto.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_nuevo_producto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_nuevo_producto.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_nuevo_producto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_nuevo_producto.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
+        Me.btn_nuevo_producto.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_nuevo_producto.Location = New System.Drawing.Point(18, 70)
+        Me.btn_nuevo_producto.Name = "btn_nuevo_producto"
+        Me.btn_nuevo_producto.Size = New System.Drawing.Size(144, 45)
+        Me.btn_nuevo_producto.TabIndex = 8
+        Me.btn_nuevo_producto.Text = "Nuevo Producto"
+        Me.btn_nuevo_producto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_nuevo_producto.UseVisualStyleBackColor = True
+        '
+        'btn_eliminar
+        '
+        Me.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_eliminar.Enabled = False
+        Me.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_eliminar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_eliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_eliminar.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
+        Me.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_eliminar.Location = New System.Drawing.Point(558, 69)
+        Me.btn_eliminar.Name = "btn_eliminar"
+        Me.btn_eliminar.Size = New System.Drawing.Size(105, 45)
+        Me.btn_eliminar.TabIndex = 7
+        Me.btn_eliminar.Text = "Eliminar"
+        Me.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_eliminar.UseVisualStyleBackColor = True
+        '
         'btn_agregar
         '
         Me.btn_agregar.Enabled = False
@@ -306,7 +374,7 @@ Partial Class FormCompras
         Me.btn_agregar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_agregar.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
         Me.btn_agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_agregar.Location = New System.Drawing.Point(18, 70)
+        Me.btn_agregar.Location = New System.Drawing.Point(447, 69)
         Me.btn_agregar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_agregar.Name = "btn_agregar"
         Me.btn_agregar.Size = New System.Drawing.Size(105, 45)
@@ -314,28 +382,6 @@ Partial Class FormCompras
         Me.btn_agregar.Text = "Agregar"
         Me.btn_agregar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_agregar.UseVisualStyleBackColor = True
-        '
-        'Label8
-        '
-        Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(0, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(755, 47)
-        Me.Label8.TabIndex = 0
-        Me.Label8.Text = "  Registro de Compra"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label9
-        '
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.Black
-        Me.Label9.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
-        Me.Label9.Location = New System.Drawing.Point(596, 480)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(109, 33)
-        Me.Label9.TabIndex = 0
         '
         'btn_nuevo
         '
@@ -372,63 +418,17 @@ Partial Class FormCompras
         Me.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_guardar.UseVisualStyleBackColor = True
         '
-        'col_producto
+        'Label8
         '
-        Me.col_producto.HeaderText = "Producto"
-        Me.col_producto.Name = "col_producto"
-        Me.col_producto.ReadOnly = True
-        Me.col_producto.Width = 300
-        '
-        'col_cantidad
-        '
-        Me.col_cantidad.HeaderText = "Cantidad"
-        Me.col_cantidad.Name = "col_cantidad"
-        '
-        'col_precio
-        '
-        Me.col_precio.HeaderText = "Precio de compra"
-        Me.col_precio.Name = "col_precio"
-        Me.col_precio.Width = 150
-        '
-        'col_id_producto
-        '
-        Me.col_id_producto.HeaderText = "id_producto"
-        Me.col_id_producto.Name = "col_id_producto"
-        Me.col_id_producto.Visible = False
-        '
-        'Button1
-        '
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Button1.Enabled = False
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.Button1.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.Location = New System.Drawing.Point(240, 70)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(105, 45)
-        Me.Button1.TabIndex = 8
-        Me.Button1.Text = "Guardar"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'btn_eliminar
-        '
-        Me.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_eliminar.Enabled = False
-        Me.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_eliminar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_eliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_eliminar.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
-        Me.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_eliminar.Location = New System.Drawing.Point(129, 70)
-        Me.btn_eliminar.Name = "btn_eliminar"
-        Me.btn_eliminar.Size = New System.Drawing.Size(105, 45)
-        Me.btn_eliminar.TabIndex = 7
-        Me.btn_eliminar.Text = "Eliminar"
-        Me.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_eliminar.UseVisualStyleBackColor = True
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.Label8.Location = New System.Drawing.Point(0, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(755, 47)
+        Me.Label8.TabIndex = 0
+        Me.Label8.Text = "  Registro de Compra"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'FormCompras
         '
@@ -478,6 +478,6 @@ Partial Class FormCompras
     Friend WithEvents col_cantidad As DataGridViewTextBoxColumn
     Friend WithEvents col_precio As DataGridViewTextBoxColumn
     Friend WithEvents col_id_producto As DataGridViewTextBoxColumn
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btn_nuevo_producto As Button
     Friend WithEvents btn_eliminar As Button
 End Class

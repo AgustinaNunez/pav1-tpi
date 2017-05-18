@@ -59,8 +59,8 @@ numero_documento varchar(20),
 tipo_documento integer,
 nombre_cliente varchar(30),
 apellido_cliente varchar(30),
-telefono_cliente numeric,
-e_mail_cliente varchar(90),
+telefono_cliente numeric NULL,
+e_mail_cliente varchar(90) NULL,
 CONSTRAINT pk_clientes PRIMARY KEY (numero_documento, tipo_documento),
 CONSTRAINT fk_tipo_doc FOREIGN KEY (tipo_documento) REFERENCES tipo_documento(id_tipo_documento)
 )
@@ -235,3 +235,12 @@ SET @CODIGO = '0'
 ELSE
 SET
 @CODIGO = (SELECT MAX(id_fabrica) FROM fabricas) + 1
+
+
+CREATE PROCEDURE AUTOGENERARCODIGO_productos (@CODIGO CHAR(10) OUTPUT)
+AS
+IF (SELECT COUNT(*) FROM productos)= 0
+SET @CODIGO = '0'
+ELSE
+SET
+@CODIGO = (SELECT MAX(id_producto) FROM productos) + 1

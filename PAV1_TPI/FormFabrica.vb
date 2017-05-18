@@ -237,7 +237,7 @@ Public Class FormFabrica
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = Soporte.cadena_conexion_agus
+        conexion.ConnectionString = Soporte.cadena_conexion_juan
 
         conexion.Open()
         cmd.Connection = conexion
@@ -293,4 +293,6 @@ Public Class FormFabrica
             e.Cancel = True
         End If
     End Sub
+
+
 End Class

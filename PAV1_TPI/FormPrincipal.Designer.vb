@@ -26,7 +26,6 @@ Partial Class Frm_Principal
         Me.btn_clientes = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btn_fabricas = New System.Windows.Forms.Button()
-        Me.btn_productos = New System.Windows.Forms.Button()
         Me.btn_tarjetas = New System.Windows.Forms.Button()
         Me.btn_usuarios = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -72,26 +71,13 @@ Partial Class Frm_Principal
         Me.btn_fabricas.Text = "Fábricas"
         Me.btn_fabricas.UseVisualStyleBackColor = False
         '
-        'btn_productos
-        '
-        Me.btn_productos.BackColor = System.Drawing.Color.MediumVioletRed
-        Me.btn_productos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_productos.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_productos.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_productos.Location = New System.Drawing.Point(744, 178)
-        Me.btn_productos.Name = "btn_productos"
-        Me.btn_productos.Size = New System.Drawing.Size(183, 34)
-        Me.btn_productos.TabIndex = 5
-        Me.btn_productos.Text = "Productos"
-        Me.btn_productos.UseVisualStyleBackColor = False
-        '
         'btn_tarjetas
         '
         Me.btn_tarjetas.BackColor = System.Drawing.Color.MediumVioletRed
         Me.btn_tarjetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_tarjetas.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_tarjetas.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_tarjetas.Location = New System.Drawing.Point(744, 218)
+        Me.btn_tarjetas.Location = New System.Drawing.Point(744, 178)
         Me.btn_tarjetas.Name = "btn_tarjetas"
         Me.btn_tarjetas.Size = New System.Drawing.Size(183, 34)
         Me.btn_tarjetas.TabIndex = 6
@@ -104,7 +90,7 @@ Partial Class Frm_Principal
         Me.btn_usuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_usuarios.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_usuarios.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_usuarios.Location = New System.Drawing.Point(744, 258)
+        Me.btn_usuarios.Location = New System.Drawing.Point(744, 218)
         Me.btn_usuarios.Name = "btn_usuarios"
         Me.btn_usuarios.Size = New System.Drawing.Size(183, 34)
         Me.btn_usuarios.TabIndex = 7
@@ -143,7 +129,7 @@ Partial Class Frm_Principal
         Me.btn_compras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_compras.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_compras.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_compras.Location = New System.Drawing.Point(744, 298)
+        Me.btn_compras.Location = New System.Drawing.Point(744, 258)
         Me.btn_compras.Name = "btn_compras"
         Me.btn_compras.Size = New System.Drawing.Size(183, 34)
         Me.btn_compras.TabIndex = 7
@@ -161,7 +147,6 @@ Partial Class Frm_Principal
         Me.Controls.Add(Me.btn_compras)
         Me.Controls.Add(Me.btn_usuarios)
         Me.Controls.Add(Me.btn_tarjetas)
-        Me.Controls.Add(Me.btn_productos)
         Me.Controls.Add(Me.btn_fabricas)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btn_clientes)
@@ -182,7 +167,6 @@ Partial Class Frm_Principal
     Friend WithEvents btn_clientes As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents btn_fabricas As Button
-    Friend WithEvents btn_productos As Button
     Friend WithEvents btn_tarjetas As Button
     Friend WithEvents btn_usuarios As Button
     Friend WithEvents Label4 As Label

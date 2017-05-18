@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports System.Data.OleDb
 
 Public Class FormCompras
     'ENUMERADOR DE RESPUESTAS DE VALIDACION
@@ -17,6 +18,7 @@ Public Class FormCompras
     Private Sub form_compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Soporte.cargar_combo(cmb_producto, Soporte.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
         Me.limpiar_campos_detalle()
+        txt_id_compra.Text = Format(GENERARCODIGO, "000")
         'txt_fecha.Text = Date.Today
         'txt_hora.Text = TimeOfDay
     End Sub
@@ -55,7 +57,12 @@ Public Class FormCompras
                 Me.txt_monto.Text = total
             End If
         End If
-        Me.limpiar_campos_detalle()
+        'Me.limpiar_campos_detalle()
+    End Sub
+
+    'BOTON ELIMINAR
+    Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
+        Me.dgv_compras.Rows.Remove(Me.dgv_compras.CurrentRow)
     End Sub
 
     'FUNCION QUE DEVUELVE TRUE SI EXISTE UN ELEMENTO SELECCIONADO EN LA GRILLA
@@ -115,6 +122,7 @@ Public Class FormCompras
         Me.cmb_producto.Enabled = False
         Me.dgv_compras.Enabled = False
         Me.btn_agregar.Enabled = False
+        Me.btn_eliminar.Enabled = False
     End Sub
 
     'HABILITAR CAMPOS
@@ -125,6 +133,7 @@ Public Class FormCompras
         Me.txt_precio.Enabled = True
         Me.cmb_producto.Enabled = True
         Me.dgv_compras.Enabled = True
+        Me.btn_eliminar.Enabled = True
     End Sub
 
     'LIMPIAR EL CONTENIDO DE LOS CAMPOS DE LA COMPRA
@@ -176,5 +185,45 @@ Public Class FormCompras
             e.Cancel = True
         End If
     End Sub
+
+
+    'GENERADOR DE CODIGOS AUTOMATICOS ASCENDENTES
+    Private Function GENERARCODIGO() As Integer
+
+        Dim RG As New OleDbCommand
+        Dim conexion As New Data.OleDb.OleDbConnection
+        Dim cmd As New Data.OleDb.OleDbCommand
+
+        conexion.ConnectionString = Soporte.cadena_conexion_juan
+
+        conexion.Open()
+        cmd.Connection = conexion
+        RG = New OleDbCommand("AUTOGENERARCODIGO_productos", conexion)
+        Dim PARAM As New OleDbParameter("@CODIGO", SqlDbType.Int)
+        PARAM.Direction = ParameterDirection.Output
+        With RG
+            .CommandType = CommandType.StoredProcedure
+            .Parameters.Add(PARAM)
+            .ExecuteNonQuery()
+            conexion.Close()
+            Return .Parameters("@CODIGO").Value
+        End With
+
+    End Function
+
+
+    'ABRIR PRODUCTOS Y ACTUALIZAR EL COMBO DE PRODUCTOS CUANDO SE GUARDA
+    Private Sub btn_nuevo_producto_Click(sender As Object, e As EventArgs) Handles btn_nuevo_producto.Click
+        'Dim frmProductos = New FormProductos
+        'frmProductos.Visible = True
+        Using form As New FormProductos
+            If form.ShowDialog() = DialogResult.OK Then
+                Soporte.cargar_combo(cmb_producto, Soporte.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
+            End If
+        End Using
+
+    End Sub
+
+
 
 End Class

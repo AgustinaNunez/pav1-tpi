@@ -233,6 +233,7 @@
             lbl_msj.Text = " Faltan campos obligatorios."
             lbl_msj.Visible = True
         End If
+
     End Sub
 
     Private Sub cargar_productos()
@@ -323,12 +324,13 @@
     End Sub
 
     Private Sub FormFabrica_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        If MessageBox.Show("¿Está seguro que quiere salir del formulario?", "Importante",
-                           MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+        If MessageBox.Show("¿Está seguro que quiere salir del formulario?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
             e.Cancel = False
+            DialogResult = DialogResult.OK
         Else
             e.Cancel = True
         End If
     End Sub
+
 
 End Class
