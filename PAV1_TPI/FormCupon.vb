@@ -22,7 +22,7 @@
         sql &= ", " & txt_numero_autorizacion.Text
         sql &= ") "
 
-        Soporte.escribirBD(sql)
+        Soporte.escribirBD_simple(sql)
     End Sub
 
     'FUNCION QUE VALIDA LOS CAMPOS X
@@ -64,7 +64,7 @@
         Dim tabla As New DataTable
         sql &= "SELECT * from cupon WHERE id_cupon = " & Me.txt_numero_cupon.Text
 
-        tabla = Soporte.leerBD(sql)
+        tabla = Soporte.leerBD_simple(sql)
 
         If tabla.Rows.Count = 1 Then
             MsgBox("El cupón ya existe en la base de datos", MsgBoxStyle.OkOnly, "Error")

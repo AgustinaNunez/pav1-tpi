@@ -24,7 +24,7 @@
         Dim sql_cargar_grilla As String = ""
 
         sql_cargar_grilla &= " SELECT * FROM  usuarios "
-        tabla = Soporte.leerBD(sql_cargar_grilla)
+        tabla = Soporte.leerBD_simple(sql_cargar_grilla)
 
         Dim c As Integer
         Me.grilla_usuarios.Rows.Clear()
@@ -56,7 +56,7 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
         sql &= "SELECT id_usuario FROM usuarios WHERE id_usuario = '" & Me.txt_id_usuario.Text & "'"
-        tabla = Soporte.leerBD(sql)
+        tabla = Soporte.leerBD_simple(sql)
         If tabla.Rows.Count = 1 Then
             Return respuesta_validacion._error
         End If
@@ -81,7 +81,7 @@
         sql &= ", '" & Me.txt_contraseña1.Text & "'"
         sql &= ", '" & Me.txt_fecha_alta.Text & " ')"
         MsgBox("La carga del usuario fue exitosa", MessageBoxButtons.OK, "Carga Usuario")
-        Soporte.escribirBD(sql)
+        Soporte.escribirBD_simple(sql)
         Me.cargar_grilla_usuarios()
         borrar_datos()
         Me.cmd_grabar.Enabled = False
@@ -103,7 +103,7 @@
         sql &= ", contraseña = '" & Me.txt_contraseña1.Text & "'"
         sql &= ", fecha_alta = '" & Me.txt_fecha_alta.Text & "'"
         sql &= " WHERE id_usuario= '" & Me.txt_id_usuario.Text & "'"
-        Soporte.escribirBD(sql)
+        Soporte.escribirBD_simple(sql)
         MsgBox("El usuario fue modificado", MessageBoxButtons.OK, "Exito")
         borrar_datos()
         cargar_grilla_usuarios()
@@ -208,7 +208,7 @@
         sql &= "DELETE usuarios WHERE id_usuario = '" & Me.grilla_usuarios.CurrentRow.Cells(0).Value & "'"
 
         If MessageBox.Show("¿Está seguro que quiere eliminar el registro?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-            Soporte.escribirBD(sql)
+            Soporte.escribirBD_simple(sql)
             MsgBox("Se borraron los datos exitosamente", MessageBoxButtons.OK, "Eliminación Usuario")
             cargar_grilla_usuarios()
         End If
@@ -254,7 +254,7 @@
         Dim tabla As New DataTable
         sql &= "SELECT * FROM usuarios "
         sql &= " WHERE id_usuario = '" & Me.txt_buscar_usuario.Text & "'"
-        tabla = Soporte.leerBD(sql)
+        tabla = Soporte.leerBD_simple(sql)
         Dim c As Integer
         Me.grilla_usuarios.Rows.Clear()
         For c = 0 To tabla.Rows.Count - 1
@@ -277,7 +277,7 @@
         Dim tabla As New DataTable
         sql &= " SELECT * FROM usuarios "
         sql &= " WHERE id_usuario = '" & Me.grilla_usuarios.CurrentRow.Cells(0).Value & "'"
-        tabla = Soporte.leerBD(sql)
+        tabla = Soporte.leerBD_simple(sql)
 
         Me.txt_id_usuario.Text = tabla.Rows(0)("id_usuario")
         Me.txt_nombre.Text = tabla.Rows(0)("nombre")

@@ -1,29 +1,7 @@
 ﻿Imports System.ComponentModel
 
 Public Class FormCompras
-
-    'VARIABLES QUE YA CONOCEMOS
-    Dim conexion As New Data.OleDb.OleDbConnection
-    Dim cmd As New OleDb.OleDbCommand
-
-    'NUEVAS VARIABLES QUE SE AGREGAN PARA LAS TRANSACCIONES
-    Dim configuracion_conexion As tipo_conexion = tipo_conexion.simple
-    Dim control_transaccion As resultado_transaccion = resultado_transaccion._ok
-    Dim transaccion As OleDb.OleDbTransaction
-
-    'ENUMERACION DE TIPOS DE CONEXION
-    Enum tipo_conexion
-        simple
-        transaccion
-    End Enum
-
-    'ENUMERACION DE RESULTADOS DE TRANSACCIONES
-    Enum resultado_transaccion
-        _ok
-        _error
-    End Enum
-
-    'ENUMERAODR DE RESPUESTAS DE VALIDACION
+    'ENUMERADOR DE RESPUESTAS DE VALIDACION
     Enum respuesta_validacion
         _ok
         _error
@@ -31,143 +9,42 @@ Public Class FormCompras
 
     'LOADER DE COMPRAS
     Private Sub form_compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Soporte.cargar_combo(cmb_producto, Soporte.leerBD("SELECT * FROM productos"), "id_producto", "descripcion")
+        Soporte.cargar_combo(cmb_producto, Soporte.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
+        Me.limpiar_campos_detalle()
         'txt_fecha.Text = Date.Today
         'txt_hora.Text = TimeOfDay
     End Sub
 
-    'SUBRUTINA PARA CONECTAR MEDIANTE UNA TRANSACCION A LA BD
-    Public Sub conectar()
-        If conexion.State.ToString <> "Open" Then
-            conexion.ConnectionString = Soporte.cadena_conexion_juan
-            conexion.Open()
-            cmd.Connection = conexion
-            cmd.CommandType = CommandType.Text
-            If configuracion_conexion = tipo_conexion.transaccion Then
-                Me.transaccion = Me.conexion.BeginTransaction()
-                Me.cmd.Transaction = Me.transaccion
-                Me.control_transaccion = resultado_transaccion._ok
-            End If
-        End If
-    End Sub
-
-    'SUBRUTINA PARA DESCONECTAR LA BD MEDIANTE TRANSACCION
-    Private Sub desconectar()
-        If configuracion_conexion = tipo_conexion.simple Then
-            Me.conexion.Close()
-        End If
-
-    End Sub
-
-    'SUBRUTINA INICIADORA DE TRANSACCIONES
-    Private Sub iniciar_conexion_con_transaccion()
-        Me.control_transaccion = resultado_transaccion._ok
-        Me.configuracion_conexion = tipo_conexion.transaccion
-    End Sub
-
-    'SUBRUTINA PARA CERRAR TRANSACCIONES
-    Private Sub cerrar_conexion_con_transaccion()
-        If Me.configuracion_conexion = tipo_conexion.transaccion Then
-            If Me.control_transaccion = resultado_transaccion._ok Then
-                Me.transaccion.Commit()
-            Else
-                Me.transaccion.Rollback()
-            End If
-            Me.configuracion_conexion = tipo_conexion.simple
-            Me.desconectar()
-        End If
-
-    End Sub
-
-
-    'FUNCION QUE DEVUELVE UNA TABLA USANDO TRANSACCIONES
-    Private Function consulta_transaccion_bd(ByVal sql As String)
-        Dim tabla As New DataTable
-        cmd.CommandText = sql
-        Me.conectar()
-        Try
-            tabla.Load(cmd.ExecuteReader())
-        Catch ex As Exception
-            Me.control_transaccion = resultado_transaccion._error
-            MessageBox.Show("Error SQL: " + ex.Message + Chr(13) + " en la consulta " + Chr(13) + sql)
-        End Try
-        Me.desconectar()
-        Return tabla
-    End Function
-
-
-
-    'SUBRUTINA QUE GRABA,BORRA O MODIFICA MEDIANTE TRANSACCIONES
-    Private Sub ejecutar_transaccion_bd(ByVal sql As String)
-        Me.conectar()
-        Me.cmd.CommandText = sql
-        Try
-            Me.cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            Me.control_transaccion = resultado_transaccion._error
-            MessageBox.Show("Error SQL: " + ex.Message + Chr(13) + " en la consulta " + Chr(13) + sql)
-        End Try
-        Me.desconectar()
-    End Sub
-
-
-
     'BOTON NUEVO
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
-        Me.txt_cantidad.Text = ""
-        Me.txt_fecha.Text = Today
-        Me.txt_hora.Text = TimeOfDay
-        Me.txt_id_compra.Text = ""
-        Me.txt_monto.Text = "0,00"
-        Me.txt_precio.Text = ""
-        Me.cmb_producto.Text = ""
+        Me.limpiar_campos_compra()
+        Me.habilitar_campos()
 
-        Me.txt_cantidad.Enabled = True
-        'Me.txt_fecha.Enabled = True
-        Me.txt_id_compra.Enabled = True
-        Me.txt_monto.Enabled = False
-        Me.txt_precio.Enabled = True
-        Me.txt_hora.Enabled = False
-        Me.cmb_producto.Enabled = True
-        Me.grid_compras.Enabled = True
         Me.btn_guardar.Enabled = True
         Me.btn_agregar.Enabled = True
-
         Me.txt_id_compra.Focus()
     End Sub
 
-
-
     'BOTON AGREGAR
     Private Sub btn_agregar_Click(sender As Object, e As EventArgs) Handles btn_agregar.Click
-
         'PRIMERO VERIFICA SI LAS FILAS DE LA TABLA SON NULAS
         If Me.grid_compras.Rows.Count = 0 Then
             Me.grid_compras.Rows.Add(cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
-
             Dim total As Double = 0
             total = total + Convert.ToDouble(Me.grid_compras.Rows(0).Cells("col_cantidad").Value * Convert.ToDouble(Me.grid_compras.Rows(0).Cells("col_precio").Value))
             Me.txt_monto.Text = total
-
         Else
             If existe_en_grid() = True Then
                 Me.grid_compras.Rows.Add(cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
-
                 Dim total As Double = 0
                 For c = 0 To Me.grid_compras.Rows.Count - 1
                     total = total + Convert.ToDouble(Me.grid_compras.Rows(c).Cells("col_cantidad").Value * Convert.ToDouble(Me.grid_compras.Rows(c).Cells("col_precio").Value))
                 Next
-
                 Me.txt_monto.Text = total
             End If
-
-
         End If
-
-
+        Me.limpiar_campos_detalle()
     End Sub
-
-
 
     'FUNCION QUE DEVUELVE TRUE SI EXISTE UN ELEMENTO SELECCIONADO EN LA GRILLA
     Private Function existe_en_grid()
@@ -181,22 +58,18 @@ Public Class FormCompras
         Return valor
     End Function
 
-
-
     'BOTON GRABAR
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
         If validar_campos() = respuesta_validacion._ok Then
             If validar_compra() = respuesta_validacion._ok Then
-                Me.iniciar_conexion_con_transaccion()
+                Soporte.iniciar_conexion_con_transaccion()
 
                 Dim sql_insertar_compra As String = ""
-
                 sql_insertar_compra &= "INSERT INTO compras(id_compra,fecha_compra,hora_compra,monto) VALUES(" & txt_id_compra.Text
                 sql_insertar_compra &= ", '" & txt_fecha.Text & "'"
                 sql_insertar_compra &= ", '" & txt_hora.Text & "'"
                 sql_insertar_compra &= "," & txt_monto.Text & ")"
-
-                Me.ejecutar_transaccion_bd(sql_insertar_compra)
+                Soporte.escribirBD_transaccion(sql_insertar_compra)
 
                 Dim sql_insertar_detalle As String = ""
                 Dim tabla As New DataTable
@@ -207,58 +80,81 @@ Public Class FormCompras
                     sql_insertar_detalle &= "," & Me.grid_compras.Rows(c).Cells("col_id_producto").Value
                     sql_insertar_detalle &= "," & Me.grid_compras.Rows(c).Cells("col_cantidad").Value
                     sql_insertar_detalle &= "," & Me.grid_compras.Rows(c).Cells("col_precio").Value & ")"
-                    Me.ejecutar_transaccion_bd(sql_insertar_detalle)
+                    Soporte.escribirBD_transaccion(sql_insertar_detalle)
                     sql_insertar_detalle = ""
                 Next
 
                 MsgBox("Datos almacenados", MsgBoxStyle.OkOnly, "Carga Correcta")
-
-
-                Me.cerrar_conexion_con_transaccion()
-
-                Me.txt_cantidad.Enabled = False
-                Me.txt_fecha.Enabled = False
-                Me.txt_hora.Enabled = False
-                Me.txt_id_compra.Enabled = False
-                Me.txt_precio.Enabled = False
-                Me.txt_monto.Enabled = False
-                Me.btn_guardar.Enabled = False
-                Me.cmb_producto.Enabled = False
-                Me.grid_compras.Enabled = False
-                Me.btn_agregar.Enabled = False
+                Soporte.cerrar_conexion_con_transaccion()
+                Me.deshabilitar_campos()
             End If
         End If
     End Sub
 
+    'DESHABILITAR CAMPOS
+    Private Sub deshabilitar_campos()
+        Me.txt_cantidad.Enabled = False
+        Me.txt_fecha.Enabled = False
+        Me.txt_hora.Enabled = False
+        Me.txt_id_compra.Enabled = False
+        Me.txt_precio.Enabled = False
+        Me.txt_monto.Enabled = False
+        Me.btn_guardar.Enabled = False
+        Me.cmb_producto.Enabled = False
+        Me.grid_compras.Enabled = False
+        Me.btn_agregar.Enabled = False
+    End Sub
 
+    'HABILITAR CAMPOS
+    Private Sub habilitar_campos()
+        Me.txt_cantidad.Enabled = True
+        'Me.txt_id_compra.Enabled = True
+        'Me.txt_monto.Enabled = False
+        Me.txt_precio.Enabled = True
+        Me.cmb_producto.Enabled = True
+        Me.grid_compras.Enabled = True
+    End Sub
+
+    'LIMPIAR EL CONTENIDO DE LOS CAMPOS DE LA COMPRA
+    Private Sub limpiar_campos_compra()
+        Me.txt_cantidad.Text = ""
+        Me.txt_fecha.Text = Today
+        Me.txt_hora.Text = TimeOfDay
+        'Me.txt_id_compra.Text = ""
+        Me.txt_monto.Text = "0,00"
+        Me.txt_precio.Text = ""
+        Me.cmb_producto.Text = ""
+    End Sub
+
+    'LIMPIAR EL CONTENIDO DE LOS CAMPOS DE LOS PRODUCTOS A CARGAR DE LA COMPRA
+    Private Sub limpiar_campos_detalle()
+        Me.txt_cantidad.Text = ""
+        Me.cmb_producto.SelectedIndex = -1
+        Me.txt_precio.Text = ""
+    End Sub
 
     'VALIDAR CAMPOS
-    Public Function validar_campos()
+    Private Function validar_campos()
         If txt_cantidad.Text = "" Or txt_fecha.Text = "" Or txt_precio.Text = "" Or cmb_producto.SelectedValue = 0 Then
             MsgBox("Alguno de los campos no fue completado", MsgBoxStyle.OkOnly, "Error")
             Return respuesta_validacion._error
         End If
-
         Return respuesta_validacion._ok
     End Function
-
 
     'VALIDAR COMPRA
     Public Function validar_compra()
         Dim sql As String = ""
         Dim tabla As New DataTable
         sql &= "SELECT * FROM compras WHERE id_compra = " & Me.txt_id_compra.Text
-
-        tabla = Soporte.leerBD(sql)
+        tabla = Soporte.leerBD_simple(sql)
 
         If tabla.Rows.Count = 1 Then
             MsgBox("El numero de compra ya existe, ingrese otro", MsgBoxStyle.OkOnly, "Error")
             Return respuesta_validacion._error
         End If
-
         Return respuesta_validacion._ok
     End Function
-
 
     'CIERRE FORMULARIO
     Private Sub FormCompras_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
