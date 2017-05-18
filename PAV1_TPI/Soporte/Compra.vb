@@ -1,19 +1,8 @@
 ﻿Public Class Compra
-    Dim numero_compra As Integer
-    Dim descripcion_articulo As String
-    Dim numero_articulo As Integer
+    Public Shared descripcion_articulo As String
+    Public Shared numero_articulo As Integer
 
-    Public Property NumeroCompra
-        Get
-            numero_compra = numero_compra + 1
-            Return numero_compra
-        End Get
-        Set(value)
-            numero_compra = value
-        End Set
-    End Property
-
-    Public Property DescripcionArticuloSeleccionado
+    Public Shared Property DescripcionArticuloSeleccionado
         Get
             Return descripcion_articulo
         End Get
@@ -22,7 +11,7 @@
         End Set
     End Property
 
-    Public Property NumeroArticuloSeleccionado
+    Public Shared Property NumeroArticuloSeleccionado
         Get
             Return numero_articulo
         End Get

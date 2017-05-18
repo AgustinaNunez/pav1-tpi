@@ -35,7 +35,7 @@ Partial Class FormCompras
         Me.txt_fecha = New System.Windows.Forms.TextBox()
         Me.txt_hora = New System.Windows.Forms.TextBox()
         Me.txt_monto = New System.Windows.Forms.TextBox()
-        Me.grid_compras = New System.Windows.Forms.DataGridView()
+        Me.dgv_compras = New System.Windows.Forms.DataGridView()
         Me.cmb_producto = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -55,7 +55,7 @@ Partial Class FormCompras
         Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
-        CType(Me.grid_compras, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgv_compras, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -79,7 +79,7 @@ Partial Class FormCompras
         Me.Label2.Location = New System.Drawing.Point(243, 37)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(41, 17)
-        Me.Label2.TabIndex = 5
+        Me.Label2.TabIndex = 6
         Me.Label2.Text = "Fecha"
         '
         'Label3
@@ -90,7 +90,7 @@ Partial Class FormCompras
         Me.Label3.Location = New System.Drawing.Point(415, 38)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(37, 17)
-        Me.Label3.TabIndex = 6
+        Me.Label3.TabIndex = 8
         Me.Label3.Text = "Hora"
         '
         'Label4
@@ -101,7 +101,7 @@ Partial Class FormCompras
         Me.Label4.Location = New System.Drawing.Point(20, 431)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(86, 17)
-        Me.Label4.TabIndex = 7
+        Me.Label4.TabIndex = 1
         Me.Label4.Text = "Total a pagar"
         '
         'txt_id_compra
@@ -113,7 +113,7 @@ Partial Class FormCompras
         Me.txt_id_compra.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_id_compra.Name = "txt_id_compra"
         Me.txt_id_compra.Size = New System.Drawing.Size(98, 25)
-        Me.txt_id_compra.TabIndex = 0
+        Me.txt_id_compra.TabIndex = 5
         '
         'txt_fecha
         '
@@ -124,7 +124,7 @@ Partial Class FormCompras
         Me.txt_fecha.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_fecha.Name = "txt_fecha"
         Me.txt_fecha.Size = New System.Drawing.Size(98, 25)
-        Me.txt_fecha.TabIndex = 1
+        Me.txt_fecha.TabIndex = 7
         '
         'txt_hora
         '
@@ -135,7 +135,7 @@ Partial Class FormCompras
         Me.txt_hora.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_hora.Name = "txt_hora"
         Me.txt_hora.Size = New System.Drawing.Size(98, 25)
-        Me.txt_hora.TabIndex = 2
+        Me.txt_hora.TabIndex = 9
         '
         'txt_monto
         '
@@ -146,14 +146,14 @@ Partial Class FormCompras
         Me.txt_monto.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_monto.Name = "txt_monto"
         Me.txt_monto.Size = New System.Drawing.Size(98, 25)
-        Me.txt_monto.TabIndex = 3
+        Me.txt_monto.TabIndex = 2
         '
-        'grid_compras
+        'dgv_compras
         '
-        Me.grid_compras.AllowUserToAddRows = False
-        Me.grid_compras.AllowUserToDeleteRows = False
+        Me.dgv_compras.AllowUserToAddRows = False
+        Me.dgv_compras.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grid_compras.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgv_compras.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -161,9 +161,9 @@ Partial Class FormCompras
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grid_compras.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.grid_compras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grid_compras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_producto, Me.col_cantidad, Me.col_precio, Me.col_id_producto})
+        Me.dgv_compras.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgv_compras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_compras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_producto, Me.col_cantidad, Me.col_precio, Me.col_id_producto})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -171,11 +171,11 @@ Partial Class FormCompras
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grid_compras.DefaultCellStyle = DataGridViewCellStyle3
-        Me.grid_compras.Enabled = False
-        Me.grid_compras.Location = New System.Drawing.Point(18, 122)
-        Me.grid_compras.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.grid_compras.Name = "grid_compras"
+        Me.dgv_compras.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgv_compras.Enabled = False
+        Me.dgv_compras.Location = New System.Drawing.Point(18, 122)
+        Me.dgv_compras.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dgv_compras.Name = "dgv_compras"
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -183,9 +183,9 @@ Partial Class FormCompras
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grid_compras.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
-        Me.grid_compras.Size = New System.Drawing.Size(645, 196)
-        Me.grid_compras.TabIndex = 8
+        Me.dgv_compras.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgv_compras.Size = New System.Drawing.Size(645, 196)
+        Me.dgv_compras.TabIndex = 9
         '
         'cmb_producto
         '
@@ -197,7 +197,7 @@ Partial Class FormCompras
         Me.cmb_producto.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cmb_producto.Name = "cmb_producto"
         Me.cmb_producto.Size = New System.Drawing.Size(221, 25)
-        Me.cmb_producto.TabIndex = 4
+        Me.cmb_producto.TabIndex = 2
         '
         'Label5
         '
@@ -207,7 +207,7 @@ Partial Class FormCompras
         Me.Label5.Location = New System.Drawing.Point(15, 39)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(61, 17)
-        Me.Label5.TabIndex = 6
+        Me.Label5.TabIndex = 1
         Me.Label5.Text = "Producto"
         '
         'Label6
@@ -218,7 +218,7 @@ Partial Class FormCompras
         Me.Label6.Location = New System.Drawing.Point(524, 38)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(60, 17)
-        Me.Label6.TabIndex = 7
+        Me.Label6.TabIndex = 5
         Me.Label6.Text = "Cantidad"
         '
         'txt_cantidad
@@ -230,7 +230,7 @@ Partial Class FormCompras
         Me.txt_cantidad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_cantidad.Name = "txt_cantidad"
         Me.txt_cantidad.Size = New System.Drawing.Size(73, 25)
-        Me.txt_cantidad.TabIndex = 3
+        Me.txt_cantidad.TabIndex = 6
         '
         'Label7
         '
@@ -240,7 +240,7 @@ Partial Class FormCompras
         Me.Label7.Location = New System.Drawing.Point(309, 39)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(112, 17)
-        Me.Label7.TabIndex = 0
+        Me.Label7.TabIndex = 3
         Me.Label7.Text = "Precio de compra"
         '
         'txt_precio
@@ -252,7 +252,7 @@ Partial Class FormCompras
         Me.txt_precio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_precio.Name = "txt_precio"
         Me.txt_precio.Size = New System.Drawing.Size(96, 25)
-        Me.txt_precio.TabIndex = 2
+        Me.txt_precio.TabIndex = 4
         '
         'GroupBox1
         '
@@ -273,7 +273,7 @@ Partial Class FormCompras
         Me.GroupBox1.Location = New System.Drawing.Point(12, 50)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(729, 544)
-        Me.GroupBox1.TabIndex = 2
+        Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de la Compra"
         '
@@ -287,14 +287,14 @@ Partial Class FormCompras
         Me.GroupBox2.Controls.Add(Me.txt_cantidad)
         Me.GroupBox2.Controls.Add(Me.txt_precio)
         Me.GroupBox2.Controls.Add(Me.Label5)
-        Me.GroupBox2.Controls.Add(Me.grid_compras)
+        Me.GroupBox2.Controls.Add(Me.dgv_compras)
         Me.GroupBox2.Controls.Add(Me.btn_agregar)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.GroupBox2.Location = New System.Drawing.Point(20, 81)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(685, 336)
-        Me.GroupBox2.TabIndex = 4
+        Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalles de la Compra"
         '
@@ -310,18 +310,19 @@ Partial Class FormCompras
         Me.btn_agregar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_agregar.Name = "btn_agregar"
         Me.btn_agregar.Size = New System.Drawing.Size(105, 45)
-        Me.btn_agregar.TabIndex = 5
+        Me.btn_agregar.TabIndex = 0
         Me.btn_agregar.Text = "Agregar"
         Me.btn_agregar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_agregar.UseVisualStyleBackColor = True
         '
         'Label8
         '
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(0, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(455, 47)
+        Me.Label8.Size = New System.Drawing.Size(755, 47)
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "  Registro de Compra"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -334,7 +335,7 @@ Partial Class FormCompras
         Me.Label9.Location = New System.Drawing.Point(596, 480)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(109, 33)
-        Me.Label9.TabIndex = 17
+        Me.Label9.TabIndex = 0
         '
         'btn_nuevo
         '
@@ -348,7 +349,7 @@ Partial Class FormCompras
         Me.btn_nuevo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_nuevo.Name = "btn_nuevo"
         Me.btn_nuevo.Size = New System.Drawing.Size(105, 45)
-        Me.btn_nuevo.TabIndex = 1
+        Me.btn_nuevo.TabIndex = 3
         Me.btn_nuevo.Text = "Nueva"
         Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_nuevo.UseVisualStyleBackColor = True
@@ -366,7 +367,7 @@ Partial Class FormCompras
         Me.btn_guardar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(105, 45)
-        Me.btn_guardar.TabIndex = 3
+        Me.btn_guardar.TabIndex = 11
         Me.btn_guardar.Text = "Guardar"
         Me.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_guardar.UseVisualStyleBackColor = True
@@ -407,7 +408,7 @@ Partial Class FormCompras
         Me.Button1.Location = New System.Drawing.Point(240, 70)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(105, 45)
-        Me.Button1.TabIndex = 10
+        Me.Button1.TabIndex = 8
         Me.Button1.Text = "Guardar"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button1.UseVisualStyleBackColor = True
@@ -424,7 +425,7 @@ Partial Class FormCompras
         Me.btn_eliminar.Location = New System.Drawing.Point(129, 70)
         Me.btn_eliminar.Name = "btn_eliminar"
         Me.btn_eliminar.Size = New System.Drawing.Size(105, 45)
-        Me.btn_eliminar.TabIndex = 9
+        Me.btn_eliminar.TabIndex = 7
         Me.btn_eliminar.Text = "Eliminar"
         Me.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_eliminar.UseVisualStyleBackColor = True
@@ -443,7 +444,7 @@ Partial Class FormCompras
         Me.Name = "FormCompras"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gestión de Compras"
-        CType(Me.grid_compras, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv_compras, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -459,7 +460,7 @@ Partial Class FormCompras
     Friend WithEvents txt_fecha As System.Windows.Forms.TextBox
     Friend WithEvents txt_hora As System.Windows.Forms.TextBox
     Friend WithEvents txt_monto As System.Windows.Forms.TextBox
-    Friend WithEvents grid_compras As System.Windows.Forms.DataGridView
+    Friend WithEvents dgv_compras As System.Windows.Forms.DataGridView
     Friend WithEvents cmb_producto As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
