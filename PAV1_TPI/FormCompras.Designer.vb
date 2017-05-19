@@ -176,6 +176,7 @@ Partial Class FormCompras
         Me.dgv_compras.Location = New System.Drawing.Point(18, 122)
         Me.dgv_compras.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgv_compras.Name = "dgv_compras"
+        Me.dgv_compras.ReadOnly = True
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -198,17 +199,20 @@ Partial Class FormCompras
         '
         Me.col_cantidad.HeaderText = "Cantidad"
         Me.col_cantidad.Name = "col_cantidad"
+        Me.col_cantidad.ReadOnly = True
         '
         'col_precio
         '
         Me.col_precio.HeaderText = "Precio de compra"
         Me.col_precio.Name = "col_precio"
+        Me.col_precio.ReadOnly = True
         Me.col_precio.Width = 150
         '
         'col_id_producto
         '
         Me.col_id_producto.HeaderText = "id_producto"
         Me.col_id_producto.Name = "col_id_producto"
+        Me.col_id_producto.ReadOnly = True
         Me.col_id_producto.Visible = False
         '
         'cmb_producto

@@ -296,7 +296,7 @@
         Dim tabla As New DataTable
         sql &= "SELECT * FROM clientes c JOIN tipo_documento td ON c.tipo_documento = td.id_tipo_documento "
         sql &= " WHERE td.nombre_tipo_documento = '" & Me.cmb_tipo_documento_cliente_busqueda.Text & "'"
-        sql &= " AND c.numero_documento = " & Me.txt_numero_documento_cliente_busqueda.Text
+        sql &= " AND c.numero_documento LIKE '%" & Me.txt_numero_documento_cliente_busqueda.Text & "%'"
 
         If txt_numero_documento_cliente_busqueda.Text = "" Then
             'MessageBox.Show("No existe valor de búsqueda.", "Clientes", MessageBoxButtons.OK, MessageBoxIcon.Information)

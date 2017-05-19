@@ -34,9 +34,11 @@ Public Class FormCompras
         Me.limpiar_campos_compra()
         Me.habilitar_campos()
 
+        Me.txt_id_compra.Text = Me.GENERARCODIGO()
+
         Me.btn_guardar.Enabled = True
         Me.btn_agregar.Enabled = True
-        Me.txt_id_compra.Focus()
+        Me.txt_precio.Focus()
     End Sub
 
     'BOTON AGREGAR
@@ -219,11 +221,11 @@ Public Class FormCompras
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = Soporte.cadena_conexion_agus
+        conexion.ConnectionString = Soporte.cadena_conexion_juan
 
         conexion.Open()
         cmd.Connection = conexion
-        RG = New OleDbCommand("AUTOGENERARCODIGO_productos", conexion)
+        RG = New OleDbCommand("AUTOGENERARCODIGO_compras", conexion)
         Dim PARAM As New OleDbParameter("@CODIGO", SqlDbType.Int)
         PARAM.Direction = ParameterDirection.Output
         With RG
@@ -248,7 +250,6 @@ Public Class FormCompras
         End Using
 
     End Sub
-
 
 
 End Class

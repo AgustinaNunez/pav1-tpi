@@ -40,15 +40,11 @@
 
     'SUBRUTINA PARA BLANQUEAR LOS CAMPOS
     Private Sub borrar_datos()
-        For Each obj As Windows.Forms.Control In Me.Controls
-            If obj.GetType().Name = "TextBox" Then
-                obj.Text = ""
-            End If
-
-            If obj.GetType().Name = "MaskedTextBox" Then
-                obj.Text = ""
-            End If
-        Next
+        Me.txt_apellido.Text = ""
+        Me.txt_contraseña1.Text = ""
+        Me.txt_id_usuario.Text = ""
+        Me.txt_nombre.Text = ""
+        Me.txt_contraseña2.Text = ""
     End Sub
 
     'FUNCION PARA VALIDAR UN USUARIO (QUE NO EXISTIESE UN USUARIO PREVIAMENTE CON ESE NOMBRE DE USUARIO)
@@ -253,7 +249,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
         sql &= "SELECT * FROM usuarios "
-        sql &= " WHERE id_usuario = '" & Me.txt_buscar_usuario.Text & "'"
+        sql &= " WHERE id_usuario LIKE '%" & Me.txt_buscar_usuario.Text & "%'"
         tabla = Soporte.leerBD_simple(sql)
         Dim c As Integer
         Me.grilla_usuarios.Rows.Clear()

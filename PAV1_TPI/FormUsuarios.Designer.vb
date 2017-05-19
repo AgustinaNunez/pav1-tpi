@@ -170,7 +170,7 @@ Partial Class FormUsuarios
         Me.txt_apellido.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_apellido.Name = "txt_apellido"
         Me.txt_apellido.Size = New System.Drawing.Size(143, 25)
-        Me.txt_apellido.TabIndex = 1
+        Me.txt_apellido.TabIndex = 2
         '
         'txt_nombre
         '
@@ -181,7 +181,7 @@ Partial Class FormUsuarios
         Me.txt_nombre.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(143, 25)
-        Me.txt_nombre.TabIndex = 2
+        Me.txt_nombre.TabIndex = 1
         '
         'txt_buscar_usuario
         '
@@ -281,7 +281,7 @@ Partial Class FormUsuarios
         Me.groupBox.Name = "groupBox"
         Me.groupBox.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.groupBox.Size = New System.Drawing.Size(506, 462)
-        Me.groupBox.TabIndex = 38
+        Me.groupBox.TabIndex = 4
         Me.groupBox.TabStop = False
         Me.groupBox.Text = "Listado de Usuarios"
         '
@@ -312,7 +312,7 @@ Partial Class FormUsuarios
         Me.cmd_eliminar.Location = New System.Drawing.Point(118, 342)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(100, 40)
-        Me.cmd_eliminar.TabIndex = 7
+        Me.cmd_eliminar.TabIndex = 2
         Me.cmd_eliminar.Text = "Eliminar"
         Me.cmd_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_eliminar.UseVisualStyleBackColor = False
@@ -328,7 +328,7 @@ Partial Class FormUsuarios
         Me.cmd_grabar.Location = New System.Drawing.Point(224, 342)
         Me.cmd_grabar.Name = "cmd_grabar"
         Me.cmd_grabar.Size = New System.Drawing.Size(100, 40)
-        Me.cmd_grabar.TabIndex = 8
+        Me.cmd_grabar.TabIndex = 3
         Me.cmd_grabar.Text = "Guardar"
         Me.cmd_grabar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_grabar.UseVisualStyleBackColor = False
@@ -343,7 +343,7 @@ Partial Class FormUsuarios
         Me.cmd_nuevo.Location = New System.Drawing.Point(12, 342)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(100, 40)
-        Me.cmd_nuevo.TabIndex = 6
+        Me.cmd_nuevo.TabIndex = 1
         Me.cmd_nuevo.Text = "Nuevo"
         Me.cmd_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_nuevo.UseVisualStyleBackColor = False
@@ -475,7 +475,7 @@ Partial Class FormUsuarios
         Me.gb_carga.Location = New System.Drawing.Point(12, 50)
         Me.gb_carga.Name = "gb_carga"
         Me.gb_carga.Size = New System.Drawing.Size(377, 286)
-        Me.gb_carga.TabIndex = 42
+        Me.gb_carga.TabIndex = 0
         Me.gb_carga.TabStop = False
         Me.gb_carga.Text = "Carga de Usuarios"
         '

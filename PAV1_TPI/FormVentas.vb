@@ -1,4 +1,6 @@
-﻿Public Class FormVentas
+﻿Imports System.ComponentModel
+Imports System.Data.OleDb
+Public Class FormVentas
     Dim hay_articulos_cargados As Boolean = False
 
     Private Sub FormVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -8,6 +10,7 @@
         Me.limpiar_camposCLIENTE()
         Me.limpiar_camposDETALLE()
         Me.limpiar_camposFORMAPAGO()
+        Me.txt_idVENTA.Text = Format(GENERARCODIGO, "000")
     End Sub
 
     Private Sub btn_nuevaVENTA_Click(sender As Object, e As EventArgs) Handles btn_nuevaVENTA.Click
@@ -17,6 +20,7 @@
         Me.limpiar_camposDETALLE()
         Me.limpiar_camposFORMAPAGO()
         Me.txt_nroDocCLIENTE.Focus()
+        Me.txt_idVENTA.Text = Me.GENERARCODIGO()
     End Sub
 
     Private Sub limpiar_camposDETALLE()
@@ -31,7 +35,7 @@
     End Sub
 
     Private Sub limpiar_camposVENTA()
-        Me.txt_idVENTA.Text = "000000"
+        'Me.txt_idVENTA.Text = "000000"
         Me.txt_fecha.Text = Today
         Me.txt_hora.Text = TimeOfDay
         Me.txt_subtotalVENTA.Text = "0,00"
@@ -97,4 +101,46 @@
 
         Me.txt_nombreCLIENTE.Text = tabla.Rows(0)("apellido_cliente") & ", " & tabla.Rows(0)("nombre_cliente")
     End Sub
+
+
+    'GENERADOR DE CODIGOS AUTOMATICOS ASCENDENTES
+    Private Function GENERARCODIGO() As Integer
+
+        Dim RG As New OleDbCommand
+        Dim conexion As New Data.OleDb.OleDbConnection
+        Dim cmd As New Data.OleDb.OleDbCommand
+
+        conexion.ConnectionString = Soporte.cadena_conexion_juan
+
+        conexion.Open()
+        cmd.Connection = conexion
+        RG = New OleDbCommand("AUTOGENERARCODIGO_ventas", conexion)
+        Dim PARAM As New OleDbParameter("@CODIGO", SqlDbType.Int)
+        PARAM.Direction = ParameterDirection.Output
+        With RG
+            .CommandType = CommandType.StoredProcedure
+            .Parameters.Add(PARAM)
+            .ExecuteNonQuery()
+            conexion.Close()
+            Return .Parameters("@CODIGO").Value
+        End With
+
+    End Function
+
+    Private Sub btn_eliminarDETALLE_Click(sender As Object, e As EventArgs) Handles btn_eliminarDETALLE.Click
+        If Me.dgv_ventas.Rows.Count > 0 Then
+            Me.dgv_ventas.Rows.Remove(Me.dgv_ventas.CurrentRow)
+        End If
+    End Sub
+
+    'Private Sub cmb_producto_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_producto.SelectedValueChanged
+    '    If cmb_producto.SelectedIndex = -1 Then
+    '    Else
+    '        Dim sql As String = ""
+    '        Dim tabla As New DataTable
+    '        sql &= "SELECT * FROM productos WHERE id_producto = " & Me.cmb_producto.SelectedValue
+    '        tabla = Soporte.leerBD_simple(sql)
+    '        Me.txt_precio.Text = tabla.Rows(0)("precio_lista")
+    '    End If
+    'End Sub
 End Class

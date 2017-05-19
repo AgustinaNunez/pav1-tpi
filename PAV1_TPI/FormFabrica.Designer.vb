@@ -121,21 +121,21 @@ Partial Class FormFabrica
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(431, 136)
+        Me.Label3.Location = New System.Drawing.Point(436, 133)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(82, 17)
+        Me.Label3.Size = New System.Drawing.Size(79, 17)
         Me.Label3.TabIndex = 37
-        Me.Label3.Text = "Teléfono : (*)"
+        Me.Label3.Text = "Teléfono  (*)"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(436, 104)
+        Me.Label2.Location = New System.Drawing.Point(441, 101)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(77, 17)
+        Me.Label2.Size = New System.Drawing.Size(74, 17)
         Me.Label2.TabIndex = 36
-        Me.Label2.Text = "Nombre: (*)"
+        Me.Label2.Text = "Nombre (*)"
         '
         'Label10
         '
@@ -184,11 +184,11 @@ Partial Class FormFabrica
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(442, 73)
+        Me.Label4.Location = New System.Drawing.Point(464, 69)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(71, 17)
+        Me.Label4.Size = New System.Drawing.Size(51, 17)
         Me.Label4.TabIndex = 36
-        Me.Label4.Text = "Codigo: (*)"
+        Me.Label4.Text = "Codigo"
         '
         'txt_codigo_fabrica
         '

@@ -1,4 +1,6 @@
-﻿Public Class FormProductos
+﻿Imports System.ComponentModel
+Imports System.Data.OleDb
+Public Class FormProductos
     Enum tipo_grabacion
         insertar
         modificar
@@ -13,15 +15,16 @@
 
     Private Sub FormProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.cargar_productos()
-        Soporte.cargar_combo(cbo_rubro, Soporte.leerBD_simple("SELECT * FROM rubros"), "id_rubro", "nombre")
-        Soporte.cargar_combo(cbo_rubroBUSCAR, Soporte.leerBD_simple("SELECT * FROM rubros"), "id_rubro", "nombre")
-        Soporte.cargar_combo(cbo_fabrica, Soporte.leerBD_simple("SELECT * FROM fabricas"), "id_fabrica", "nombre")
-        Soporte.cargar_combo(cbo_fabricaBUSCAR, Soporte.leerBD_simple("SELECT * FROM fabricas"), "id_fabrica", "nombre")
+        Soporte.cargar_combo(cbo_rubro, Soporte.leerBD_simple("SELECT * FROM rubros ORDER BY nombre"), "id_rubro", "nombre")
+        Soporte.cargar_combo(cbo_rubroBUSCAR, Soporte.leerBD_simple("SELECT * FROM rubros ORDER BY nombre"), "id_rubro", "nombre")
+        Soporte.cargar_combo(cbo_fabrica, Soporte.leerBD_simple("SELECT * FROM fabricas ORDER BY nombre"), "id_fabrica", "nombre")
+        Soporte.cargar_combo(cbo_fabricaBUSCAR, Soporte.leerBD_simple("SELECT * FROM fabricas ORDER BY nombre"), "id_fabrica", "nombre")
         Me.limpiar_campos()
+        Me.txt_id.Text = Format(GENERARCODIGO, "000")
     End Sub
 
     Private Sub limpiar_campos()
-        txt_id.Text = ""
+        'txt_id.Text = ""
         txt_descrip.Text = ""
         txt_precio.Text = ""
         txt_stock.Text = ""
@@ -62,17 +65,10 @@
             rdo = respuesta_validacion._error
             'MsgBox("El id no fue ingresado", MsgBoxStyle.OkOnly, "Error")
         End If
-        If txt_id.Text = "" Then
-            lbl_idERROR.Visible = True
-            txt_id.Focus()
-            rdo = respuesta_validacion._error
-            'MsgBox("El id no fue ingresado", MsgBoxStyle.OkOnly, "Error")
-        End If
         Return rdo
     End Function
 
     Private Sub ocultar_lblERROR()
-        lbl_idERROR.Visible = False
         lbl_precioERROR.Visible = False
         lbl_rubroERROR.Visible = False
         lbl_fabricaERROR.Visible = False
@@ -160,14 +156,16 @@
         Me.habilitar_campos()
         Me.accion = tipo_grabacion.insertar
 
-        Me.txt_id.Focus()
+        Me.txt_id.Text = Me.GENERARCODIGO()
+
+        Me.txt_descrip.Focus()
         Me.cargar_productos()
         Me.btn_guardar.Enabled = True
         Me.btn_eliminar.Enabled = False
     End Sub
 
     Private Sub habilitar_campos()
-        Me.txt_id.Enabled = True
+        'Me.txt_id.Enabled = True
         Me.txt_descrip.Enabled = True
         Me.txt_stock.Enabled = True
         Me.txt_precio.Enabled = True
@@ -332,5 +330,27 @@
         End If
     End Sub
 
+    'GENERADOR DE CODIGOS AUTOMATICOS ASCENDENTES
+    Private Function GENERARCODIGO() As Integer
 
+        Dim RG As New OleDbCommand
+        Dim conexion As New Data.OleDb.OleDbConnection
+        Dim cmd As New Data.OleDb.OleDbCommand
+
+        conexion.ConnectionString = Soporte.cadena_conexion_juan
+
+        conexion.Open()
+        cmd.Connection = conexion
+        RG = New OleDbCommand("AUTOGENERARCODIGO_productos", conexion)
+        Dim PARAM As New OleDbParameter("@CODIGO", SqlDbType.Int)
+        PARAM.Direction = ParameterDirection.Output
+        With RG
+            .CommandType = CommandType.StoredProcedure
+            .Parameters.Add(PARAM)
+            .ExecuteNonQuery()
+            conexion.Close()
+            Return .Parameters("@CODIGO").Value
+        End With
+
+    End Function
 End Class

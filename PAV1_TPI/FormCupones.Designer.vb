@@ -42,29 +42,29 @@ Partial Class FormCupones
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(52, 54)
+        Me.Label2.Location = New System.Drawing.Point(55, 54)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(85, 17)
+        Me.Label2.Size = New System.Drawing.Size(82, 17)
         Me.Label2.TabIndex = 0
-        Me.Label2.Text = "N° Cupón: (*)"
+        Me.Label2.Text = "N° Cupón (*)"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(65, 87)
+        Me.Label3.Location = New System.Drawing.Point(68, 87)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(72, 17)
+        Me.Label3.Size = New System.Drawing.Size(69, 17)
         Me.Label3.TabIndex = 0
-        Me.Label3.Text = "N° Lote: (*)"
+        Me.Label3.Text = "N° Lote (*)"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(18, 120)
+        Me.Label5.Location = New System.Drawing.Point(21, 120)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(119, 17)
+        Me.Label5.Size = New System.Drawing.Size(116, 17)
         Me.Label5.TabIndex = 0
-        Me.Label5.Text = "N° Autorización: (*)"
+        Me.Label5.Text = "N° Autorización (*)"
         '
         'txt_numero_cupon
         '
@@ -187,7 +187,7 @@ Partial Class FormCupones
         Me.Label8.Text = "   Carga de Cupones"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'FormCupon
+        'FormCupones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -212,7 +212,7 @@ Partial Class FormCupones
         Me.ImeMode = System.Windows.Forms.ImeMode.Off
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
-        Me.Name = "FormCupon"
+        Me.Name = "FormCupones"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CLOTTA Tarjetas"
