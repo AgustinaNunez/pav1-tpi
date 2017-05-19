@@ -9,15 +9,9 @@
         frmFabrica.Visible = True
     End Sub
 
-
-    Private Sub btn_productos_Click(sender As Object, e As EventArgs)
-        Dim frmProductos = New FormProductos
-        frmProductos.Visible = True
-    End Sub
-
-    Private Sub btn_tarjetas_Click(sender As Object, e As EventArgs) Handles btn_tarjetas.Click
-        Dim frmTarjetas = New FormCupon
-        frmTarjetas.Visible = True
+    Private Sub btn_cupones_Click(sender As Object, e As EventArgs) Handles btn_tarjetas.Click
+        Dim frmCupones = New FormCupones
+        frmCupones.Visible = True
     End Sub
 
     Private Sub btn_usuarios_Click(sender As Object, e As EventArgs) Handles btn_usuarios.Click
@@ -33,5 +27,15 @@
 
     Private Sub Frm_Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub btn_ventas_Click(sender As Object, e As EventArgs) Handles btn_ventas.Click
+        Dim frmVentas = New FormVentas
+        frmVentas.Visible = True
+    End Sub
+
+    Private Sub btn_productos_Click(sender As Object, e As EventArgs) Handles btn_productos.Click
+        Dim frmProductos = New FormProductos
+        frmProductos.Visible = True
     End Sub
 End Class
