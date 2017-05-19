@@ -73,8 +73,10 @@
 
     Private Sub btn_buscarCLIENTE_Click(sender As Object, e As EventArgs) Handles btn_buscarCLIENTE.Click
         If Me.txt_nroDocCLIENTE.Text = "" Then
-            MessageBox.Show("Falta ingresar el número de documento.", "Gestión de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Me.txt_nroDocCLIENTE.Focus()
+            'MessageBox.Show("Falta ingresar el número de documento.", "Gestión de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            'Me.txt_nroDocCLIENTE.Focus()
+            Dim frmClientes = New FormClientes
+            frmClientes.Visible = True
             Return
         End If
 
@@ -86,9 +88,10 @@
         tabla = Soporte.leerBD_simple(sql)
 
         If tabla.Rows.Count = 0 Then
-            MessageBox.Show("No se encontró el cliente con " & Me.cmb_tipoDocCLIENTE.SelectedText & Me.txt_nombreCLIENTE.Text & ".", "Gestión de Ventas",
+            MessageBox.Show("No se encontró el cliente con " & Me.cmb_tipoDocCLIENTE.SelectedText & Me.txt_nroDocCLIENTE.Text & ".", "Gestión de Ventas",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Me.txt_nombreCLIENTE.Focus()
+            Me.txt_nroDocCLIENTE.Text = ""
+            Me.txt_nroDocCLIENTE.Focus()
             Return
         End If
 

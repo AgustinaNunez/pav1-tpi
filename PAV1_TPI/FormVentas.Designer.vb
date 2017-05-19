@@ -55,7 +55,6 @@ Partial Class FormVentas
         Me.Label12 = New System.Windows.Forms.Label()
         Me.btn_agregarFORMAPAGO = New System.Windows.Forms.Button()
         Me.btn_eliminarFORMAPAGO = New System.Windows.Forms.Button()
-        Me.btn_guardarFORMAPAGO = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -75,7 +74,6 @@ Partial Class FormVentas
         Me.forma_pago = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btn_guardarDETALLE = New System.Windows.Forms.Button()
         Me.btn_eliminarDETALLE = New System.Windows.Forms.Button()
         Me.btn_agregarDETALLE = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
@@ -161,7 +159,6 @@ Partial Class FormVentas
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.btn_guardarDETALLE)
         Me.GroupBox2.Controls.Add(Me.btn_eliminarDETALLE)
         Me.GroupBox2.Controls.Add(Me.btn_agregarDETALLE)
         Me.GroupBox2.Controls.Add(Me.cmb_producto)
@@ -189,7 +186,7 @@ Partial Class FormVentas
         Me.cmb_producto.Location = New System.Drawing.Point(99, 36)
         Me.cmb_producto.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cmb_producto.Name = "cmb_producto"
-        Me.cmb_producto.Size = New System.Drawing.Size(182, 25)
+        Me.cmb_producto.Size = New System.Drawing.Size(205, 25)
         Me.cmb_producto.TabIndex = 2
         '
         'Label6
@@ -208,11 +205,11 @@ Partial Class FormVentas
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Black
-        Me.Label7.Location = New System.Drawing.Point(293, 40)
+        Me.Label7.Location = New System.Drawing.Point(310, 40)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(109, 17)
+        Me.Label7.Size = New System.Drawing.Size(92, 17)
         Me.Label7.TabIndex = 3
-        Me.Label7.Text = "Precio unitario (*)"
+        Me.Label7.Text = "Precio unitario"
         '
         'txt_cantidad
         '
@@ -296,6 +293,7 @@ Partial Class FormVentas
         Me.txt_idVENTA.Name = "txt_idVENTA"
         Me.txt_idVENTA.Size = New System.Drawing.Size(98, 25)
         Me.txt_idVENTA.TabIndex = 5
+        Me.txt_idVENTA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btn_nuevaVENTA
         '
@@ -324,6 +322,7 @@ Partial Class FormVentas
         Me.txt_hora.Name = "txt_hora"
         Me.txt_hora.Size = New System.Drawing.Size(98, 25)
         Me.txt_hora.TabIndex = 9
+        Me.txt_hora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btn_guardarVENTA
         '
@@ -353,6 +352,7 @@ Partial Class FormVentas
         Me.txt_fecha.Name = "txt_fecha"
         Me.txt_fecha.Size = New System.Drawing.Size(98, 25)
         Me.txt_fecha.TabIndex = 7
+        Me.txt_fecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txt_totalVENTA
         '
@@ -390,7 +390,6 @@ Partial Class FormVentas
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.DataGridView1)
-        Me.GroupBox3.Controls.Add(Me.btn_guardarFORMAPAGO)
         Me.GroupBox3.Controls.Add(Me.btn_eliminarFORMAPAGO)
         Me.GroupBox3.Controls.Add(Me.btn_agregarFORMAPAGO)
         Me.GroupBox3.Controls.Add(Me.cmb_formaPago)
@@ -485,24 +484,6 @@ Partial Class FormVentas
         Me.btn_eliminarFORMAPAGO.Text = "Eliminar"
         Me.btn_eliminarFORMAPAGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_eliminarFORMAPAGO.UseVisualStyleBackColor = True
-        '
-        'btn_guardarFORMAPAGO
-        '
-        Me.btn_guardarFORMAPAGO.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_guardarFORMAPAGO.Enabled = False
-        Me.btn_guardarFORMAPAGO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_guardarFORMAPAGO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_guardarFORMAPAGO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_guardarFORMAPAGO.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
-        Me.btn_guardarFORMAPAGO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_guardarFORMAPAGO.Location = New System.Drawing.Point(240, 174)
-        Me.btn_guardarFORMAPAGO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_guardarFORMAPAGO.Name = "btn_guardarFORMAPAGO"
-        Me.btn_guardarFORMAPAGO.Size = New System.Drawing.Size(105, 45)
-        Me.btn_guardarFORMAPAGO.TabIndex = 12
-        Me.btn_guardarFORMAPAGO.Text = "Guardar"
-        Me.btn_guardarFORMAPAGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_guardarFORMAPAGO.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
@@ -687,24 +668,6 @@ Partial Class FormVentas
         Me.monto.HeaderText = "Monto"
         Me.monto.Name = "monto"
         '
-        'btn_guardarDETALLE
-        '
-        Me.btn_guardarDETALLE.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_guardarDETALLE.Enabled = False
-        Me.btn_guardarDETALLE.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_guardarDETALLE.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_guardarDETALLE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_guardarDETALLE.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
-        Me.btn_guardarDETALLE.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_guardarDETALLE.Location = New System.Drawing.Point(240, 247)
-        Me.btn_guardarDETALLE.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_guardarDETALLE.Name = "btn_guardarDETALLE"
-        Me.btn_guardarDETALLE.Size = New System.Drawing.Size(105, 45)
-        Me.btn_guardarDETALLE.TabIndex = 19
-        Me.btn_guardarDETALLE.Text = "Guardar"
-        Me.btn_guardarDETALLE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_guardarDETALLE.UseVisualStyleBackColor = True
-        '
         'btn_eliminarDETALLE
         '
         Me.btn_eliminarDETALLE.Cursor = System.Windows.Forms.Cursors.Default
@@ -772,7 +735,6 @@ Partial Class FormVentas
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents btn_guardarFORMAPAGO As Button
     Friend WithEvents btn_eliminarFORMAPAGO As Button
     Friend WithEvents btn_agregarFORMAPAGO As Button
     Friend WithEvents cmb_formaPago As ComboBox
@@ -816,7 +778,6 @@ Partial Class FormVentas
     Friend WithEvents forma_pago As DataGridViewTextBoxColumn
     Friend WithEvents dto As DataGridViewTextBoxColumn
     Friend WithEvents monto As DataGridViewTextBoxColumn
-    Friend WithEvents btn_guardarDETALLE As Button
     Friend WithEvents btn_eliminarDETALLE As Button
     Friend WithEvents btn_agregarDETALLE As Button
 End Class
