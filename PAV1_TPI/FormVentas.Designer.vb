@@ -40,18 +40,18 @@ Partial Class FormVentas
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dgv_compras = New System.Windows.Forms.DataGridView()
-        Me.txt_id_compra = New System.Windows.Forms.TextBox()
+        Me.txt_idVENTA = New System.Windows.Forms.TextBox()
         Me.btn_nuevaVENTA = New System.Windows.Forms.Button()
         Me.txt_hora = New System.Windows.Forms.TextBox()
         Me.btn_guardarVENTA = New System.Windows.Forms.Button()
         Me.txt_fecha = New System.Windows.Forms.TextBox()
-        Me.txt_monto = New System.Windows.Forms.TextBox()
+        Me.txt_totalVENTA = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cmb_formaPago = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txt_montoFORMAPAGO = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.btn_agregarFORMAPAGO = New System.Windows.Forms.Button()
         Me.btn_eliminarFORMAPAGO = New System.Windows.Forms.Button()
@@ -61,9 +61,9 @@ Partial Class FormVentas
         Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txt_dtoVENTA = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txt_subtotalVENTA = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.cmb_tipoDocCLIENTE = New System.Windows.Forms.ComboBox()
@@ -101,28 +101,28 @@ Partial Class FormVentas
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.GroupBox4)
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
+        Me.GroupBox1.Controls.Add(Me.txt_subtotalVENTA)
         Me.GroupBox1.Controls.Add(Me.Label13)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.txt_dtoVENTA)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
-        Me.GroupBox1.Controls.Add(Me.txt_id_compra)
+        Me.GroupBox1.Controls.Add(Me.txt_idVENTA)
         Me.GroupBox1.Controls.Add(Me.btn_nuevaVENTA)
         Me.GroupBox1.Controls.Add(Me.txt_hora)
         Me.GroupBox1.Controls.Add(Me.btn_guardarVENTA)
         Me.GroupBox1.Controls.Add(Me.txt_fecha)
-        Me.GroupBox1.Controls.Add(Me.txt_monto)
+        Me.GroupBox1.Controls.Add(Me.txt_totalVENTA)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 61)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(729, 749)
+        Me.GroupBox1.Size = New System.Drawing.Size(729, 724)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de la Venta"
@@ -132,7 +132,7 @@ Partial Class FormVentas
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Black
         Me.Label9.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
-        Me.Label9.Location = New System.Drawing.Point(597, 698)
+        Me.Label9.Location = New System.Drawing.Point(597, 673)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(109, 33)
         Me.Label9.TabIndex = 0
@@ -175,7 +175,7 @@ Partial Class FormVentas
         Me.GroupBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.GroupBox2.Location = New System.Drawing.Point(21, 152)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(685, 336)
+        Me.GroupBox2.Size = New System.Drawing.Size(685, 311)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalles de la Venta"
@@ -183,7 +183,6 @@ Partial Class FormVentas
         'cmb_producto
         '
         Me.cmb_producto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmb_producto.Enabled = False
         Me.cmb_producto.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_producto.ForeColor = System.Drawing.Color.Black
         Me.cmb_producto.FormattingEnabled = True
@@ -284,19 +283,19 @@ Partial Class FormVentas
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_compras.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
-        Me.dgv_compras.Size = New System.Drawing.Size(645, 196)
+        Me.dgv_compras.Size = New System.Drawing.Size(645, 169)
         Me.dgv_compras.TabIndex = 9
         '
-        'txt_id_compra
+        'txt_idVENTA
         '
-        Me.txt_id_compra.Enabled = False
-        Me.txt_id_compra.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_id_compra.ForeColor = System.Drawing.Color.Black
-        Me.txt_id_compra.Location = New System.Drawing.Point(102, 35)
-        Me.txt_id_compra.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txt_id_compra.Name = "txt_id_compra"
-        Me.txt_id_compra.Size = New System.Drawing.Size(98, 25)
-        Me.txt_id_compra.TabIndex = 5
+        Me.txt_idVENTA.Enabled = False
+        Me.txt_idVENTA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_idVENTA.ForeColor = System.Drawing.Color.Black
+        Me.txt_idVENTA.Location = New System.Drawing.Point(102, 35)
+        Me.txt_idVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_idVENTA.Name = "txt_idVENTA"
+        Me.txt_idVENTA.Size = New System.Drawing.Size(98, 25)
+        Me.txt_idVENTA.TabIndex = 5
         '
         'btn_nuevaVENTA
         '
@@ -306,7 +305,7 @@ Partial Class FormVentas
         Me.btn_nuevaVENTA.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_nuevaVENTA.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
         Me.btn_nuevaVENTA.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_nuevaVENTA.Location = New System.Drawing.Point(489, 605)
+        Me.btn_nuevaVENTA.Location = New System.Drawing.Point(489, 580)
         Me.btn_nuevaVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_nuevaVENTA.Name = "btn_nuevaVENTA"
         Me.btn_nuevaVENTA.Size = New System.Drawing.Size(105, 45)
@@ -335,7 +334,7 @@ Partial Class FormVentas
         Me.btn_guardarVENTA.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_guardarVENTA.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
         Me.btn_guardarVENTA.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_guardarVENTA.Location = New System.Drawing.Point(601, 605)
+        Me.btn_guardarVENTA.Location = New System.Drawing.Point(601, 580)
         Me.btn_guardarVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_guardarVENTA.Name = "btn_guardarVENTA"
         Me.btn_guardarVENTA.Size = New System.Drawing.Size(105, 45)
@@ -355,16 +354,16 @@ Partial Class FormVentas
         Me.txt_fecha.Size = New System.Drawing.Size(98, 25)
         Me.txt_fecha.TabIndex = 7
         '
-        'txt_monto
+        'txt_totalVENTA
         '
-        Me.txt_monto.Enabled = False
-        Me.txt_monto.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_monto.ForeColor = System.Drawing.Color.Black
-        Me.txt_monto.Location = New System.Drawing.Point(579, 572)
-        Me.txt_monto.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txt_monto.Name = "txt_monto"
-        Me.txt_monto.Size = New System.Drawing.Size(127, 25)
-        Me.txt_monto.TabIndex = 2
+        Me.txt_totalVENTA.Enabled = False
+        Me.txt_totalVENTA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_totalVENTA.ForeColor = System.Drawing.Color.Black
+        Me.txt_totalVENTA.Location = New System.Drawing.Point(579, 547)
+        Me.txt_totalVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_totalVENTA.Name = "txt_totalVENTA"
+        Me.txt_totalVENTA.Size = New System.Drawing.Size(127, 25)
+        Me.txt_totalVENTA.TabIndex = 2
         '
         'Label2
         '
@@ -382,7 +381,7 @@ Partial Class FormVentas
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Black
-        Me.Label4.Location = New System.Drawing.Point(487, 575)
+        Me.Label4.Location = New System.Drawing.Point(487, 550)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(86, 17)
         Me.Label4.TabIndex = 1
@@ -394,31 +393,31 @@ Partial Class FormVentas
         Me.GroupBox3.Controls.Add(Me.btn_guardarFORMAPAGO)
         Me.GroupBox3.Controls.Add(Me.btn_eliminarFORMAPAGO)
         Me.GroupBox3.Controls.Add(Me.btn_agregarFORMAPAGO)
-        Me.GroupBox3.Controls.Add(Me.ComboBox1)
+        Me.GroupBox3.Controls.Add(Me.cmb_formaPago)
         Me.GroupBox3.Controls.Add(Me.Label11)
-        Me.GroupBox3.Controls.Add(Me.TextBox2)
+        Me.GroupBox3.Controls.Add(Me.txt_montoFORMAPAGO)
         Me.GroupBox3.Controls.Add(Me.Label12)
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.GroupBox3.Location = New System.Drawing.Point(21, 494)
+        Me.GroupBox3.Location = New System.Drawing.Point(21, 469)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(460, 237)
         Me.GroupBox3.TabIndex = 11
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Forma de Pago"
         '
-        'ComboBox1
+        'cmb_formaPago
         '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.Enabled = False
-        Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.ForeColor = System.Drawing.Color.Black
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(135, 36)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(125, 25)
-        Me.ComboBox1.TabIndex = 2
+        Me.cmb_formaPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_formaPago.Enabled = False
+        Me.cmb_formaPago.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmb_formaPago.ForeColor = System.Drawing.Color.Black
+        Me.cmb_formaPago.FormattingEnabled = True
+        Me.cmb_formaPago.Location = New System.Drawing.Point(135, 36)
+        Me.cmb_formaPago.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cmb_formaPago.Name = "cmb_formaPago"
+        Me.cmb_formaPago.Size = New System.Drawing.Size(125, 25)
+        Me.cmb_formaPago.TabIndex = 2
         '
         'Label11
         '
@@ -431,16 +430,16 @@ Partial Class FormVentas
         Me.Label11.TabIndex = 3
         Me.Label11.Text = "Monto (*)"
         '
-        'TextBox2
+        'txt_montoFORMAPAGO
         '
-        Me.TextBox2.Enabled = False
-        Me.TextBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.ForeColor = System.Drawing.Color.Black
-        Me.TextBox2.Location = New System.Drawing.Point(336, 36)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(105, 25)
-        Me.TextBox2.TabIndex = 4
+        Me.txt_montoFORMAPAGO.Enabled = False
+        Me.txt_montoFORMAPAGO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_montoFORMAPAGO.ForeColor = System.Drawing.Color.Black
+        Me.txt_montoFORMAPAGO.Location = New System.Drawing.Point(336, 36)
+        Me.txt_montoFORMAPAGO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_montoFORMAPAGO.Name = "txt_montoFORMAPAGO"
+        Me.txt_montoFORMAPAGO.Size = New System.Drawing.Size(105, 25)
+        Me.txt_montoFORMAPAGO.TabIndex = 4
         '
         'Label12
         '
@@ -538,45 +537,45 @@ Partial Class FormVentas
         Me.col_id_producto.Name = "col_id_producto"
         Me.col_id_producto.Visible = False
         '
-        'TextBox1
+        'txt_dtoVENTA
         '
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.ForeColor = System.Drawing.Color.Black
-        Me.TextBox1.Location = New System.Drawing.Point(579, 539)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(127, 25)
-        Me.TextBox1.TabIndex = 13
+        Me.txt_dtoVENTA.Enabled = False
+        Me.txt_dtoVENTA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_dtoVENTA.ForeColor = System.Drawing.Color.Black
+        Me.txt_dtoVENTA.Location = New System.Drawing.Point(579, 514)
+        Me.txt_dtoVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_dtoVENTA.Name = "txt_dtoVENTA"
+        Me.txt_dtoVENTA.Size = New System.Drawing.Size(127, 25)
+        Me.txt_dtoVENTA.TabIndex = 13
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Black
-        Me.Label10.Location = New System.Drawing.Point(505, 542)
+        Me.Label10.Location = New System.Drawing.Point(505, 517)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(69, 17)
         Me.Label10.TabIndex = 12
         Me.Label10.Text = "Descuento"
         '
-        'TextBox3
+        'txt_subtotalVENTA
         '
-        Me.TextBox3.Enabled = False
-        Me.TextBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.ForeColor = System.Drawing.Color.Black
-        Me.TextBox3.Location = New System.Drawing.Point(579, 506)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(127, 25)
-        Me.TextBox3.TabIndex = 15
+        Me.txt_subtotalVENTA.Enabled = False
+        Me.txt_subtotalVENTA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_subtotalVENTA.ForeColor = System.Drawing.Color.Black
+        Me.txt_subtotalVENTA.Location = New System.Drawing.Point(579, 481)
+        Me.txt_subtotalVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_subtotalVENTA.Name = "txt_subtotalVENTA"
+        Me.txt_subtotalVENTA.Size = New System.Drawing.Size(127, 25)
+        Me.txt_subtotalVENTA.TabIndex = 15
         '
         'Label13
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.Black
-        Me.Label13.Location = New System.Drawing.Point(517, 509)
+        Me.Label13.Location = New System.Drawing.Point(517, 484)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(56, 17)
         Me.Label13.TabIndex = 14
@@ -602,6 +601,7 @@ Partial Class FormVentas
         'cmb_tipoDocCLIENTE
         '
         Me.cmb_tipoDocCLIENTE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_tipoDocCLIENTE.Enabled = False
         Me.cmb_tipoDocCLIENTE.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_tipoDocCLIENTE.ForeColor = System.Drawing.Color.Black
         Me.cmb_tipoDocCLIENTE.FormattingEnabled = True
@@ -624,6 +624,7 @@ Partial Class FormVentas
         '
         'txt_nroDocCLIENTE
         '
+        Me.txt_nroDocCLIENTE.Enabled = False
         Me.txt_nroDocCLIENTE.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_nroDocCLIENTE.ForeColor = System.Drawing.Color.Black
         Me.txt_nroDocCLIENTE.Location = New System.Drawing.Point(269, 28)
@@ -657,6 +658,7 @@ Partial Class FormVentas
         'btn_buscarCLIENTE
         '
         Me.btn_buscarCLIENTE.BackColor = System.Drawing.Color.White
+        Me.btn_buscarCLIENTE.Enabled = False
         Me.btn_buscarCLIENTE.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_buscarCLIENTE.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_buscarCLIENTE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
@@ -694,7 +696,7 @@ Partial Class FormVentas
         Me.btn_guardarDETALLE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_guardarDETALLE.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
         Me.btn_guardarDETALLE.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_guardarDETALLE.Location = New System.Drawing.Point(240, 274)
+        Me.btn_guardarDETALLE.Location = New System.Drawing.Point(240, 247)
         Me.btn_guardarDETALLE.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_guardarDETALLE.Name = "btn_guardarDETALLE"
         Me.btn_guardarDETALLE.Size = New System.Drawing.Size(105, 45)
@@ -712,7 +714,7 @@ Partial Class FormVentas
         Me.btn_eliminarDETALLE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_eliminarDETALLE.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
         Me.btn_eliminarDETALLE.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_eliminarDETALLE.Location = New System.Drawing.Point(129, 274)
+        Me.btn_eliminarDETALLE.Location = New System.Drawing.Point(129, 247)
         Me.btn_eliminarDETALLE.Name = "btn_eliminarDETALLE"
         Me.btn_eliminarDETALLE.Size = New System.Drawing.Size(105, 45)
         Me.btn_eliminarDETALLE.TabIndex = 18
@@ -728,7 +730,7 @@ Partial Class FormVentas
         Me.btn_agregarDETALLE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_agregarDETALLE.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
         Me.btn_agregarDETALLE.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_agregarDETALLE.Location = New System.Drawing.Point(18, 274)
+        Me.btn_agregarDETALLE.Location = New System.Drawing.Point(18, 247)
         Me.btn_agregarDETALLE.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_agregarDETALLE.Name = "btn_agregarDETALLE"
         Me.btn_agregarDETALLE.Size = New System.Drawing.Size(105, 45)
@@ -742,7 +744,7 @@ Partial Class FormVentas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(757, 822)
+        Me.ClientSize = New System.Drawing.Size(757, 803)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -773,9 +775,9 @@ Partial Class FormVentas
     Friend WithEvents btn_guardarFORMAPAGO As Button
     Friend WithEvents btn_eliminarFORMAPAGO As Button
     Friend WithEvents btn_agregarFORMAPAGO As Button
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cmb_formaPago As ComboBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txt_montoFORMAPAGO As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label1 As Label
@@ -788,21 +790,21 @@ Partial Class FormVentas
     Friend WithEvents txt_precio As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents dgv_compras As DataGridView
-    Friend WithEvents txt_id_compra As TextBox
+    Friend WithEvents txt_idVENTA As TextBox
     Friend WithEvents btn_nuevaVENTA As Button
     Friend WithEvents txt_hora As TextBox
     Friend WithEvents btn_guardarVENTA As Button
     Friend WithEvents txt_fecha As TextBox
-    Friend WithEvents txt_monto As TextBox
+    Friend WithEvents txt_totalVENTA As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents col_producto As DataGridViewTextBoxColumn
     Friend WithEvents col_cantidad As DataGridViewTextBoxColumn
     Friend WithEvents col_precio As DataGridViewTextBoxColumn
     Friend WithEvents col_id_producto As DataGridViewTextBoxColumn
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txt_dtoVENTA As TextBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txt_subtotalVENTA As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents cmb_tipoDocCLIENTE As ComboBox
