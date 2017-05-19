@@ -16,6 +16,7 @@
         Me.limpiar_camposCLIENTE()
         Me.limpiar_camposDETALLE()
         Me.limpiar_camposFORMAPAGO()
+        Me.txt_nroDocCLIENTE.Focus()
     End Sub
 
     Private Sub limpiar_camposDETALLE()
@@ -68,5 +69,29 @@
             Me.habilitar_camposPAGO()
         End If
 
+    End Sub
+
+    Private Sub btn_buscarCLIENTE_Click(sender As Object, e As EventArgs) Handles btn_buscarCLIENTE.Click
+        If Me.txt_nroDocCLIENTE.Text = "" Then
+            MessageBox.Show("Falta ingresar el número de documento.", "Gestión de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Me.txt_nroDocCLIENTE.Focus()
+            Return
+        End If
+
+        Dim sql As String = ""
+        sql &= "SELECT * FROM clientes c JOIN tipo_documento td ON c.tipo_documento = td.id_tipo_documento "
+        sql &= " WHERE td.nombre_tipo_documento = '" & Me.cmb_tipoDocCLIENTE.Text & "'"
+        sql &= " AND c.numero_documento = " & Me.txt_nroDocCLIENTE.Text
+        Dim tabla As New DataTable
+        tabla = Soporte.leerBD_simple(sql)
+
+        If tabla.Rows.Count = 0 Then
+            MessageBox.Show("No se encontró el cliente con " & Me.cmb_tipoDocCLIENTE.SelectedText & Me.txt_nombreCLIENTE.Text & ".", "Gestión de Ventas",
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Me.txt_nombreCLIENTE.Focus()
+            Return
+        End If
+
+        Me.txt_nombreCLIENTE.Text = tabla.Rows(0)("apellido_cliente") & ", " & tabla.Rows(0)("nombre_cliente")
     End Sub
 End Class
