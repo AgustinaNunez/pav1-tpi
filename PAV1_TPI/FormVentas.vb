@@ -110,7 +110,7 @@ Public Class FormVentas
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = Soporte.cadena_conexion_juan
+        conexion.ConnectionString = Soporte.cadena_conexion_georgi
 
         conexion.Open()
         cmd.Connection = conexion
