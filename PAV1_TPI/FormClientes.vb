@@ -19,8 +19,8 @@
     'LOADER DEL FORM
     Private Sub FormClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla_cliente()
-        Soporte.cargar_combo(cmb_tipo_documento_cliente_carga, Soporte.leerBD_simple("SELECT * FROM tipo_documento"), "id_tipo_documento", "nombre_tipo_documento")
-        Soporte.cargar_combo(cmb_tipo_documento_cliente_busqueda, Soporte.leerBD_simple("SELECT * FROM tipo_documento"), "id_tipo_documento", "nombre_tipo_documento")
+        SoporteGUI.cargar_combo(cmb_tipo_documento_cliente_carga, SoporteBD.leerBD_simple("SELECT * FROM tipo_documento"), "id_tipo_documento", "nombre_tipo_documento")
+        SoporteGUI.cargar_combo(cmb_tipo_documento_cliente_busqueda, SoporteBD.leerBD_simple("SELECT * FROM tipo_documento"), "id_tipo_documento", "nombre_tipo_documento")
         Me.limpiar_campos()
     End Sub
 
@@ -31,7 +31,7 @@
         sql_cargar_grilla &= "SELECT * FROM clientes c "
         sql_cargar_grilla &= "JOIN tipo_documento td ON c.tipo_documento = td.id_tipo_documento"
 
-        tabla = Soporte.leerBD_simple(sql_cargar_grilla)
+        tabla = SoporteBD.leerBD_simple(sql_cargar_grilla)
 
         Dim c As Integer
         Me.dgv_clientes.Rows.Clear()
@@ -142,7 +142,7 @@
         sql &= "SELECT numero_documento, tipo_documento FROM clientes WHERE numero_documento = " & Me.txt_numero_documento_carga.Text
         sql &= " AND tipo_documento = " & Me.cmb_tipo_documento_cliente_carga.SelectedValue
 
-        tabla = Soporte.leerBD_simple(sql)
+        tabla = SoporteBD.leerBD_simple(sql)
 
         If tabla.Rows.Count = 1 Then
             MsgBox("La combinacion de tipo y numero de docuento ya existe", MsgBoxStyle.OkOnly, "Error")
@@ -197,7 +197,7 @@
 
 
 
-        Soporte.escribirBD_simple(sql)
+        SoporteBD.escribirBD_simple(sql)
         Me.cargar_grilla_cliente()
         Me.btn_guardar_cliente_carga.Enabled = False
         Me.txt_apellido_cliente_carga.Enabled = False
@@ -217,7 +217,7 @@
         sql &= " SELECT * FROM clientes "
         sql &= " WHERE numero_documento = '" & Me.dgv_clientes.CurrentRow.Cells(3).Value & "'"
 
-        tabla = Soporte.leerBD_simple(sql)
+        tabla = SoporteBD.leerBD_simple(sql)
 
         Me.txt_apellido_cliente_carga.Text = tabla.Rows(0)("apellido_cliente")
         Me.txt_nombre_cliente_carga.Text = tabla.Rows(0)("nombre_cliente")
@@ -258,7 +258,7 @@
         sql &= ", telefono_cliente = " & Me.txt_telefono_cliente_carga.Text
         sql &= " WHERE numero_documento = '" & Me.txt_numero_documento_carga.Text & "'"
 
-        Soporte.escribirBD_simple(sql)
+        SoporteBD.escribirBD_simple(sql)
         'MsgBox("El cliente fue modificado", MessageBoxButtons.OK, "Exito")
         cargar_grilla_cliente()
         txt_apellido_cliente_carga.Enabled = False
@@ -275,7 +275,7 @@
         sql &= "DELETE clientes WHERE numero_documento = '" & Me.dgv_clientes.CurrentRow.Cells(3).Value & "'"
 
         If MessageBox.Show("¿Está seguro que quiere eliminar el registro?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-            Soporte.escribirBD_simple(sql)
+            SoporteBD.escribirBD_simple(sql)
             MsgBox("Se borraron los datos exitosamente", MessageBoxButtons.OK, "Eliminación Cliente")
             cargar_grilla_cliente()
         End If
@@ -304,7 +304,7 @@
             Me.txt_numero_documento_cliente_busqueda.Focus()
 
         Else
-            tabla = Soporte.leerBD_simple(sql)
+            tabla = SoporteBD.leerBD_simple(sql)
 
             If tabla.Rows.Count = 0 Then
                 'MessageBox.Show("No se encontró ningún cliente.", "Clientes", MessageBoxButtons.OK, MessageBoxIcon.Information)

@@ -1,5 +1,5 @@
 ﻿Imports System.Data.OleDb
-Public Class Soporte
+Public Class SoporteBD
     Public Shared cadena_conexion_agus As String = "Provider=SQLNCLI11;Data Source=AGUSTINA-PC;Integrated Security=SSPI;Initial Catalog=DB_CLOTTA"
     'Public Shared cadena_conexion_juan As String = "Provider=SQLNCLI11;Data Source=(localdb)\Servidor;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
     'Public Shared cadena_conexion_georgi As String = "Provider=SQLNCLI10;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
@@ -58,7 +58,7 @@ Public Class Soporte
     'SUBRUTINA PARA CONECTAR MEDIANTE UNA TRANSACCION A LA BD
     Public Shared Sub conectar()
         If conexion.State.ToString <> "Open" Then
-            conexion.ConnectionString = Soporte.cadena_conexion_agus
+            conexion.ConnectionString = SoporteBD.cadena_conexion_agus
             conexion.Open()
             cmd.Connection = conexion
             cmd.CommandType = CommandType.Text
@@ -124,11 +124,5 @@ Public Class Soporte
         desconectar()
     End Sub
 
-    'SUBRUTINA QUE CARGA UN COMBO
-    Public Shared Sub cargar_combo(ByRef combo As ComboBox, tabla As DataTable,
-                                   ByVal pk As String, ByVal descriptor As String)
-        combo.DataSource = tabla
-        combo.DisplayMember = descriptor
-        combo.ValueMember = pk
-    End Sub
+
 End Class

@@ -4,8 +4,9 @@ Public Class FormVentas
     Dim hay_articulos_cargados As Boolean = False
 
     Private Sub FormVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Soporte.cargar_combo(cmb_tipoDocCLIENTE, Soporte.leerBD_simple("SELECT * FROM tipo_documento"), "id_tipo_documento", "nombre_tipo_documento")
-        Soporte.cargar_combo(cmb_producto, Soporte.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
+        SoporteGUI.cargar_combo(cmb_tipoDocCLIENTE, SoporteBD.leerBD_simple("SELECT * FROM tipo_documento"), "id_tipo_documento", "nombre_tipo_documento")
+        SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
+        SoporteGUI.cargar_combo(cmb_formaPago, SoporteBD.leerBD_simple("SELECT * FROM formas_pago"), "id_forma_pago", "nombre")
         Me.txt_usuarioLogueado.Text = Usuario.apellido & ", " & Usuario.nombre
         Me.limpiar_camposVENTA()
         Me.limpiar_camposCLIENTE()
@@ -90,7 +91,7 @@ Public Class FormVentas
         sql &= " WHERE td.nombre_tipo_documento = '" & Me.cmb_tipoDocCLIENTE.Text & "'"
         sql &= " AND c.numero_documento = " & Me.txt_nroDocCLIENTE.Text
         Dim tabla As New DataTable
-        tabla = Soporte.leerBD_simple(sql)
+        tabla = SoporteBD.leerBD_simple(sql)
 
         If tabla.Rows.Count = 0 Then
             MessageBox.Show("No se encontró el cliente con " & Me.cmb_tipoDocCLIENTE.SelectedText & Me.txt_nroDocCLIENTE.Text & ".", "Gestión de Ventas",
@@ -111,7 +112,7 @@ Public Class FormVentas
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = Soporte.cadena_conexion_agus
+        conexion.ConnectionString = SoporteBD.cadena_conexion_agus
 
         conexion.Open()
         cmd.Connection = conexion
@@ -132,6 +133,21 @@ Public Class FormVentas
         If Me.dgv_ventas.Rows.Count > 0 Then
             Me.dgv_ventas.Rows.Remove(Me.dgv_ventas.CurrentRow)
         End If
+    End Sub
+
+    Private Sub cmb_producto_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_producto.SelectionChangeCommitted
+        If cmb_producto.SelectedIndex = -1 Then
+            Me.txt_precio.Text = "0,00"
+        Else
+            Dim tabla As New DataTable
+            tabla = SoporteBD.leerBD_simple("SELECT precio_lista FROM productos WHERE id_producto = " & Me.cmb_producto.SelectedValue)
+            Me.txt_precio.Text = tabla.Rows(0)("precio_lista")
+        End If
+    End Sub
+
+    Private Sub btn_agregarCUPON_Click(sender As Object, e As EventArgs) Handles btn_agregarCUPON.Click
+        Dim frmCupon As New FormCupones
+        frmCupon.Visible = True
     End Sub
 
     'Private Sub cmb_producto_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_producto.SelectedValueChanged

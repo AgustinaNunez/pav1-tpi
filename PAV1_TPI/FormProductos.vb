@@ -15,10 +15,10 @@ Public Class FormProductos
 
     Private Sub FormProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.cargar_productos()
-        Soporte.cargar_combo(cbo_rubro, Soporte.leerBD_simple("SELECT * FROM rubros ORDER BY nombre"), "id_rubro", "nombre")
-        Soporte.cargar_combo(cbo_rubroBUSCAR, Soporte.leerBD_simple("SELECT * FROM rubros ORDER BY nombre"), "id_rubro", "nombre")
-        Soporte.cargar_combo(cbo_fabrica, Soporte.leerBD_simple("SELECT * FROM fabricas ORDER BY nombre"), "id_fabrica", "nombre")
-        Soporte.cargar_combo(cbo_fabricaBUSCAR, Soporte.leerBD_simple("SELECT * FROM fabricas ORDER BY nombre"), "id_fabrica", "nombre")
+        SoporteGUI.cargar_combo(cbo_rubro, SoporteBD.leerBD_simple("SELECT * FROM rubros ORDER BY nombre"), "id_rubro", "nombre")
+        SoporteGUI.cargar_combo(cbo_rubroBUSCAR, SoporteBD.leerBD_simple("SELECT * FROM rubros ORDER BY nombre"), "id_rubro", "nombre")
+        SoporteGUI.cargar_combo(cbo_fabrica, SoporteBD.leerBD_simple("SELECT * FROM fabricas ORDER BY nombre"), "id_fabrica", "nombre")
+        SoporteGUI.cargar_combo(cbo_fabricaBUSCAR, SoporteBD.leerBD_simple("SELECT * FROM fabricas ORDER BY nombre"), "id_fabrica", "nombre")
         Me.limpiar_campos()
         'Me.txt_id.Text = Format(GENERARCODIGO, "000")
     End Sub
@@ -78,7 +78,7 @@ Public Class FormProductos
         Dim tabla As New DataTable
         Dim sql As String = ""
         sql &= "SELECT id_producto FROM productos WHERE id_producto = " & txt_id.Text
-        tabla = Soporte.leerBD_simple(sql)
+        tabla = SoporteBD.leerBD_simple(sql)
 
         If tabla.Rows.Count = 1 Then
             Return respuesta_validacion._error
@@ -97,7 +97,7 @@ Public Class FormProductos
         sql &= "," & Me.cbo_rubro.SelectedValue
         sql &= ", '" & Me.cbo_fabrica.SelectedValue & "')"
 
-        Soporte.escribirBD_simple(sql)
+        SoporteBD.escribirBD_simple(sql)
         Me.cargar_productos()
         Me.deshabilitar_campos()
         Me.btn_guardar.Enabled = False
@@ -118,7 +118,7 @@ Public Class FormProductos
 
         sql &= " SELECT * FROM productos "
         sql &= " WHERE id_producto = " & Me.dgv_productos.CurrentRow.Cells(0).Value
-        tabla = Soporte.leerBD_simple(sql)
+        tabla = SoporteBD.leerBD_simple(sql)
 
         Me.txt_id.Text = tabla.Rows(0)("id_producto")
         Me.txt_descrip.Text = tabla.Rows(0)("descripcion")
@@ -143,7 +143,7 @@ Public Class FormProductos
         sql &= ", id_fabrica = " & Me.cbo_fabrica.SelectedValue
         sql &= " WHERE id_producto = " & Me.txt_id.Text
 
-        Soporte.escribirBD_simple(sql)
+        SoporteBD.escribirBD_simple(sql)
         cargar_productos()
         MsgBox("El producto fue modificado exitosamente ", MessageBoxButtons.OK, "Exito")
         Me.btn_guardar.Enabled = False
@@ -186,7 +186,7 @@ Public Class FormProductos
         sql &= "DELETE productos WHERE id_producto = " & Me.dgv_productos.CurrentRow.Cells(0).Value
 
         If MessageBox.Show("¿Está seguro que quiere eliminar el producto " & Me.dgv_productos.CurrentRow.Cells(0).Value & "?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-            Soporte.escribirBD_simple(sql)
+            SoporteBD.escribirBD_simple(sql)
             'MsgBox("Se eliminó el producto.", MessageBoxButtons.OK, "Eliminación de Producto")
             Dim id_prod As String = txt_id.Text
             Me.limpiar_campos()
@@ -239,7 +239,7 @@ Public Class FormProductos
         Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, r.nombre AS n_rubro, f.nombre AS n_fabrica FROM productos p "
         sql &= "JOIN rubros r ON p.id_rubro = r.id_rubro "
         sql &= "JOIN fabricas f ON p.id_fabrica = f.id_fabrica"
-        tabla = Soporte.leerBD_simple(sql)
+        tabla = SoporteBD.leerBD_simple(sql)
 
         Dim c As Integer
         Me.dgv_productos.Rows.Clear()
@@ -258,7 +258,7 @@ Public Class FormProductos
     Private Sub buscar(ByVal sql As String)
         Me.limpiar_campos()
         Dim tabla As New DataTable
-        tabla = Soporte.leerBD_simple(sql)
+        tabla = SoporteBD.leerBD_simple(sql)
 
         Dim c As Integer
         Me.dgv_productos.Rows.Clear()
@@ -328,7 +328,7 @@ Public Class FormProductos
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = Soporte.cadena_conexion_agus
+        conexion.ConnectionString = SoporteBD.cadena_conexion_agus
 
         conexion.Open()
         cmd.Connection = conexion

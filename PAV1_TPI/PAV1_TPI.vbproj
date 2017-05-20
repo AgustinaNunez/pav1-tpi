@@ -144,8 +144,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Soporte\Compra.vb" />
-    <Compile Include="Soporte\Soporte.vb" />
+    <Compile Include="Soporte\SoporteBD.vb" />
+    <Compile Include="Soporte\SoporteGUI.vb" />
     <Compile Include="Soporte\Usuario.vb" />
+    <Compile Include="Soporte\Venta.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FormClientes.resx">

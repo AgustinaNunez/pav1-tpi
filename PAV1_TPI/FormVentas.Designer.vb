@@ -29,6 +29,8 @@ Partial Class FormVentas
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormVentas))
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.txt_usuarioLogueado = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.btn_buscarCLIENTE = New System.Windows.Forms.Button()
         Me.txt_nombreCLIENTE = New System.Windows.Forms.TextBox()
@@ -76,8 +78,7 @@ Partial Class FormVentas
         Me.txt_totalVENTA = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.txt_usuarioLogueado = New System.Windows.Forms.TextBox()
+        Me.btn_agregarCUPON = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -128,6 +129,29 @@ Partial Class FormVentas
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de la Venta"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.Color.Black
+        Me.Label16.Location = New System.Drawing.Point(461, 38)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(65, 17)
+        Me.Label16.TabIndex = 16
+        Me.Label16.Text = "Vendedor"
+        '
+        'txt_usuarioLogueado
+        '
+        Me.txt_usuarioLogueado.Enabled = False
+        Me.txt_usuarioLogueado.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_usuarioLogueado.ForeColor = System.Drawing.Color.Black
+        Me.txt_usuarioLogueado.Location = New System.Drawing.Point(532, 34)
+        Me.txt_usuarioLogueado.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_usuarioLogueado.Name = "txt_usuarioLogueado"
+        Me.txt_usuarioLogueado.Size = New System.Drawing.Size(174, 25)
+        Me.txt_usuarioLogueado.TabIndex = 17
+        Me.txt_usuarioLogueado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'GroupBox4
         '
@@ -265,6 +289,7 @@ Partial Class FormVentas
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.btn_agregarCUPON)
         Me.GroupBox3.Controls.Add(Me.DataGridView1)
         Me.GroupBox3.Controls.Add(Me.btn_eliminarFORMAPAGO)
         Me.GroupBox3.Controls.Add(Me.btn_agregarFORMAPAGO)
@@ -707,28 +732,22 @@ Partial Class FormVentas
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "Total a pagar"
         '
-        'Label16
+        'btn_agregarCUPON
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.ForeColor = System.Drawing.Color.Black
-        Me.Label16.Location = New System.Drawing.Point(461, 38)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(65, 17)
-        Me.Label16.TabIndex = 16
-        Me.Label16.Text = "Vendedor"
-        '
-        'txt_usuarioLogueado
-        '
-        Me.txt_usuarioLogueado.Enabled = False
-        Me.txt_usuarioLogueado.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_usuarioLogueado.ForeColor = System.Drawing.Color.Black
-        Me.txt_usuarioLogueado.Location = New System.Drawing.Point(532, 34)
-        Me.txt_usuarioLogueado.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txt_usuarioLogueado.Name = "txt_usuarioLogueado"
-        Me.txt_usuarioLogueado.Size = New System.Drawing.Size(174, 25)
-        Me.txt_usuarioLogueado.TabIndex = 17
-        Me.txt_usuarioLogueado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.btn_agregarCUPON.Enabled = False
+        Me.btn_agregarCUPON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_agregarCUPON.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_agregarCUPON.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_agregarCUPON.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
+        Me.btn_agregarCUPON.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_agregarCUPON.Location = New System.Drawing.Point(286, 174)
+        Me.btn_agregarCUPON.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_agregarCUPON.Name = "btn_agregarCUPON"
+        Me.btn_agregarCUPON.Size = New System.Drawing.Size(155, 45)
+        Me.btn_agregarCUPON.TabIndex = 14
+        Me.btn_agregarCUPON.Text = "Agregar cupón..."
+        Me.btn_agregarCUPON.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_agregarCUPON.UseVisualStyleBackColor = True
         '
         'FormVentas
         '
@@ -810,4 +829,5 @@ Partial Class FormVentas
     Friend WithEvents btn_agregarDETALLE As Button
     Friend WithEvents Label16 As Label
     Friend WithEvents txt_usuarioLogueado As TextBox
+    Friend WithEvents btn_agregarCUPON As Button
 End Class

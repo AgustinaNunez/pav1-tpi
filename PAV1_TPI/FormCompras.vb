@@ -16,7 +16,7 @@ Public Class FormCompras
 
     'LOADER DE COMPRAS
     Private Sub form_compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Soporte.cargar_combo(cmb_producto, Soporte.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
+        SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
         Me.limpiar_campos_detalle()
         txt_id_compra.Text = Format(GENERARCODIGO, "000")
         'txt_fecha.Text = Date.Today
@@ -108,14 +108,14 @@ Public Class FormCompras
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
         If validar_campos() = respuesta_validacion._ok Then
             If validar_compra() = respuesta_validacion._ok Then
-                Soporte.iniciar_conexion_con_transaccion()
+                SoporteBD.iniciar_conexion_con_transaccion()
 
                 Dim sql_insertar_compra As String = ""
                 sql_insertar_compra &= "INSERT INTO compras(id_compra,fecha_compra,hora_compra,monto) VALUES(" & txt_id_compra.Text
                 sql_insertar_compra &= ", '" & txt_fecha.Text & "'"
                 sql_insertar_compra &= ", '" & txt_hora.Text & "'"
                 sql_insertar_compra &= "," & txt_monto.Text & ")"
-                Soporte.escribirBD_transaccion(sql_insertar_compra)
+                SoporteBD.escribirBD_transaccion(sql_insertar_compra)
 
                 Dim sql_insertar_detalle As String = ""
                 Dim tabla As New DataTable
@@ -126,12 +126,12 @@ Public Class FormCompras
                     sql_insertar_detalle &= "," & Me.dgv_compras.Rows(c).Cells("col_id_producto").Value
                     sql_insertar_detalle &= "," & Me.dgv_compras.Rows(c).Cells("col_cantidad").Value
                     sql_insertar_detalle &= "," & Me.dgv_compras.Rows(c).Cells("col_precio").Value & ")"
-                    Soporte.escribirBD_transaccion(sql_insertar_detalle)
+                    SoporteBD.escribirBD_transaccion(sql_insertar_detalle)
                     sql_insertar_detalle = ""
                 Next
 
                 MessageBox.Show("Datos almacenados.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Soporte.cerrar_conexion_con_transaccion()
+                SoporteBD.cerrar_conexion_con_transaccion()
                 Me.deshabilitar_campos()
             End If
         End If
@@ -195,7 +195,7 @@ Public Class FormCompras
         Dim sql As String = ""
         Dim tabla As New DataTable
         sql &= "SELECT * FROM compras WHERE id_compra = " & Me.txt_id_compra.Text
-        tabla = Soporte.leerBD_simple(sql)
+        tabla = SoporteBD.leerBD_simple(sql)
 
         If tabla.Rows.Count = 1 Then
             MsgBox("El numero de compra ya existe, ingrese otro", MsgBoxStyle.OkOnly, "Error")
@@ -221,7 +221,7 @@ Public Class FormCompras
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = Soporte.cadena_conexion_agus
+        conexion.ConnectionString = SoporteBD.cadena_conexion_agus
 
         conexion.Open()
         cmd.Connection = conexion
@@ -245,7 +245,7 @@ Public Class FormCompras
         'frmProductos.Visible = True
         Using form As New FormProductos
             If form.ShowDialog() = DialogResult.OK Then
-                Soporte.cargar_combo(cmb_producto, Soporte.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
+                SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
             End If
         End Using
 

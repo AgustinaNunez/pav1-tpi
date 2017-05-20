@@ -27,7 +27,7 @@ Public Class FormLogin
             Me.mostrar_mensaje(" Los campos usuario y contraseña no pueden estar vacíos.")
             Me.txt_nombre.Focus()
         Else
-            tabla = Soporte.leerBD_simple(sql)
+            tabla = SoporteBD.leerBD_simple(sql)
 
             If tabla.Rows.Count <= 0 Then
                 'MessageBox.Show("Usuario o contraseña incorrectos")

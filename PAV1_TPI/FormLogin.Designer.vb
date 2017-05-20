@@ -28,9 +28,9 @@ Partial Class FormLogin
         Me.txt_nombre = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.lbl_msj = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btn_iniciarSesion
@@ -38,7 +38,7 @@ Partial Class FormLogin
         Me.btn_iniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_iniciarSesion.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_iniciarSesion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.btn_iniciarSesion.Location = New System.Drawing.Point(302, 151)
+        Me.btn_iniciarSesion.Location = New System.Drawing.Point(302, 114)
         Me.btn_iniciarSesion.Name = "btn_iniciarSesion"
         Me.btn_iniciarSesion.Size = New System.Drawing.Size(110, 35)
         Me.btn_iniciarSesion.TabIndex = 28
@@ -48,7 +48,7 @@ Partial Class FormLogin
         'txt_clave
         '
         Me.txt_clave.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_clave.Location = New System.Drawing.Point(108, 157)
+        Me.txt_clave.Location = New System.Drawing.Point(108, 120)
         Me.txt_clave.Name = "txt_clave"
         Me.txt_clave.Size = New System.Drawing.Size(177, 25)
         Me.txt_clave.TabIndex = 27
@@ -57,7 +57,7 @@ Partial Class FormLogin
         'txt_nombre
         '
         Me.txt_nombre.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_nombre.Location = New System.Drawing.Point(108, 125)
+        Me.txt_nombre.Location = New System.Drawing.Point(108, 88)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(177, 25)
         Me.txt_nombre.TabIndex = 26
@@ -66,7 +66,7 @@ Partial Class FormLogin
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(63, 160)
+        Me.Label3.Location = New System.Drawing.Point(63, 123)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(39, 17)
         Me.Label3.TabIndex = 30
@@ -76,22 +76,11 @@ Partial Class FormLogin
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(49, 128)
+        Me.Label2.Location = New System.Drawing.Point(49, 91)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 17)
         Me.Label2.TabIndex = 29
         Me.Label2.Text = "Usuario"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(12, 56)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(174, 45)
-        Me.Label1.TabIndex = 33
-        Me.Label1.Text = "Bienvenida"
         '
         'Label8
         '
@@ -110,7 +99,7 @@ Partial Class FormLogin
         Me.lbl_msj.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.lbl_msj.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_msj.ForeColor = System.Drawing.Color.White
-        Me.lbl_msj.Location = New System.Drawing.Point(0, 207)
+        Me.lbl_msj.Location = New System.Drawing.Point(0, 175)
         Me.lbl_msj.Name = "lbl_msj"
         Me.lbl_msj.Size = New System.Drawing.Size(448, 36)
         Me.lbl_msj.TabIndex = 35
@@ -118,12 +107,24 @@ Partial Class FormLogin
         Me.lbl_msj.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.lbl_msj.Visible = False
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(174, 45)
+        Me.Label1.TabIndex = 36
+        Me.Label1.Text = "Bienvenida"
+        '
         'FormLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(448, 243)
+        Me.ClientSize = New System.Drawing.Size(448, 211)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lbl_msj)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.btn_iniciarSesion)
@@ -131,7 +132,6 @@ Partial Class FormLogin
         Me.Controls.Add(Me.txt_nombre)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -150,6 +150,6 @@ Partial Class FormLogin
     Friend WithEvents txt_nombre As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
     Friend WithEvents lbl_msj As Label
+    Friend WithEvents Label1 As Label
 End Class
