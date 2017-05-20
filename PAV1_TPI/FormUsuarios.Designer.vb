@@ -24,10 +24,6 @@ Partial Class FormUsuarios
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormUsuarios))
         Me.grilla_usuarios = New System.Windows.Forms.DataGridView()
-        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fecha_alta = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txt_fecha_alta = New System.Windows.Forms.MaskedTextBox()
@@ -58,6 +54,10 @@ Partial Class FormUsuarios
         Me.lbl_msj = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.gb_carga = New System.Windows.Forms.GroupBox()
+        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fecha_alta = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.grilla_usuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.groupBox.SuspendLayout()
         Me.gb_carga.SuspendLayout()
@@ -73,32 +73,8 @@ Partial Class FormUsuarios
         Me.grilla_usuarios.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.grilla_usuarios.Name = "grilla_usuarios"
         Me.grilla_usuarios.ReadOnly = True
-        Me.grilla_usuarios.Size = New System.Drawing.Size(443, 368)
+        Me.grilla_usuarios.Size = New System.Drawing.Size(523, 368)
         Me.grilla_usuarios.TabIndex = 27
-        '
-        'id_usuario
-        '
-        Me.id_usuario.HeaderText = "User Name"
-        Me.id_usuario.Name = "id_usuario"
-        Me.id_usuario.ReadOnly = True
-        '
-        'apellido
-        '
-        Me.apellido.HeaderText = "Apellido"
-        Me.apellido.Name = "apellido"
-        Me.apellido.ReadOnly = True
-        '
-        'nombre
-        '
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        '
-        'fecha_alta
-        '
-        Me.fecha_alta.HeaderText = "Fecha Alta"
-        Me.fecha_alta.Name = "fecha_alta"
-        Me.fecha_alta.ReadOnly = True
         '
         'Label9
         '
@@ -280,7 +256,7 @@ Partial Class FormUsuarios
         Me.groupBox.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.groupBox.Name = "groupBox"
         Me.groupBox.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.groupBox.Size = New System.Drawing.Size(506, 462)
+        Me.groupBox.Size = New System.Drawing.Size(583, 462)
         Me.groupBox.TabIndex = 4
         Me.groupBox.TabStop = False
         Me.groupBox.Text = "Listado de Usuarios"
@@ -298,6 +274,7 @@ Partial Class FormUsuarios
         Me.cmd_buscar.Size = New System.Drawing.Size(93, 25)
         Me.cmd_buscar.TabIndex = 1
         Me.cmd_buscar.Text = "Buscar"
+        Me.cmd_buscar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_buscar.UseVisualStyleBackColor = False
         '
         'cmd_eliminar
@@ -444,7 +421,7 @@ Partial Class FormUsuarios
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(913, 47)
+        Me.Label1.Size = New System.Drawing.Size(994, 47)
         Me.Label1.TabIndex = 41
         Me.Label1.Text = "  Administración de Usuarios"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -479,12 +456,37 @@ Partial Class FormUsuarios
         Me.gb_carga.TabStop = False
         Me.gb_carga.Text = "Carga de Usuarios"
         '
+        'id_usuario
+        '
+        Me.id_usuario.HeaderText = "User Name"
+        Me.id_usuario.Name = "id_usuario"
+        Me.id_usuario.ReadOnly = True
+        '
+        'apellido
+        '
+        Me.apellido.HeaderText = "Apellido"
+        Me.apellido.Name = "apellido"
+        Me.apellido.ReadOnly = True
+        '
+        'nombre
+        '
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
+        '
+        'fecha_alta
+        '
+        Me.fecha_alta.HeaderText = "Fecha Alta"
+        Me.fecha_alta.Name = "fecha_alta"
+        Me.fecha_alta.ReadOnly = True
+        Me.fecha_alta.Width = 150
+        '
         'FormUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(913, 524)
+        Me.ClientSize = New System.Drawing.Size(994, 524)
         Me.Controls.Add(Me.gb_carga)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lbl_msj)
@@ -529,10 +531,6 @@ Partial Class FormUsuarios
     Friend WithEvents cmd_grabar As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
     Friend WithEvents cmd_buscar As System.Windows.Forms.Button
-    Friend WithEvents id_usuario As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents apellido As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents fecha_alta As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents lbl_usuarioERROR As System.Windows.Forms.Label
     Friend WithEvents lbl_constraseñaERROR As System.Windows.Forms.Label
@@ -543,4 +541,8 @@ Partial Class FormUsuarios
     Friend WithEvents lbl_msj As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents gb_carga As GroupBox
+    Friend WithEvents id_usuario As DataGridViewTextBoxColumn
+    Friend WithEvents apellido As DataGridViewTextBoxColumn
+    Friend WithEvents nombre As DataGridViewTextBoxColumn
+    Friend WithEvents fecha_alta As DataGridViewTextBoxColumn
 End Class

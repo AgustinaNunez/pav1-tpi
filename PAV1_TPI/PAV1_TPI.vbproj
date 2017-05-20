@@ -145,6 +145,7 @@
     </Compile>
     <Compile Include="Soporte\Compra.vb" />
     <Compile Include="Soporte\Soporte.vb" />
+    <Compile Include="Soporte\Usuario.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FormClientes.resx">
@@ -240,6 +241,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\puerta.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user64_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loop-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\move-to-next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\move-to-next1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\move-to-next2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user64_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user64_21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user32_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user641.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -6,11 +6,12 @@ Public Class FormVentas
     Private Sub FormVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Soporte.cargar_combo(cmb_tipoDocCLIENTE, Soporte.leerBD_simple("SELECT * FROM tipo_documento"), "id_tipo_documento", "nombre_tipo_documento")
         Soporte.cargar_combo(cmb_producto, Soporte.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
+        Me.txt_usuarioLogueado.Text = Usuario.apellido & ", " & Usuario.nombre
         Me.limpiar_camposVENTA()
         Me.limpiar_camposCLIENTE()
         Me.limpiar_camposDETALLE()
         Me.limpiar_camposFORMAPAGO()
-        Me.txt_idVENTA.Text = Format(GENERARCODIGO, "000")
+        Me.txt_idVENTA.Text = Format(GENERARCODIGO, "000000")
     End Sub
 
     Private Sub btn_nuevaVENTA_Click(sender As Object, e As EventArgs) Handles btn_nuevaVENTA.Click
@@ -110,7 +111,7 @@ Public Class FormVentas
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = Soporte.cadena_conexion_georgi
+        conexion.ConnectionString = Soporte.cadena_conexion_agus
 
         conexion.Open()
         cmd.Connection = conexion

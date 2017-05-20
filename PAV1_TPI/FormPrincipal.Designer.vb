@@ -24,7 +24,7 @@ Partial Class Frm_Principal
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Principal))
         Me.btn_clientes = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lbl_usuarioLogueado = New System.Windows.Forms.Label()
         Me.btn_fabricas = New System.Windows.Forms.Button()
         Me.btn_tarjetas = New System.Windows.Forms.Button()
         Me.btn_usuarios = New System.Windows.Forms.Button()
@@ -49,16 +49,15 @@ Partial Class Frm_Principal
         Me.btn_clientes.Text = "Clientes"
         Me.btn_clientes.UseVisualStyleBackColor = False
         '
-        'Label3
+        'lbl_usuarioLogueado
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(794, 11)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(133, 21)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Usuario logueado"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lbl_usuarioLogueado.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_usuarioLogueado.Location = New System.Drawing.Point(728, 11)
+        Me.lbl_usuarioLogueado.Name = "lbl_usuarioLogueado"
+        Me.lbl_usuarioLogueado.Size = New System.Drawing.Size(199, 21)
+        Me.lbl_usuarioLogueado.TabIndex = 3
+        Me.lbl_usuarioLogueado.Text = "Usuario logueado"
+        Me.lbl_usuarioLogueado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'btn_fabricas
         '
@@ -178,7 +177,7 @@ Partial Class Frm_Principal
         Me.Controls.Add(Me.btn_usuarios)
         Me.Controls.Add(Me.btn_tarjetas)
         Me.Controls.Add(Me.btn_fabricas)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.lbl_usuarioLogueado)
         Me.Controls.Add(Me.btn_clientes)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -188,14 +187,13 @@ Partial Class Frm_Principal
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CLOTTA _ Principal"
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents btn_clientes As Button
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lbl_usuarioLogueado As Label
     Friend WithEvents btn_fabricas As Button
     Friend WithEvents btn_tarjetas As Button
     Friend WithEvents btn_usuarios As Button

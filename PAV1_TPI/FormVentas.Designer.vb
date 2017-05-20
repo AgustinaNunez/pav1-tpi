@@ -76,6 +76,8 @@ Partial Class FormVentas
         Me.txt_totalVENTA = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.txt_usuarioLogueado = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -98,6 +100,8 @@ Partial Class FormVentas
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label16)
+        Me.GroupBox1.Controls.Add(Me.txt_usuarioLogueado)
         Me.GroupBox1.Controls.Add(Me.GroupBox4)
         Me.GroupBox1.Controls.Add(Me.txt_subtotalVENTA)
         Me.GroupBox1.Controls.Add(Me.Label13)
@@ -408,7 +412,7 @@ Partial Class FormVentas
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(415, 38)
+        Me.Label3.Location = New System.Drawing.Point(331, 38)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(37, 17)
         Me.Label3.TabIndex = 8
@@ -471,6 +475,7 @@ Partial Class FormVentas
         'cmb_producto
         '
         Me.cmb_producto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_producto.Enabled = False
         Me.cmb_producto.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_producto.ForeColor = System.Drawing.Color.Black
         Me.cmb_producto.FormattingEnabled = True
@@ -606,7 +611,7 @@ Partial Class FormVentas
         Me.txt_idVENTA.Location = New System.Drawing.Point(102, 35)
         Me.txt_idVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_idVENTA.Name = "txt_idVENTA"
-        Me.txt_idVENTA.Size = New System.Drawing.Size(98, 25)
+        Me.txt_idVENTA.Size = New System.Drawing.Size(83, 25)
         Me.txt_idVENTA.TabIndex = 5
         Me.txt_idVENTA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -632,10 +637,10 @@ Partial Class FormVentas
         Me.txt_hora.Enabled = False
         Me.txt_hora.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_hora.ForeColor = System.Drawing.Color.Black
-        Me.txt_hora.Location = New System.Drawing.Point(457, 34)
+        Me.txt_hora.Location = New System.Drawing.Point(373, 34)
         Me.txt_hora.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_hora.Name = "txt_hora"
-        Me.txt_hora.Size = New System.Drawing.Size(98, 25)
+        Me.txt_hora.Size = New System.Drawing.Size(82, 25)
         Me.txt_hora.TabIndex = 9
         Me.txt_hora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -662,10 +667,10 @@ Partial Class FormVentas
         Me.txt_fecha.Enabled = False
         Me.txt_fecha.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_fecha.ForeColor = System.Drawing.Color.Black
-        Me.txt_fecha.Location = New System.Drawing.Point(290, 34)
+        Me.txt_fecha.Location = New System.Drawing.Point(238, 35)
         Me.txt_fecha.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_fecha.Name = "txt_fecha"
-        Me.txt_fecha.Size = New System.Drawing.Size(98, 25)
+        Me.txt_fecha.Size = New System.Drawing.Size(87, 25)
         Me.txt_fecha.TabIndex = 7
         Me.txt_fecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -685,7 +690,7 @@ Partial Class FormVentas
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(243, 37)
+        Me.Label2.Location = New System.Drawing.Point(191, 38)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(41, 17)
         Me.Label2.TabIndex = 6
@@ -701,6 +706,29 @@ Partial Class FormVentas
         Me.Label4.Size = New System.Drawing.Size(86, 17)
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "Total a pagar"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.Color.Black
+        Me.Label16.Location = New System.Drawing.Point(461, 38)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(65, 17)
+        Me.Label16.TabIndex = 16
+        Me.Label16.Text = "Vendedor"
+        '
+        'txt_usuarioLogueado
+        '
+        Me.txt_usuarioLogueado.Enabled = False
+        Me.txt_usuarioLogueado.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_usuarioLogueado.ForeColor = System.Drawing.Color.Black
+        Me.txt_usuarioLogueado.Location = New System.Drawing.Point(532, 34)
+        Me.txt_usuarioLogueado.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_usuarioLogueado.Name = "txt_usuarioLogueado"
+        Me.txt_usuarioLogueado.Size = New System.Drawing.Size(174, 25)
+        Me.txt_usuarioLogueado.TabIndex = 17
+        Me.txt_usuarioLogueado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'FormVentas
         '
@@ -780,4 +808,6 @@ Partial Class FormVentas
     Friend WithEvents monto As DataGridViewTextBoxColumn
     Friend WithEvents btn_eliminarDETALLE As Button
     Friend WithEvents btn_agregarDETALLE As Button
+    Friend WithEvents Label16 As Label
+    Friend WithEvents txt_usuarioLogueado As TextBox
 End Class

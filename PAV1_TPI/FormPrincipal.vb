@@ -1,4 +1,6 @@
-﻿Public Class Frm_Principal
+﻿Imports System.ComponentModel
+
+Public Class Frm_Principal
     Private Sub btn_clientes_Click(sender As Object, e As EventArgs) Handles btn_clientes.Click
         Dim frmClientes = New FormClientes
         frmClientes.Visible = True
@@ -26,7 +28,7 @@
     End Sub
 
     Private Sub Frm_Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Me.lbl_usuarioLogueado.Text = Usuario.nombre & " " & Usuario.apellido
     End Sub
 
     Private Sub btn_ventas_Click(sender As Object, e As EventArgs) Handles btn_ventas.Click
@@ -37,5 +39,16 @@
     Private Sub btn_productos_Click(sender As Object, e As EventArgs) Handles btn_productos.Click
         Dim frmProductos = New FormProductos
         frmProductos.Visible = True
+    End Sub
+
+    Private Sub Frm_Principal_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        If MessageBox.Show("¿Desea cerrar la sesión antes de salir?", "CLOTTA _ Principal", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = DialogResult.OK Then
+            e.Cancel = False
+            Usuario.logout()
+            Dim frmlogin As New FormLogin
+            frmlogin.Show()
+        Else
+            e.Cancel = True
+        End If
     End Sub
 End Class

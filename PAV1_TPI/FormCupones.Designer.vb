@@ -31,7 +31,6 @@ Partial Class FormCupones
         Me.txt_numero_autorizacion = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.btn_aceptar = New System.Windows.Forms.Button()
-        Me.btn_cancelar = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lbl_cuponERROR = New System.Windows.Forms.Label()
         Me.lbl_loteERROR = New System.Windows.Forms.Label()
@@ -107,7 +106,7 @@ Partial Class FormCupones
         Me.btn_aceptar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_aceptar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
         Me.btn_aceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_aceptar.Location = New System.Drawing.Point(21, 203)
+        Me.btn_aceptar.Location = New System.Drawing.Point(143, 203)
         Me.btn_aceptar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_aceptar.Name = "btn_aceptar"
         Me.btn_aceptar.Size = New System.Drawing.Size(100, 41)
@@ -115,22 +114,6 @@ Partial Class FormCupones
         Me.btn_aceptar.Text = "Aceptar"
         Me.btn_aceptar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_aceptar.UseVisualStyleBackColor = False
-        '
-        'btn_cancelar
-        '
-        Me.btn_cancelar.BackColor = System.Drawing.Color.White
-        Me.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_cancelar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_cancelar.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
-        Me.btn_cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_cancelar.Location = New System.Drawing.Point(127, 203)
-        Me.btn_cancelar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_cancelar.Name = "btn_cancelar"
-        Me.btn_cancelar.Size = New System.Drawing.Size(100, 41)
-        Me.btn_cancelar.TabIndex = 4
-        Me.btn_cancelar.Text = "Cancelar"
-        Me.btn_cancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_cancelar.UseVisualStyleBackColor = False
         '
         'Label4
         '
@@ -200,7 +183,6 @@ Partial Class FormCupones
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.btn_aceptar)
-        Me.Controls.Add(Me.btn_cancelar)
         Me.Controls.Add(Me.txt_numero_autorizacion)
         Me.Controls.Add(Me.txt_numero_lote)
         Me.Controls.Add(Me.txt_numero_cupon)
@@ -226,7 +208,6 @@ Partial Class FormCupones
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents txt_numero_cupon As System.Windows.Forms.TextBox
     Friend WithEvents txt_numero_lote As System.Windows.Forms.TextBox
-    Friend WithEvents btn_cancelar As System.Windows.Forms.Button
     Friend WithEvents btn_aceptar As System.Windows.Forms.Button
     Friend WithEvents txt_numero_autorizacion As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label

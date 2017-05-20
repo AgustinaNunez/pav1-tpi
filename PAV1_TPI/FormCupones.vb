@@ -99,18 +99,4 @@
     End Sub
 
 
-    'BOTON CANCELAR
-    Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
-
-        If MessageBox.Show("¿Está seguro que desea salir?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-
-            Me.Close()
-
-        End If
-
-    End Sub
-
-
-
-
 End Class

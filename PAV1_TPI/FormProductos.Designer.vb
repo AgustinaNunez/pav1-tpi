@@ -50,6 +50,7 @@ Partial Class FormProductos
         Me.gb_listado = New System.Windows.Forms.GroupBox()
         Me.btn_buscarID = New System.Windows.Forms.Button()
         Me.gb_datos = New System.Windows.Forms.GroupBox()
+        Me.txt_id = New System.Windows.Forms.TextBox()
         Me.lbl_descripcionERROR = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lbl_fabricaERROR = New System.Windows.Forms.Label()
@@ -68,7 +69,6 @@ Partial Class FormProductos
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lbl_msj = New System.Windows.Forms.Label()
-        Me.txt_id = New System.Windows.Forms.TextBox()
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_listado.SuspendLayout()
         Me.gb_datos.SuspendLayout()
@@ -371,6 +371,14 @@ Partial Class FormProductos
         Me.gb_datos.TabStop = False
         Me.gb_datos.Text = "Datos del Producto"
         '
+        'txt_id
+        '
+        Me.txt_id.Enabled = False
+        Me.txt_id.Location = New System.Drawing.Point(132, 32)
+        Me.txt_id.Name = "txt_id"
+        Me.txt_id.Size = New System.Drawing.Size(124, 25)
+        Me.txt_id.TabIndex = 27
+        '
         'lbl_descripcionERROR
         '
         Me.lbl_descripcionERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -603,14 +611,6 @@ Partial Class FormProductos
         Me.lbl_msj.TabIndex = 17
         Me.lbl_msj.Text = "Id. producto"
         Me.lbl_msj.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txt_id
-        '
-        Me.txt_id.Enabled = False
-        Me.txt_id.Location = New System.Drawing.Point(132, 32)
-        Me.txt_id.Name = "txt_id"
-        Me.txt_id.Size = New System.Drawing.Size(124, 25)
-        Me.txt_id.TabIndex = 27
         '
         'FormProductos
         '

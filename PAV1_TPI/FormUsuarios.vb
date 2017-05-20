@@ -105,15 +105,6 @@
         cargar_grilla_usuarios()
     End Sub
 
-    'SUBRUTINA PARA PREGUNTAR CUANDO SE CIERRA EL FORMULARIO
-    Private Sub FormUsuarios_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        If MessageBox.Show("¿Está seguro que quiere salir del formulario?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-            e.Cancel = False
-        Else
-            e.Cancel = True
-        End If
-    End Sub
-
     'BOTON PARA BLANQUEAR NUEVO USUARIO
     Private Sub cmd_nuevo_Click_1(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
 

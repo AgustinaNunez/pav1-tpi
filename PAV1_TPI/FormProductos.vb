@@ -20,11 +20,11 @@ Public Class FormProductos
         Soporte.cargar_combo(cbo_fabrica, Soporte.leerBD_simple("SELECT * FROM fabricas ORDER BY nombre"), "id_fabrica", "nombre")
         Soporte.cargar_combo(cbo_fabricaBUSCAR, Soporte.leerBD_simple("SELECT * FROM fabricas ORDER BY nombre"), "id_fabrica", "nombre")
         Me.limpiar_campos()
-        Me.txt_id.Text = Format(GENERARCODIGO, "000")
+        'Me.txt_id.Text = Format(GENERARCODIGO, "000")
     End Sub
 
     Private Sub limpiar_campos()
-        'txt_id.Text = ""
+        txt_id.Text = ""
         txt_descrip.Text = ""
         txt_precio.Text = ""
         txt_stock.Text = ""
@@ -321,15 +321,6 @@ Public Class FormProductos
         Me.buscar(sql)
     End Sub
 
-    Private Sub FormFabrica_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        If MessageBox.Show("¿Está seguro que quiere salir del formulario?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-            e.Cancel = False
-            DialogResult = DialogResult.OK
-        Else
-            e.Cancel = True
-        End If
-    End Sub
-
     'GENERADOR DE CODIGOS AUTOMATICOS ASCENDENTES
     Private Function GENERARCODIGO() As Integer
 
@@ -337,7 +328,7 @@ Public Class FormProductos
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = Soporte.cadena_conexion_georgi
+        conexion.ConnectionString = Soporte.cadena_conexion_agus
 
         conexion.Open()
         cmd.Connection = conexion
