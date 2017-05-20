@@ -167,5 +167,15 @@ PAV1_TPI
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="M:PAV1_TPI.FormVentas.btn_modificarARTICULO_Click(System.Object,System.EventArgs)">
+ <summary>
+             ESTO HAY QUE CAMBIAR PORQUE ESTO SERIA SI ES ABM Y ES TRANSACCION
+ </summary>
+</member>
+<member name="M:PAV1_TPI.FormVentas.cargar_DETALLE">
+ <summary>
+             ESTO HAY QUE CAMBIAR PORQUE ESTO SERIA SI ES ABM Y ES TRANSACCION
+ </summary>
+</member>
 </members>
 </doc>

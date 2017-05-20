@@ -43,7 +43,8 @@ Partial Class FormVentas
         Me.txt_dtoVENTA = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.btn_agregarCUPON = New System.Windows.Forms.Button()
+        Me.dgv_formaPago = New System.Windows.Forms.DataGridView()
         Me.forma_pago = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -65,11 +66,7 @@ Partial Class FormVentas
         Me.txt_cantidad = New System.Windows.Forms.TextBox()
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.dgv_ventas = New System.Windows.Forms.DataGridView()
-        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgv_detalle = New System.Windows.Forms.DataGridView()
         Me.txt_idVENTA = New System.Windows.Forms.TextBox()
         Me.btn_nuevaVENTA = New System.Windows.Forms.Button()
         Me.txt_hora = New System.Windows.Forms.TextBox()
@@ -78,13 +75,17 @@ Partial Class FormVentas
         Me.txt_totalVENTA = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.btn_agregarCUPON = New System.Windows.Forms.Button()
+        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btn_modificarARTICULO = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgv_formaPago, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.dgv_ventas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgv_detalle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label8
@@ -290,7 +291,7 @@ Partial Class FormVentas
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.btn_agregarCUPON)
-        Me.GroupBox3.Controls.Add(Me.DataGridView1)
+        Me.GroupBox3.Controls.Add(Me.dgv_formaPago)
         Me.GroupBox3.Controls.Add(Me.btn_eliminarFORMAPAGO)
         Me.GroupBox3.Controls.Add(Me.btn_agregarFORMAPAGO)
         Me.GroupBox3.Controls.Add(Me.cmb_formaPago)
@@ -306,14 +307,31 @@ Partial Class FormVentas
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Forma de Pago"
         '
-        'DataGridView1
+        'btn_agregarCUPON
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.forma_pago, Me.dto, Me.monto})
-        Me.DataGridView1.Location = New System.Drawing.Point(18, 68)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(423, 99)
-        Me.DataGridView1.TabIndex = 13
+        Me.btn_agregarCUPON.Enabled = False
+        Me.btn_agregarCUPON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_agregarCUPON.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_agregarCUPON.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_agregarCUPON.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
+        Me.btn_agregarCUPON.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_agregarCUPON.Location = New System.Drawing.Point(286, 174)
+        Me.btn_agregarCUPON.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_agregarCUPON.Name = "btn_agregarCUPON"
+        Me.btn_agregarCUPON.Size = New System.Drawing.Size(155, 45)
+        Me.btn_agregarCUPON.TabIndex = 14
+        Me.btn_agregarCUPON.Text = "Agregar cupón..."
+        Me.btn_agregarCUPON.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_agregarCUPON.UseVisualStyleBackColor = True
+        '
+        'dgv_formaPago
+        '
+        Me.dgv_formaPago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_formaPago.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.forma_pago, Me.dto, Me.monto})
+        Me.dgv_formaPago.Location = New System.Drawing.Point(18, 68)
+        Me.dgv_formaPago.Name = "dgv_formaPago"
+        Me.dgv_formaPago.Size = New System.Drawing.Size(423, 99)
+        Me.dgv_formaPago.TabIndex = 13
         '
         'forma_pago
         '
@@ -445,6 +463,7 @@ Partial Class FormVentas
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.btn_modificarARTICULO)
         Me.GroupBox2.Controls.Add(Me.btn_eliminarDETALLE)
         Me.GroupBox2.Controls.Add(Me.btn_agregarDETALLE)
         Me.GroupBox2.Controls.Add(Me.cmb_producto)
@@ -453,7 +472,7 @@ Partial Class FormVentas
         Me.GroupBox2.Controls.Add(Me.txt_cantidad)
         Me.GroupBox2.Controls.Add(Me.txt_precio)
         Me.GroupBox2.Controls.Add(Me.Label5)
-        Me.GroupBox2.Controls.Add(Me.dgv_ventas)
+        Me.GroupBox2.Controls.Add(Me.dgv_detalle)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.GroupBox2.Location = New System.Drawing.Point(21, 152)
@@ -565,12 +584,12 @@ Partial Class FormVentas
         Me.Label5.TabIndex = 1
         Me.Label5.Text = "Producto (*)"
         '
-        'dgv_ventas
+        'dgv_detalle
         '
-        Me.dgv_ventas.AllowUserToAddRows = False
-        Me.dgv_ventas.AllowUserToDeleteRows = False
+        Me.dgv_detalle.AllowUserToAddRows = False
+        Me.dgv_detalle.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgv_ventas.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgv_detalle.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -578,9 +597,9 @@ Partial Class FormVentas
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_ventas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgv_ventas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_ventas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_producto, Me.col_cantidad, Me.col_precio, Me.col_id_producto})
+        Me.dgv_detalle.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgv_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_id_producto, Me.col_producto, Me.col_cantidad, Me.col_precio})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -588,11 +607,11 @@ Partial Class FormVentas
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_ventas.DefaultCellStyle = DataGridViewCellStyle3
-        Me.dgv_ventas.Enabled = False
-        Me.dgv_ventas.Location = New System.Drawing.Point(18, 70)
-        Me.dgv_ventas.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.dgv_ventas.Name = "dgv_ventas"
+        Me.dgv_detalle.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgv_detalle.Enabled = False
+        Me.dgv_detalle.Location = New System.Drawing.Point(18, 70)
+        Me.dgv_detalle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dgv_detalle.Name = "dgv_detalle"
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -600,33 +619,9 @@ Partial Class FormVentas
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_ventas.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
-        Me.dgv_ventas.Size = New System.Drawing.Size(645, 169)
-        Me.dgv_ventas.TabIndex = 9
-        '
-        'col_producto
-        '
-        Me.col_producto.HeaderText = "Producto"
-        Me.col_producto.Name = "col_producto"
-        Me.col_producto.ReadOnly = True
-        Me.col_producto.Width = 300
-        '
-        'col_cantidad
-        '
-        Me.col_cantidad.HeaderText = "Cantidad"
-        Me.col_cantidad.Name = "col_cantidad"
-        '
-        'col_precio
-        '
-        Me.col_precio.HeaderText = "Precio de venta"
-        Me.col_precio.Name = "col_precio"
-        Me.col_precio.Width = 150
-        '
-        'col_id_producto
-        '
-        Me.col_id_producto.HeaderText = "id_producto"
-        Me.col_id_producto.Name = "col_id_producto"
-        Me.col_id_producto.Visible = False
+        Me.dgv_detalle.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgv_detalle.Size = New System.Drawing.Size(645, 169)
+        Me.dgv_detalle.TabIndex = 9
         '
         'txt_idVENTA
         '
@@ -732,22 +727,47 @@ Partial Class FormVentas
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "Total a pagar"
         '
-        'btn_agregarCUPON
+        'col_id_producto
         '
-        Me.btn_agregarCUPON.Enabled = False
-        Me.btn_agregarCUPON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_agregarCUPON.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_agregarCUPON.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_agregarCUPON.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
-        Me.btn_agregarCUPON.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_agregarCUPON.Location = New System.Drawing.Point(286, 174)
-        Me.btn_agregarCUPON.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_agregarCUPON.Name = "btn_agregarCUPON"
-        Me.btn_agregarCUPON.Size = New System.Drawing.Size(155, 45)
-        Me.btn_agregarCUPON.TabIndex = 14
-        Me.btn_agregarCUPON.Text = "Agregar cupón..."
-        Me.btn_agregarCUPON.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_agregarCUPON.UseVisualStyleBackColor = True
+        Me.col_id_producto.HeaderText = "id_producto"
+        Me.col_id_producto.Name = "col_id_producto"
+        Me.col_id_producto.Visible = False
+        '
+        'col_producto
+        '
+        Me.col_producto.HeaderText = "Producto"
+        Me.col_producto.Name = "col_producto"
+        Me.col_producto.ReadOnly = True
+        Me.col_producto.Width = 300
+        '
+        'col_cantidad
+        '
+        Me.col_cantidad.HeaderText = "Cantidad"
+        Me.col_cantidad.Name = "col_cantidad"
+        '
+        'col_precio
+        '
+        Me.col_precio.HeaderText = "Precio de venta"
+        Me.col_precio.Name = "col_precio"
+        Me.col_precio.Width = 150
+        '
+        'btn_modificarARTICULO
+        '
+        Me.btn_modificarARTICULO.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_modificarARTICULO.Enabled = False
+        Me.btn_modificarARTICULO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_modificarARTICULO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_modificarARTICULO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_modificarARTICULO.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
+        Me.btn_modificarARTICULO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_modificarARTICULO.Location = New System.Drawing.Point(240, 247)
+        Me.btn_modificarARTICULO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_modificarARTICULO.Name = "btn_modificarARTICULO"
+        Me.btn_modificarARTICULO.Size = New System.Drawing.Size(105, 45)
+        Me.btn_modificarARTICULO.TabIndex = 18
+        Me.btn_modificarARTICULO.Text = "Modificar"
+        Me.btn_modificarARTICULO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_modificarARTICULO.UseVisualStyleBackColor = True
         '
         'FormVentas
         '
@@ -770,10 +790,10 @@ Partial Class FormVentas
         Me.GroupBox4.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv_formaPago, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.dgv_ventas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv_detalle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -781,7 +801,7 @@ Partial Class FormVentas
     Friend WithEvents Label8 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgv_formaPago As DataGridView
     Friend WithEvents btn_eliminarFORMAPAGO As Button
     Friend WithEvents btn_agregarFORMAPAGO As Button
     Friend WithEvents cmb_formaPago As ComboBox
@@ -798,7 +818,7 @@ Partial Class FormVentas
     Friend WithEvents txt_cantidad As TextBox
     Friend WithEvents txt_precio As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents dgv_ventas As DataGridView
+    Friend WithEvents dgv_detalle As DataGridView
     Friend WithEvents txt_idVENTA As TextBox
     Friend WithEvents btn_nuevaVENTA As Button
     Friend WithEvents txt_hora As TextBox
@@ -807,10 +827,6 @@ Partial Class FormVentas
     Friend WithEvents txt_totalVENTA As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents col_producto As DataGridViewTextBoxColumn
-    Friend WithEvents col_cantidad As DataGridViewTextBoxColumn
-    Friend WithEvents col_precio As DataGridViewTextBoxColumn
-    Friend WithEvents col_id_producto As DataGridViewTextBoxColumn
     Friend WithEvents txt_dtoVENTA As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents txt_subtotalVENTA As TextBox
@@ -830,4 +846,9 @@ Partial Class FormVentas
     Friend WithEvents Label16 As Label
     Friend WithEvents txt_usuarioLogueado As TextBox
     Friend WithEvents btn_agregarCUPON As Button
+    Friend WithEvents col_id_producto As DataGridViewTextBoxColumn
+    Friend WithEvents col_producto As DataGridViewTextBoxColumn
+    Friend WithEvents col_cantidad As DataGridViewTextBoxColumn
+    Friend WithEvents col_precio As DataGridViewTextBoxColumn
+    Friend WithEvents btn_modificarARTICULO As Button
 End Class

@@ -143,11 +143,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Soporte\Cliente.vb" />
     <Compile Include="Soporte\Compra.vb" />
     <Compile Include="Soporte\SoporteBD.vb" />
     <Compile Include="Soporte\SoporteGUI.vb" />
     <Compile Include="Soporte\Usuario.vb" />
-    <Compile Include="Soporte\Venta.vb" />
+    <Compile Include="Soporte\Articulo.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FormClientes.resx">

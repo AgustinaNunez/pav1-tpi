@@ -18,6 +18,9 @@
 
     'LOADER DEL FORM
     Private Sub FormClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If SoporteGUI.tipo_form_ACTUAL = SoporteGUI.tipo_form.transaccion Then
+            Me.btn_seleccionar.Visible = True
+        End If
         cargar_grilla_cliente()
         SoporteGUI.cargar_combo(cmb_tipo_documento_cliente_carga, SoporteBD.leerBD_simple("SELECT * FROM tipo_documento"), "id_tipo_documento", "nombre_tipo_documento")
         SoporteGUI.cargar_combo(cmb_tipo_documento_cliente_busqueda, SoporteBD.leerBD_simple("SELECT * FROM tipo_documento"), "id_tipo_documento", "nombre_tipo_documento")
@@ -212,6 +215,9 @@
 
     'SUBRUTINA PARA INTERACCION DE GRILLA
     Private Sub grid_clientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_clientes.CellContentClick, dgv_clientes.CellContentDoubleClick
+        If SoporteGUI.tipo_form_ACTUAL = SoporteGUI.tipo_form.transaccion Then
+            Me.btn_seleccionar.Enabled = True
+        End If
         Dim sql As String = ""
         Dim tabla As New DataTable
         sql &= " SELECT * FROM clientes "
@@ -292,18 +298,16 @@
 
     'SUBRUTINA PARA BUSCAR Y ENCONTRAR UN CLIENTE X NUMERO Y TIPO DE DOCUMENTO
     Private Sub btn_buscar_cliente_Click(sender As Object, e As EventArgs) Handles btn_buscar_cliente.Click
-        Dim sql As String = ""
-        Dim tabla As New DataTable
-        sql &= "SELECT * FROM clientes c JOIN tipo_documento td ON c.tipo_documento = td.id_tipo_documento "
-        sql &= " WHERE td.nombre_tipo_documento = '" & Me.cmb_tipo_documento_cliente_busqueda.Text & "'"
-        sql &= " AND c.numero_documento LIKE '%" & Me.txt_numero_documento_cliente_busqueda.Text & "%'"
-
         If txt_numero_documento_cliente_busqueda.Text = "" Then
-            'MessageBox.Show("No existe valor de búsqueda.", "Clientes", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.cargar_grilla_cliente()
             Me.txt_numero_documento_cliente_busqueda.Focus()
 
         Else
+            Dim sql As String = ""
+            sql &= "SELECT * FROM clientes c JOIN tipo_documento td ON c.tipo_documento = td.id_tipo_documento "
+            sql &= " WHERE td.nombre_tipo_documento = '" & Me.cmb_tipo_documento_cliente_busqueda.Text & "'"
+            sql &= " AND c.numero_documento LIKE '%" & Me.txt_numero_documento_cliente_busqueda.Text & "%'"
+            Dim tabla As New DataTable
             tabla = SoporteBD.leerBD_simple(sql)
 
             If tabla.Rows.Count = 0 Then
@@ -335,6 +339,52 @@
         End If
 
     End Sub
+
+    Private Sub btn_seleccionar_Click(sender As Object, e As EventArgs) Handles btn_seleccionar.Click
+        Dim sql As String = ""
+        sql &= "SELECT * FROM clientes c JOIN tipo_documento td ON c.tipo_documento = td.id_tipo_documento "
+        sql &= " WHERE td.nombre_tipo_documento = '" & Me.cmb_tipo_documento_cliente_carga.Text & "'"
+        sql &= " AND c.numero_documento LIKE '%" & Me.txt_numero_documento_carga.Text & "%'"
+        Dim tabla As New DataTable
+        tabla = SoporteBD.leerBD_simple(sql)
+
+        If tabla.Rows.Count = 0 Then
+            Me.limpiar_campos()
+            'Me.cargar_grilla_cliente()
+            Return
+        End If
+
+        If Me.validar_campos() Then
+            Cliente.apellido = txt_apellido_cliente_carga.Text
+            Cliente.nombre = txt_nombre_cliente_carga.Text
+            Me.Dispose()
+        End If
+    End Sub
+
+    Private Function validar_campos()
+        Dim flag As Boolean = True
+        Dim mensaje As String = "Hay campos obligatorios sin completar:"
+        If Me.txt_apellido_cliente_carga.Text = "" Then
+            mensaje &= vbCrLf & "- apellido"
+            flag = False
+        End If
+        If Me.txt_nombre_cliente_carga.Text = "" Then
+            mensaje &= vbCrLf & "- nombre"
+            flag = False
+        End If
+        If Me.cmb_tipo_documento_cliente_carga.SelectedIndex = -1 Then
+            mensaje &= vbCrLf & "- tipo documento"
+            flag = False
+        End If
+        If Me.txt_numero_documento_carga.Text = "" Then
+            mensaje &= vbCrLf & "- número documento"
+            flag = False
+        End If
+        If flag = False Then
+            MessageBox.Show(mensaje, "CLOTTA _ Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+        Return flag
+    End Function
 
     'FUNCION PARA VALIDAR DATOS A GUARDAR
     'Private Function validar_datos() As respuesta_validacion

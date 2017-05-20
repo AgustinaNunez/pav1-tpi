@@ -54,6 +54,7 @@ Partial Class FormClientes
         Me.col_telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lbl_msj = New System.Windows.Forms.Label()
         Me.txt_numero_documento_cliente_busqueda = New System.Windows.Forms.TextBox()
         Me.txt_numero_documento_carga = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -64,7 +65,7 @@ Partial Class FormClientes
         Me.lbl_documentoERROR = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.lbl_msj = New System.Windows.Forms.Label()
+        Me.btn_seleccionar = New System.Windows.Forms.Button()
         CType(Me.dgv_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -79,7 +80,7 @@ Partial Class FormClientes
         Me.btn_nuevo_cliente_carga.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_nuevo_cliente_carga.Location = New System.Drawing.Point(834, 326)
         Me.btn_nuevo_cliente_carga.Name = "btn_nuevo_cliente_carga"
-        Me.btn_nuevo_cliente_carga.Size = New System.Drawing.Size(103, 42)
+        Me.btn_nuevo_cliente_carga.Size = New System.Drawing.Size(98, 45)
         Me.btn_nuevo_cliente_carga.TabIndex = 6
         Me.btn_nuevo_cliente_carga.Text = "Nuevo"
         Me.btn_nuevo_cliente_carga.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -93,9 +94,9 @@ Partial Class FormClientes
         Me.btn_eliminar_cliente_carga.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_eliminar_cliente_carga.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
         Me.btn_eliminar_cliente_carga.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_eliminar_cliente_carga.Location = New System.Drawing.Point(942, 326)
+        Me.btn_eliminar_cliente_carga.Location = New System.Drawing.Point(937, 326)
         Me.btn_eliminar_cliente_carga.Name = "btn_eliminar_cliente_carga"
-        Me.btn_eliminar_cliente_carga.Size = New System.Drawing.Size(103, 42)
+        Me.btn_eliminar_cliente_carga.Size = New System.Drawing.Size(98, 45)
         Me.btn_eliminar_cliente_carga.TabIndex = 8
         Me.btn_eliminar_cliente_carga.Text = "Eliminar"
         Me.btn_eliminar_cliente_carga.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -109,9 +110,9 @@ Partial Class FormClientes
         Me.btn_guardar_cliente_carga.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_guardar_cliente_carga.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
         Me.btn_guardar_cliente_carga.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_guardar_cliente_carga.Location = New System.Drawing.Point(1051, 326)
+        Me.btn_guardar_cliente_carga.Location = New System.Drawing.Point(1040, 326)
         Me.btn_guardar_cliente_carga.Name = "btn_guardar_cliente_carga"
-        Me.btn_guardar_cliente_carga.Size = New System.Drawing.Size(103, 42)
+        Me.btn_guardar_cliente_carga.Size = New System.Drawing.Size(98, 45)
         Me.btn_guardar_cliente_carga.TabIndex = 7
         Me.btn_guardar_cliente_carga.Text = "Guardar"
         Me.btn_guardar_cliente_carga.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -381,6 +382,19 @@ Partial Class FormClientes
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Listado de Clientes"
         '
+        'lbl_msj
+        '
+        Me.lbl_msj.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.lbl_msj.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_msj.ForeColor = System.Drawing.Color.White
+        Me.lbl_msj.Location = New System.Drawing.Point(536, 33)
+        Me.lbl_msj.Name = "lbl_msj"
+        Me.lbl_msj.Size = New System.Drawing.Size(264, 25)
+        Me.lbl_msj.TabIndex = 30
+        Me.lbl_msj.Text = " mensaje"
+        Me.lbl_msj.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lbl_msj.Visible = False
+        '
         'txt_numero_documento_cliente_busqueda
         '
         Me.txt_numero_documento_cliente_busqueda.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -504,18 +518,20 @@ Partial Class FormClientes
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Carga de Clientes"
         '
-        'lbl_msj
+        'btn_seleccionar
         '
-        Me.lbl_msj.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.lbl_msj.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_msj.ForeColor = System.Drawing.Color.White
-        Me.lbl_msj.Location = New System.Drawing.Point(536, 33)
-        Me.lbl_msj.Name = "lbl_msj"
-        Me.lbl_msj.Size = New System.Drawing.Size(264, 25)
-        Me.lbl_msj.TabIndex = 30
-        Me.lbl_msj.Text = " mensaje"
-        Me.lbl_msj.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lbl_msj.Visible = False
+        Me.btn_seleccionar.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_seleccionar.Enabled = False
+        Me.btn_seleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_seleccionar.ForeColor = System.Drawing.Color.White
+        Me.btn_seleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_seleccionar.Location = New System.Drawing.Point(1144, 326)
+        Me.btn_seleccionar.Name = "btn_seleccionar"
+        Me.btn_seleccionar.Size = New System.Drawing.Size(95, 45)
+        Me.btn_seleccionar.TabIndex = 30
+        Me.btn_seleccionar.Text = "Seleccionar"
+        Me.btn_seleccionar.UseVisualStyleBackColor = False
+        Me.btn_seleccionar.Visible = False
         '
         'FormClientes
         '
@@ -523,6 +539,7 @@ Partial Class FormClientes
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1251, 646)
+        Me.Controls.Add(Me.btn_seleccionar)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label7)
@@ -583,4 +600,5 @@ Partial Class FormClientes
     Friend WithEvents col_email As DataGridViewTextBoxColumn
     Friend WithEvents col_telefono As DataGridViewTextBoxColumn
     Friend WithEvents lbl_msj As Label
+    Friend WithEvents btn_seleccionar As Button
 End Class
