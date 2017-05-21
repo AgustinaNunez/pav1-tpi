@@ -52,7 +52,6 @@ Partial Class FormLogin
         Me.txt_clave.Name = "txt_clave"
         Me.txt_clave.Size = New System.Drawing.Size(177, 25)
         Me.txt_clave.TabIndex = 27
-        Me.txt_clave.Text = "123"
         Me.txt_clave.UseSystemPasswordChar = True
         '
         'txt_nombre
@@ -62,7 +61,6 @@ Partial Class FormLogin
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(177, 25)
         Me.txt_nombre.TabIndex = 26
-        Me.txt_nombre.Text = "caroh"
         '
         'Label3
         '

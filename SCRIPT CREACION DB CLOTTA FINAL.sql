@@ -149,13 +149,10 @@ CONSTRAINT fk_entidad FOREIGN KEY (id_entidad_crediticia) REFERENCES entidades_c
 )
 
 
-
-
 INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (1,'DNI')
 INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (2,'PASAPORTE')
 INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (3,'LE')
 INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (4,'S/D')
-
 
 INSERT INTO bancos(id_banco, nombre, telefono) VALUES (1,'Galicia',013842)
 INSERT INTO bancos(id_banco, nombre, telefono) VALUES (2,'Santander Rio',083143)
@@ -178,54 +175,51 @@ INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUE
 INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (4,'Maestro',2384028)
 INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (5,'Cabal',42397)
 
-
 INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (1,'EFECTIVO',0.25)
 INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (2,'DÉBITO',0.15)
 INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (3,'CRÉDITO',0.00)
 
 INSERT INTO rubros(id_rubro,nombre) VALUES(0,'Remeras')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(1,'Jean')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(2,'Jean Chupin')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(3,'Calzas')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(4,'Sweters')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(5,'Remeras basicas')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(6,'Babuchas')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(7,'Camisas')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(8,'Zapatillas')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(9,'Pañuelos')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(10,'Zapatos')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(11,'Camperas')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(12,'Buzos')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(13,'Saquitos')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(14,'Accesorios')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(15,'Polleras')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(16,'Ropa Interior')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(17,'Carteras')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(18,'Mochila')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(19,'Tapados')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(20,'Vestidos')
-
 INSERT INTO rubros(id_rubro,nombre) VALUES(21,'Chalecos')
+
+INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (0,'Sisa',1234)
+INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (1,'47 Street',1234)
+INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (2,'Sara',1234)
+INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (3,'Shira',1234)
+
+INSERT INTO usuarios(id_usuario,nombre,apellido,contraseña,fecha_alta) VALUES('62719','Juan Ignacio','Van Heerden','37665760',(convert(datetime,'21-05-17 10:34:09 PM',5)))
+INSERT INTO usuarios(id_usuario,nombre,apellido,contraseña,fecha_alta) VALUES('62809','Agustina','Nuñez','38036094',(convert(datetime,'21-05-17 10:34:09 PM',5)))
+INSERT INTO usuarios(id_usuario,nombre,apellido,contraseña,fecha_alta) VALUES('68582','Brian','Calcaterra','37665760',(convert(datetime,'21-05-17 10:34:09 PM',5)))
+INSERT INTO usuarios(id_usuario,nombre,apellido,contraseña,fecha_alta) VALUES('63867','Georgina','Gonzalez','37720825',(convert(datetime,'21-05-17 10:34:09 PM',5)))
+
+INSERT INTO clientes(numero_documento,tipo_documento,nombre_cliente,apellido_cliente,telefono_cliente,e_mail_cliente) VALUES('93741943',1,'Macarena','AHAAA',2348634,'ojasnd@gmail.com')
+INSERT INTO clientes(numero_documento,tipo_documento,nombre_cliente,apellido_cliente,telefono_cliente,e_mail_cliente) VALUES('AAB234',2,'Gimena','Icardi',03184,NULL)
+INSERT INTO clientes(numero_documento,tipo_documento,nombre_cliente,apellido_cliente,telefono_cliente,e_mail_cliente) VALUES('349875',3,'Carlos','Menem',NULL,'carlitos.bomba@hotmail.com')
+
+INSERT INTO productos(id_producto,descripcion,stock,pecio_lista,id_rubro,id_fabrica) VALUES (0,'Campera verde',100,300,10,1)
+INSERT INTO productos(id_producto,descripcion,stock,pecio_lista,id_rubro,id_fabrica) VALUES (1,'Jean nevado celeste',2,3000,2,2)
+INSERT INTO productos(id_producto,descripcion,stock,pecio_lista,id_rubro,id_fabrica) VALUES (2,'Camisa Hindú',330,400,2,3)
+INSERT INTO productos(id_producto,descripcion,stock,pecio_lista,id_rubro,id_fabrica) VALUES (3,'Sweater Hilo Estampado',20482,40,3,5)
 
 
 CREATE PROCEDURE AUTOGENERARCODIGO (@CODIGO CHAR(10) OUTPUT)

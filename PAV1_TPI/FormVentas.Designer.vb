@@ -58,6 +58,7 @@ Partial Class FormVentas
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btn_modificarARTICULO = New System.Windows.Forms.Button()
         Me.btn_eliminarDETALLE = New System.Windows.Forms.Button()
         Me.btn_agregarDETALLE = New System.Windows.Forms.Button()
         Me.cmb_producto = New System.Windows.Forms.ComboBox()
@@ -67,6 +68,10 @@ Partial Class FormVentas
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dgv_detalle = New System.Windows.Forms.DataGridView()
+        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txt_idVENTA = New System.Windows.Forms.TextBox()
         Me.btn_nuevaVENTA = New System.Windows.Forms.Button()
         Me.txt_hora = New System.Windows.Forms.TextBox()
@@ -75,11 +80,6 @@ Partial Class FormVentas
         Me.txt_totalVENTA = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btn_modificarARTICULO = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -326,10 +326,13 @@ Partial Class FormVentas
         '
         'dgv_formaPago
         '
+        Me.dgv_formaPago.AllowUserToAddRows = False
+        Me.dgv_formaPago.AllowUserToDeleteRows = False
         Me.dgv_formaPago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_formaPago.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.forma_pago, Me.dto, Me.monto})
         Me.dgv_formaPago.Location = New System.Drawing.Point(18, 68)
         Me.dgv_formaPago.Name = "dgv_formaPago"
+        Me.dgv_formaPago.ReadOnly = True
         Me.dgv_formaPago.Size = New System.Drawing.Size(423, 99)
         Me.dgv_formaPago.TabIndex = 13
         '
@@ -337,17 +340,20 @@ Partial Class FormVentas
         '
         Me.forma_pago.HeaderText = "Forma de pago"
         Me.forma_pago.Name = "forma_pago"
+        Me.forma_pago.ReadOnly = True
         Me.forma_pago.Width = 130
         '
         'dto
         '
         Me.dto.HeaderText = "Descuento"
         Me.dto.Name = "dto"
+        Me.dto.ReadOnly = True
         '
         'monto
         '
         Me.monto.HeaderText = "Monto"
         Me.monto.Name = "monto"
+        Me.monto.ReadOnly = True
         '
         'btn_eliminarFORMAPAGO
         '
@@ -481,6 +487,24 @@ Partial Class FormVentas
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalles de la Venta"
+        '
+        'btn_modificarARTICULO
+        '
+        Me.btn_modificarARTICULO.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_modificarARTICULO.Enabled = False
+        Me.btn_modificarARTICULO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_modificarARTICULO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_modificarARTICULO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_modificarARTICULO.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
+        Me.btn_modificarARTICULO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_modificarARTICULO.Location = New System.Drawing.Point(240, 247)
+        Me.btn_modificarARTICULO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_modificarARTICULO.Name = "btn_modificarARTICULO"
+        Me.btn_modificarARTICULO.Size = New System.Drawing.Size(105, 45)
+        Me.btn_modificarARTICULO.TabIndex = 18
+        Me.btn_modificarARTICULO.Text = "Modificar"
+        Me.btn_modificarARTICULO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_modificarARTICULO.UseVisualStyleBackColor = True
         '
         'btn_eliminarDETALLE
         '
@@ -623,6 +647,30 @@ Partial Class FormVentas
         Me.dgv_detalle.Size = New System.Drawing.Size(645, 169)
         Me.dgv_detalle.TabIndex = 9
         '
+        'col_id_producto
+        '
+        Me.col_id_producto.HeaderText = "id_producto"
+        Me.col_id_producto.Name = "col_id_producto"
+        Me.col_id_producto.Visible = False
+        '
+        'col_producto
+        '
+        Me.col_producto.HeaderText = "Producto"
+        Me.col_producto.Name = "col_producto"
+        Me.col_producto.ReadOnly = True
+        Me.col_producto.Width = 300
+        '
+        'col_cantidad
+        '
+        Me.col_cantidad.HeaderText = "Cantidad"
+        Me.col_cantidad.Name = "col_cantidad"
+        '
+        'col_precio
+        '
+        Me.col_precio.HeaderText = "Precio de venta"
+        Me.col_precio.Name = "col_precio"
+        Me.col_precio.Width = 150
+        '
         'txt_idVENTA
         '
         Me.txt_idVENTA.Enabled = False
@@ -727,54 +775,12 @@ Partial Class FormVentas
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "Total a pagar"
         '
-        'col_id_producto
-        '
-        Me.col_id_producto.HeaderText = "id_producto"
-        Me.col_id_producto.Name = "col_id_producto"
-        Me.col_id_producto.Visible = False
-        '
-        'col_producto
-        '
-        Me.col_producto.HeaderText = "Producto"
-        Me.col_producto.Name = "col_producto"
-        Me.col_producto.ReadOnly = True
-        Me.col_producto.Width = 300
-        '
-        'col_cantidad
-        '
-        Me.col_cantidad.HeaderText = "Cantidad"
-        Me.col_cantidad.Name = "col_cantidad"
-        '
-        'col_precio
-        '
-        Me.col_precio.HeaderText = "Precio de venta"
-        Me.col_precio.Name = "col_precio"
-        Me.col_precio.Width = 150
-        '
-        'btn_modificarARTICULO
-        '
-        Me.btn_modificarARTICULO.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_modificarARTICULO.Enabled = False
-        Me.btn_modificarARTICULO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_modificarARTICULO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_modificarARTICULO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_modificarARTICULO.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
-        Me.btn_modificarARTICULO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_modificarARTICULO.Location = New System.Drawing.Point(240, 247)
-        Me.btn_modificarARTICULO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_modificarARTICULO.Name = "btn_modificarARTICULO"
-        Me.btn_modificarARTICULO.Size = New System.Drawing.Size(105, 45)
-        Me.btn_modificarARTICULO.TabIndex = 18
-        Me.btn_modificarARTICULO.Text = "Modificar"
-        Me.btn_modificarARTICULO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_modificarARTICULO.UseVisualStyleBackColor = True
-        '
         'FormVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(757, 803)
+        Me.ClientSize = New System.Drawing.Size(757, 741)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

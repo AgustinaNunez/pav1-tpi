@@ -6,7 +6,15 @@ PAV1_TPI
 </name>
 </assembly>
 <members>
-<member name="P:PAV1_TPI.My.Resources.Resources.ResourceManager">
+<member name="M:PAV1_TPI.FormVentas.btn_modificarARTICULO_Click(System.Object,System.EventArgs)">
+	<summary>
+             ESTO HAY QUE CAMBIAR PORQUE ESTO SERIA SI ES ABM Y ES TRANSACCION
+ </summary>
+</member><member name="M:PAV1_TPI.FormVentas.cargar_DETALLE">
+	<summary>
+             ESTO HAY QUE CAMBIAR PORQUE ESTO SERIA SI ES ABM Y ES TRANSACCION
+ </summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.ResourceManager">
 	<summary>
   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
 </summary>
@@ -27,6 +35,26 @@ PAV1_TPI
 	<summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.BUSCAR01">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.BUSCAR011">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.check_mark">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.check_mark24">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.close_cross16">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
 </member><member name="P:PAV1_TPI.My.Resources.Resources.clotta_logo">
 	<summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
@@ -40,6 +68,74 @@ PAV1_TPI
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member><member name="P:PAV1_TPI.My.Resources.Resources.clotta_nombre1">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.loop_arrow">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.magnifier16">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.magnifier24">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.move_to_next">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.move_to_next1">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.move_to_next2">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.plus_circular_button32">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.puerta">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.trash_bin32">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.user">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.user1">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.user32_2">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.user64">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.user64_2">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.user64_21">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.user64_4">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.user641">
 	<summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>

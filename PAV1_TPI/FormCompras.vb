@@ -16,7 +16,7 @@ Public Class FormCompras
 
     'LOADER DE COMPRAS
     Private Sub form_compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
+        SoporteGUI.cargar_combo(cmb_fabrica, SoporteBD.leerBD_simple("SELECT * FROM fabricas"), "id_fabrica", "nombre")
         Me.limpiar_campos_detalle()
         txt_id_compra.Text = Format(GENERARCODIGO, "000")
         'txt_fecha.Text = Date.Today
@@ -150,6 +150,7 @@ Public Class FormCompras
         Me.dgv_compras.Enabled = False
         Me.btn_agregar.Enabled = False
         Me.btn_eliminar.Enabled = False
+        Me.cmb_fabrica.Enabled = False
     End Sub
 
     'HABILITAR CAMPOS
@@ -161,6 +162,7 @@ Public Class FormCompras
         Me.cmb_producto.Enabled = True
         Me.dgv_compras.Enabled = True
         Me.btn_eliminar.Enabled = True
+        Me.cmb_fabrica.Enabled = True
     End Sub
 
     'LIMPIAR EL CONTENIDO DE LOS CAMPOS DE LA COMPRA
@@ -172,12 +174,14 @@ Public Class FormCompras
         Me.txt_precio.Text = ""
         Me.cmb_producto.Text = ""
         Me.dgv_compras.Rows.Clear()
+
     End Sub
 
     'LIMPIAR EL CONTENIDO DE LOS CAMPOS DE LOS PRODUCTOS A CARGAR DE LA COMPRA
     Private Sub limpiar_campos_detalle()
         Me.txt_cantidad.Text = ""
         Me.cmb_producto.SelectedIndex = -1
+        Me.cmb_fabrica.SelectedIndex = -1
         Me.txt_precio.Text = ""
     End Sub
 
@@ -221,7 +225,7 @@ Public Class FormCompras
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = SoporteBD.cadena_conexion_agus
+        conexion.ConnectionString = SoporteBD.cadena_conexion_juan
 
         conexion.Open()
         cmd.Connection = conexion
@@ -252,4 +256,8 @@ Public Class FormCompras
     End Sub
 
 
+
+    Private Sub cmb_fabrica_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_fabrica.SelectionChangeCommitted
+        SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos WHERE id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
+    End Sub
 End Class

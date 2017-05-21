@@ -48,6 +48,8 @@ Partial Class FormCompras
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.cmb_fabrica = New System.Windows.Forms.ComboBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btn_nuevo_producto = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
@@ -76,7 +78,7 @@ Partial Class FormCompras
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(243, 37)
+        Me.Label2.Location = New System.Drawing.Point(223, 38)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(41, 17)
         Me.Label2.TabIndex = 6
@@ -87,7 +89,7 @@ Partial Class FormCompras
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(415, 38)
+        Me.Label3.Location = New System.Drawing.Point(374, 37)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(37, 17)
         Me.Label3.TabIndex = 8
@@ -120,7 +122,7 @@ Partial Class FormCompras
         Me.txt_fecha.Enabled = False
         Me.txt_fecha.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_fecha.ForeColor = System.Drawing.Color.Black
-        Me.txt_fecha.Location = New System.Drawing.Point(290, 34)
+        Me.txt_fecha.Location = New System.Drawing.Point(270, 35)
         Me.txt_fecha.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_fecha.Name = "txt_fecha"
         Me.txt_fecha.Size = New System.Drawing.Size(98, 25)
@@ -131,7 +133,7 @@ Partial Class FormCompras
         Me.txt_hora.Enabled = False
         Me.txt_hora.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_hora.ForeColor = System.Drawing.Color.Black
-        Me.txt_hora.Location = New System.Drawing.Point(457, 34)
+        Me.txt_hora.Location = New System.Drawing.Point(416, 33)
         Me.txt_hora.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_hora.Name = "txt_hora"
         Me.txt_hora.Size = New System.Drawing.Size(98, 25)
@@ -287,6 +289,8 @@ Partial Class FormCompras
         '
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.cmb_fabrica)
+        Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.txt_id_compra)
@@ -315,6 +319,30 @@ Partial Class FormCompras
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(109, 33)
         Me.Label9.TabIndex = 0
+        '
+        'cmb_fabrica
+        '
+        Me.cmb_fabrica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_fabrica.Enabled = False
+        Me.cmb_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmb_fabrica.ForeColor = System.Drawing.Color.Black
+        Me.cmb_fabrica.FormattingEnabled = True
+        Me.cmb_fabrica.Location = New System.Drawing.Point(576, 33)
+        Me.cmb_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cmb_fabrica.Name = "cmb_fabrica"
+        Me.cmb_fabrica.Size = New System.Drawing.Size(129, 25)
+        Me.cmb_fabrica.TabIndex = 2
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.Black
+        Me.Label10.Location = New System.Drawing.Point(520, 36)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(50, 17)
+        Me.Label10.TabIndex = 8
+        Me.Label10.Text = "Fábrica"
         '
         'GroupBox2
         '
@@ -485,4 +513,6 @@ Partial Class FormCompras
     Friend WithEvents col_id_producto As DataGridViewTextBoxColumn
     Friend WithEvents btn_nuevo_producto As Button
     Friend WithEvents btn_eliminar As Button
+    Friend WithEvents cmb_fabrica As System.Windows.Forms.ComboBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
 End Class

@@ -168,7 +168,7 @@ Public Class FormVentas
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = SoporteBD.cadena_conexion_agus
+        conexion.ConnectionString = SoporteBD.cadena_conexion_juan
 
         conexion.Open()
         cmd.Connection = conexion
@@ -242,5 +242,13 @@ Public Class FormVentas
             Me.dgv_detalle.Rows(c).Cells(2).Value = tabla.Rows(c)("cantidad")
             Me.dgv_detalle.Rows(c).Cells(3).Value = tabla.Rows(c)("precio_unitario")
         Next
+    End Sub
+
+    Private Sub cmb_producto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_producto.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub dgv_detalle_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_detalle.CellContentClick
+
     End Sub
 End Class
