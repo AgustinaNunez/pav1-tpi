@@ -213,8 +213,8 @@ INSERT INTO usuarios(id_usuario,nombre,apellido,contraseña,fecha_alta) VALUES('6
 INSERT INTO usuarios(id_usuario,nombre,apellido,contraseña,fecha_alta) VALUES('63867','Georgina','Gonzalez','37720825',(convert(datetime,'21-05-17 10:34:09 PM',5)))
 
 INSERT INTO clientes(numero_documento,tipo_documento,nombre_cliente,apellido_cliente,telefono_cliente,e_mail_cliente) VALUES('93741943',1,'Macarena','AHAAA',2348634,'ojasnd@gmail.com')
-INSERT INTO clientes(numero_documento,tipo_documento,nombre_cliente,apellido_cliente,telefono_cliente,e_mail_cliente) VALUES('AAB234',2,'Gimena','Icardi',03184,NULL)
-INSERT INTO clientes(numero_documento,tipo_documento,nombre_cliente,apellido_cliente,telefono_cliente,e_mail_cliente) VALUES('349875',3,'Carlos','Menem',NULL,'carlitos.bomba@hotmail.com')
+INSERT INTO clientes(numero_documento,tipo_documento,nombre_cliente,apellido_cliente,telefono_cliente,e_mail_cliente) VALUES('AAB234',2,'Gimena','Icardi',03184,'aodsjnsadno@gmail.com')
+INSERT INTO clientes(numero_documento,tipo_documento,nombre_cliente,apellido_cliente,telefono_cliente,e_mail_cliente) VALUES('349875',3,'Carlos','Menem',2020,'carlitos.bomba@hotmail.com')
 
 INSERT INTO productos(id_producto,descripcion,stock,pecio_lista,id_rubro,id_fabrica) VALUES (0,'Campera verde',100,300,10,1)
 INSERT INTO productos(id_producto,descripcion,stock,pecio_lista,id_rubro,id_fabrica) VALUES (1,'Jean nevado celeste',2,3000,2,2)

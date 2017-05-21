@@ -12,4 +12,7 @@
         combo.DisplayMember = descriptor
         combo.ValueMember = pk
     End Sub
+
+    Public Shared flag As Boolean = False
+
 End Class

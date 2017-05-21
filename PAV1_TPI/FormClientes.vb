@@ -230,7 +230,7 @@
         Me.cmb_tipo_documento_cliente_carga.SelectedValue = tabla.Rows(0)("tipo_documento")
         Me.txt_numero_documento_carga.Text = tabla.Rows(0)("numero_documento")
 
-        If tabla.Rows(0)("e_mail_cliente") = "" Then
+        If tabla.Rows(0)("e_mail_cliente") = "0" Then
             Me.txt_email_cliente_cliente_carga.Text = ""
         Else
             Me.txt_email_cliente_cliente_carga.Text = tabla.Rows(0)("e_mail_cliente")
@@ -357,7 +357,9 @@
         If Me.validar_campos() Then
             Cliente.apellido = txt_apellido_cliente_carga.Text
             Cliente.nombre = txt_nombre_cliente_carga.Text
+            SoporteGUI.flag = True
             Me.Dispose()
+
         End If
     End Sub
 

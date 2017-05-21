@@ -145,6 +145,7 @@
     </Compile>
     <Compile Include="Soporte\Cliente.vb" />
     <Compile Include="Soporte\Compra.vb" />
+    <Compile Include="Soporte\Cupon.vb" />
     <Compile Include="Soporte\SoporteBD.vb" />
     <Compile Include="Soporte\SoporteGUI.vb" />
     <Compile Include="Soporte\Usuario.vb" />

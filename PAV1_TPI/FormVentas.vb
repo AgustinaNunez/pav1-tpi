@@ -5,6 +5,12 @@ Public Class FormVentas
     Dim subtotal As Double = 0
     Dim total As Double = 0
 
+    Enum estado_transaccion
+        _iniciada
+        _sin_iniciar
+    End Enum
+    Private estado_actual_transaccion As estado_transaccion = estado_transaccion._sin_iniciar
+
     Private Sub FormVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SoporteGUI.cargar_combo(cmb_tipoDocCLIENTE, SoporteBD.leerBD_simple("SELECT * FROM tipo_documento"), "id_tipo_documento", "nombre_tipo_documento")
         SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
@@ -18,6 +24,12 @@ Public Class FormVentas
     End Sub
 
     Private Sub btn_nuevaVENTA_Click(sender As Object, e As EventArgs) Handles btn_nuevaVENTA.Click
+        If estado_actual_transaccion = estado_transaccion._iniciada Then
+            If MessageBox.Show("¿Desea cancelar la transaccion?", "Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Cancel Then
+                Return
+            End If
+        End If
+        estado_actual_transaccion = estado_transaccion._iniciada
         Me.habilitar_camposVENTA()
         Me.limpiar_camposVENTA()
         Me.limpiar_camposCLIENTE()
@@ -25,6 +37,8 @@ Public Class FormVentas
         Me.limpiar_camposFORMAPAGO()
         Me.txt_nroDocCLIENTE.Focus()
         Me.txt_idVENTA.Text = Me.GENERARCODIGO()
+        Me.dgv_detalle.Rows.Clear()
+
     End Sub
 
     Private Sub limpiar_camposDETALLE()
@@ -77,16 +91,13 @@ Public Class FormVentas
             Me.habilitar_camposPAGO()
         End If
         If validar_camposARTICULO() Then
-            If validar_camposARTICULO() Then
-                Me.dgv_detalle.Rows.Add(Me.cmb_producto.SelectedValue, Me.cmb_producto.SelectedText, Me.txt_cantidad.Text, Me.txt_precio.Text)
-                Dim cantidad As Integer = Convert.ToInt32(Me.txt_cantidad.Text)
-                Dim precio As Integer = Convert.ToDouble(Me.txt_precio.Text)
-                subtotal = Me.subtotal + (cantidad * precio)
-                Me.txt_subtotalVENTA.Text = Me.subtotal
-                Me.txt_totalVENTA.Text = Me.subtotal
+            Dim cantidad As Integer = Convert.ToInt32(Me.txt_cantidad.Text)
+            Dim precio As Integer = Convert.ToDouble(Me.txt_precio.Text)
+            Me.dgv_detalle.Rows.Add(Me.cmb_producto.SelectedValue, Me.cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cantidad * precio)
+            Me.calcular_subtotal()
 
-                Me.limpiar_camposDETALLE()
-            End If
+
+            Me.limpiar_camposDETALLE()
         End If
     End Sub
 
@@ -116,6 +127,53 @@ Public Class FormVentas
         Return flag
     End Function
 
+    Private Function validar_camposFORMAPAGO()
+        Dim flag As Boolean = True
+        Dim mensaje As String = "Hay campos obligatorios sin completar:"
+        If Me.cmb_formaPago.SelectedIndex = -1 Then
+            mensaje &= vbCrLf & "- Forma de pago"
+            flag = False
+        Else
+            If Me.articulo_ya_cargado() Then
+                Return False
+            Else
+                If Me.txt_precio.Text = "" Then
+                    mensaje &= vbCrLf & "- precio"
+                    flag = False
+                End If
+                If Me.txt_cantidad.Text = "" Then
+                    mensaje &= vbCrLf & "- cantidad"
+                    flag = False
+                End If
+            End If
+        End If
+        If flag = False Then
+            MessageBox.Show(mensaje, "CLOTTA _ Ventas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+        Return flag
+    End Function
+
+    Private Function formapago_ya_cargada()
+        Dim c As Integer
+        For c = 0 To Me.dgv_formaPago.Rows.Count - 1
+            If Me.dgv_detalle.Rows(c).Cells(0).Value = Me.cmb_producto.SelectedValue Then
+                If MessageBox.Show("La forma de pago con " & cmb_formaPago.Text & " ya ha sido agregada." & vbCrLf & "¿Desea modificar ese ítem de la venta?",
+                                "CLOTTA _ Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) = DialogResult.OK Then
+                    Me.txt_montoFORMAPAGO.Text = Me.dgv_formaPago.Rows(c).Cells(2).Value
+                    Me.btn_agregarCUPON.Enabled = False
+                    Me.cmb_formaPago.Enabled = False
+                    Me.btn_eliminarDETALLE.Enabled = False
+                    Me.btn_agregarDETALLE.Enabled = False
+                    Me.cmb_producto.Enabled = False
+                Else
+                    Me.limpiar_camposDETALLE()
+                End If
+                Return True
+            End If
+        Next
+        Return False
+    End Function
+
     Private Function articulo_ya_cargado()
         Dim c As Integer
         For c = 0 To Me.dgv_detalle.Rows.Count - 1
@@ -125,6 +183,9 @@ Public Class FormVentas
                     Me.txt_cantidad.Text = Me.dgv_detalle.Rows(c).Cells(2).Value
                     Me.btn_modificarARTICULO.Enabled = True
                     Me.txt_cantidad.Focus()
+                    Me.btn_eliminarDETALLE.Enabled = False
+                    Me.btn_agregarDETALLE.Enabled = False
+                    Me.cmb_producto.Enabled = False
                 Else
                     Me.limpiar_camposDETALLE()
                 End If
@@ -137,15 +198,17 @@ Public Class FormVentas
     Private Sub btn_buscarCLIENTE_Click(sender As Object, e As EventArgs) Handles btn_buscarCLIENTE.Click
         If Me.txt_nroDocCLIENTE.Text = "" Then
             Dim frmClientes = New FormClientes
-            frmClientes.Visible = True
-            'Me.txt_nombreCLIENTE.Text = Cliente.apellido & ", " & Cliente.nombre
+            frmClientes.ShowDialog()
+            If SoporteGUI.flag Then
+                Me.txt_nombreCLIENTE.Text = Cliente.apellido & ", " & Cliente.nombre
+            End If
             Return
         End If
 
         Dim sql As String = ""
         sql &= "SELECT * FROM clientes c JOIN tipo_documento td ON c.tipo_documento = td.id_tipo_documento "
         sql &= " WHERE td.nombre_tipo_documento = '" & Me.cmb_tipoDocCLIENTE.Text & "'"
-        sql &= " AND c.numero_documento = " & Me.txt_nroDocCLIENTE.Text
+        sql &= " AND c.numero_documento = '" & Me.txt_nroDocCLIENTE.Text & "'"
         Dim tabla As New DataTable
         tabla = SoporteBD.leerBD_simple(sql)
 
@@ -188,7 +251,22 @@ Public Class FormVentas
     Private Sub btn_eliminarDETALLE_Click(sender As Object, e As EventArgs) Handles btn_eliminarDETALLE.Click
         If Me.dgv_detalle.Rows.Count > 0 Then
             Me.dgv_detalle.Rows.Remove(Me.dgv_detalle.CurrentRow)
+            Me.calcular_subtotal()
+
         End If
+
+        If Me.dgv_detalle.Rows.Count = 0 Then
+            Me.txt_subtotalVENTA.Text = 0
+            Me.txt_totalVENTA.Text = 0
+            subtotal = 0
+        End If
+
+        Me.btn_agregarDETALLE.Enabled = True
+        Me.btn_eliminarDETALLE.Enabled = False
+        Me.btn_modificarARTICULO.Enabled = False
+        Me.limpiar_camposDETALLE()
+        Me.cmb_producto.Enabled = True
+
     End Sub
 
     Private Sub cmb_producto_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_producto.SelectionChangeCommitted
@@ -206,49 +284,69 @@ Public Class FormVentas
         frmCupon.Visible = True
     End Sub
 
-    ''' <summary>
-    '''             ESTO HAY QUE CAMBIAR PORQUE ESTO SERIA SI ES ABM Y ES TRANSACCION
-    ''' </summary>
     Private Sub btn_modificarARTICULO_Click(sender As Object, e As EventArgs) Handles btn_modificarARTICULO.Click
-        Dim sql As String = ""
-        sql &= "UPDATE detalle_ventas SET"
-        sql &= " precio_unitario = " & Me.txt_precio.Text
-        sql &= ", cantidad = " & Me.txt_cantidad.Text
-        sql &= " WHERE id_venta = " & Me.txt_idVENTA.Text
-        sql &= " AND id_producto = " & Me.cmb_producto.SelectedValue
-
-        SoporteBD.escribirBD_simple(sql)
-        cargar_DETALLE()
+        Me.dgv_detalle.CurrentRow.Cells(2).Value = Me.txt_cantidad.Text
+        Dim cantidad As Integer = Convert.ToInt32(Me.txt_cantidad.Text)
+        Dim precio As Integer = Convert.ToDouble(Me.txt_precio.Text)
+        Me.dgv_detalle.CurrentRow.Cells(4).Value = cantidad * precio
         Me.btn_modificarARTICULO.Enabled = False
         Me.btn_eliminarDETALLE.Enabled = False
-        'Me.deshabilitar_camposDETALLE()
+        Me.btn_agregarDETALLE.Enabled = True
+        Me.cmb_producto.Enabled = True
+
+        Me.calcular_subtotal()
     End Sub
 
-    ''' <summary>
-    '''             ESTO HAY QUE CAMBIAR PORQUE ESTO SERIA SI ES ABM Y ES TRANSACCION
-    ''' </summary>
+
     Private Sub cargar_DETALLE()
-        Dim tabla As New DataTable
-        Dim sql As String = "SELECT dv.id_producto, p.descripcion, dv.cantidad, dv.precio_unitario FROM detalle_ventas dv"
-        sql &= " JOIN productos p ON dv.id_producto = p.id_producto"
-        tabla = SoporteBD.leerBD_simple(sql)
+        'Dim tabla As New DataTable
+        'Dim sql As String = "SELECT dv.id_producto, p.descripcion, dv.cantidad, dv.precio_unitario FROM detalle_ventas dv"
+        'sql &= " JOIN productos p ON dv.id_producto = p.id_producto"
+        'tabla = SoporteBD.leerBD_simple(sql)
 
+        'Dim c As Integer
+        'Me.dgv_detalle.Rows.Clear()
+        'For c = 0 To tabla.Rows.Count - 1
+        '    Me.dgv_detalle.Rows.Add()
+        '    Me.dgv_detalle.Rows(c).Cells(0).Value = tabla.Rows(c)("id_producto")
+        '    Me.dgv_detalle.Rows(c).Cells(1).Value = tabla.Rows(c)("descripcion")
+        '    Me.dgv_detalle.Rows(c).Cells(2).Value = tabla.Rows(c)("cantidad")
+        '    Me.dgv_detalle.Rows(c).Cells(3).Value = tabla.Rows(c)("precio_unitario")
+        'Next
+
+    End Sub
+
+    Private Sub calcular_subtotal()
+        subtotal = 0
         Dim c As Integer
-        Me.dgv_detalle.Rows.Clear()
-        For c = 0 To tabla.Rows.Count - 1
-            Me.dgv_detalle.Rows.Add()
-            Me.dgv_detalle.Rows(c).Cells(0).Value = tabla.Rows(c)("id_producto")
-            Me.dgv_detalle.Rows(c).Cells(1).Value = tabla.Rows(c)("descripcion")
-            Me.dgv_detalle.Rows(c).Cells(2).Value = tabla.Rows(c)("cantidad")
-            Me.dgv_detalle.Rows(c).Cells(3).Value = tabla.Rows(c)("precio_unitario")
+        For c = 0 To dgv_detalle.Rows.Count - 1
+            Dim cantidad As Integer = Me.dgv_detalle.Rows(c).Cells(3).Value
+            Dim precio As Integer = Me.dgv_detalle.Rows(c).Cells(2).Value
+            subtotal = Me.subtotal + (cantidad * precio)
         Next
+
+        Me.txt_subtotalVENTA.Text = Me.subtotal
+        Me.txt_totalVENTA.Text = Me.subtotal
+        Me.txt_montoFORMAPAGO.Text = Me.subtotal 
     End Sub
 
-    Private Sub cmb_producto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_producto.SelectedIndexChanged
+    Private Sub dgv_detalle_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_detalle.CellContentClick, dgv_detalle.CellContentDoubleClick
 
+        Me.cmb_producto.SelectedValue = Me.dgv_detalle.CurrentRow.Cells(0).Value
+        Me.txt_precio.Text = Me.dgv_detalle.CurrentRow.Cells(3).Value
+        Me.txt_cantidad.Text = Me.dgv_detalle.CurrentRow.Cells(2).Value
+
+        Me.btn_eliminarDETALLE.Enabled = True
+        Me.btn_modificarARTICULO.Enabled = True
+        Me.btn_agregarDETALLE.Enabled = False
+        Me.cmb_producto.Enabled = False
     End Sub
 
-    Private Sub dgv_detalle_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_detalle.CellContentClick
+    Private Sub btn_agregarFORMAPAGO_Click(sender As Object, e As EventArgs) Handles btn_agregarFORMAPAGO.Click
+        Me.btn_guardarVENTA.Enabled = True
+        Me.txt_dtoVENTA.Enabled = True
+
+        If validar_camposARTICULO() Then
 
     End Sub
 End Class

@@ -6,15 +6,7 @@ PAV1_TPI
 </name>
 </assembly>
 <members>
-<member name="M:PAV1_TPI.FormVentas.btn_modificarARTICULO_Click(System.Object,System.EventArgs)">
-	<summary>
-             ESTO HAY QUE CAMBIAR PORQUE ESTO SERIA SI ES ABM Y ES TRANSACCION
- </summary>
-</member><member name="M:PAV1_TPI.FormVentas.cargar_DETALLE">
-	<summary>
-             ESTO HAY QUE CAMBIAR PORQUE ESTO SERIA SI ES ABM Y ES TRANSACCION
- </summary>
-</member><member name="P:PAV1_TPI.My.Resources.Resources.ResourceManager">
+<member name="P:PAV1_TPI.My.Resources.Resources.ResourceManager">
 	<summary>
   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
 </summary>
