@@ -216,10 +216,10 @@ INSERT INTO clientes(numero_documento,tipo_documento,nombre_cliente,apellido_cli
 INSERT INTO clientes(numero_documento,tipo_documento,nombre_cliente,apellido_cliente,telefono_cliente,e_mail_cliente) VALUES('AAB234',2,'Gimena','Icardi',03184,'aodsjnsadno@gmail.com')
 INSERT INTO clientes(numero_documento,tipo_documento,nombre_cliente,apellido_cliente,telefono_cliente,e_mail_cliente) VALUES('349875',3,'Carlos','Menem',2020,'carlitos.bomba@hotmail.com')
 
-INSERT INTO productos(id_producto,descripcion,stock,pecio_lista,id_rubro,id_fabrica) VALUES (0,'Campera verde',100,300,10,1)
-INSERT INTO productos(id_producto,descripcion,stock,pecio_lista,id_rubro,id_fabrica) VALUES (1,'Jean nevado celeste',2,3000,2,2)
-INSERT INTO productos(id_producto,descripcion,stock,pecio_lista,id_rubro,id_fabrica) VALUES (2,'Camisa Hindú',330,400,2,3)
-INSERT INTO productos(id_producto,descripcion,stock,pecio_lista,id_rubro,id_fabrica) VALUES (3,'Sweater Hilo Estampado',20482,40,3,5)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (0,'Campera verde',100,300,10,1)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (1,'Jean nevado celeste',2,3000,2,2)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (2,'Camisa Hindú',330,400,2,3)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (3,'Sweater Hilo Estampado',20482,40,3,2)
 
 
 CREATE PROCEDURE AUTOGENERARCODIGO (@CODIGO CHAR(10) OUTPUT)
