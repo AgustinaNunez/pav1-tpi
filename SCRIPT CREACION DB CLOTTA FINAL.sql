@@ -133,14 +133,13 @@ CONSTRAINT pk_cupon PRIMARY KEY (id_cupon)
 
 
 create table ventasXformas_pago(
-numero_orden integer,
 id_venta integer,
 id_forma_pago integer,
 monto_vxfp float,
 id_cupon integer,
 id_banco integer,
 id_entidad_crediticia integer,
-CONSTRAINT pk_ventas_forma_pago PRIMARY KEY (numero_orden, id_forma_pago, id_venta),
+CONSTRAINT pk_ventas_forma_pago PRIMARY KEY (id_forma_pago, id_venta),
 CONSTRAINT fk_venta_fp FOREIGN KEY (id_venta) REFERENCES ventas(id_venta),
 CONSTRAINT fk_forma_pago_fp FOREIGN KEY (id_forma_pago) REFERENCES formas_pago(id_forma_pago),
 CONSTRAINT fk_cupon FOREIGN KEY (id_cupon) REFERENCES cupon(id_cupon),

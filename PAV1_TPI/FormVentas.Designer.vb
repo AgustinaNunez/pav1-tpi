@@ -309,7 +309,6 @@ Partial Class FormVentas
         'btn_agregarCUPON
         '
         Me.btn_agregarCUPON.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_agregarCUPON.Enabled = False
         Me.btn_agregarCUPON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_agregarCUPON.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_agregarCUPON.ForeColor = System.Drawing.Color.White
@@ -321,6 +320,7 @@ Partial Class FormVentas
         Me.btn_agregarCUPON.TabIndex = 14
         Me.btn_agregarCUPON.Text = "Cupón"
         Me.btn_agregarCUPON.UseVisualStyleBackColor = False
+        Me.btn_agregarCUPON.Visible = False
         '
         'dgv_formaPago
         '

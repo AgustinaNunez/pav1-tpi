@@ -6,11 +6,11 @@ Public Class FormLogin
     Private Sub FormLogin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If MessageBox.Show("¿Está seguro de que quiere salir del programa?", "Iniciar Sesión", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
             e.Cancel = False
-            Me.Close()
-            Me.Dispose()
         Else
             e.Cancel = True
-
+            Me.Close()
+            SoporteBD.cerrar_conexion_con_transaccion()
+            SoporteBD.desconectar()
         End If
     End Sub
 

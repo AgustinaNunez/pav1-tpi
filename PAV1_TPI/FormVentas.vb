@@ -4,6 +4,7 @@ Public Class FormVentas
     Dim hay_articulos_cargados As Boolean = False
     Dim subtotal As Double = 0
     Dim total As Double = 0
+    Dim flag As Boolean = False
 
 
     Enum estado_transaccion
@@ -290,7 +291,9 @@ Public Class FormVentas
 
     Private Sub btn_agregarCUPON_Click(sender As Object, e As EventArgs) Handles btn_agregarCUPON.Click
         Dim frmCupon As New FormCupones
-        frmCupon.Visible = True
+        frmCupon.ShowDialog()
+        Me.btn_guardarVENTA.Enabled = True
+
     End Sub
 
     Private Sub btn_modificarARTICULO_Click(sender As Object, e As EventArgs) Handles btn_modificarARTICULO.Click
@@ -354,9 +357,10 @@ Public Class FormVentas
                 'Me.txt_montoFORMAPAGO.Text = subtotal - monto_sin_descuento
             End If
 
-            Me.btn_guardarVENTA.Enabled = True
+            'Me.btn_guardarVENTA.Enabled = True
             Me.txt_dtoVENTA.Enabled = True
-
+            Me.btn_agregarCUPON.Visible = True
+            Me.btn_agregarCUPON.Enabled = True
             Me.calcular_total_venta()
 
         End If
@@ -419,6 +423,8 @@ Public Class FormVentas
 
         If Me.dgv_formaPago.Rows.Count = 0 Then
             Me.btn_guardarVENTA.Enabled = False
+            Me.btn_agregarCUPON.Visible = False
+            Me.btn_guardarVENTA.Enabled = False
         End If
 
         Me.btn_agregarFORMAPAGO.Enabled = True
@@ -443,16 +449,16 @@ Public Class FormVentas
     End Sub
 
     Private Sub btn_guardarVENTA_Click(sender As Object, e As EventArgs) Handles btn_guardarVENTA.Click
-        SoporteBD.iniciar_conexion_con_transaccion()
 
+        SoporteBD.iniciar_conexion_con_transaccion()
 
         'INSERTAR VENTA
         Dim sql_insertar_venta As String = ""
-        sql_insertar_venta &= "INSERT INTO ventas(id_venta,fecha_venta,hora_venta,id_usuario,numero_documento_cliente,tipo_documento_cliente) VALUES(" & txt_idVENTA.Text
+        sql_insertar_venta &= "INSERT INTO ventas(id_venta,fecha_venta,hora_venta,id_usuario,numero_documento_cliente,tipo_documento_cliente) VALUES("
+        sql_insertar_venta &= txt_idVENTA.Text
         sql_insertar_venta &= ", '" & txt_fecha.Text & "'"
         sql_insertar_venta &= ", '" & txt_hora.Text & "'"
-        sql_insertar_venta &= ", '" & txt_hora.Text & "'"
-        sql_insertar_venta &= ", '" & txt_usuarioLogueado.Text & "'"
+        sql_insertar_venta &= ", '" & Usuario.username & "'"
 
         If txt_nroDocCLIENTE.Text = "" Then
             sql_insertar_venta &= ", ''"
@@ -472,10 +478,8 @@ Public Class FormVentas
 
         'INSERTAR DETALLE DE VENTA
         Dim sql_insertar_detalle As String = ""
-        Dim tabla As New DataTable
-
         For c = 0 To Me.dgv_detalle.Rows.Count - 1
-            sql_insertar_detalle &= " INSERT INTO detalles_ventas(id_venta,id_producto,cantidad,precio_unitario) VALUES (" & txt_idVENTA.Text
+            sql_insertar_detalle &= " INSERT INTO detalle_ventas(id_venta,id_producto,cantidad,precio_unitario) VALUES (" & txt_idVENTA.Text
             sql_insertar_detalle &= "," & Me.dgv_detalle.Rows(c).Cells("col_id_producto").Value
             sql_insertar_detalle &= "," & Me.dgv_detalle.Rows(c).Cells("col_cantidad").Value
             sql_insertar_detalle &= "," & Me.dgv_detalle.Rows(c).Cells("col_precio").Value & ")"
@@ -486,16 +490,20 @@ Public Class FormVentas
 
         'INSERTAR FORMA DE PAGO
         Dim sql_insertar_formapago As String = ""
-        Dim tabla_fp As New DataTable
-
         For d = 0 To Me.dgv_formaPago.Rows.Count - 1
-            sql_insertar_formapago &= "INSER INTO ventasXformas_pago(id_venta,id_forma_pago,monto_vxfp,id_cupon,id_banco,id_entidad_crediticia) VALUES ("
+            sql_insertar_formapago &= "INSERT INTO ventasXformas_pago(id_venta,id_forma_pago,monto_vxfp,id_cupon,id_banco,id_entidad_crediticia) VALUES ("
             sql_insertar_formapago &= txt_idVENTA.Text
             sql_insertar_formapago &= ", " & Me.dgv_formaPago.Rows(d).Cells("col_id_formapago").Value
             sql_insertar_formapago &= ", " & Me.dgv_formaPago.Rows(d).Cells("col_montoDTO").Value
             sql_insertar_formapago &= ", " & Cupon.id_cupon
             sql_insertar_formapago &= ", " & Cupon.id_banco
-            sql_insertar_formapago &= ", " & Cupon.id_cupon & ")"
+            sql_insertar_formapago &= ", " & Cupon.id_entidad_crediticia & ")"
+            SoporteBD.escribirBD_transaccion(sql_insertar_formapago)
+            sql_insertar_formapago = ""
         Next
+
+        MessageBox.Show("Datos almacenados", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        SoporteBD.cerrar_conexion_con_transaccion()
+
     End Sub
 End Class
