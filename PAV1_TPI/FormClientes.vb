@@ -357,6 +357,8 @@
         If Me.validar_campos() Then
             Cliente.apellido = txt_apellido_cliente_carga.Text
             Cliente.nombre = txt_nombre_cliente_carga.Text
+            Cliente.nro_doc = txt_numero_documento_carga.Text
+            Cliente.tipo_doc = cmb_tipo_documento_cliente_carga.SelectedValue
             SoporteGUI.flag = True
             Me.Dispose()
 

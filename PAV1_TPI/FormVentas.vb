@@ -38,7 +38,7 @@ Public Class FormVentas
         Me.txt_nroDocCLIENTE.Focus()
         Me.txt_idVENTA.Text = Me.GENERARCODIGO()
         Me.dgv_detalle.Rows.Clear()
-
+        Me.dgv_formaPago.Rows.Clear()
     End Sub
 
     Private Sub limpiar_camposDETALLE()
@@ -134,15 +134,11 @@ Public Class FormVentas
             mensaje &= vbCrLf & "- Forma de pago"
             flag = False
         Else
-            If Me.articulo_ya_cargado() Then
+            If Me.formapago_ya_cargada() Then
                 Return False
             Else
-                If Me.txt_precio.Text = "" Then
-                    mensaje &= vbCrLf & "- precio"
-                    flag = False
-                End If
-                If Me.txt_cantidad.Text = "" Then
-                    mensaje &= vbCrLf & "- cantidad"
+                If Me.txt_montoFORMAPAGO.Text = "" Then
+                    mensaje &= vbCrLf & "- monto"
                     flag = False
                 End If
             End If
@@ -156,17 +152,16 @@ Public Class FormVentas
     Private Function formapago_ya_cargada()
         Dim c As Integer
         For c = 0 To Me.dgv_formaPago.Rows.Count - 1
-            If Me.dgv_detalle.Rows(c).Cells(0).Value = Me.cmb_producto.SelectedValue Then
+            If Me.dgv_formaPago.Rows(c).Cells(4).Value = Me.cmb_formaPago.SelectedValue Then
                 If MessageBox.Show("La forma de pago con " & cmb_formaPago.Text & " ya ha sido agregada." & vbCrLf & "¿Desea modificar ese ítem de la venta?",
                                 "CLOTTA _ Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) = DialogResult.OK Then
                     Me.txt_montoFORMAPAGO.Text = Me.dgv_formaPago.Rows(c).Cells(2).Value
                     Me.btn_agregarCUPON.Enabled = False
                     Me.cmb_formaPago.Enabled = False
-                    Me.btn_eliminarDETALLE.Enabled = False
-                    Me.btn_agregarDETALLE.Enabled = False
-                    Me.cmb_producto.Enabled = False
+                    Me.btn_eliminarFORMAPAGO.Enabled = False
+                    Me.btn_modificarFORMAPAGO.Enabled = True
                 Else
-                    Me.limpiar_camposDETALLE()
+                    Me.limpiar_camposFORMAPAGO()
                 End If
                 Return True
             End If
@@ -201,6 +196,8 @@ Public Class FormVentas
             frmClientes.ShowDialog()
             If SoporteGUI.flag Then
                 Me.txt_nombreCLIENTE.Text = Cliente.apellido & ", " & Cliente.nombre
+                Me.txt_nroDocCLIENTE.Text = Cliente.nro_doc
+                Me.cmb_tipoDocCLIENTE.SelectedValue = Cliente.tipo_doc
             End If
             Return
         End If
@@ -298,24 +295,6 @@ Public Class FormVentas
     End Sub
 
 
-    Private Sub cargar_DETALLE()
-        'Dim tabla As New DataTable
-        'Dim sql As String = "SELECT dv.id_producto, p.descripcion, dv.cantidad, dv.precio_unitario FROM detalle_ventas dv"
-        'sql &= " JOIN productos p ON dv.id_producto = p.id_producto"
-        'tabla = SoporteBD.leerBD_simple(sql)
-
-        'Dim c As Integer
-        'Me.dgv_detalle.Rows.Clear()
-        'For c = 0 To tabla.Rows.Count - 1
-        '    Me.dgv_detalle.Rows.Add()
-        '    Me.dgv_detalle.Rows(c).Cells(0).Value = tabla.Rows(c)("id_producto")
-        '    Me.dgv_detalle.Rows(c).Cells(1).Value = tabla.Rows(c)("descripcion")
-        '    Me.dgv_detalle.Rows(c).Cells(2).Value = tabla.Rows(c)("cantidad")
-        '    Me.dgv_detalle.Rows(c).Cells(3).Value = tabla.Rows(c)("precio_unitario")
-        'Next
-
-    End Sub
-
     Private Sub calcular_subtotal()
         subtotal = 0
         Dim c As Integer
@@ -326,8 +305,7 @@ Public Class FormVentas
         Next
 
         Me.txt_subtotalVENTA.Text = Me.subtotal
-        Me.txt_totalVENTA.Text = Me.subtotal
-        Me.txt_montoFORMAPAGO.Text = Me.subtotal 
+        Me.txt_montoFORMAPAGO.Text = Me.subtotal
     End Sub
 
     Private Sub dgv_detalle_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_detalle.CellContentClick, dgv_detalle.CellContentDoubleClick
@@ -346,7 +324,42 @@ Public Class FormVentas
         Me.btn_guardarVENTA.Enabled = True
         Me.txt_dtoVENTA.Enabled = True
 
-        If validar_camposARTICULO() Then
+        Dim tabla As New DataTable
+        Dim sql As String = ""
+        sql &= "SELECT porcentaje FROM formas_pago WHERE id_forma_pago = " & Me.cmb_formaPago.SelectedValue
+        tabla = SoporteBD.leerBD_simple(sql)
+        Dim porcentaje As Double = tabla.Rows(0)("porcentaje")
+        Dim monto_sin_descuento As Double = Convert.ToDouble(Me.txt_montoFORMAPAGO.Text)
+        Dim subtotal As Double = Me.txt_subtotalVENTA.Text
+        Dim monto As Double
+        Dim descuentos As Double
+
+        If validar_camposFORMAPAGO() Then
+            Dim total As Integer
+
+            If cmb_formaPago.SelectedValue <> 3 Then
+                Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, (1 - porcentaje) * monto_sin_descuento, Me.cmb_formaPago.SelectedValue)
+                'Me.calcular_subtotal()
+                'Me.txt_montoFORMAPAGO.Text = subtotal - monto_sin_descuento
+
+            Else
+                Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, monto_sin_descuento, Me.cmb_formaPago.SelectedValue)
+                'Me.calcular_subtotal()
+                'Me.txt_montoFORMAPAGO.Text = subtotal - monto_sin_descuento
+            End If
+
+            Dim c As Integer
+            For c = 0 To dgv_formaPago.Rows.Count - 1
+                total = total + Convert.ToInt32(dgv_formaPago.Rows(c).Cells("col_montoDTO").Value)
+                monto = monto + Convert.ToInt32(dgv_formaPago.Rows(c).Cells("col_montoSINDTO").Value)
+                descuentos = descuentos + (Convert.ToInt32(dgv_formaPago.Rows(c).Cells("col_montoSINDTO").Value) - Convert.ToInt32(dgv_formaPago.Rows(c).Cells("col_montoDTO").Value))
+            Next
+
+            Me.txt_montoFORMAPAGO.Text = subtotal - monto
+
+            Me.txt_totalVENTA.Text = subtotal - descuentos
+
+        End If
 
     End Sub
 End Class
