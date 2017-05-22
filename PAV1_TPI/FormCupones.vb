@@ -6,6 +6,8 @@
 
     Private Sub FormTarjetas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.txt_numero_cupon.Focus()
+        SoporteGUI.cargar_combo(cmb_banco, SoporteBD.leerBD_simple("SELECT * FROM bancos"), "id_banco", "nombre")
+        SoporteGUI.cargar_combo(cmb_entidad, SoporteBD.leerBD_simple("SELECT * FROM entidades_crediticias"), "id_entidad_crediticia", "nombre")
     End Sub
 
 
@@ -85,6 +87,10 @@
                 If MessageBox.Show("¿Los datos ingresados son correctos?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
 
                     insertar()
+
+                    Cupon.id_banco = Me.cmb_banco.SelectedValue
+                    Cupon.id_cupon = Me.txt_numero_cupon.Text
+                    Cupon.id_entidad_crediticia = Me.cmb_entidad.SelectedValue
 
                     MsgBox("¡Datos ingresados!", MessageBoxButtons.OK, "Carga de cupones")
 

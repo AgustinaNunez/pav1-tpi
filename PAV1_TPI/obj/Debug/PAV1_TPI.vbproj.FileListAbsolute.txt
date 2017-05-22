@@ -296,3 +296,4 @@ C:\Users\Luciana\Desktop\PAV 1\TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormUsua
 C:\Users\Luciana\Desktop\PAV 1\TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormVentas.resources
 C:\Users\Luciana\Desktop\PAV 1\TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.Resources.resources
 C:\Users\Luciana\Desktop\PAV 1\TPI\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.vbproj.GenerateResource.Cache
+C:\Users\juani\Desktop\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormLogin.resources

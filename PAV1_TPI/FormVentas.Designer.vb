@@ -38,13 +38,17 @@ Partial Class FormVentas
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txt_nroDocCLIENTE = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.txt_subtotalVENTA = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.txt_dtoVENTA = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.btn_modificarFORMAPAGO = New System.Windows.Forms.Button()
         Me.btn_agregarCUPON = New System.Windows.Forms.Button()
         Me.dgv_formaPago = New System.Windows.Forms.DataGridView()
+        Me.forma_pago = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_montoSINDTO = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_montoDTO = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_id_formapago = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btn_eliminarFORMAPAGO = New System.Windows.Forms.Button()
         Me.btn_agregarFORMAPAGO = New System.Windows.Forms.Button()
         Me.cmb_formaPago = New System.Windows.Forms.ComboBox()
@@ -58,6 +62,8 @@ Partial Class FormVentas
         Me.btn_modificarARTICULO = New System.Windows.Forms.Button()
         Me.btn_eliminarDETALLE = New System.Windows.Forms.Button()
         Me.btn_agregarDETALLE = New System.Windows.Forms.Button()
+        Me.txt_subtotalVENTA = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.cmb_producto = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -65,6 +71,11 @@ Partial Class FormVentas
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dgv_detalle = New System.Windows.Forms.DataGridView()
+        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txt_idVENTA = New System.Windows.Forms.TextBox()
         Me.btn_nuevaVENTA = New System.Windows.Forms.Button()
         Me.txt_hora = New System.Windows.Forms.TextBox()
@@ -73,17 +84,6 @@ Partial Class FormVentas
         Me.txt_totalVENTA = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.btn_modificarFORMAPAGO = New System.Windows.Forms.Button()
-        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_total = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.forma_pago = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_montoSINDTO = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_montoDTO = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_id_formapago = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -246,28 +246,6 @@ Partial Class FormVentas
         Me.Label15.TabIndex = 1
         Me.Label15.Text = "Tipo documento"
         '
-        'txt_subtotalVENTA
-        '
-        Me.txt_subtotalVENTA.Enabled = False
-        Me.txt_subtotalVENTA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_subtotalVENTA.ForeColor = System.Drawing.Color.Black
-        Me.txt_subtotalVENTA.Location = New System.Drawing.Point(536, 203)
-        Me.txt_subtotalVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txt_subtotalVENTA.Name = "txt_subtotalVENTA"
-        Me.txt_subtotalVENTA.Size = New System.Drawing.Size(127, 25)
-        Me.txt_subtotalVENTA.TabIndex = 15
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.Color.Black
-        Me.Label13.Location = New System.Drawing.Point(474, 206)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(56, 17)
-        Me.Label13.TabIndex = 14
-        Me.Label13.Text = "Subtotal"
-        '
         'txt_dtoVENTA
         '
         Me.txt_dtoVENTA.Enabled = False
@@ -310,6 +288,24 @@ Partial Class FormVentas
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Forma de Pago"
         '
+        'btn_modificarFORMAPAGO
+        '
+        Me.btn_modificarFORMAPAGO.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_modificarFORMAPAGO.Enabled = False
+        Me.btn_modificarFORMAPAGO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_modificarFORMAPAGO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_modificarFORMAPAGO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_modificarFORMAPAGO.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
+        Me.btn_modificarFORMAPAGO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_modificarFORMAPAGO.Location = New System.Drawing.Point(240, 168)
+        Me.btn_modificarFORMAPAGO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_modificarFORMAPAGO.Name = "btn_modificarFORMAPAGO"
+        Me.btn_modificarFORMAPAGO.Size = New System.Drawing.Size(105, 45)
+        Me.btn_modificarFORMAPAGO.TabIndex = 19
+        Me.btn_modificarFORMAPAGO.Text = "Modificar"
+        Me.btn_modificarFORMAPAGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_modificarFORMAPAGO.UseVisualStyleBackColor = True
+        '
         'btn_agregarCUPON
         '
         Me.btn_agregarCUPON.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
@@ -337,6 +333,41 @@ Partial Class FormVentas
         Me.dgv_formaPago.ReadOnly = True
         Me.dgv_formaPago.Size = New System.Drawing.Size(423, 99)
         Me.dgv_formaPago.TabIndex = 13
+        '
+        'forma_pago
+        '
+        Me.forma_pago.HeaderText = "Forma de pago"
+        Me.forma_pago.Name = "forma_pago"
+        Me.forma_pago.ReadOnly = True
+        Me.forma_pago.Width = 130
+        '
+        'dto
+        '
+        Me.dto.HeaderText = "% Dto."
+        Me.dto.Name = "dto"
+        Me.dto.ReadOnly = True
+        Me.dto.Width = 80
+        '
+        'col_montoSINDTO
+        '
+        Me.col_montoSINDTO.HeaderText = "s/ Dto."
+        Me.col_montoSINDTO.Name = "col_montoSINDTO"
+        Me.col_montoSINDTO.ReadOnly = True
+        Me.col_montoSINDTO.Width = 80
+        '
+        'col_montoDTO
+        '
+        Me.col_montoDTO.HeaderText = "c/ Dto."
+        Me.col_montoDTO.Name = "col_montoDTO"
+        Me.col_montoDTO.ReadOnly = True
+        Me.col_montoDTO.Width = 80
+        '
+        'col_id_formapago
+        '
+        Me.col_id_formapago.HeaderText = "id_forma_pago"
+        Me.col_id_formapago.Name = "col_id_formapago"
+        Me.col_id_formapago.ReadOnly = True
+        Me.col_id_formapago.Visible = False
         '
         'btn_eliminarFORMAPAGO
         '
@@ -525,6 +556,28 @@ Partial Class FormVentas
         Me.btn_agregarDETALLE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_agregarDETALLE.UseVisualStyleBackColor = True
         '
+        'txt_subtotalVENTA
+        '
+        Me.txt_subtotalVENTA.Enabled = False
+        Me.txt_subtotalVENTA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_subtotalVENTA.ForeColor = System.Drawing.Color.Black
+        Me.txt_subtotalVENTA.Location = New System.Drawing.Point(536, 203)
+        Me.txt_subtotalVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_subtotalVENTA.Name = "txt_subtotalVENTA"
+        Me.txt_subtotalVENTA.Size = New System.Drawing.Size(127, 25)
+        Me.txt_subtotalVENTA.TabIndex = 15
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.Black
+        Me.Label13.Location = New System.Drawing.Point(474, 206)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(56, 17)
+        Me.Label13.TabIndex = 14
+        Me.Label13.Text = "Subtotal"
+        '
         'cmb_producto
         '
         Me.cmb_producto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -632,6 +685,39 @@ Partial Class FormVentas
         Me.dgv_detalle.Size = New System.Drawing.Size(645, 123)
         Me.dgv_detalle.TabIndex = 9
         '
+        'col_id_producto
+        '
+        Me.col_id_producto.HeaderText = "id_producto"
+        Me.col_id_producto.Name = "col_id_producto"
+        Me.col_id_producto.ReadOnly = True
+        Me.col_id_producto.Visible = False
+        '
+        'col_producto
+        '
+        Me.col_producto.HeaderText = "Producto"
+        Me.col_producto.Name = "col_producto"
+        Me.col_producto.ReadOnly = True
+        Me.col_producto.Width = 250
+        '
+        'col_cantidad
+        '
+        Me.col_cantidad.HeaderText = "Cantidad"
+        Me.col_cantidad.Name = "col_cantidad"
+        Me.col_cantidad.ReadOnly = True
+        '
+        'col_precio
+        '
+        Me.col_precio.HeaderText = "Precio Unitario"
+        Me.col_precio.Name = "col_precio"
+        Me.col_precio.ReadOnly = True
+        Me.col_precio.Width = 150
+        '
+        'col_total
+        '
+        Me.col_total.HeaderText = "Precio"
+        Me.col_total.Name = "col_total"
+        Me.col_total.ReadOnly = True
+        '
         'txt_idVENTA
         '
         Me.txt_idVENTA.Enabled = False
@@ -735,92 +821,6 @@ Partial Class FormVentas
         Me.Label4.Size = New System.Drawing.Size(86, 17)
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "Total a pagar"
-        '
-        'btn_modificarFORMAPAGO
-        '
-        Me.btn_modificarFORMAPAGO.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_modificarFORMAPAGO.Enabled = False
-        Me.btn_modificarFORMAPAGO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_modificarFORMAPAGO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_modificarFORMAPAGO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_modificarFORMAPAGO.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
-        Me.btn_modificarFORMAPAGO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_modificarFORMAPAGO.Location = New System.Drawing.Point(240, 168)
-        Me.btn_modificarFORMAPAGO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_modificarFORMAPAGO.Name = "btn_modificarFORMAPAGO"
-        Me.btn_modificarFORMAPAGO.Size = New System.Drawing.Size(105, 45)
-        Me.btn_modificarFORMAPAGO.TabIndex = 19
-        Me.btn_modificarFORMAPAGO.Text = "Modificar"
-        Me.btn_modificarFORMAPAGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_modificarFORMAPAGO.UseVisualStyleBackColor = True
-        '
-        'col_id_producto
-        '
-        Me.col_id_producto.HeaderText = "id_producto"
-        Me.col_id_producto.Name = "col_id_producto"
-        Me.col_id_producto.ReadOnly = True
-        Me.col_id_producto.Visible = False
-        '
-        'col_producto
-        '
-        Me.col_producto.HeaderText = "Producto"
-        Me.col_producto.Name = "col_producto"
-        Me.col_producto.ReadOnly = True
-        Me.col_producto.Width = 250
-        '
-        'col_cantidad
-        '
-        Me.col_cantidad.HeaderText = "Cantidad"
-        Me.col_cantidad.Name = "col_cantidad"
-        Me.col_cantidad.ReadOnly = True
-        '
-        'col_precio
-        '
-        Me.col_precio.HeaderText = "Precio Unitario"
-        Me.col_precio.Name = "col_precio"
-        Me.col_precio.ReadOnly = True
-        Me.col_precio.Width = 150
-        '
-        'col_total
-        '
-        Me.col_total.HeaderText = "Precio"
-        Me.col_total.Name = "col_total"
-        Me.col_total.ReadOnly = True
-        '
-        'forma_pago
-        '
-        Me.forma_pago.HeaderText = "Forma de pago"
-        Me.forma_pago.Name = "forma_pago"
-        Me.forma_pago.ReadOnly = True
-        Me.forma_pago.Width = 130
-        '
-        'dto
-        '
-        Me.dto.HeaderText = "% Dto."
-        Me.dto.Name = "dto"
-        Me.dto.ReadOnly = True
-        Me.dto.Width = 80
-        '
-        'col_montoSINDTO
-        '
-        Me.col_montoSINDTO.HeaderText = "s/ Dto."
-        Me.col_montoSINDTO.Name = "col_montoSINDTO"
-        Me.col_montoSINDTO.ReadOnly = True
-        Me.col_montoSINDTO.Width = 80
-        '
-        'col_montoDTO
-        '
-        Me.col_montoDTO.HeaderText = "c/ Dto."
-        Me.col_montoDTO.Name = "col_montoDTO"
-        Me.col_montoDTO.ReadOnly = True
-        Me.col_montoDTO.Width = 80
-        '
-        'col_id_formapago
-        '
-        Me.col_id_formapago.HeaderText = "id_forma_pago"
-        Me.col_id_formapago.Name = "col_id_formapago"
-        Me.col_id_formapago.ReadOnly = True
-        Me.col_id_formapago.Visible = False
         '
         'FormVentas
         '

@@ -36,6 +36,10 @@ Partial Class FormCupones
         Me.lbl_loteERROR = New System.Windows.Forms.Label()
         Me.lbl_autorizacionERROR = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.cmb_banco = New System.Windows.Forms.ComboBox()
+        Me.cmb_entidad = New System.Windows.Forms.ComboBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label2
@@ -93,7 +97,7 @@ Partial Class FormCupones
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(35, 151)
+        Me.Label6.Location = New System.Drawing.Point(42, 221)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(344, 17)
         Me.Label6.TabIndex = 25
@@ -106,7 +110,7 @@ Partial Class FormCupones
         Me.btn_aceptar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_aceptar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
         Me.btn_aceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_aceptar.Location = New System.Drawing.Point(143, 203)
+        Me.btn_aceptar.Location = New System.Drawing.Point(150, 273)
         Me.btn_aceptar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_aceptar.Name = "btn_aceptar"
         Me.btn_aceptar.Size = New System.Drawing.Size(100, 41)
@@ -120,7 +124,7 @@ Partial Class FormCupones
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Black
         Me.Label4.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
-        Me.Label4.Location = New System.Drawing.Point(291, 211)
+        Me.Label4.Location = New System.Drawing.Point(298, 281)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(109, 33)
         Me.Label4.TabIndex = 26
@@ -170,12 +174,50 @@ Partial Class FormCupones
         Me.Label8.Text = "   Carga de Cupones"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'cmb_banco
+        '
+        Me.cmb_banco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_banco.FormattingEnabled = True
+        Me.cmb_banco.Location = New System.Drawing.Point(143, 150)
+        Me.cmb_banco.Name = "cmb_banco"
+        Me.cmb_banco.Size = New System.Drawing.Size(216, 25)
+        Me.cmb_banco.TabIndex = 29
+        '
+        'cmb_entidad
+        '
+        Me.cmb_entidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_entidad.FormattingEnabled = True
+        Me.cmb_entidad.Location = New System.Drawing.Point(143, 181)
+        Me.cmb_entidad.Name = "cmb_entidad"
+        Me.cmb_entidad.Size = New System.Drawing.Size(216, 25)
+        Me.cmb_entidad.TabIndex = 29
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(20, 153)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(117, 17)
+        Me.Label9.TabIndex = 0
+        Me.Label9.Text = "Banco asociado (*)"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(10, 184)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(127, 17)
+        Me.Label10.TabIndex = 0
+        Me.Label10.Text = "Entidad Crediticia (*)"
+        '
         'FormCupones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(419, 261)
+        Me.ClientSize = New System.Drawing.Size(419, 343)
+        Me.Controls.Add(Me.cmb_entidad)
+        Me.Controls.Add(Me.cmb_banco)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.lbl_autorizacionERROR)
         Me.Controls.Add(Me.lbl_loteERROR)
@@ -186,6 +228,8 @@ Partial Class FormCupones
         Me.Controls.Add(Me.txt_numero_autorizacion)
         Me.Controls.Add(Me.txt_numero_lote)
         Me.Controls.Add(Me.txt_numero_cupon)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -197,7 +241,7 @@ Partial Class FormCupones
         Me.Name = "FormCupones"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "CLOTTA Tarjetas"
+        Me.Text = "Cupón"
         Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -216,4 +260,8 @@ Partial Class FormCupones
     Friend WithEvents lbl_loteERROR As System.Windows.Forms.Label
     Friend WithEvents lbl_autorizacionERROR As System.Windows.Forms.Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents cmb_banco As System.Windows.Forms.ComboBox
+    Friend WithEvents cmb_entidad As System.Windows.Forms.ComboBox
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
 End Class
