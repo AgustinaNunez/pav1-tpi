@@ -6,13 +6,13 @@ Public Class FormVentas
     Dim total As Double = 0
     Dim flag As Boolean = False
     Dim valor_monto_inicial As Double
-
+    Dim frmCupon As New FormCupones
+    Private estado_actual_transaccion As estado_transaccion = estado_transaccion._sin_iniciar
 
     Enum estado_transaccion
         _iniciada
         _sin_iniciar
     End Enum
-    Private estado_actual_transaccion As estado_transaccion = estado_transaccion._sin_iniciar
 
     Private Sub FormVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SoporteGUI.cargar_combo(cmb_tipoDocCLIENTE, SoporteBD.leerBD_simple("SELECT * FROM tipo_documento"), "id_tipo_documento", "nombre_tipo_documento")
@@ -47,16 +47,17 @@ Public Class FormVentas
         Me.btn_guardarVENTA.Enabled = False
         Me.btn_agregarCUPON.Visible = False
         Me.chk_descuento.Enabled = False
+        Me.chk_descuento.Checked = False
 
     End Sub
 
     Private Sub deshabilitar_formapago()
         Me.btn_agregarFORMAPAGO.Enabled = False
         Me.btn_eliminarFORMAPAGO.Enabled = False
+        Me.btn_aceptar.Enabled = False
         Me.cmb_formaPago.Enabled = False
         Me.txt_montoFORMAPAGO.Enabled = False
         Me.dgv_formaPago.Enabled = False
-        Me.btn_aceptar.Enabled = False
     End Sub
 
     Private Sub limpiar_camposDETALLE()
@@ -286,9 +287,30 @@ Public Class FormVentas
     End Sub
 
     Private Sub btn_agregarCUPON_Click(sender As Object, e As EventArgs) Handles btn_agregarCUPON.Click
-        Dim frmCupon As New FormCupones
-        frmCupon.ShowDialog()
-        Me.btn_guardarVENTA.Enabled = True
+        Dim pago_debito As Integer = 2
+        Dim pago_credito As Integer = 3
+        Dim c As Integer
+        For c = 0 To Me.dgv_formaPago.Rows.Count - 1
+            If pago_debito = Me.dgv_formaPago.Rows(c).Cells("col_id_formapago").Value Then
+                Dim frmCupon As New FormCupones
+                frmCupon.ShowDialog()
+                Me.btn_guardarVENTA.Enabled = True
+                Me.btn_agregarCUPON.Enabled = False
+            End If
+
+                If pago_credito = Me.dgv_formaPago.Rows(c).Cells("col_id_formapago").Value Then
+                    Dim frmCupon As New FormCupones
+                    If frmCupon.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                        Me.btn_guardarVENTA.Enabled = True
+                        Me.btn_agregarCUPON.Enabled = False
+                    End If
+                End If
+        Next
+
+        'Dim frmCupon As New FormCupones
+        'frmCupon.ShowDialog()
+        'Me.btn_guardarVENTA.Enabled = True
+        'Me.btn_agregarCUPON.Enabled = False
 
     End Sub
 
@@ -352,19 +374,21 @@ Public Class FormVentas
 
         If cmb_formaPago.SelectedValue <> 3 Then
             If cmb_formaPago.SelectedValue = 1 Then
-                Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, (1 - porcentaje) * monto_sin_descuento, Me.cmb_formaPago.SelectedValue)
+                Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, Math.Round((1 - porcentaje) * monto_sin_descuento), Me.cmb_formaPago.SelectedValue)
                 Me.calcular_monto_formapago()
                 Me.btn_guardarVENTA.Enabled = True
             Else
-                Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, (1 - porcentaje) * monto_sin_descuento, Me.cmb_formaPago.SelectedValue)
+                Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, Math.Round((1 - porcentaje) * monto_sin_descuento), Me.cmb_formaPago.SelectedValue)
                 Me.calcular_monto_formapago()
             End If
         Else
-            Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, monto_sin_descuento, Me.cmb_formaPago.SelectedValue)
+            Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, Math.Round(monto_sin_descuento), Me.cmb_formaPago.SelectedValue)
             Me.calcular_monto_formapago()
         End If
         Me.dgv_formaPago.Enabled = True
     End Sub
+
+    Dim banderita As Boolean = False
 
     Private Sub btn_agregarFORMAPAGO_Click(sender As Object, e As EventArgs) Handles btn_agregarFORMAPAGO.Click
 
@@ -389,27 +413,17 @@ Public Class FormVentas
                 End If
             End If
 
-
+            If Me.dgv_formaPago.Rows.Count = 3 Then
+                If Math.Round(Convert.ToDouble(txt_montoFORMAPAGO.Text)) > 0 Then
+                    MsgBox("Queda monto por cargar, reintentar", MsgBoxStyle.OkOnly, "Error")
+                    Me.dgv_formaPago.Rows.RemoveAt(2)
+                    Me.calcular_monto_formapago()
+                End If
+            End If
 
         End If
 
     End Sub
-
-    'Private Sub calcular_total_venta()
-
-    '    Dim monto As Double
-    '    Dim descuentos As Double
-    '    Dim subbtotal As Double = Me.txt_subtotalVENTA.Text
-    '    Dim c As Integer
-    '    For c = 0 To dgv_formaPago.Rows.Count - 1
-    '        monto = monto + Convert.ToInt32(dgv_formaPago.Rows(c).Cells("col_montoSINDTO").Value)
-    '        descuentos = descuentos + (Convert.ToInt32(dgv_formaPago.Rows(c).Cells("col_montoSINDTO").Value) - Convert.ToInt32(dgv_formaPago.Rows(c).Cells("col_montoDTO").Value))
-    '    Next
-
-    '    Me.txt_montoFORMAPAGO.Text = subtotal - monto
-    '    Me.txt_totalVENTA.Text = subtotal - descuentos
-    'End Sub
-
 
     Private Sub dgv_formaPago_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_formaPago.CellContentClick
 
@@ -429,10 +443,11 @@ Public Class FormVentas
         End If
 
         Me.txt_montoFORMAPAGO.Text = Me.dgv_formaPago.CurrentRow.Cells(2).Value
+        Me.txt_montoFORMAPAGO.Enabled = False
         Me.cmb_formaPago.SelectedValue = Me.dgv_formaPago.CurrentRow.Cells(4).Value
+        Me.cmb_formaPago.Enabled = False
         Me.btn_agregarFORMAPAGO.Enabled = False
         Me.btn_eliminarFORMAPAGO.Enabled = True
-        Me.cmb_formaPago.Enabled = False
         Me.btn_aceptar.Enabled = True
         Me.btn_aceptar.Visible = True
 
@@ -476,26 +491,17 @@ Public Class FormVentas
         Me.btn_aceptar.Enabled = False
         Me.btn_aceptar.Visible = False
         Me.calcular_monto_formapago()
+        Me.txt_montoFORMAPAGO.Enabled = True
 
     End Sub
 
-    Private Sub btn_modificarFORMAPAGO_Click(sender As Object, e As EventArgs)
-
-        Me.dgv_formaPago.CurrentRow.Cells(2).Value = Me.txt_montoFORMAPAGO.Text
-
-        'Me.calcular_total_venta()
-
-        Me.btn_eliminarFORMAPAGO.Enabled = False
-        Me.btn_agregarFORMAPAGO.Enabled = True
-        Me.cmb_formaPago.Enabled = True
-
-    End Sub
 
     Private Sub btn_guardarVENTA_Click(sender As Object, e As EventArgs) Handles btn_guardarVENTA.Click
 
         SoporteBD.iniciar_conexion_con_transaccion()
 
         'INSERTAR VENTA
+        Dim tabla_venta As New DataTable
         Dim sql_insertar_venta As String = ""
         sql_insertar_venta &= "INSERT INTO ventas(id_venta,fecha_venta,hora_venta,id_usuario,numero_documento_cliente,tipo_documento_cliente) VALUES("
         sql_insertar_venta &= txt_idVENTA.Text
@@ -504,13 +510,13 @@ Public Class FormVentas
         sql_insertar_venta &= ", '" & Usuario.username & "'"
 
         If txt_nroDocCLIENTE.Text = "" Then
-            sql_insertar_venta &= ", ''"
+            sql_insertar_venta &= ", NULL"
         Else
             sql_insertar_venta &= ", '" & txt_nroDocCLIENTE.Text & "'"
         End If
 
-        If cmb_tipoDocCLIENTE.SelectedValue = -1 Then
-            sql_insertar_venta &= ",'')"
+        If cmb_tipoDocCLIENTE.SelectedIndex = -1 Then
+            sql_insertar_venta &= ", NULL)"
         Else
             sql_insertar_venta &= ", '" & cmb_tipoDocCLIENTE.SelectedValue & "')"
         End If
@@ -520,6 +526,7 @@ Public Class FormVentas
 
 
         'INSERTAR DETALLE DE VENTA
+        Dim tabla_detalle As New DataTable
         Dim sql_insertar_detalle As String = ""
         For c = 0 To Me.dgv_detalle.Rows.Count - 1
             sql_insertar_detalle &= " INSERT INTO detalle_ventas(id_venta,id_producto,cantidad,precio_unitario) VALUES (" & txt_idVENTA.Text
@@ -532,22 +539,52 @@ Public Class FormVentas
 
 
         'INSERTAR FORMA DE PAGO
+        Dim tabla_formapago As New DataTable
         Dim sql_insertar_formapago As String = ""
         For d = 0 To Me.dgv_formaPago.Rows.Count - 1
-            sql_insertar_formapago &= "INSERT INTO ventasXformas_pago(id_venta,id_forma_pago,monto_vxfp,id_cupon,id_banco,id_entidad_crediticia) VALUES ("
-            sql_insertar_formapago &= txt_idVENTA.Text
-            sql_insertar_formapago &= ", " & Me.dgv_formaPago.Rows(d).Cells("col_id_formapago").Value
-            sql_insertar_formapago &= ", " & Me.dgv_formaPago.Rows(d).Cells("col_montoDTO").Value
-            sql_insertar_formapago &= ", " & Cupon.id_cupon
-            sql_insertar_formapago &= ", " & Cupon.id_banco
-            sql_insertar_formapago &= ", " & Cupon.id_entidad_crediticia & ")"
-            SoporteBD.escribirBD_transaccion(sql_insertar_formapago)
-            sql_insertar_formapago = ""
+            'SI LA FORMA DE PAGO ES EN EFECTIVO QUE INSERTE NULL EN LOS VALORES DEL CUPON
+            If dgv_formaPago.Rows(d).Cells("col_id_formapago").Value = 1 Then
+                sql_insertar_formapago &= "INSERT INTO ventasXformas_pago(id_venta,id_forma_pago,monto_vxfp,id_cupon,id_banco,id_entidad_crediticia) VALUES ("
+                sql_insertar_formapago &= txt_idVENTA.Text
+                sql_insertar_formapago &= ", " & Me.dgv_formaPago.Rows(d).Cells("col_id_formapago").Value
+                sql_insertar_formapago &= ", " & Me.dgv_formaPago.Rows(d).Cells("col_montoDTO").Value
+                sql_insertar_formapago &= ", NULL"
+                sql_insertar_formapago &= ", NULL"
+                sql_insertar_formapago &= ", NULL)"
+                SoporteBD.escribirBD_transaccion(sql_insertar_formapago)
+                sql_insertar_formapago = ""
+            Else
+                sql_insertar_formapago &= "INSERT INTO ventasXformas_pago(id_venta,id_forma_pago,monto_vxfp,id_cupon,id_banco,id_entidad_crediticia) VALUES ("
+                sql_insertar_formapago &= txt_idVENTA.Text
+                sql_insertar_formapago &= ", " & Me.dgv_formaPago.Rows(d).Cells("col_id_formapago").Value
+                sql_insertar_formapago &= ", " & Me.dgv_formaPago.Rows(d).Cells("col_montoDTO").Value
+                sql_insertar_formapago &= ", " & Cupon.id_cupon
+                sql_insertar_formapago &= ", " & Cupon.id_banco
+                sql_insertar_formapago &= ", " & Cupon.id_entidad_crediticia & ")"
+                SoporteBD.escribirBD_transaccion(sql_insertar_formapago)
+                sql_insertar_formapago = ""
+            End If
+            
         Next
 
         MessageBox.Show("Datos almacenados", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information)
         SoporteBD.cerrar_conexion_con_transaccion()
+        Me.deshabilitar_formapago()
+        Me.deshabilitar_cliente()
+        Me.deshabilitar_detalle_venta()
+        Me.btn_guardarVENTA.Enabled = False
+    End Sub
 
+    Private Sub deshabilitar_cliente()
+        Me.cmb_tipoDocCLIENTE.Enabled = False
+        Me.txt_nroDocCLIENTE.Enabled = False
+        Me.btn_buscarCLIENTE.Enabled = False
+    End Sub
+
+    Private Sub deshabilitar_detalle_venta()
+        Me.cmb_producto.Enabled = False
+        Me.txt_cantidad.Enabled = False
+        Me.dgv_detalle.Enabled = False
     End Sub
 
     Private Sub txt_dtoVENTA_TextChanged(sender As Object, e As EventArgs) Handles txt_dtoVENTA.TextChanged
@@ -559,7 +596,7 @@ Public Class FormVentas
         Else
             total = Convert.ToDouble(Me.txt_totalVENTA.Text)
             descuento_compra = Convert.ToDouble(Me.txt_dtoVENTA.Text)
-            total_con_descuento = total_con_descuento + (total * (1 - (descuento_compra / 100)))
+            total_con_descuento = Math.Round(total_con_descuento + (total * (1 - (descuento_compra / 100))))
             Me.txt_totalVENTA.Text = total_con_descuento
             Me.txt_montoFORMAPAGO.Text = total_con_descuento
             total = total_con_descuento
@@ -578,6 +615,8 @@ Public Class FormVentas
         Me.btn_agregarFORMAPAGO.Enabled = True
         Me.calcular_monto_formapago()
         Me.btn_aceptar.Visible = False
+        Me.btn_agregarCUPON.Visible = False
+        Me.txt_montoFORMAPAGO.Enabled = True
     End Sub
 
     Private Sub chk_descuento_CheckedChanged(sender As Object, e As EventArgs) Handles chk_descuento.CheckedChanged
@@ -586,21 +625,33 @@ Public Class FormVentas
                 Me.habilitar_camposPAGO()
                 Me.txt_dtoVENTA.Enabled = False
                 Me.chk_descuento.Enabled = False
+            Else
+                Me.chk_descuento.Checked = False
             End If
         Else
             Me.txt_dtoVENTA.Enabled = True
             Me.deshabilitar_formapago()
+            Me.chk_descuento.Checked = False
         End If
     End Sub
 
     Private Sub txt_montoFORMAPAGO_TextChanged(sender As Object, e As EventArgs) Handles txt_montoFORMAPAGO.TextChanged
-        If Convert.ToDouble(txt_montoFORMAPAGO.Text) = 0 Then
-            Me.txt_montoFORMAPAGO.Enabled = False
-        Else
-            If chk_descuento.Checked = True Then
-                Me.txt_montoFORMAPAGO.Enabled = True
-            End If
 
+        If txt_montoFORMAPAGO.Text = "" Then
+            Return
         End If
+
+        If Me.dgv_formaPago.Rows.Count > 0 Then
+            If Convert.ToDouble(txt_montoFORMAPAGO.Text) = 0 Then
+                Me.txt_montoFORMAPAGO.Enabled = False
+            Else
+                If chk_descuento.Checked = True Then
+                    Me.txt_montoFORMAPAGO.Enabled = True
+                End If
+            End If
+        End If
+        
+
     End Sub
+
 End Class

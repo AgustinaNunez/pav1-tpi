@@ -92,8 +92,6 @@
                     Cupon.id_cupon = Me.txt_numero_cupon.Text
                     Cupon.id_entidad_crediticia = Me.cmb_entidad.SelectedValue
 
-                    MsgBox("¡Datos ingresados!", MessageBoxButtons.OK, "Carga de cupones")
-
                     Me.Close()
 
                 End If
