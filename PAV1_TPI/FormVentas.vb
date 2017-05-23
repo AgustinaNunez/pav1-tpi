@@ -298,13 +298,13 @@ Public Class FormVentas
                 Me.btn_agregarCUPON.Enabled = False
             End If
 
-                If pago_credito = Me.dgv_formaPago.Rows(c).Cells("col_id_formapago").Value Then
-                    Dim frmCupon As New FormCupones
-                    If frmCupon.ShowDialog() = Windows.Forms.DialogResult.OK Then
-                        Me.btn_guardarVENTA.Enabled = True
-                        Me.btn_agregarCUPON.Enabled = False
-                    End If
+            If pago_credito = Me.dgv_formaPago.Rows(c).Cells("col_id_formapago").Value Then
+                Dim frmCupon As New FormCupones
+                If frmCupon.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                    Me.btn_guardarVENTA.Enabled = True
+                    Me.btn_agregarCUPON.Enabled = False
                 End If
+            End If
         Next
 
         'Dim frmCupon As New FormCupones
@@ -564,11 +564,12 @@ Public Class FormVentas
                 SoporteBD.escribirBD_transaccion(sql_insertar_formapago)
                 sql_insertar_formapago = ""
             End If
-            
+
         Next
 
         MessageBox.Show("Datos almacenados", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information)
         SoporteBD.cerrar_conexion_con_transaccion()
+        estado_actual_transaccion = estado_transaccion._sin_iniciar
         Me.deshabilitar_formapago()
         Me.deshabilitar_cliente()
         Me.deshabilitar_detalle_venta()
@@ -590,7 +591,7 @@ Public Class FormVentas
     Private Sub txt_dtoVENTA_TextChanged(sender As Object, e As EventArgs) Handles txt_dtoVENTA.TextChanged
         Dim total_con_descuento As Double = 0
         Dim descuento_compra As Double
-        If txt_dtoVENTA.Text = "" Then
+        If Me.txt_dtoVENTA.Text = "" Then
             'Me.calcular_total_venta()
             Me.txt_totalVENTA.Text = Me.txt_subtotalVENTA.Text
         Else

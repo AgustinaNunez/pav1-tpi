@@ -29,6 +29,7 @@ Partial Class FormVentas
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormVentas))
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.chk_descuento = New System.Windows.Forms.CheckBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txt_usuarioLogueado = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -38,7 +39,6 @@ Partial Class FormVentas
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txt_nroDocCLIENTE = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.txt_dtoVENTA = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.btn_agregarCUPON = New System.Windows.Forms.Button()
@@ -84,7 +84,7 @@ Partial Class FormVentas
         Me.txt_totalVENTA = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.chk_descuento = New System.Windows.Forms.CheckBox()
+        Me.txt_dtoVENTA = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -134,6 +134,17 @@ Partial Class FormVentas
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de la Venta"
+        '
+        'chk_descuento
+        '
+        Me.chk_descuento.AutoSize = True
+        Me.chk_descuento.Enabled = False
+        Me.chk_descuento.Location = New System.Drawing.Point(579, 402)
+        Me.chk_descuento.Name = "chk_descuento"
+        Me.chk_descuento.Size = New System.Drawing.Size(143, 21)
+        Me.chk_descuento.TabIndex = 18
+        Me.chk_descuento.Text = "Guardar descuento"
+        Me.chk_descuento.UseVisualStyleBackColor = True
         '
         'Label16
         '
@@ -247,18 +258,6 @@ Partial Class FormVentas
         Me.Label15.Size = New System.Drawing.Size(104, 17)
         Me.Label15.TabIndex = 1
         Me.Label15.Text = "Tipo documento"
-        '
-        'txt_dtoVENTA
-        '
-        Me.txt_dtoVENTA.Enabled = False
-        Me.txt_dtoVENTA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_dtoVENTA.ForeColor = System.Drawing.Color.Black
-        Me.txt_dtoVENTA.Location = New System.Drawing.Point(579, 430)
-        Me.txt_dtoVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txt_dtoVENTA.MaxLength = 3
-        Me.txt_dtoVENTA.Name = "txt_dtoVENTA"
-        Me.txt_dtoVENTA.Size = New System.Drawing.Size(127, 25)
-        Me.txt_dtoVENTA.TabIndex = 13
         '
         'Label10
         '
@@ -827,16 +826,17 @@ Partial Class FormVentas
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "Total a pagar"
         '
-        'chk_descuento
+        'txt_dtoVENTA
         '
-        Me.chk_descuento.AutoSize = True
-        Me.chk_descuento.Enabled = False
-        Me.chk_descuento.Location = New System.Drawing.Point(579, 402)
-        Me.chk_descuento.Name = "chk_descuento"
-        Me.chk_descuento.Size = New System.Drawing.Size(143, 21)
-        Me.chk_descuento.TabIndex = 18
-        Me.chk_descuento.Text = "Guardar descuento"
-        Me.chk_descuento.UseVisualStyleBackColor = True
+        Me.txt_dtoVENTA.Enabled = False
+        Me.txt_dtoVENTA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_dtoVENTA.ForeColor = System.Drawing.Color.Black
+        Me.txt_dtoVENTA.Location = New System.Drawing.Point(579, 430)
+        Me.txt_dtoVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_dtoVENTA.MaxLength = 3
+        Me.txt_dtoVENTA.Name = "txt_dtoVENTA"
+        Me.txt_dtoVENTA.Size = New System.Drawing.Size(127, 25)
+        Me.txt_dtoVENTA.TabIndex = 13
         '
         'FormVentas
         '
@@ -896,7 +896,6 @@ Partial Class FormVentas
     Friend WithEvents txt_totalVENTA As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents txt_dtoVENTA As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents txt_subtotalVENTA As TextBox
     Friend WithEvents Label13 As Label
@@ -925,4 +924,5 @@ Partial Class FormVentas
     Friend WithEvents col_id_formapago As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btn_aceptar As System.Windows.Forms.Button
     Friend WithEvents chk_descuento As System.Windows.Forms.CheckBox
+    Friend WithEvents txt_dtoVENTA As System.Windows.Forms.TextBox
 End Class

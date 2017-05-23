@@ -5,6 +5,7 @@
 
 *CUPON
 -Realizar grilla buscadora de cupones
+-Colocar precio en cupones que sea el mismo en la grilla de formas de pago con descuento --> AGREGAR A LA TABLA CUPONES
 
 *LOGO CLOTTA
 -Verificar si esta bien cargado el .ico en los forms
@@ -14,9 +15,31 @@
 -Boton Cupon sea correlacional al detalle de forma de pago seleccionado
 	¬Deshabilitar cuando se cargue el cupon, en el form de ventas
 
--Determinar que el monto de las formas de pago sea consistente al total a pagar 
-	¬Si ya cargue las 3 formas de pago y todavia queda monto por agregar, no dejar cargar la ultima forma de pago
-
 -SI ES PAGO CON DEBITO + CREDITO, TIENE QUE CARGAR 2 CUPONES
 
+-Consultas para eliminar de la BD lo cargado en ventas
+delete from detalle_ventas where id_venta in (0,1,2,3)
+delete from ventasXformas_pago where id_venta in (0,1,2,3)
+delete from ventas where id_venta in (0,1,2,3)
 
+-El cliente se carga en la clase cliente cuando se apreta en seleccionar y no en salir
+
+-Deshabilitar todo (menos formas de pago) cuando se aplica el descuento
+
+-Modificar Total a Pagar despues de las formas de pago
+
+-Si el monto de formas de pago es 0, deshabilitar el boton agregar
+
+-Despues de aceptar en formas de pago, si es cero el monto, deshabilitar el txt_dtoformapago Y HACER LO MISMO QUE ARRIBA 
+
+-Despues de guardar, deshabilitar el Agregar Detalle Venta
+
+-Despues de guardar, cerrar la transaccion
+
+-Cuando se guarde, validar que el monto de las formas de pago sea siempre 0
+
+-Despues de nuevo, aceptar y eliminar no tienen que ser visibles
+
+*COMPRAS
+-Agregar boton modificar en detalle de compras
+-Inhabilitar por default y habilitarlo cuando sea nuevo / deshabilitar cuando se guarde
