@@ -41,7 +41,6 @@ Partial Class FormVentas
         Me.txt_dtoVENTA = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.btn_modificarFORMAPAGO = New System.Windows.Forms.Button()
         Me.btn_agregarCUPON = New System.Windows.Forms.Button()
         Me.dgv_formaPago = New System.Windows.Forms.DataGridView()
         Me.forma_pago = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -49,6 +48,7 @@ Partial Class FormVentas
         Me.col_montoSINDTO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_montoDTO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_id_formapago = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btn_aceptar = New System.Windows.Forms.Button()
         Me.btn_eliminarFORMAPAGO = New System.Windows.Forms.Button()
         Me.btn_agregarFORMAPAGO = New System.Windows.Forms.Button()
         Me.cmb_formaPago = New System.Windows.Forms.ComboBox()
@@ -253,6 +253,7 @@ Partial Class FormVentas
         Me.txt_dtoVENTA.ForeColor = System.Drawing.Color.Black
         Me.txt_dtoVENTA.Location = New System.Drawing.Point(579, 430)
         Me.txt_dtoVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_dtoVENTA.MaxLength = 3
         Me.txt_dtoVENTA.Name = "txt_dtoVENTA"
         Me.txt_dtoVENTA.Size = New System.Drawing.Size(127, 25)
         Me.txt_dtoVENTA.TabIndex = 13
@@ -270,9 +271,9 @@ Partial Class FormVentas
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.btn_modificarFORMAPAGO)
         Me.GroupBox3.Controls.Add(Me.btn_agregarCUPON)
         Me.GroupBox3.Controls.Add(Me.dgv_formaPago)
+        Me.GroupBox3.Controls.Add(Me.btn_aceptar)
         Me.GroupBox3.Controls.Add(Me.btn_eliminarFORMAPAGO)
         Me.GroupBox3.Controls.Add(Me.btn_agregarFORMAPAGO)
         Me.GroupBox3.Controls.Add(Me.cmb_formaPago)
@@ -287,24 +288,6 @@ Partial Class FormVentas
         Me.GroupBox3.TabIndex = 11
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Forma de Pago"
-        '
-        'btn_modificarFORMAPAGO
-        '
-        Me.btn_modificarFORMAPAGO.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_modificarFORMAPAGO.Enabled = False
-        Me.btn_modificarFORMAPAGO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_modificarFORMAPAGO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_modificarFORMAPAGO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_modificarFORMAPAGO.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
-        Me.btn_modificarFORMAPAGO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_modificarFORMAPAGO.Location = New System.Drawing.Point(240, 168)
-        Me.btn_modificarFORMAPAGO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_modificarFORMAPAGO.Name = "btn_modificarFORMAPAGO"
-        Me.btn_modificarFORMAPAGO.Size = New System.Drawing.Size(105, 45)
-        Me.btn_modificarFORMAPAGO.TabIndex = 19
-        Me.btn_modificarFORMAPAGO.Text = "Modificar"
-        Me.btn_modificarFORMAPAGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_modificarFORMAPAGO.UseVisualStyleBackColor = True
         '
         'btn_agregarCUPON
         '
@@ -328,6 +311,7 @@ Partial Class FormVentas
         Me.dgv_formaPago.AllowUserToDeleteRows = False
         Me.dgv_formaPago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_formaPago.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.forma_pago, Me.dto, Me.col_montoSINDTO, Me.col_montoDTO, Me.col_id_formapago})
+        Me.dgv_formaPago.Enabled = False
         Me.dgv_formaPago.Location = New System.Drawing.Point(18, 62)
         Me.dgv_formaPago.Name = "dgv_formaPago"
         Me.dgv_formaPago.ReadOnly = True
@@ -368,6 +352,24 @@ Partial Class FormVentas
         Me.col_id_formapago.Name = "col_id_formapago"
         Me.col_id_formapago.ReadOnly = True
         Me.col_id_formapago.Visible = False
+        '
+        'btn_aceptar
+        '
+        Me.btn_aceptar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_aceptar.Enabled = False
+        Me.btn_aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_aceptar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_aceptar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_aceptar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
+        Me.btn_aceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_aceptar.Location = New System.Drawing.Point(240, 168)
+        Me.btn_aceptar.Name = "btn_aceptar"
+        Me.btn_aceptar.Size = New System.Drawing.Size(105, 45)
+        Me.btn_aceptar.TabIndex = 10
+        Me.btn_aceptar.Text = "Aceptar"
+        Me.btn_aceptar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_aceptar.UseVisualStyleBackColor = True
+        Me.btn_aceptar.Visible = False
         '
         'btn_eliminarFORMAPAGO
         '
@@ -799,6 +801,7 @@ Partial Class FormVentas
         Me.txt_totalVENTA.Name = "txt_totalVENTA"
         Me.txt_totalVENTA.Size = New System.Drawing.Size(127, 25)
         Me.txt_totalVENTA.TabIndex = 2
+        Me.txt_totalVENTA.Text = "0"
         '
         'Label2
         '
@@ -897,7 +900,6 @@ Partial Class FormVentas
     Friend WithEvents txt_usuarioLogueado As TextBox
     Friend WithEvents btn_agregarCUPON As Button
     Friend WithEvents btn_modificarARTICULO As Button
-    Friend WithEvents btn_modificarFORMAPAGO As System.Windows.Forms.Button
     Friend WithEvents col_id_producto As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents col_producto As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents col_cantidad As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -908,4 +910,5 @@ Partial Class FormVentas
     Friend WithEvents col_montoSINDTO As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents col_montoDTO As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents col_id_formapago As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btn_aceptar As System.Windows.Forms.Button
 End Class

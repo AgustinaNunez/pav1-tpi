@@ -1,0 +1,22 @@
+*STOCK
+-Verificar si se puede realizar una venta con stock disponible
+-Deshabilitar productos que no tienen stock
+-Incrementar stock cuando se realice la compra
+
+*CUPON
+-Realizar grilla buscadora de cupones
+
+*LOGO CLOTTA
+-Verificar si esta bien cargado el .ico en los forms
+
+*VENTAS
+
+-Boton Cupon sea correlacional al detalle de forma de pago seleccionado
+	¬Deshabilitar cuando se cargue el cupon, en el form de ventas
+
+-Determinar que el monto de las formas de pago sea consistente al total a pagar 
+	¬Si ya cargue las 3 formas de pago y todavia queda monto por agregar, no dejar cargar la ultima forma de pago
+
+-SI ES PAGO CON DEBITO + CREDITO, TIENE QUE CARGAR 2 CUPONES
+
+
