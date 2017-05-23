@@ -46,6 +46,7 @@ Public Class FormVentas
         Me.deshabilitar_formapago()
         Me.btn_guardarVENTA.Enabled = False
         Me.btn_agregarCUPON.Visible = False
+        Me.chk_descuento.Enabled = False
 
     End Sub
 
@@ -55,6 +56,7 @@ Public Class FormVentas
         Me.cmb_formaPago.Enabled = False
         Me.txt_montoFORMAPAGO.Enabled = False
         Me.dgv_formaPago.Enabled = False
+        Me.btn_aceptar.Enabled = False
     End Sub
 
     Private Sub limpiar_camposDETALLE()
@@ -111,9 +113,10 @@ Public Class FormVentas
             Dim precio As Integer = Convert.ToDouble(Me.txt_precio.Text)
             Me.dgv_detalle.Rows.Add(Me.cmb_producto.SelectedValue, Me.cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cantidad * precio)
             Me.calcular_subtotal()
-            Me.habilitar_camposPAGO()
+            'Me.habilitar_camposPAGO()
             Me.limpiar_camposDETALLE()
             Me.txt_dtoVENTA.Enabled = True
+            Me.chk_descuento.Enabled = True
         End If
     End Sub
 
@@ -351,6 +354,7 @@ Public Class FormVentas
             If cmb_formaPago.SelectedValue = 1 Then
                 Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, (1 - porcentaje) * monto_sin_descuento, Me.cmb_formaPago.SelectedValue)
                 Me.calcular_monto_formapago()
+                Me.btn_guardarVENTA.Enabled = True
             Else
                 Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, (1 - porcentaje) * monto_sin_descuento, Me.cmb_formaPago.SelectedValue)
                 Me.calcular_monto_formapago()
@@ -471,6 +475,7 @@ Public Class FormVentas
         Me.cmb_formaPago.SelectedIndex = -1
         Me.btn_aceptar.Enabled = False
         Me.btn_aceptar.Visible = False
+        Me.calcular_monto_formapago()
 
     End Sub
 
@@ -572,5 +577,30 @@ Public Class FormVentas
         Me.btn_eliminarFORMAPAGO.Enabled = False
         Me.btn_agregarFORMAPAGO.Enabled = True
         Me.calcular_monto_formapago()
+        Me.btn_aceptar.Visible = False
+    End Sub
+
+    Private Sub chk_descuento_CheckedChanged(sender As Object, e As EventArgs) Handles chk_descuento.CheckedChanged
+        If chk_descuento.Checked = True Then
+            If MsgBox("¿El descuento aplicado es correcto?", MsgBoxStyle.OkCancel, "Consulta") = MsgBoxResult.Ok Then
+                Me.habilitar_camposPAGO()
+                Me.txt_dtoVENTA.Enabled = False
+                Me.chk_descuento.Enabled = False
+            End If
+        Else
+            Me.txt_dtoVENTA.Enabled = True
+            Me.deshabilitar_formapago()
+        End If
+    End Sub
+
+    Private Sub txt_montoFORMAPAGO_TextChanged(sender As Object, e As EventArgs) Handles txt_montoFORMAPAGO.TextChanged
+        If Convert.ToDouble(txt_montoFORMAPAGO.Text) = 0 Then
+            Me.txt_montoFORMAPAGO.Enabled = False
+        Else
+            If chk_descuento.Checked = True Then
+                Me.txt_montoFORMAPAGO.Enabled = True
+            End If
+
+        End If
     End Sub
 End Class

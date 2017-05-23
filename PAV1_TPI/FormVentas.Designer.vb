@@ -84,6 +84,7 @@ Partial Class FormVentas
         Me.txt_totalVENTA = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.chk_descuento = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -106,6 +107,7 @@ Partial Class FormVentas
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.chk_descuento)
         Me.GroupBox1.Controls.Add(Me.Label16)
         Me.GroupBox1.Controls.Add(Me.txt_usuarioLogueado)
         Me.GroupBox1.Controls.Add(Me.GroupBox4)
@@ -825,6 +827,17 @@ Partial Class FormVentas
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "Total a pagar"
         '
+        'chk_descuento
+        '
+        Me.chk_descuento.AutoSize = True
+        Me.chk_descuento.Enabled = False
+        Me.chk_descuento.Location = New System.Drawing.Point(579, 402)
+        Me.chk_descuento.Name = "chk_descuento"
+        Me.chk_descuento.Size = New System.Drawing.Size(143, 21)
+        Me.chk_descuento.TabIndex = 18
+        Me.chk_descuento.Text = "Guardar descuento"
+        Me.chk_descuento.UseVisualStyleBackColor = True
+        '
         'FormVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -911,4 +924,5 @@ Partial Class FormVentas
     Friend WithEvents col_montoDTO As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents col_id_formapago As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btn_aceptar As System.Windows.Forms.Button
+    Friend WithEvents chk_descuento As System.Windows.Forms.CheckBox
 End Class
