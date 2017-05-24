@@ -47,12 +47,14 @@ Partial Class FormCompras
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.chk_fabrica = New System.Windows.Forms.CheckBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cmb_fabrica = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btn_nuevo_producto = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
+        Me.btn_modificar = New System.Windows.Forms.Button()
         Me.btn_agregar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
@@ -287,6 +289,7 @@ Partial Class FormCompras
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.chk_fabrica)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.cmb_fabrica)
@@ -309,6 +312,17 @@ Partial Class FormCompras
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de la Compra"
+        '
+        'chk_fabrica
+        '
+        Me.chk_fabrica.AutoSize = True
+        Me.chk_fabrica.Enabled = False
+        Me.chk_fabrica.Location = New System.Drawing.Point(576, 65)
+        Me.chk_fabrica.Name = "chk_fabrica"
+        Me.chk_fabrica.Size = New System.Drawing.Size(136, 21)
+        Me.chk_fabrica.TabIndex = 12
+        Me.chk_fabrica.Text = "Guardar selección"
+        Me.chk_fabrica.UseVisualStyleBackColor = True
         '
         'Label9
         '
@@ -355,6 +369,7 @@ Partial Class FormCompras
         Me.GroupBox2.Controls.Add(Me.txt_precio)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.dgv_compras)
+        Me.GroupBox2.Controls.Add(Me.btn_modificar)
         Me.GroupBox2.Controls.Add(Me.btn_agregar)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
@@ -390,13 +405,31 @@ Partial Class FormCompras
         Me.btn_eliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_eliminar.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
         Me.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_eliminar.Location = New System.Drawing.Point(558, 69)
+        Me.btn_eliminar.Location = New System.Drawing.Point(447, 70)
         Me.btn_eliminar.Name = "btn_eliminar"
         Me.btn_eliminar.Size = New System.Drawing.Size(105, 45)
         Me.btn_eliminar.TabIndex = 7
         Me.btn_eliminar.Text = "Eliminar"
         Me.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_eliminar.UseVisualStyleBackColor = True
+        '
+        'btn_modificar
+        '
+        Me.btn_modificar.Enabled = False
+        Me.btn_modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_modificar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_modificar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_modificar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
+        Me.btn_modificar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_modificar.Location = New System.Drawing.Point(558, 70)
+        Me.btn_modificar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_modificar.Name = "btn_modificar"
+        Me.btn_modificar.Size = New System.Drawing.Size(105, 45)
+        Me.btn_modificar.TabIndex = 0
+        Me.btn_modificar.Text = "Modificar"
+        Me.btn_modificar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_modificar.UseVisualStyleBackColor = True
+        Me.btn_modificar.Visible = False
         '
         'btn_agregar
         '
@@ -406,7 +439,7 @@ Partial Class FormCompras
         Me.btn_agregar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_agregar.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
         Me.btn_agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_agregar.Location = New System.Drawing.Point(447, 69)
+        Me.btn_agregar.Location = New System.Drawing.Point(336, 70)
         Me.btn_agregar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_agregar.Name = "btn_agregar"
         Me.btn_agregar.Size = New System.Drawing.Size(105, 45)
@@ -515,4 +548,6 @@ Partial Class FormCompras
     Friend WithEvents btn_eliminar As Button
     Friend WithEvents cmb_fabrica As System.Windows.Forms.ComboBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents btn_modificar As System.Windows.Forms.Button
+    Friend WithEvents chk_fabrica As System.Windows.Forms.CheckBox
 End Class
