@@ -272,7 +272,6 @@ Public Class FormCompras
         SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos WHERE id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
     End Sub
 
-<<<<<<< HEAD
     Private Sub dgv_compras_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_compras.CellContentClick
 
         Me.cmb_producto.SelectedValue = Me.dgv_compras.CurrentRow.Cells("col_id_producto").Value
@@ -357,9 +356,6 @@ Public Class FormCompras
         If Convert.ToDouble(Me.txt_monto.Text) = 0 Then
             Me.btn_guardar.Enabled = False
         End If
-=======
-    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
->>>>>>> 6532b98f064415f8a121edc9f1c7ddc914415c9b
-
     End Sub
+
 End Class

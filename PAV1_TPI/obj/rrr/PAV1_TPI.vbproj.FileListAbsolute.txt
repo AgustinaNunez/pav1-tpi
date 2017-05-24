@@ -16,3 +16,4 @@ C:\Users\Luciana\Desktop\PAV 1\TPI\pav1-tpi\PAV1_TPI\obj\rrr\PAV1_TPI.vbproj.Gen
 C:\Users\Luciana\Desktop\PAV 1\TPI\pav1-tpi\PAV1_TPI\obj\rrr\PAV1_TPI.exe
 C:\Users\Luciana\Desktop\PAV 1\TPI\pav1-tpi\PAV1_TPI\obj\rrr\PAV1_TPI.xml
 C:\Users\Luciana\Desktop\PAV 1\TPI\pav1-tpi\PAV1_TPI\obj\rrr\PAV1_TPI.pdb
+C:\Users\Luciana\Desktop\PAV 1\TPI\pav1-tpi\PAV1_TPI\obj\rrr\PAV1_TPI.FormParaBuscarCupones.resources

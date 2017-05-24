@@ -87,7 +87,7 @@
         Dim sql As String = "SELECT p.id_cupon, p.numero_lote, r.nombre AS n_rubro, f.nombre AS n_fabrica FROM productos p"
         sql &= " JOIN rubros r ON p.id_rubro = r.id_rubro"
         sql &= " JOIN fabricas f ON p.id_fabrica = f.id_fabrica"
-        sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
+        'sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
         Me.buscar(sql)
     End Sub
 End Class

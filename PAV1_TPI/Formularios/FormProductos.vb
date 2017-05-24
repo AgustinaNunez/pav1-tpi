@@ -326,13 +326,7 @@ Public Class FormProductos
         Dim RG As New OleDbCommand
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
-
-<<<<<<< HEAD
         conexion.ConnectionString = SoporteBD.cadena_conexion_juan
-=======
-        conexion.ConnectionString = SoporteBD.cadena_conexion_georgi
->>>>>>> 6532b98f064415f8a121edc9f1c7ddc914415c9b
-
         conexion.Open()
         cmd.Connection = conexion
         RG = New OleDbCommand("AUTOGENERARCODIGO_productos", conexion)
