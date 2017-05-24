@@ -29,6 +29,10 @@ Partial Class FormUsuarios
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormUsuarios))
         Me.grilla_usuarios = New System.Windows.Forms.DataGridView()
+        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fecha_alta = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txt_fecha_alta = New System.Windows.Forms.MaskedTextBox()
@@ -59,10 +63,6 @@ Partial Class FormUsuarios
         Me.lbl_msj = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.gb_carga = New System.Windows.Forms.GroupBox()
-        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fecha_alta = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.grilla_usuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.groupBox.SuspendLayout()
         Me.gb_carga.SuspendLayout()
@@ -76,7 +76,7 @@ Partial Class FormUsuarios
         Me.grilla_usuarios.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -86,7 +86,7 @@ Partial Class FormUsuarios
         Me.grilla_usuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_usuario, Me.apellido, Me.nombre, Me.fecha_alta})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -98,7 +98,7 @@ Partial Class FormUsuarios
         Me.grilla_usuarios.ReadOnly = True
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -108,6 +108,33 @@ Partial Class FormUsuarios
         Me.grilla_usuarios.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.grilla_usuarios.Size = New System.Drawing.Size(545, 368)
         Me.grilla_usuarios.TabIndex = 27
+        '
+        'id_usuario
+        '
+        Me.id_usuario.HeaderText = "User Name"
+        Me.id_usuario.Name = "id_usuario"
+        Me.id_usuario.ReadOnly = True
+        '
+        'apellido
+        '
+        Me.apellido.HeaderText = "Apellido"
+        Me.apellido.Name = "apellido"
+        Me.apellido.ReadOnly = True
+        Me.apellido.Width = 120
+        '
+        'nombre
+        '
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
+        Me.nombre.Width = 120
+        '
+        'fecha_alta
+        '
+        Me.fecha_alta.HeaderText = "Fecha Alta"
+        Me.fecha_alta.Name = "fecha_alta"
+        Me.fecha_alta.ReadOnly = True
+        Me.fecha_alta.Width = 150
         '
         'Label9
         '
@@ -326,6 +353,7 @@ Partial Class FormUsuarios
         Me.cmd_eliminar.Text = "Eliminar"
         Me.cmd_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_eliminar.UseVisualStyleBackColor = False
+        Me.cmd_eliminar.Visible = False
         '
         'cmd_grabar
         '
@@ -488,33 +516,6 @@ Partial Class FormUsuarios
         Me.gb_carga.TabIndex = 0
         Me.gb_carga.TabStop = False
         Me.gb_carga.Text = "Carga de Usuarios"
-        '
-        'id_usuario
-        '
-        Me.id_usuario.HeaderText = "User Name"
-        Me.id_usuario.Name = "id_usuario"
-        Me.id_usuario.ReadOnly = True
-        '
-        'apellido
-        '
-        Me.apellido.HeaderText = "Apellido"
-        Me.apellido.Name = "apellido"
-        Me.apellido.ReadOnly = True
-        Me.apellido.Width = 120
-        '
-        'nombre
-        '
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        Me.nombre.Width = 120
-        '
-        'fecha_alta
-        '
-        Me.fecha_alta.HeaderText = "Fecha Alta"
-        Me.fecha_alta.Name = "fecha_alta"
-        Me.fecha_alta.ReadOnly = True
-        Me.fecha_alta.Width = 150
         '
         'FormUsuarios
         '

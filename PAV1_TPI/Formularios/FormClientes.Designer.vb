@@ -101,6 +101,7 @@ Partial Class FormClientes
         Me.btn_eliminar_cliente_carga.Text = "Eliminar"
         Me.btn_eliminar_cliente_carga.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_eliminar_cliente_carga.UseVisualStyleBackColor = False
+        Me.btn_eliminar_cliente_carga.Visible = False
         '
         'btn_guardar_cliente_carga
         '

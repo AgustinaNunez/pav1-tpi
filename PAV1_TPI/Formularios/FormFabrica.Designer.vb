@@ -266,6 +266,7 @@ Partial Class FormFabrica
         Me.btn_eliminar_fabrica.Text = "Eliminar Fábrica"
         Me.btn_eliminar_fabrica.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_eliminar_fabrica.UseVisualStyleBackColor = False
+        Me.btn_eliminar_fabrica.Visible = False
         '
         'btn_nueva_fabrica
         '

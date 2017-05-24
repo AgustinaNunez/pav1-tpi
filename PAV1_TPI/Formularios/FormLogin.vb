@@ -18,33 +18,89 @@ Public Class FormLogin
 
     End Sub
 
+    'Private Sub btn_iniciarSesion_Click(sender As Object, e As EventArgs) Handles btn_iniciarSesion.Click
+    '    Dim sql As String = ""
+    '    Dim tabla As New DataTable
+    '    sql &= "SELECT * FROM usuarios "
+    '    sql &= " WHERE id_usuario = '" & Me.txt_nombre.Text & "'"
+    '    sql &= " AND contraseña = '" & Me.txt_clave.Text & "'"
+
+    '    If txt_nombre.Text = "" And txt_clave.Text = "" Then
+    '        'MessageBox.Show("Los campos usuario y contraseña no pueden estar vacíos.", "Inicio Sesión", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    '        Me.mostrar_mensaje(" Los campos usuario y contraseña no pueden estar vacíos.")
+    '        Me.txt_nombre.Focus()
+    '    Else
+    '        tabla = SoporteBD.leerBD_simple(sql)
+
+    '        If tabla.Rows.Count <= 0 Then
+    '            'MessageBox.Show("Usuario o contraseña incorrectos")
+    '            Me.mostrar_mensaje(" Los datos ingresados son incorrectos o no existe el usuario ingresado.")
+    '            Me.limpiar_campos()
+    '            Me.txt_nombre.Focus()
+    '        Else
+    '            'MessageBox.Show("Bienvenida " & tabla.Rows(0)("nombre") & " " & tabla.Rows(0)("apellido"), "Principal", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    '            Usuario.login(tabla)
+    '            Me.limpiar_campos()
+    '            Me.txt_nombre.Focus()
+    '            'Me.Hide()
+    '            Usuario.form.ShowDialog()
+    '        End If
+    '    End If
+    'End Sub
+
     Private Sub btn_iniciarSesion_Click(sender As Object, e As EventArgs) Handles btn_iniciarSesion.Click
-        Dim sql As String = ""
-        Dim tabla As New DataTable
-        sql &= "SELECT * FROM usuarios "
-        sql &= " WHERE id_usuario = '" & Me.txt_nombre.Text & "'"
-        sql &= " AND contraseña = '" & Me.txt_clave.Text & "'"
-
-        If txt_nombre.Text = "" And txt_clave.Text = "" Then
-            'MessageBox.Show("Los campos usuario y contraseña no pueden estar vacíos.", "Inicio Sesión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.mostrar_mensaje(" Los campos usuario y contraseña no pueden estar vacíos.")
-            Me.txt_nombre.Focus()
-        Else
+        'VERIFICAR EXISTENCIA DEL USUARIO
+        If Me.validar_campos() Then
+            Dim sql As String = "SELECT * FROM usuarios WHERE id_usuario = " & Me.txt_nombre.Text
+            Dim tabla As New DataTable
             tabla = SoporteBD.leerBD_simple(sql)
-
-            If tabla.Rows.Count <= 0 Then
-                'MessageBox.Show("Usuario o contraseña incorrectos")
-                Me.mostrar_mensaje(" Los datos ingresados son incorrectos o no existe el usuario ingresado.")
-                Me.txt_nombre.Text = ""
-                Me.txt_clave.Text = ""
-                Me.txt_nombre.Focus()
+            'SI NO EXISTE EL USUARIO...
+            If tabla.Rows.Count = 0 Then
+                Me.mostrar_mensaje("El usuario ingresado no existe.")
             Else
-                'MessageBox.Show("Bienvenida " & tabla.Rows(0)("nombre") & " " & tabla.Rows(0)("apellido"), "Principal", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Usuario.login(tabla)
-                Me.Hide()
-                Frm_Principal.Show()
+                'SI EXISTE EL USUARIO...
+                Dim sql2 As String = "SELECT * FROM usuarios WHERE id_usuario = " & Me.txt_nombre.Text & " AND contraseña = " & Me.txt_clave.Text & ""
+                Dim tabla2 As New DataTable
+                tabla2 = SoporteBD.leerBD_simple(sql2)
+                'SI LA CLAVE ESTA MAL
+                If tabla2.Rows.Count = 0 Then
+                    Me.mostrar_mensaje("La clave ingresada es incorrecta.")
+                Else
+                    'SI LA CLAVE ESTA BIEN
+                    Usuario.login(tabla2)
+                    Me.limpiar_campos()
+                    Me.txt_nombre.Focus()
+                    Usuario.form.ShowDialog()
+                End If
             End If
         End If
+    End Sub
+
+    Private Function validar_campos() As Boolean
+        Dim mensaje As String = " No se ingresó"
+        Dim flag As Boolean = True
+        If Me.txt_nombre.Text = "" And Me.txt_clave.Text = "" Then
+            mensaje &= " el nombre de usuario ni la clave."
+            flag = False
+        Else
+            If Me.txt_nombre.Text = "" Then
+                mensaje &= " el nombre de usuario."
+                flag = False
+            End If
+            If Me.txt_clave.Text = "" Then
+                mensaje &= " la clave de usuario."
+                flag = False
+            End If
+        End If
+        If flag = False Then
+            Me.mostrar_mensaje(mensaje)
+        End If
+        Return flag
+    End Function
+
+    Private Sub limpiar_campos()
+        Me.txt_nombre.Text = ""
+        Me.txt_clave.Text = ""
     End Sub
 
     Private Sub mostrar_mensaje(ByVal mensaje As String)
