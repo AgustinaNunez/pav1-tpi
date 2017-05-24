@@ -6,7 +6,6 @@ Public Class FormFabrica
     Dim seleccion As String
     Dim MA As New SoporteBD
 
-
     Enum tipo_grabacion
         insertar
         modificar
@@ -17,27 +16,19 @@ Public Class FormFabrica
         _error
     End Enum
 
-
     Private Sub FormFabrica_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla_fabrica()
-        txt_codigo_fabrica.Text = Format(GENERARCODIGO, "000")
+        txt_codigo_fabrica.Text = Format(SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO"), "000")
     End Sub
 
     Private Sub cargar_grilla_fabrica()
         Dim tabla As New DataTable
-        Dim sql_cargar_grilla As String = ""
-
-        sql_cargar_grilla &= " SELECT nombre"
-        sql_cargar_grilla &= ", telefono"
-        sql_cargar_grilla &= ", id_fabrica"
-        sql_cargar_grilla &= " FROM fabricas "
-
+        Dim sql_cargar_grilla As String = " SELECT nombre, telefono, id_fabrica FROM fabricas "
         tabla = SoporteBD.leerBD_simple(sql_cargar_grilla)
 
         Dim c As Integer
         Me.Grilla_Fabrica.Rows.Clear()
         For c = 0 To tabla.Rows.Count - 1
-
             Me.Grilla_Fabrica.Rows.Add()
             Me.Grilla_Fabrica.Rows(c).Cells(0).Value = tabla.Rows(c)("nombre")
             Me.Grilla_Fabrica.Rows(c).Cells(1).Value = tabla.Rows(c)("telefono")
@@ -53,14 +44,11 @@ Public Class FormFabrica
 
     Private Sub borrar_datos()
         For Each obj As Windows.Forms.Control In Me.Controls
-
             If obj.GetType().Name = "TextBox" Then
                 obj.Text = ""
             End If
-
             If obj.GetType().Name = "MaskedTextBox" Then
                 obj.Text = ""
-
             End If
             Me.ocultar_lblERROR()
         Next
@@ -68,13 +56,35 @@ Public Class FormFabrica
 
     Private Sub btn_nueva_fabrica_Click(sender As Object, e As EventArgs) Handles btn_nueva_fabrica.Click
         Me.borrar_datos()
-        Me.txt_codigo_fabrica.Text = Me.GENERARCODIGO()
+        Me.txt_codigo_fabrica.Text = SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO")
         Me.accion = tipo_grabacion.insertar
         Me.btn_guardar_fabrica.Enabled = True
         Me.txt_nombre_fabrica.Enabled = True
         Me.txt_telefono_fabrica.Enabled = True
-
     End Sub
+
+    'Private Function GENERARCODIGO() As Integer
+
+    '    Dim RG As New OleDbCommand
+    '    Dim conexion As New Data.OleDb.OleDbConnection
+    '    Dim cmd As New Data.OleDb.OleDbCommand
+
+    '    conexion.ConnectionString = SoporteBD.cadena_conexion_agus
+
+    '    conexion.Open()
+    '    cmd.Connection = conexion
+    '    RG = New OleDbCommand("AUTOGENERARCODIGO", conexion)
+    '    Dim PARAM As New OleDbParameter("@CODIGO", SqlDbType.Int)
+    '    PARAM.Direction = ParameterDirection.Output
+    '    With RG
+    '        .CommandType = CommandType.StoredProcedure
+    '        .Parameters.Add(PARAM)
+    '        .ExecuteNonQuery()
+    '        conexion.Close()
+    '        Return .Parameters("@CODIGO").Value
+    '    End With
+
+    'End Function
 
     Private Sub ocultar_lblERROR()
         lbl_nombreERROR.Visible = False
@@ -148,7 +158,7 @@ Public Class FormFabrica
         sql &= "nombre,"
         sql &= "telefono)"
         sql &= " VALUES( "
-        sql &= Me.GENERARCODIGO()
+        sql &= SoporteBD.autogenerar_codigo("fabricas")
         sql &= ", '" & Me.txt_nombre_fabrica.Text & "'"
         sql &= ", " & Me.txt_telefono_fabrica.Text & ")"
 
@@ -230,29 +240,6 @@ Public Class FormFabrica
 
 
     End Sub
-
-    Private Function GENERARCODIGO() As Integer
-
-        Dim RG As New OleDbCommand
-        Dim conexion As New Data.OleDb.OleDbConnection
-        Dim cmd As New Data.OleDb.OleDbCommand
-
-        conexion.ConnectionString = SoporteBD.cadena_conexion_juan
-
-        conexion.Open()
-        cmd.Connection = conexion
-        RG = New OleDbCommand("AUTOGENERARCODIGO", conexion)
-        Dim PARAM As New OleDbParameter("@CODIGO", SqlDbType.Int)
-        PARAM.Direction = ParameterDirection.Output
-        With RG
-            .CommandType = CommandType.StoredProcedure
-            .Parameters.Add(PARAM)
-            .ExecuteNonQuery()
-            conexion.Close()
-            Return .Parameters("@CODIGO").Value
-        End With
-
-    End Function
 
     Private Sub btn_buscar_fabrica_Click(sender As Object, e As EventArgs) Handles btn_buscar_fabrica.Click
         Dim tabla As New DataTable

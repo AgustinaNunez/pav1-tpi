@@ -23,7 +23,7 @@ Public Class FormVentas
         Me.limpiar_camposCLIENTE()
         Me.limpiar_camposDETALLE()
         Me.limpiar_camposFORMAPAGO()
-        Me.txt_idVENTA.Text = Format(GENERARCODIGO, "000000")
+        Me.txt_idVENTA.Text = Format(SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_ventas"), "000000")
 
     End Sub
 
@@ -40,7 +40,7 @@ Public Class FormVentas
         Me.limpiar_camposDETALLE()
         Me.limpiar_camposFORMAPAGO()
         Me.txt_nroDocCLIENTE.Focus()
-        Me.txt_idVENTA.Text = Me.GENERARCODIGO()
+        Me.txt_idVENTA.Text = SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_ventas")
         Me.dgv_detalle.Rows.Clear()
         Me.dgv_formaPago.Rows.Clear()
         Me.deshabilitar_formapago()
@@ -232,28 +232,28 @@ Public Class FormVentas
     End Sub
 
     'GENERADOR DE CODIGOS AUTOMATICOS ASCENDENTES
-    Private Function GENERARCODIGO() As Integer
+    'Private Function GENERARCODIGO() As Integer
 
-        Dim RG As New OleDbCommand
-        Dim conexion As New Data.OleDb.OleDbConnection
-        Dim cmd As New Data.OleDb.OleDbCommand
+    '    Dim RG As New OleDbCommand
+    '    Dim conexion As New Data.OleDb.OleDbConnection
+    '    Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = SoporteBD.cadena_conexion_juan
+    '    conexion.ConnectionString = SoporteBD.cadena_conexion_agus
 
-        conexion.Open()
-        cmd.Connection = conexion
-        RG = New OleDbCommand("AUTOGENERARCODIGO_ventas", conexion)
-        Dim PARAM As New OleDbParameter("@CODIGO", SqlDbType.Int)
-        PARAM.Direction = ParameterDirection.Output
-        With RG
-            .CommandType = CommandType.StoredProcedure
-            .Parameters.Add(PARAM)
-            .ExecuteNonQuery()
-            conexion.Close()
-            Return .Parameters("@CODIGO").Value
-        End With
+    '    conexion.Open()
+    '    cmd.Connection = conexion
+    '    RG = New OleDbCommand("AUTOGENERARCODIGO_ventas", conexion)
+    '    Dim PARAM As New OleDbParameter("@CODIGO", SqlDbType.Int)
+    '    PARAM.Direction = ParameterDirection.Output
+    '    With RG
+    '        .CommandType = CommandType.StoredProcedure
+    '        .Parameters.Add(PARAM)
+    '        .ExecuteNonQuery()
+    '        conexion.Close()
+    '        Return .Parameters("@CODIGO").Value
+    '    End With
 
-    End Function
+    'End Function
 
     Private Sub btn_eliminarDETALLE_Click(sender As Object, e As EventArgs) Handles btn_eliminarDETALLE.Click
         If Me.dgv_detalle.Rows.Count > 0 Then
@@ -497,7 +497,6 @@ Public Class FormVentas
 
 
     Private Sub btn_guardarVENTA_Click(sender As Object, e As EventArgs) Handles btn_guardarVENTA.Click
-
         SoporteBD.iniciar_conexion_con_transaccion()
 
         'INSERTAR VENTA
@@ -523,8 +522,6 @@ Public Class FormVentas
 
         SoporteBD.escribirBD_transaccion(sql_insertar_venta)
 
-
-
         'INSERTAR DETALLE DE VENTA
         Dim tabla_detalle As New DataTable
         Dim sql_insertar_detalle As String = ""
@@ -536,7 +533,6 @@ Public Class FormVentas
             SoporteBD.escribirBD_transaccion(sql_insertar_detalle)
             sql_insertar_detalle = ""
         Next
-
 
         'INSERTAR FORMA DE PAGO
         Dim tabla_formapago As New DataTable
@@ -567,7 +563,7 @@ Public Class FormVentas
 
         Next
 
-        MessageBox.Show("Datos almacenados", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("Venta registrada.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information)
         SoporteBD.cerrar_conexion_con_transaccion()
         estado_actual_transaccion = estado_transaccion._sin_iniciar
         Me.deshabilitar_formapago()

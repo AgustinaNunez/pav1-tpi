@@ -107,59 +107,59 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormClientes.Designer.vb">
+    <Compile Include="Formularios\FormClientes.Designer.vb">
       <DependentUpon>FormClientes.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormClientes.vb">
+    <Compile Include="Formularios\FormClientes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCompras.Designer.vb">
+    <Compile Include="Formularios\FormCompras.Designer.vb">
       <DependentUpon>FormCompras.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormCompras.vb">
+    <Compile Include="Formularios\FormCompras.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormFabrica.Designer.vb">
+    <Compile Include="Formularios\FormFabrica.Designer.vb">
       <DependentUpon>FormFabrica.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormFabrica.vb">
+    <Compile Include="Formularios\FormFabrica.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.vb">
+    <Compile Include="Formularios\FormLogin.Designer.vb">
       <DependentUpon>FormLogin.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.vb">
+    <Compile Include="Formularios\FormLogin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrincipal.vb">
+    <Compile Include="Formularios\FormPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrincipal.Designer.vb">
+    <Compile Include="Formularios\FormPrincipal.Designer.vb">
       <DependentUpon>FormPrincipal.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormProductos.Designer.vb">
+    <Compile Include="Formularios\FormProductos.Designer.vb">
       <DependentUpon>FormProductos.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormProductos.vb">
+    <Compile Include="Formularios\FormProductos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCupones.Designer.vb">
+    <Compile Include="Formularios\FormCupones.Designer.vb">
       <DependentUpon>FormCupones.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormCupones.vb">
+    <Compile Include="Formularios\FormCupones.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUsuarios.Designer.vb">
+    <Compile Include="Formularios\FormUsuarios.Designer.vb">
       <DependentUpon>FormUsuarios.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormUsuarios.vb">
+    <Compile Include="Formularios\FormUsuarios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormVentas.Designer.vb">
+    <Compile Include="Formularios\FormVentas.Designer.vb">
       <DependentUpon>FormVentas.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormVentas.vb">
+    <Compile Include="Formularios\FormVentas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -177,40 +177,40 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Soporte\Cliente.vb" />
-    <Compile Include="Soporte\Compra.vb" />
-    <Compile Include="Soporte\Cupon.vb" />
+    <Compile Include="Dominio del problema\Cliente.vb" />
+    <Compile Include="Dominio del problema\Compra.vb" />
+    <Compile Include="Dominio del problema\Cupon.vb" />
     <Compile Include="Soporte\SoporteBD.vb" />
     <Compile Include="Soporte\SoporteGUI.vb" />
-    <Compile Include="Soporte\Usuario.vb" />
-    <Compile Include="Soporte\Articulo.vb" />
+    <Compile Include="Dominio del problema\Usuario.vb" />
+    <Compile Include="Dominio del problema\Articulo.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormClientes.resx">
+    <EmbeddedResource Include="Formularios\FormClientes.resx">
       <DependentUpon>FormClientes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCompras.resx">
+    <EmbeddedResource Include="Formularios\FormCompras.resx">
       <DependentUpon>FormCompras.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormFabrica.resx">
+    <EmbeddedResource Include="Formularios\FormFabrica.resx">
       <DependentUpon>FormFabrica.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
+    <EmbeddedResource Include="Formularios\FormLogin.resx">
       <DependentUpon>FormLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPrincipal.resx">
+    <EmbeddedResource Include="Formularios\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormProductos.resx">
+    <EmbeddedResource Include="Formularios\FormProductos.resx">
       <DependentUpon>FormProductos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCupones.resx">
+    <EmbeddedResource Include="Formularios\FormCupones.resx">
       <DependentUpon>FormCupones.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUsuarios.resx">
+    <EmbeddedResource Include="Formularios\FormUsuarios.resx">
       <DependentUpon>FormUsuarios.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormVentas.resx">
+    <EmbeddedResource Include="Formularios\FormVentas.resx">
       <DependentUpon>FormVentas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -316,5 +316,6 @@
   <ItemGroup>
     <None Include="Resources\user641.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

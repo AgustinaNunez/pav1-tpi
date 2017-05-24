@@ -22,6 +22,11 @@ Partial Class FormUsuarios
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormUsuarios))
         Me.grilla_usuarios = New System.Windows.Forms.DataGridView()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -67,13 +72,41 @@ Partial Class FormUsuarios
         '
         Me.grilla_usuarios.AllowUserToAddRows = False
         Me.grilla_usuarios.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grilla_usuarios.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grilla_usuarios.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grilla_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla_usuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_usuario, Me.apellido, Me.nombre, Me.fecha_alta})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grilla_usuarios.DefaultCellStyle = DataGridViewCellStyle3
         Me.grilla_usuarios.Location = New System.Drawing.Point(30, 69)
         Me.grilla_usuarios.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.grilla_usuarios.Name = "grilla_usuarios"
         Me.grilla_usuarios.ReadOnly = True
-        Me.grilla_usuarios.Size = New System.Drawing.Size(523, 368)
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grilla_usuarios.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grilla_usuarios.RowsDefaultCellStyle = DataGridViewCellStyle5
+        Me.grilla_usuarios.Size = New System.Drawing.Size(545, 368)
         Me.grilla_usuarios.TabIndex = 27
         '
         'Label9
@@ -256,7 +289,7 @@ Partial Class FormUsuarios
         Me.groupBox.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.groupBox.Name = "groupBox"
         Me.groupBox.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.groupBox.Size = New System.Drawing.Size(583, 462)
+        Me.groupBox.Size = New System.Drawing.Size(605, 462)
         Me.groupBox.TabIndex = 4
         Me.groupBox.TabStop = False
         Me.groupBox.Text = "Listado de Usuarios"
@@ -421,7 +454,7 @@ Partial Class FormUsuarios
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(994, 47)
+        Me.Label1.Size = New System.Drawing.Size(1016, 47)
         Me.Label1.TabIndex = 41
         Me.Label1.Text = "  Administración de Usuarios"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -467,12 +500,14 @@ Partial Class FormUsuarios
         Me.apellido.HeaderText = "Apellido"
         Me.apellido.Name = "apellido"
         Me.apellido.ReadOnly = True
+        Me.apellido.Width = 120
         '
         'nombre
         '
         Me.nombre.HeaderText = "Nombre"
         Me.nombre.Name = "nombre"
         Me.nombre.ReadOnly = True
+        Me.nombre.Width = 120
         '
         'fecha_alta
         '
@@ -486,7 +521,7 @@ Partial Class FormUsuarios
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(994, 524)
+        Me.ClientSize = New System.Drawing.Size(1016, 524)
         Me.Controls.Add(Me.gb_carga)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lbl_msj)

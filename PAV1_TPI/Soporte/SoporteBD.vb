@@ -1,7 +1,7 @@
 ﻿Imports System.Data.OleDb
 Public Class SoporteBD
-    'Public Shared cadena_conexion_agus As String = "Provider=SQLNCLI11;Data Source=AGUSTINA-PC;Integrated Security=SSPI;Initial Catalog=DB_CLOTTA"
-    Public Shared cadena_conexion_juan As String = "Provider=SQLNCLI11;Data Source=(localdb)\Servidor;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
+    Public Shared cadena_conexion_agus As String = "Provider=SQLNCLI11;Data Source=AGUSTINA-PC;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
+    'Public Shared cadena_conexion_juan As String = "Provider=SQLNCLI11;Data Source=(localdb)\Servidor;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
     'Public Shared cadena_conexion_georgi As String = "Provider=SQLNCLI10;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
     'Public Shared cadena_conexion_brian As String = "Provider=SQLNCLI11;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
 
@@ -31,7 +31,7 @@ Public Class SoporteBD
         Dim cmd As New Data.OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_juan
+        conexion.ConnectionString = cadena_conexion_agus
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -45,7 +45,7 @@ Public Class SoporteBD
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = cadena_conexion_juan
+        conexion.ConnectionString = cadena_conexion_agus
 
         conexion.Open()
         cmd.Connection = conexion
@@ -55,10 +55,31 @@ Public Class SoporteBD
         conexion.Close()
     End Sub
 
+    Public Shared Function autogenerar_codigo(ByVal origen As String) As Integer
+        Dim RG As New OleDbCommand
+        Dim conexion As New Data.OleDb.OleDbConnection
+        Dim cmd As New Data.OleDb.OleDbCommand
+
+        conexion.ConnectionString = SoporteBD.cadena_conexion_agus
+
+        conexion.Open()
+        cmd.Connection = conexion
+        RG = New OleDbCommand(origen, conexion)
+        Dim PARAM As New OleDbParameter("@CODIGO", SqlDbType.Int)
+        PARAM.Direction = ParameterDirection.Output
+        With RG
+            .CommandType = CommandType.StoredProcedure
+            .Parameters.Add(PARAM)
+            .ExecuteNonQuery()
+            conexion.Close()
+            Return .Parameters("@CODIGO").Value
+        End With
+    End Function
+
     'SUBRUTINA PARA CONECTAR MEDIANTE UNA TRANSACCION A LA BD
     Public Shared Sub conectar()
         If conexion.State.ToString <> "Open" Then
-            conexion.ConnectionString = SoporteBD.cadena_conexion_juan
+            conexion.ConnectionString = SoporteBD.cadena_conexion_agus
             conexion.Open()
             cmd.Connection = conexion
             cmd.CommandType = CommandType.Text

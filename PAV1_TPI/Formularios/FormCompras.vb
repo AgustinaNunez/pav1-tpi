@@ -18,7 +18,7 @@ Public Class FormCompras
     Private Sub form_compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SoporteGUI.cargar_combo(cmb_fabrica, SoporteBD.leerBD_simple("SELECT * FROM fabricas"), "id_fabrica", "nombre")
         Me.limpiar_campos_detalle()
-        txt_id_compra.Text = Format(GENERARCODIGO, "000")
+        txt_id_compra.Text = Format(SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_compras"), "000")
         'txt_fecha.Text = Date.Today
         'txt_hora.Text = TimeOfDay
     End Sub
@@ -34,7 +34,7 @@ Public Class FormCompras
         Me.limpiar_campos_compra()
         Me.habilitar_campos()
 
-        Me.txt_id_compra.Text = Me.GENERARCODIGO()
+        Me.txt_id_compra.Text = SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_compras")
 
         Me.btn_guardar.Enabled = True
         Me.btn_agregar.Enabled = True
@@ -219,28 +219,28 @@ Public Class FormCompras
 
 
     'GENERADOR DE CODIGOS AUTOMATICOS ASCENDENTES
-    Private Function GENERARCODIGO() As Integer
+    'Private Function GENERARCODIGO() As Integer
 
-        Dim RG As New OleDbCommand
-        Dim conexion As New Data.OleDb.OleDbConnection
-        Dim cmd As New Data.OleDb.OleDbCommand
+    '    Dim RG As New OleDbCommand
+    '    Dim conexion As New Data.OleDb.OleDbConnection
+    '    Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = SoporteBD.cadena_conexion_juan
+    '    conexion.ConnectionString = SoporteBD.cadena_conexion_agus
 
-        conexion.Open()
-        cmd.Connection = conexion
-        RG = New OleDbCommand("AUTOGENERARCODIGO_compras", conexion)
-        Dim PARAM As New OleDbParameter("@CODIGO", SqlDbType.Int)
-        PARAM.Direction = ParameterDirection.Output
-        With RG
-            .CommandType = CommandType.StoredProcedure
-            .Parameters.Add(PARAM)
-            .ExecuteNonQuery()
-            conexion.Close()
-            Return .Parameters("@CODIGO").Value
-        End With
+    '    conexion.Open()
+    '    cmd.Connection = conexion
+    '    RG = New OleDbCommand("AUTOGENERARCODIGO_compras", conexion)
+    '    Dim PARAM As New OleDbParameter("@CODIGO", SqlDbType.Int)
+    '    PARAM.Direction = ParameterDirection.Output
+    '    With RG
+    '        .CommandType = CommandType.StoredProcedure
+    '        .Parameters.Add(PARAM)
+    '        .ExecuteNonQuery()
+    '        conexion.Close()
+    '        Return .Parameters("@CODIGO").Value
+    '    End With
 
-    End Function
+    'End Function
 
 
     'ABRIR PRODUCTOS Y ACTUALIZAR EL COMBO DE PRODUCTOS CUANDO SE GUARDA
@@ -258,8 +258,5 @@ Public Class FormCompras
     Private Sub cmb_fabrica_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_fabrica.SelectionChangeCommitted
         SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos WHERE id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
     End Sub
-
-
-
 
 End Class

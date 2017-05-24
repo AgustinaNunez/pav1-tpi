@@ -327,7 +327,7 @@ Public Class FormProductos
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = SoporteBD.cadena_conexion_juan
+        conexion.ConnectionString = SoporteBD.cadena_conexion_agus
 
         conexion.Open()
         cmd.Connection = conexion
