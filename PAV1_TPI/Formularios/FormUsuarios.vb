@@ -274,7 +274,7 @@
         Me.accion = tipo_grabacion.modificar
         Me.txt_contraseña2.Text = Me.txt_contraseña1.Text
         Me.cmd_eliminar.Enabled = True
-        Me.txt_id_usuario.Enabled = True
+        Me.txt_id_usuario.Enabled = False
         Me.txt_apellido.Enabled = True
         Me.txt_nombre.Enabled = True
         Me.txt_fecha_alta.Enabled = False
@@ -308,4 +308,7 @@
         Return respuesta_validacion._ok
     End Function
 
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
 End Class

@@ -1,8 +1,8 @@
 ﻿Imports System.Data.OleDb
 Public Class SoporteBD
-    Public Shared cadena_conexion_agus As String = "Provider=SQLNCLI11;Data Source=AGUSTINA-PC;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
+    'Public Shared cadena_conexion_agus As String = "Provider=SQLNCLI11;Data Source=AGUSTINA-PC;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
     'Public Shared cadena_conexion_juan As String = "Provider=SQLNCLI11;Data Source=(localdb)\Servidor;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
-    'Public Shared cadena_conexion_georgi As String = "Provider=SQLNCLI10;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
+    Public Shared cadena_conexion_georgi As String = "Provider=SQLNCLI10;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
     'Public Shared cadena_conexion_brian As String = "Provider=SQLNCLI11;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
 
     'VARIABLES QUE YA CONOCEMOS
@@ -31,7 +31,7 @@ Public Class SoporteBD
         Dim cmd As New Data.OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_agus
+        conexion.ConnectionString = cadena_conexion_georgi
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -45,7 +45,7 @@ Public Class SoporteBD
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = cadena_conexion_agus
+        conexion.ConnectionString = cadena_conexion_georgi
 
         conexion.Open()
         cmd.Connection = conexion
@@ -60,7 +60,7 @@ Public Class SoporteBD
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
 
-        conexion.ConnectionString = SoporteBD.cadena_conexion_agus
+        conexion.ConnectionString = SoporteBD.cadena_conexion_georgi
 
         conexion.Open()
         cmd.Connection = conexion
@@ -79,7 +79,7 @@ Public Class SoporteBD
     'SUBRUTINA PARA CONECTAR MEDIANTE UNA TRANSACCION A LA BD
     Public Shared Sub conectar()
         If conexion.State.ToString <> "Open" Then
-            conexion.ConnectionString = SoporteBD.cadena_conexion_agus
+            conexion.ConnectionString = SoporteBD.cadena_conexion_georgi
             conexion.Open()
             cmd.Connection = conexion
             cmd.CommandType = CommandType.Text

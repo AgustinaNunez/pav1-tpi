@@ -477,6 +477,7 @@ Partial Class FormProductos
         Me.btn_eliminar.Text = "Eliminar"
         Me.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_eliminar.UseVisualStyleBackColor = True
+        Me.btn_eliminar.Visible = False
         '
         'btn_nuevo
         '
