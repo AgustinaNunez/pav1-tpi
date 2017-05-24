@@ -17,11 +17,13 @@
         sql &= "INSERT INTO cupon( "
         sql &= "id_cupon, "
         sql &= "numero_lote,"
-        sql &= "numero_autorizacion_online)"
+        sql &= "numero_autorizacion_online,"
+        sql &= "precio)"
         sql &= "VALUES("
         sql &= txt_numero_cupon.Text
         sql &= ", " & txt_numero_lote.Text
         sql &= ", " & txt_numero_autorizacion.Text
+        sql &= ", " & txt_precio.Text
         sql &= ") "
 
         SoporteBD.escribirBD_simple(sql)
@@ -29,26 +31,39 @@
 
     'FUNCION QUE VALIDA LOS CAMPOS X
     Private Function validar_campos() As respuesta_validacion
+        Dim mensaje As String = "Hay campos por completar: "
         Me.ocultar_lblERROR()
         Dim rdo = respuesta_validacion._ok
         If txt_numero_cupon.Text = "" Then
             lbl_cuponERROR.Visible = True
             txt_numero_cupon.Focus()
             rdo = respuesta_validacion._error
-            MsgBox("El número del cupón no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+            mensaje &= vbCrLf & "- número de cupón"
         End If
         If txt_numero_lote.Text = "" Then
             lbl_loteERROR.Visible = True
             txt_numero_lote.Focus()
             rdo = respuesta_validacion._error
-            MsgBox("El número de lote no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+            mensaje &= vbCrLf & "- número de lote"
         End If
         If txt_numero_autorizacion.Text = "" Then
             lbl_autorizacionERROR.Visible = True
             txt_numero_autorizacion.Focus()
             rdo = respuesta_validacion._error
-            MsgBox("El número de autorización no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+            mensaje &= vbCrLf & "- número de autorización"
         End If
+
+        If txt_precio.Text = "" Then
+            lbl_precioERROR.Visible = True
+            txt_precio.Focus()
+            rdo = respuesta_validacion._error
+            mensaje &= vbCrLf & "- producto"
+        End If
+
+        If rdo = respuesta_validacion._error Then
+            MsgBox(mensaje, MsgBoxStyle.OkOnly, "Error")
+        End If
+
 
         Return rdo
     End Function
@@ -92,8 +107,11 @@
                     Cupon.id_cupon = Me.txt_numero_cupon.Text
                     Cupon.id_entidad_crediticia = Me.cmb_entidad.SelectedValue
 
-                    Me.Close()
+                    SoporteGUI.respuesta_ventana = Windows.Forms.DialogResult.OK
 
+                    Me.Close()
+                Else
+                    SoporteGUI.respuesta_ventana = Windows.Forms.DialogResult.Cancel
                 End If
 
             End If

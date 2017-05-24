@@ -258,12 +258,16 @@ Public Class FormCompras
 
     'ABRIR PRODUCTOS Y ACTUALIZAR EL COMBO DE PRODUCTOS CUANDO SE GUARDA
     Private Sub btn_nuevo_producto_Click(sender As Object, e As EventArgs) Handles btn_nuevo_producto.Click
-        'Dim frmProductos = New FormProductos
-        'frmProductos.Visible = True
         Using form As New FormProductos
-            If form.ShowDialog() = DialogResult.OK Then
-                SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
+            form.ShowDialog()
+            If SoporteGUI.respuesta_ventana = Windows.Forms.DialogResult.OK Then
+                SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos WHERE id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
             End If
+
+            'If form.ShowDialog() = DialogResult.OK Then
+            '    SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
+            'End If
+
         End Using
 
     End Sub

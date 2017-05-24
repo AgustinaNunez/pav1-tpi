@@ -4,7 +4,7 @@
         transaccion
     End Enum
     Public Shared tipo_form_ACTUAL As tipo_form = tipo_form.abm
-
+    Public Shared respuesta_ventana As DialogResult = DialogResult.OK
     'SUBRUTINA QUE CARGA UN COMBO
     Public Shared Sub cargar_combo(ByRef combo As ComboBox, tabla As DataTable,
                                    ByVal pk As String, ByVal descriptor As String)

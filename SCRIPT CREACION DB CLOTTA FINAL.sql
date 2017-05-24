@@ -128,6 +128,7 @@ create table cupon(
 id_cupon integer,
 numero_lote integer,
 numero_autorizacion_online integer,
+precio double,
 CONSTRAINT pk_cupon PRIMARY KEY (id_cupon)
 )
 

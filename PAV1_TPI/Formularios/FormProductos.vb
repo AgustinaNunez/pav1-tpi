@@ -210,6 +210,7 @@ Public Class FormProductos
             If accion = tipo_grabacion.insertar Then
                 If validar_producto() = respuesta_validacion._ok Then
                     insertar()
+                    SoporteGUI.respuesta_ventana = Windows.Forms.DialogResult.OK
                     Dim id_prod As String = txt_id.Text
                     Me.limpiar_campos()
                     lbl_msj.Text = " El producto " & id_prod & " se cargó correctamente."
