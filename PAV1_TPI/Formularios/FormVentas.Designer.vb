@@ -436,6 +436,7 @@ Partial Class FormVentas
         Me.btn_eliminarFORMAPAGO.Text = "Eliminar"
         Me.btn_eliminarFORMAPAGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_eliminarFORMAPAGO.UseVisualStyleBackColor = True
+        Me.btn_eliminarFORMAPAGO.Visible = False
         '
         'btn_agregarFORMAPAGO
         '
@@ -573,6 +574,7 @@ Partial Class FormVentas
         Me.btn_modificarARTICULO.Text = "Modificar"
         Me.btn_modificarARTICULO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_modificarARTICULO.UseVisualStyleBackColor = True
+        Me.btn_modificarARTICULO.Visible = False
         '
         'btn_eliminarDETALLE
         '
@@ -590,6 +592,7 @@ Partial Class FormVentas
         Me.btn_eliminarDETALLE.Text = "Eliminar"
         Me.btn_eliminarDETALLE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_eliminarDETALLE.UseVisualStyleBackColor = True
+        Me.btn_eliminarDETALLE.Visible = False
         '
         'btn_agregarDETALLE
         '

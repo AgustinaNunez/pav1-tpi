@@ -128,7 +128,7 @@ create table cupon(
 id_cupon integer,
 numero_lote integer,
 numero_autorizacion_online integer,
-precio double,
+precio float,
 CONSTRAINT pk_cupon PRIMARY KEY (id_cupon)
 )
 
@@ -171,9 +171,9 @@ INSERT INTO bancos(id_banco, nombre, telefono) VALUES (14,'City Bank', 3284)
 
 INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (1,'VISA',32480)
 INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (2,'Master Card',32483)
-INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (3,'American Express',32040)
+INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (3,'Naranja',32040)
 INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (4,'Maestro',2384028)
-INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (5,'Cabal',42397)
+INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (5,'Nativa',42397)
 
 INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (1,'EFECTIVO',0.25)
 INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (2,'DÉBITO',0.15)

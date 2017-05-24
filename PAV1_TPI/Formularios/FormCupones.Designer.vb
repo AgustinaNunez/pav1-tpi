@@ -117,7 +117,7 @@ Partial Class FormCupones
         Me.btn_aceptar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_aceptar.Name = "btn_aceptar"
         Me.btn_aceptar.Size = New System.Drawing.Size(100, 41)
-        Me.btn_aceptar.TabIndex = 3
+        Me.btn_aceptar.TabIndex = 6
         Me.btn_aceptar.Text = "Aceptar"
         Me.btn_aceptar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_aceptar.UseVisualStyleBackColor = False
@@ -184,7 +184,7 @@ Partial Class FormCupones
         Me.cmb_banco.Location = New System.Drawing.Point(143, 185)
         Me.cmb_banco.Name = "cmb_banco"
         Me.cmb_banco.Size = New System.Drawing.Size(216, 25)
-        Me.cmb_banco.TabIndex = 29
+        Me.cmb_banco.TabIndex = 4
         '
         'cmb_entidad
         '
@@ -193,7 +193,7 @@ Partial Class FormCupones
         Me.cmb_entidad.Location = New System.Drawing.Point(143, 216)
         Me.cmb_entidad.Name = "cmb_entidad"
         Me.cmb_entidad.Size = New System.Drawing.Size(216, 25)
-        Me.cmb_entidad.TabIndex = 29
+        Me.cmb_entidad.TabIndex = 5
         '
         'Label9
         '
@@ -228,7 +228,7 @@ Partial Class FormCupones
         Me.txt_precio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_precio.Name = "txt_precio"
         Me.txt_precio.Size = New System.Drawing.Size(216, 25)
-        Me.txt_precio.TabIndex = 2
+        Me.txt_precio.TabIndex = 3
         '
         'lbl_precioERROR
         '
