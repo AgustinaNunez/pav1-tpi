@@ -40,6 +40,3 @@ delete from ventas where id_venta in (0,1,2,3)
 
 -Despues de nuevo, aceptar y eliminar no tienen que ser visibles
 
-*COMPRAS
--Agregar boton modificar en detalle de compras
--Inhabilitar por default y habilitarlo cuando sea nuevo / deshabilitar cuando se guarde
