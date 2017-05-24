@@ -25,7 +25,6 @@ Public Class Frm_Principal
         frmUsuarios.Visible = True
     End Sub
 
-
     Private Sub btn_compras_Click(sender As Object, e As EventArgs) Handles btn_compras.Click
         SoporteGUI.tipo_form_ACTUAL = SoporteGUI.tipo_form.transaccion
         Dim frmCompras = New FormCompras
@@ -52,8 +51,8 @@ Public Class Frm_Principal
         If MessageBox.Show("¿Desea cerrar la sesión antes de salir?", "CLOTTA _ Principal", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = DialogResult.OK Then
             e.Cancel = False
             Usuario.logout()
-            Dim frmlogin As New FormLogin
-            frmlogin.Show()
+            'Dim frmlogin As New FormLogin
+            'frmlogin.Show()
         Else
             e.Cancel = True
         End If
