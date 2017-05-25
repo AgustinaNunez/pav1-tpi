@@ -18,26 +18,10 @@ Public Class FormCompras
     'LOADER DE COMPRAS
     Private Sub form_compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SoporteGUI.cargar_combo(cmb_fabrica, SoporteBD.leerBD_simple("SELECT * FROM fabricas"), "id_fabrica", "nombre")
+        Me.cmb_fabrica.SelectedIndex = -1
         Me.limpiar_campos_detalle()
         Me.deshabilitar_campos()
         txt_id_compra.Text = Format(SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_compras"), "000")
-    End Sub
-
-    'BOTON NUEVO
-    Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
-        If estado_actual_transaccion = estado_transaccion._iniciada Then
-            If MessageBox.Show("¿Está seguro que desea cancelar la transacción actual?", "Gestión de Compras", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = DialogResult.Cancel Then
-                Return
-            End If
-        End If
-        estado_actual_transaccion = estado_transaccion._iniciada
-        Me.limpiar_campos_compra()
-        Me.deshabilitar_detalle()
-        Me.cmb_fabrica.Enabled = True
-        Me.chk_fabrica.Enabled = True
-        Me.chk_fabrica.Checked = False
-        Me.txt_id_compra.Text = SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_compras")
-        Me.txt_precio.Focus()
     End Sub
 
     Private Sub calcular_total()
@@ -140,42 +124,6 @@ Public Class FormCompras
         Return valor
     End Function
 
-    'BOTON GRABAR
-    Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
-        If dgv_compras.Rows.Count > 0 Then
-            SoporteBD.iniciar_conexion_con_transaccion()
-
-            Dim sql_insertar_compra As String = ""
-            sql_insertar_compra &= "INSERT INTO compras(id_compra,fecha_compra,hora_compra,monto) VALUES(" & txt_id_compra.Text
-            sql_insertar_compra &= ", '" & txt_fecha.Text & "'"
-            sql_insertar_compra &= ", '" & txt_hora.Text & "'"
-            sql_insertar_compra &= "," & txt_monto.Text & ")"
-            SoporteBD.escribirBD_transaccion(sql_insertar_compra)
-
-            Dim sql_insertar_detalle As String = ""
-            Dim tabla As New DataTable
-            Dim sql As String = ""
-
-            For c = 0 To Me.dgv_compras.Rows.Count - 1
-                sql_insertar_detalle &= " INSERT INTO detalles_compras(id_compra,id_producto,cantidad,precio_unitario) VALUES (" & txt_id_compra.Text
-                sql_insertar_detalle &= "," & Me.dgv_compras.Rows(c).Cells("col_id_producto").Value
-                sql_insertar_detalle &= "," & Me.dgv_compras.Rows(c).Cells("col_cantidad").Value
-                sql_insertar_detalle &= "," & Me.dgv_compras.Rows(c).Cells("col_precio").Value & ")"
-                SoporteBD.escribirBD_transaccion(sql_insertar_detalle)
-                sql_insertar_detalle = ""
-            Next
-
-            MessageBox.Show("Compra registrada.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            SoporteBD.cerrar_conexion_con_transaccion()
-            estado_actual_transaccion = estado_transaccion._sin_iniciar
-            Me.deshabilitar_campos()
-        End If
-
-        If dgv_compras.Rows.Count = 0 Then
-            MessageBox.Show("No hay datos para guardar.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
-    End Sub
-
     'DESHABILITAR CAMPOS
     Private Sub deshabilitar_campos()
         Me.txt_cantidad.Enabled = False
@@ -191,7 +139,6 @@ Public Class FormCompras
         Me.btn_eliminar.Enabled = False
         Me.btn_nuevo_producto.Enabled = False
         Me.cmb_fabrica.Enabled = False
-        Me.chk_fabrica.Enabled = False
     End Sub
 
     'LIMPIAR EL CONTENIDO DE LOS CAMPOS DE LA COMPRA
@@ -259,7 +206,6 @@ Public Class FormCompras
     Private Sub cmb_fabrica_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_fabrica.SelectionChangeCommitted
         If MessageBox.Show("¿La fábrica seleccionada es correcta?", "Compras", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
             Me.habilitar_detalle()
-            Me.chk_fabrica.Enabled = False
             Me.cmb_fabrica.Enabled = False
             Me.btn_nuevo_producto.Enabled = True
             SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos WHERE id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
@@ -332,4 +278,56 @@ Public Class FormCompras
         End If
     End Sub
 
+    Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
+        If estado_actual_transaccion = estado_transaccion._iniciada Then
+            If MessageBox.Show("¿Está seguro que desea cancelar la transacción actual?", "Gestión de Compras", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = DialogResult.Cancel Then
+                Return
+            End If
+        End If
+        estado_actual_transaccion = estado_transaccion._iniciada
+        Me.limpiar_campos_compra()
+        Me.deshabilitar_detalle()
+        Me.cmb_fabrica.Enabled = True
+        Me.txt_id_compra.Text = SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_compras")
+        Me.txt_precio.Focus()
+    End Sub
+
+    Private Sub btn_guardar_Click_1(sender As Object, e As EventArgs) Handles btn_guardar.Click
+        If dgv_compras.Rows.Count > 0 Then
+            SoporteBD.iniciar_conexion_con_transaccion()
+
+            Dim sql_insertar_compra As String = ""
+            sql_insertar_compra &= "INSERT INTO compras(id_compra,fecha_compra,hora_compra,monto) VALUES(" & txt_id_compra.Text
+            sql_insertar_compra &= ", '" & txt_fecha.Text & "'"
+            sql_insertar_compra &= ", '" & txt_hora.Text & "'"
+            sql_insertar_compra &= "," & txt_monto.Text & ")"
+            SoporteBD.escribirBD_transaccion(sql_insertar_compra)
+
+            Dim sql_insertar_detalle As String = ""
+            Dim tabla As New DataTable
+            Dim sql As String = ""
+
+            For c = 0 To Me.dgv_compras.Rows.Count - 1
+                sql_insertar_detalle &= " INSERT INTO detalles_compras(id_compra,id_producto,cantidad,precio_unitario) VALUES (" & txt_id_compra.Text
+                sql_insertar_detalle &= "," & Me.dgv_compras.Rows(c).Cells("col_id_producto").Value
+                sql_insertar_detalle &= "," & Me.dgv_compras.Rows(c).Cells("col_cantidad").Value
+                sql_insertar_detalle &= "," & Me.dgv_compras.Rows(c).Cells("col_precio").Value & ")"
+                SoporteBD.escribirBD_transaccion(sql_insertar_detalle)
+                sql_insertar_detalle = ""
+            Next
+
+            MessageBox.Show("Compra registrada.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            SoporteBD.cerrar_conexion_con_transaccion()
+            estado_actual_transaccion = estado_transaccion._sin_iniciar
+            Me.deshabilitar_campos()
+        End If
+
+        If dgv_compras.Rows.Count = 0 Then
+            MessageBox.Show("No hay datos para guardar.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
+
+    End Sub
 End Class

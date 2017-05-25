@@ -48,7 +48,6 @@ Partial Class FormCompras
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btn_cancelar = New System.Windows.Forms.Button()
-        Me.chk_fabrica = New System.Windows.Forms.CheckBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cmb_fabrica = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -57,9 +56,9 @@ Partial Class FormCompras
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_modificar = New System.Windows.Forms.Button()
         Me.btn_agregar = New System.Windows.Forms.Button()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
         CType(Me.dgv_compras, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -70,7 +69,7 @@ Partial Class FormCompras
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(28, 38)
+        Me.Label1.Location = New System.Drawing.Point(17, 37)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(85, 17)
         Me.Label1.TabIndex = 4
@@ -81,7 +80,7 @@ Partial Class FormCompras
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(223, 38)
+        Me.Label2.Location = New System.Drawing.Point(212, 37)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(41, 17)
         Me.Label2.TabIndex = 6
@@ -92,7 +91,7 @@ Partial Class FormCompras
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(374, 37)
+        Me.Label3.Location = New System.Drawing.Point(363, 36)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(37, 17)
         Me.Label3.TabIndex = 8
@@ -103,7 +102,7 @@ Partial Class FormCompras
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Black
-        Me.Label4.Location = New System.Drawing.Point(20, 431)
+        Me.Label4.Location = New System.Drawing.Point(16, 427)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(86, 17)
         Me.Label4.TabIndex = 1
@@ -114,7 +113,7 @@ Partial Class FormCompras
         Me.txt_id_compra.Enabled = False
         Me.txt_id_compra.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_id_compra.ForeColor = System.Drawing.Color.Black
-        Me.txt_id_compra.Location = New System.Drawing.Point(119, 34)
+        Me.txt_id_compra.Location = New System.Drawing.Point(108, 34)
         Me.txt_id_compra.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_id_compra.Name = "txt_id_compra"
         Me.txt_id_compra.Size = New System.Drawing.Size(98, 25)
@@ -125,7 +124,7 @@ Partial Class FormCompras
         Me.txt_fecha.Enabled = False
         Me.txt_fecha.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_fecha.ForeColor = System.Drawing.Color.Black
-        Me.txt_fecha.Location = New System.Drawing.Point(270, 35)
+        Me.txt_fecha.Location = New System.Drawing.Point(259, 34)
         Me.txt_fecha.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_fecha.Name = "txt_fecha"
         Me.txt_fecha.Size = New System.Drawing.Size(98, 25)
@@ -136,7 +135,7 @@ Partial Class FormCompras
         Me.txt_hora.Enabled = False
         Me.txt_hora.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_hora.ForeColor = System.Drawing.Color.Black
-        Me.txt_hora.Location = New System.Drawing.Point(416, 33)
+        Me.txt_hora.Location = New System.Drawing.Point(405, 32)
         Me.txt_hora.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_hora.Name = "txt_hora"
         Me.txt_hora.Size = New System.Drawing.Size(98, 25)
@@ -147,7 +146,7 @@ Partial Class FormCompras
         Me.txt_monto.Enabled = False
         Me.txt_monto.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_monto.ForeColor = System.Drawing.Color.Black
-        Me.txt_monto.Location = New System.Drawing.Point(112, 428)
+        Me.txt_monto.Location = New System.Drawing.Point(108, 424)
         Me.txt_monto.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_monto.Name = "txt_monto"
         Me.txt_monto.Size = New System.Drawing.Size(98, 25)
@@ -290,8 +289,6 @@ Partial Class FormCompras
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.btn_cancelar)
-        Me.GroupBox1.Controls.Add(Me.chk_fabrica)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.cmb_fabrica)
@@ -299,18 +296,16 @@ Partial Class FormCompras
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.txt_id_compra)
-        Me.GroupBox1.Controls.Add(Me.btn_nuevo)
         Me.GroupBox1.Controls.Add(Me.txt_hora)
-        Me.GroupBox1.Controls.Add(Me.btn_guardar)
         Me.GroupBox1.Controls.Add(Me.txt_fecha)
         Me.GroupBox1.Controls.Add(Me.txt_monto)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 50)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 52)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(729, 532)
+        Me.GroupBox1.Size = New System.Drawing.Size(729, 463)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de la Compra"
@@ -321,37 +316,22 @@ Partial Class FormCompras
         Me.btn_cancelar.Enabled = False
         Me.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_cancelar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_cancelar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_cancelar.ForeColor = System.Drawing.Color.White
         Me.btn_cancelar.Image = Global.PAV1_TPI.My.Resources.Resources.cancel_button32
-        Me.btn_cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_cancelar.Location = New System.Drawing.Point(242, 468)
+        Me.btn_cancelar.Location = New System.Drawing.Point(701, 7)
         Me.btn_cancelar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_cancelar.Name = "btn_cancelar"
-        Me.btn_cancelar.Size = New System.Drawing.Size(105, 45)
+        Me.btn_cancelar.Size = New System.Drawing.Size(40, 40)
         Me.btn_cancelar.TabIndex = 13
-        Me.btn_cancelar.Text = "Cancelar"
         Me.btn_cancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_cancelar.UseVisualStyleBackColor = True
-        '
-        'chk_fabrica
-        '
-        Me.chk_fabrica.AutoSize = True
-        Me.chk_fabrica.Enabled = False
-        Me.chk_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.chk_fabrica.ForeColor = System.Drawing.Color.Black
-        Me.chk_fabrica.Location = New System.Drawing.Point(576, 65)
-        Me.chk_fabrica.Name = "chk_fabrica"
-        Me.chk_fabrica.Size = New System.Drawing.Size(132, 21)
-        Me.chk_fabrica.TabIndex = 12
-        Me.chk_fabrica.Text = "Guardar selección"
-        Me.chk_fabrica.UseVisualStyleBackColor = True
         '
         'Label9
         '
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Black
         Me.Label9.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
-        Me.Label9.Location = New System.Drawing.Point(596, 480)
+        Me.Label9.Location = New System.Drawing.Point(596, 416)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(109, 33)
         Me.Label9.TabIndex = 0
@@ -363,10 +343,10 @@ Partial Class FormCompras
         Me.cmb_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_fabrica.ForeColor = System.Drawing.Color.Black
         Me.cmb_fabrica.FormattingEnabled = True
-        Me.cmb_fabrica.Location = New System.Drawing.Point(576, 33)
+        Me.cmb_fabrica.Location = New System.Drawing.Point(565, 33)
         Me.cmb_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cmb_fabrica.Name = "cmb_fabrica"
-        Me.cmb_fabrica.Size = New System.Drawing.Size(129, 25)
+        Me.cmb_fabrica.Size = New System.Drawing.Size(140, 25)
         Me.cmb_fabrica.TabIndex = 2
         '
         'Label10
@@ -374,7 +354,7 @@ Partial Class FormCompras
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Black
-        Me.Label10.Location = New System.Drawing.Point(520, 36)
+        Me.Label10.Location = New System.Drawing.Point(509, 36)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(50, 17)
         Me.Label10.TabIndex = 8
@@ -395,7 +375,7 @@ Partial Class FormCompras
         Me.GroupBox2.Controls.Add(Me.btn_agregar)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.GroupBox2.Location = New System.Drawing.Point(20, 81)
+        Me.GroupBox2.Location = New System.Drawing.Point(20, 72)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(685, 336)
         Me.GroupBox2.TabIndex = 10
@@ -470,41 +450,6 @@ Partial Class FormCompras
         Me.btn_agregar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_agregar.UseVisualStyleBackColor = True
         '
-        'btn_nuevo
-        '
-        Me.btn_nuevo.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_nuevo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_nuevo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_nuevo.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
-        Me.btn_nuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_nuevo.Location = New System.Drawing.Point(20, 468)
-        Me.btn_nuevo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_nuevo.Name = "btn_nuevo"
-        Me.btn_nuevo.Size = New System.Drawing.Size(105, 45)
-        Me.btn_nuevo.TabIndex = 3
-        Me.btn_nuevo.Text = "Nueva"
-        Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_nuevo.UseVisualStyleBackColor = True
-        '
-        'btn_guardar
-        '
-        Me.btn_guardar.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_guardar.Enabled = False
-        Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_guardar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_guardar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_guardar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
-        Me.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_guardar.Location = New System.Drawing.Point(131, 468)
-        Me.btn_guardar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_guardar.Name = "btn_guardar"
-        Me.btn_guardar.Size = New System.Drawing.Size(105, 45)
-        Me.btn_guardar.TabIndex = 11
-        Me.btn_guardar.Text = "Guardar"
-        Me.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_guardar.UseVisualStyleBackColor = True
-        '
         'Label8
         '
         Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
@@ -517,12 +462,46 @@ Partial Class FormCompras
         Me.Label8.Text = "  Registro de Compra"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'btn_nuevo
+        '
+        Me.btn_nuevo.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_nuevo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_nuevo.ForeColor = System.Drawing.Color.White
+        Me.btn_nuevo.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
+        Me.btn_nuevo.Location = New System.Drawing.Point(622, 7)
+        Me.btn_nuevo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_nuevo.Name = "btn_nuevo"
+        Me.btn_nuevo.Size = New System.Drawing.Size(40, 40)
+        Me.btn_nuevo.TabIndex = 14
+        Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_nuevo.UseVisualStyleBackColor = True
+        '
+        'btn_guardar
+        '
+        Me.btn_guardar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_guardar.Enabled = False
+        Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_guardar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_guardar.ForeColor = System.Drawing.Color.White
+        Me.btn_guardar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
+        Me.btn_guardar.Location = New System.Drawing.Point(661, 7)
+        Me.btn_guardar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_guardar.Name = "btn_guardar"
+        Me.btn_guardar.Size = New System.Drawing.Size(40, 40)
+        Me.btn_guardar.TabIndex = 14
+        Me.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_guardar.UseVisualStyleBackColor = True
+        '
         'FormCompras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(755, 595)
+        Me.ClientSize = New System.Drawing.Size(755, 530)
+        Me.Controls.Add(Me.btn_cancelar)
+        Me.Controls.Add(Me.btn_guardar)
+        Me.Controls.Add(Me.btn_nuevo)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -556,8 +535,6 @@ Partial Class FormCompras
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents txt_precio As System.Windows.Forms.TextBox
     Friend WithEvents btn_agregar As System.Windows.Forms.Button
-    Friend WithEvents btn_guardar As System.Windows.Forms.Button
-    Friend WithEvents btn_nuevo As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label8 As Label
@@ -571,6 +548,7 @@ Partial Class FormCompras
     Friend WithEvents cmb_fabrica As System.Windows.Forms.ComboBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents btn_modificar As System.Windows.Forms.Button
-    Friend WithEvents chk_fabrica As System.Windows.Forms.CheckBox
     Friend WithEvents btn_cancelar As Button
+    Friend WithEvents btn_nuevo As Button
+    Friend WithEvents btn_guardar As Button
 End Class
