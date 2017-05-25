@@ -179,7 +179,7 @@ Public Class FormProductos
 
         SoporteBD.escribirBD_simple(sql)
         cargar_productos()
-        MessageBox.Show("El producto fue modificado exitosamente.", "Productos")
+        MessageBox.Show("El producto fue modificado exitosamente.", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Me.btn_guardar.Enabled = False
         Me.btn_eliminar.Enabled = False
         Me.deshabilitar_campos()
@@ -221,7 +221,7 @@ Public Class FormProductos
         Dim sql As String = ""
         sql &= "UPDATE productos SET dado_de_baja = 1 WHERE id_producto = " & Me.dgv_productos.CurrentRow.Cells(0).Value
 
-        If MessageBox.Show("¿Está seguro que quiere eliminar el producto " & Me.dgv_productos.CurrentRow.Cells(0).Value & "?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+        If MessageBox.Show("¿Está seguro que quiere eliminar el producto " & Me.dgv_productos.CurrentRow.Cells(0).Value & "?", "Productos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
             SoporteBD.escribirBD_simple(sql)
             'MsgBox("Se eliminó el producto.", MessageBoxButtons.OK, "Eliminación de Producto")
             Dim id_prod As String = txt_id.Text

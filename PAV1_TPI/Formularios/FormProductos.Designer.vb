@@ -639,7 +639,7 @@ Partial Class FormProductos
         Me.MaximizeBox = False
         Me.Name = "FormProductos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "CLOTTA Productos"
+        Me.Text = "Productos"
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gb_listado.ResumeLayout(False)
         Me.gb_datos.ResumeLayout(False)
