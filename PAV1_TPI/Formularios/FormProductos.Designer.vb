@@ -43,8 +43,6 @@ Partial Class FormProductos
         Me.lbl_rubro = New System.Windows.Forms.Label()
         Me.txt_precio = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_precio = New System.Windows.Forms.Label()
-        Me.txt_stock = New System.Windows.Forms.MaskedTextBox()
-        Me.lbl_stock = New System.Windows.Forms.Label()
         Me.txt_descrip = New System.Windows.Forms.TextBox()
         Me.lbl_descripcion = New System.Windows.Forms.Label()
         Me.lbl_id = New System.Windows.Forms.Label()
@@ -70,6 +68,8 @@ Partial Class FormProductos
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
+        Me.txt_stock = New System.Windows.Forms.MaskedTextBox()
+        Me.lbl_stock = New System.Windows.Forms.Label()
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_listado.SuspendLayout()
         Me.gb_datos.SuspendLayout()
@@ -198,7 +198,6 @@ Partial Class FormProductos
         Me.cbo_fabrica.Name = "cbo_fabrica"
         Me.cbo_fabrica.Size = New System.Drawing.Size(207, 25)
         Me.cbo_fabrica.TabIndex = 11
-        Me.cbo_fabrica.Text = "(Seleccione fábrica)"
         '
         'cbo_rubro
         '
@@ -211,7 +210,6 @@ Partial Class FormProductos
         Me.cbo_rubro.Name = "cbo_rubro"
         Me.cbo_rubro.Size = New System.Drawing.Size(207, 25)
         Me.cbo_rubro.TabIndex = 9
-        Me.cbo_rubro.Text = "(Seleccione rubro)"
         '
         'lbl_fabrica
         '
@@ -261,31 +259,6 @@ Partial Class FormProductos
         Me.lbl_precio.Size = New System.Drawing.Size(107, 17)
         Me.lbl_precio.TabIndex = 6
         Me.lbl_precio.Text = "Precio de lista (*)"
-        '
-        'txt_stock
-        '
-        Me.txt_stock.BackColor = System.Drawing.Color.White
-        Me.txt_stock.Enabled = False
-        Me.txt_stock.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_stock.ForeColor = System.Drawing.Color.Black
-        Me.txt_stock.Location = New System.Drawing.Point(132, 93)
-        Me.txt_stock.Mask = "99999"
-        Me.txt_stock.Name = "txt_stock"
-        Me.txt_stock.Size = New System.Drawing.Size(124, 25)
-        Me.txt_stock.TabIndex = 5
-        Me.txt_stock.ValidatingType = GetType(Integer)
-        '
-        'lbl_stock
-        '
-        Me.lbl_stock.AutoSize = True
-        Me.lbl_stock.Enabled = False
-        Me.lbl_stock.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_stock.ForeColor = System.Drawing.Color.Black
-        Me.lbl_stock.Location = New System.Drawing.Point(87, 96)
-        Me.lbl_stock.Name = "lbl_stock"
-        Me.lbl_stock.Size = New System.Drawing.Size(39, 17)
-        Me.lbl_stock.TabIndex = 4
-        Me.lbl_stock.Text = "Stock"
         '
         'txt_descrip
         '
@@ -620,6 +593,31 @@ Partial Class FormProductos
         Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_nuevo.UseVisualStyleBackColor = True
         '
+        'txt_stock
+        '
+        Me.txt_stock.BackColor = System.Drawing.Color.White
+        Me.txt_stock.Enabled = False
+        Me.txt_stock.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_stock.ForeColor = System.Drawing.Color.Black
+        Me.txt_stock.Location = New System.Drawing.Point(132, 93)
+        Me.txt_stock.Mask = "99999"
+        Me.txt_stock.Name = "txt_stock"
+        Me.txt_stock.Size = New System.Drawing.Size(124, 25)
+        Me.txt_stock.TabIndex = 5
+        Me.txt_stock.ValidatingType = GetType(Integer)
+        '
+        'lbl_stock
+        '
+        Me.lbl_stock.AutoSize = True
+        Me.lbl_stock.Enabled = False
+        Me.lbl_stock.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_stock.ForeColor = System.Drawing.Color.Black
+        Me.lbl_stock.Location = New System.Drawing.Point(87, 96)
+        Me.lbl_stock.Name = "lbl_stock"
+        Me.lbl_stock.Size = New System.Drawing.Size(39, 17)
+        Me.lbl_stock.TabIndex = 4
+        Me.lbl_stock.Text = "Stock"
+        '
         'FormProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -661,8 +659,6 @@ Partial Class FormProductos
     Friend WithEvents lbl_rubro As Label
     Friend WithEvents txt_precio As MaskedTextBox
     Friend WithEvents lbl_precio As Label
-    Friend WithEvents txt_stock As MaskedTextBox
-    Friend WithEvents lbl_stock As Label
     Friend WithEvents txt_descrip As TextBox
     Friend WithEvents lbl_descripcion As Label
     Friend WithEvents lbl_id As Label
@@ -695,4 +691,6 @@ Partial Class FormProductos
     Friend WithEvents id_rubro As DataGridViewTextBoxColumn
     Friend WithEvents id_fabrica As DataGridViewTextBoxColumn
     Friend WithEvents dado_de_baja As DataGridViewTextBoxColumn
+    Friend WithEvents lbl_stock As Label
+    Friend WithEvents txt_stock As MaskedTextBox
 End Class

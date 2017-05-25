@@ -21,10 +21,18 @@ Public Class FormProductos
     Private Sub FormProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.cargar_productos()
         SoporteGUI.cargar_combo(cbo_rubro, SoporteBD.leerBD_simple("SELECT * FROM rubros ORDER BY nombre"), "id_rubro", "nombre")
-        SoporteGUI.cargar_combo(cbo_rubroBUSCAR, SoporteBD.leerBD_simple("SELECT * FROM rubros ORDER BY nombre"), "id_rubro", "nombre")
         SoporteGUI.cargar_combo(cbo_fabrica, SoporteBD.leerBD_simple("SELECT * FROM fabricas ORDER BY nombre"), "id_fabrica", "nombre")
+        SoporteGUI.cargar_combo(cbo_rubroBUSCAR, SoporteBD.leerBD_simple("SELECT * FROM rubros ORDER BY nombre"), "id_rubro", "nombre")
         SoporteGUI.cargar_combo(cbo_fabricaBUSCAR, SoporteBD.leerBD_simple("SELECT * FROM fabricas ORDER BY nombre"), "id_fabrica", "nombre")
         Me.limpiar_campos()
+
+        If SoporteGUI.tipo_form_ACTUAL = SoporteGUI.tipo_form.abm Then
+            Me.btn_nuevo.Enabled = False
+        Else
+            SoporteGUI.cargar_combo(cbo_fabrica, SoporteBD.leerBD_simple("SELECT * FROM fabricas WHERE id_fabrica = " & Fabrica.id & " ORDER BY nombre"), "id_fabrica", "nombre")
+            cbo_fabrica.SelectedValue = Fabrica.id
+            Me.cbo_fabrica.Text = Fabrica.nombre
+        End If
         'Me.txt_id.Text = Format(GENERARCODIGO, "000")
     End Sub
 
@@ -33,10 +41,10 @@ Public Class FormProductos
         txt_descrip.Text = ""
         txt_precio.Text = ""
         txt_stock.Text = ""
-        cbo_fabrica.Text = "(Seleccione fábrica)"
-        cbo_rubro.Text = "(Seleccione rubro)"
-        cbo_fabricaBUSCAR.Text = "(Seleccione fábrica)"
-        cbo_rubroBUSCAR.Text = "(Seleccione rubro)"
+        cbo_fabrica.SelectedIndex = -1
+        cbo_rubro.SelectedIndex = -1
+        cbo_fabricaBUSCAR.SelectedIndex = -1
+        cbo_rubroBUSCAR.SelectedIndex = -1
         lbl_msj.Text = ""
         Me.ocultar_lblERROR()
         lbl_msj.Visible = False
@@ -46,29 +54,25 @@ Public Class FormProductos
         lbl_msj.Visible = False
         Me.ocultar_lblERROR()
         Dim rdo = respuesta_validacion._ok
-        If cbo_fabrica.Text = "(Seleccione fábrica)" Then
+        If cbo_fabrica.SelectedIndex = -1 Then
             lbl_fabricaERROR.Visible = True
             cbo_fabrica.Focus()
             rdo = respuesta_validacion._error
-            'MsgBox("La fabrica no fue ingresada", MsgBoxStyle.OkOnly, "Error")
         End If
-        If cbo_rubro.Text = "(Seleccione rubro)" Then
+        If cbo_rubro.SelectedIndex = -1 Then
             lbl_rubroERROR.Visible = True
             cbo_rubro.Focus()
             rdo = respuesta_validacion._error
-            'MsgBox("El rubro no fue ingresado", MsgBoxStyle.OkOnly, "Error")
         End If
         If txt_precio.Text = "" Then
             lbl_precioERROR.Visible = True
             txt_precio.Focus()
             rdo = respuesta_validacion._error
-            'MsgBox("El precio no fue ingresado", MsgBoxStyle.OkOnly, "Error")
         End If
         If txt_descrip.Text = "" Then
             lbl_descripcionERROR.Visible = True
             txt_id.Focus()
             rdo = respuesta_validacion._error
-            'MsgBox("El id no fue ingresado", MsgBoxStyle.OkOnly, "Error")
         End If
         Return rdo
     End Function
@@ -172,6 +176,11 @@ Public Class FormProductos
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
         Me.limpiar_campos()
         Me.habilitar_campos()
+        Me.cbo_fabrica.SelectedValue = Fabrica.id
+        Me.lbl_fabrica.Enabled = False
+        Me.cbo_fabrica.Enabled = False
+        Me.lbl_stock.Enabled = True
+        Me.txt_stock.Enabled = True
         Me.accion = tipo_grabacion.insertar
 
         Me.txt_id.Text = SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_productos")
@@ -183,16 +192,13 @@ Public Class FormProductos
     End Sub
 
     Private Sub habilitar_campos()
-        'Me.txt_id.Enabled = True
         Me.txt_descrip.Enabled = True
-        Me.txt_stock.Enabled = True
         Me.txt_precio.Enabled = True
         Me.cbo_rubro.Enabled = True
         Me.cbo_fabrica.Enabled = True
 
         Me.lbl_id.Enabled = True
         Me.lbl_descripcion.Enabled = True
-        Me.lbl_stock.Enabled = True
         Me.lbl_precio.Enabled = True
         Me.lbl_stock.Enabled = True
         Me.lbl_rubro.Enabled = True
@@ -310,7 +316,7 @@ Public Class FormProductos
     End Sub
 
     Private Sub btn_buscarRUBRO_Click(sender As Object, e As EventArgs) Handles btn_buscarRUBRO.Click
-        If cbo_rubroBUSCAR.Text = "(Seleccione rubro)" Then
+        If cbo_rubroBUSCAR.SelectedIndex = -1 Then
             Me.cargar_productos()
             MessageBox.Show("No existe valor de búsqueda.", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return
@@ -324,7 +330,7 @@ Public Class FormProductos
     End Sub
 
     Private Sub btn_buscarFABRICA_Click(sender As Object, e As EventArgs) Handles btn_buscarFABRICA.Click
-        If cbo_fabricaBUSCAR.Text = "(Seleccione fábrica)" Then
+        If cbo_fabricaBUSCAR.SelectedIndex = -1 Then
             Me.cargar_productos()
             MessageBox.Show("No existe valor de búsqueda.", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return

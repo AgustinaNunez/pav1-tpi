@@ -204,10 +204,12 @@ Public Class FormCompras
     End Sub
 
     Private Sub cmb_fabrica_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_fabrica.SelectionChangeCommitted
-        If MessageBox.Show("¿La fábrica seleccionada es correcta?", "Compras", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+        If MessageBox.Show("¿La fábrica seleccionada es " & Me.cmb_fabrica.Text & "?", "Gestión de Compras", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
             Me.habilitar_detalle()
             Me.cmb_fabrica.Enabled = False
             Me.btn_nuevo_producto.Enabled = True
+            Fabrica.id = Me.cmb_fabrica.SelectedValue
+            Fabrica.nombre = Me.cmb_fabrica.Text
             SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos WHERE id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
         End If
     End Sub
