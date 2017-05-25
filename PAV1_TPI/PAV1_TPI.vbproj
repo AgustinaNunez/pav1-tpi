@@ -353,5 +353,20 @@
   <ItemGroup>
     <None Include="Resources\cancel-button32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-circular-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-mark1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel-button321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash-bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel-button.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

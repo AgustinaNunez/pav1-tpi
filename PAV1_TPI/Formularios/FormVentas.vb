@@ -209,6 +209,10 @@ Public Class FormVentas
             End If
             Return
         End If
+        If Me.cmb_tipoDocCLIENTE.SelectedIndex = -1 Then
+            MessageBox.Show("Falta ingresar el tipo documento.", "Gestión de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
+        End If
 
         Dim sql As String = ""
         sql &= "SELECT * FROM clientes c JOIN tipo_documento td ON c.tipo_documento = td.id_tipo_documento "
@@ -218,10 +222,11 @@ Public Class FormVentas
         tabla = SoporteBD.leerBD_simple(sql)
 
         If tabla.Rows.Count = 0 Then
-            MessageBox.Show("No se encontró el cliente con " & Me.cmb_tipoDocCLIENTE.SelectedText & Me.txt_nroDocCLIENTE.Text & ".", "Gestión de Ventas",
+            MessageBox.Show("No se encontró el cliente con " & Me.cmb_tipoDocCLIENTE.Text & " " & Me.txt_nroDocCLIENTE.Text & ".", "Gestión de Ventas",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Me.txt_nroDocCLIENTE.Text = ""
             Me.txt_nroDocCLIENTE.Focus()
+            Me.limpiar_camposCLIENTE()
             Return
         End If
 
@@ -653,7 +658,7 @@ Public Class FormVentas
             Dim sql_actualizar_productos As String = ""
             For c = 0 To Me.dgv_detalle.Rows.Count - 1
                 sql_actualizar_productos &= "UPDATE productos SET stock = " & Me.dgv_detalle.Rows(c).Cells(5).Value
-                sql_actualizar_productos &= " WHERE id_producto = " & Me.dgv_detalle.Rows(c).Cells(4).Value
+                sql_actualizar_productos &= " WHERE id_producto = " & Me.dgv_detalle.Rows(c).Cells(0).Value
                 SoporteBD.escribirBD_transaccion(sql_actualizar_productos)
                 sql_actualizar_productos = ""
             Next
@@ -763,6 +768,13 @@ Public Class FormVentas
     Private Sub txt_nombreCLIENTE_TextChanged(sender As Object, e As EventArgs) Handles txt_nombreCLIENTE.TextChanged
         If Me.txt_nombreCLIENTE.Text <> "" Then
             Me.btn_cancelarVENTA.Enabled = True
+            Me.btn_borrarCLIENTE.Enabled = True
+        Else
+            Me.btn_borrarCLIENTE.Enabled = False
         End If
+    End Sub
+
+    Private Sub btn_borrarCLIENTE_Click(sender As Object, e As EventArgs) Handles btn_borrarCLIENTE.Click
+        Me.limpiar_camposCLIENTE()
     End Sub
 End Class

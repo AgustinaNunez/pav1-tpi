@@ -47,7 +47,6 @@ Partial Class FormCompras
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.btn_cancelar = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cmb_fabrica = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -56,6 +55,7 @@ Partial Class FormCompras
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_modificar = New System.Windows.Forms.Button()
         Me.btn_agregar = New System.Windows.Forms.Button()
+        Me.btn_cancelar = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
@@ -310,22 +310,6 @@ Partial Class FormCompras
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de la Compra"
         '
-        'btn_cancelar
-        '
-        Me.btn_cancelar.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_cancelar.Enabled = False
-        Me.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_cancelar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_cancelar.ForeColor = System.Drawing.Color.White
-        Me.btn_cancelar.Image = Global.PAV1_TPI.My.Resources.Resources.cancel_button32
-        Me.btn_cancelar.Location = New System.Drawing.Point(701, 7)
-        Me.btn_cancelar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_cancelar.Name = "btn_cancelar"
-        Me.btn_cancelar.Size = New System.Drawing.Size(40, 40)
-        Me.btn_cancelar.TabIndex = 13
-        Me.btn_cancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_cancelar.UseVisualStyleBackColor = True
-        '
         'Label9
         '
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -450,6 +434,22 @@ Partial Class FormCompras
         Me.btn_agregar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_agregar.UseVisualStyleBackColor = True
         '
+        'btn_cancelar
+        '
+        Me.btn_cancelar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_cancelar.Enabled = False
+        Me.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_cancelar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_cancelar.ForeColor = System.Drawing.Color.White
+        Me.btn_cancelar.Image = Global.PAV1_TPI.My.Resources.Resources.cancel_button321
+        Me.btn_cancelar.Location = New System.Drawing.Point(701, 7)
+        Me.btn_cancelar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_cancelar.Name = "btn_cancelar"
+        Me.btn_cancelar.Size = New System.Drawing.Size(40, 40)
+        Me.btn_cancelar.TabIndex = 13
+        Me.btn_cancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_cancelar.UseVisualStyleBackColor = True
+        '
         'Label8
         '
         Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
@@ -468,7 +468,7 @@ Partial Class FormCompras
         Me.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_nuevo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_nuevo.ForeColor = System.Drawing.Color.White
-        Me.btn_nuevo.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
+        Me.btn_nuevo.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button
         Me.btn_nuevo.Location = New System.Drawing.Point(622, 7)
         Me.btn_nuevo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_nuevo.Name = "btn_nuevo"
@@ -484,7 +484,7 @@ Partial Class FormCompras
         Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_guardar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_guardar.ForeColor = System.Drawing.Color.White
-        Me.btn_guardar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
+        Me.btn_guardar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark1
         Me.btn_guardar.Location = New System.Drawing.Point(661, 7)
         Me.btn_guardar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_guardar.Name = "btn_guardar"
