@@ -47,6 +47,7 @@ Partial Class FormCompras
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btn_cancelar = New System.Windows.Forms.Button()
         Me.chk_fabrica = New System.Windows.Forms.CheckBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cmb_fabrica = New System.Windows.Forms.ComboBox()
@@ -289,6 +290,7 @@ Partial Class FormCompras
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btn_cancelar)
         Me.GroupBox1.Controls.Add(Me.chk_fabrica)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -308,18 +310,38 @@ Partial Class FormCompras
         Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 50)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(729, 544)
+        Me.GroupBox1.Size = New System.Drawing.Size(729, 532)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de la Compra"
+        '
+        'btn_cancelar
+        '
+        Me.btn_cancelar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_cancelar.Enabled = False
+        Me.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_cancelar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_cancelar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_cancelar.Image = Global.PAV1_TPI.My.Resources.Resources.cancel_button32
+        Me.btn_cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_cancelar.Location = New System.Drawing.Point(242, 468)
+        Me.btn_cancelar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_cancelar.Name = "btn_cancelar"
+        Me.btn_cancelar.Size = New System.Drawing.Size(105, 45)
+        Me.btn_cancelar.TabIndex = 13
+        Me.btn_cancelar.Text = "Cancelar"
+        Me.btn_cancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_cancelar.UseVisualStyleBackColor = True
         '
         'chk_fabrica
         '
         Me.chk_fabrica.AutoSize = True
         Me.chk_fabrica.Enabled = False
+        Me.chk_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.chk_fabrica.ForeColor = System.Drawing.Color.Black
         Me.chk_fabrica.Location = New System.Drawing.Point(576, 65)
         Me.chk_fabrica.Name = "chk_fabrica"
-        Me.chk_fabrica.Size = New System.Drawing.Size(136, 21)
+        Me.chk_fabrica.Size = New System.Drawing.Size(132, 21)
         Me.chk_fabrica.TabIndex = 12
         Me.chk_fabrica.Text = "Guardar selección"
         Me.chk_fabrica.UseVisualStyleBackColor = True
@@ -500,7 +522,7 @@ Partial Class FormCompras
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(755, 614)
+        Me.ClientSize = New System.Drawing.Size(755, 595)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -550,4 +572,5 @@ Partial Class FormCompras
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents btn_modificar As System.Windows.Forms.Button
     Friend WithEvents chk_fabrica As System.Windows.Forms.CheckBox
+    Friend WithEvents btn_cancelar As Button
 End Class

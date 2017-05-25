@@ -31,7 +31,6 @@ Public Class FormCompras
             End If
         End If
         estado_actual_transaccion = estado_transaccion._iniciada
-
         Me.limpiar_campos_compra()
         Me.deshabilitar_detalle()
         Me.cmb_fabrica.Enabled = True
@@ -52,7 +51,6 @@ Public Class FormCompras
         Me.txt_monto.Text = total
     End Sub
 
-
     'BOTON AGREGAR
     Private Sub btn_agregar_Click(sender As Object, e As EventArgs) Handles btn_agregar.Click
         If validar_campos_detalle() Then
@@ -64,21 +62,15 @@ Public Class FormCompras
                         Me.calcular_total()
                         Me.btn_guardar.Enabled = True
                     End If
-
                 End If
-
                 If Convert.ToDouble(Me.txt_monto.Text) = 0 Then
-                    MsgBox("El precio no puede ser igual a cero", MsgBoxStyle.OkCancel, "Error")
+                    MessageBox.Show("El precio del producto no puede ser cero.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
-
                 If Convert.ToInt32(Me.txt_cantidad.Text) = 0 Then
-                    MsgBox("La cantidad no puede ser igual a cero", MsgBoxStyle.OkCancel, "Error")
+                    MessageBox.Show("La cantidad ingresada no puede ser cero.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
-
-
-
             Else
-                If existe_en_grid() = False Then
+                If producto_cargado() = False Then
                     If Convert.ToInt32(Me.txt_cantidad.Text) > 0 Then
                         If Convert.ToDouble(Me.txt_precio.Text) > 0 Then
                             Me.dgv_compras.Rows.Add(cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
@@ -88,11 +80,11 @@ Public Class FormCompras
                     End If
 
                     If Convert.ToDouble(Me.txt_monto.Text) = 0 Then
-                        MsgBox("El precio no puede ser igual a cero", MsgBoxStyle.OkCancel, "Error")
+                        MessageBox.Show("El precio del producto no puede ser cero.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
 
                     If Convert.ToInt32(Me.txt_cantidad.Text) = 0 Then
-                        MsgBox("La cantidad no puede ser igual a cero", MsgBoxStyle.OkCancel, "Error")
+                        MessageBox.Show("La cantidad ingresada no puede ser cero.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
 
                 End If
@@ -137,11 +129,11 @@ Public Class FormCompras
     End Sub
 
     'FUNCION QUE DEVUELVE TRUE SI EXISTE UN ELEMENTO SELECCIONADO EN LA GRILLA
-    Private Function existe_en_grid()
+    Private Function producto_cargado()
         Dim valor As Boolean = False
         For a = 0 To Me.dgv_compras.Rows.Count - 1
             If Me.cmb_producto.SelectedValue = Me.dgv_compras.Rows(a).Cells("col_id_producto").Value Then
-                MsgBox("El producto '" & cmb_producto.Text & "' ya fue cargado, seleccione otro", MsgBoxStyle.OkOnly, "Error")
+                MessageBox.Show("El producto '" & cmb_producto.Text & "' ya fue cargado.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 valor = True
             End If
         Next
@@ -173,16 +165,15 @@ Public Class FormCompras
                 sql_insertar_detalle = ""
             Next
 
-            MessageBox.Show("Datos almacenados.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Compra registrada.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Information)
             SoporteBD.cerrar_conexion_con_transaccion()
             estado_actual_transaccion = estado_transaccion._sin_iniciar
             Me.deshabilitar_campos()
         End If
 
         If dgv_compras.Rows.Count = 0 Then
-            MessageBox.Show("No hay datos para guardar", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("No hay datos para guardar.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
-    
     End Sub
 
     'DESHABILITAR CAMPOS
@@ -198,6 +189,7 @@ Public Class FormCompras
         Me.dgv_compras.Enabled = False
         Me.btn_agregar.Enabled = False
         Me.btn_eliminar.Enabled = False
+        Me.btn_nuevo_producto.Enabled = False
         Me.cmb_fabrica.Enabled = False
         Me.chk_fabrica.Enabled = False
     End Sub
@@ -212,7 +204,6 @@ Public Class FormCompras
         Me.cmb_producto.Text = ""
         Me.dgv_compras.Rows.Clear()
         Me.cmb_fabrica.SelectedIndex = -1
-
     End Sub
 
     'LIMPIAR EL CONTENIDO DE LOS CAMPOS DE LOS PRODUCTOS A CARGAR DE LA COMPRA
@@ -226,7 +217,7 @@ Public Class FormCompras
     'VALIDAR CAMPOS
     Private Function validar_campos()
         If txt_cantidad.Text = "" Or txt_fecha.Text = "" Or txt_precio.Text = "" Or cmb_producto.SelectedValue = 0 Then
-            MsgBox("Alguno de los campos no fue completado", MsgBoxStyle.OkOnly, "Error")
+            MessageBox.Show("Hay campos sin completar.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return respuesta_validacion._error
         End If
         Return respuesta_validacion._ok
@@ -240,7 +231,7 @@ Public Class FormCompras
         tabla = SoporteBD.leerBD_simple(sql)
 
         If tabla.Rows.Count = 1 Then
-            MsgBox("El numero de compra ya existe, ingrese otro", MsgBoxStyle.OkOnly, "Error")
+            MessageBox.Show("El número de compra " & Me.txt_id_compra.Text & " ya está registrado.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return respuesta_validacion._error
         End If
         Return respuesta_validacion._ok
@@ -255,7 +246,6 @@ Public Class FormCompras
         End If
     End Sub
 
-
     'ABRIR PRODUCTOS Y ACTUALIZAR EL COMBO DE PRODUCTOS CUANDO SE GUARDA
     Private Sub btn_nuevo_producto_Click(sender As Object, e As EventArgs) Handles btn_nuevo_producto.Click
         Using form As New FormProductos
@@ -263,17 +253,17 @@ Public Class FormCompras
             If SoporteGUI.respuesta_ventana = Windows.Forms.DialogResult.OK Then
                 SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos WHERE id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
             End If
-
-            'If form.ShowDialog() = DialogResult.OK Then
-            '    SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos"), "id_producto", "descripcion")
-            'End If
-
         End Using
-
     End Sub
 
     Private Sub cmb_fabrica_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_fabrica.SelectionChangeCommitted
-        SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos WHERE id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
+        If MessageBox.Show("¿La fábrica seleccionada es correcta?", "Compras", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+            Me.habilitar_detalle()
+            Me.chk_fabrica.Enabled = False
+            Me.cmb_fabrica.Enabled = False
+            Me.btn_nuevo_producto.Enabled = True
+            SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos WHERE id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
+        End If
     End Sub
 
     Private Sub dgv_compras_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_compras.CellContentClick
@@ -293,20 +283,18 @@ Public Class FormCompras
     Private Sub btn_modificar_Click(sender As Object, e As EventArgs) Handles btn_modificar.Click
 
         If Math.Round(Convert.ToDouble(txt_precio.Text)) = 0 Then
-            MsgBox("Precio no admitido", MsgBoxStyle.OkOnly, "Error")
+            MessageBox.Show("No se admite el precio ingresado.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return
         Else
             Me.dgv_compras.CurrentRow.Cells(2).Value = Me.txt_precio.Text
         End If
 
         If txt_cantidad.Text = 0 Then
-            MsgBox("Cantidad no admitida", MsgBoxStyle.OkOnly, "Error")
+            MessageBox.Show("No se admite la cantidad ingresada.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return
         Else
             Me.dgv_compras.CurrentRow.Cells(1).Value = Me.txt_cantidad.Text
         End If
-
-
 
         Me.calcular_total()
         Me.cmb_producto.Enabled = True
@@ -315,7 +303,6 @@ Public Class FormCompras
         Me.btn_agregar.Enabled = True
         Me.btn_eliminar.Enabled = False
         Me.limpiar_campos_detalle()
-
 
     End Sub
 
@@ -333,23 +320,6 @@ Public Class FormCompras
         Me.txt_cantidad.Enabled = True
         Me.dgv_compras.Enabled = True
         Me.btn_agregar.Enabled = True
-    End Sub
-
-    Private Sub chk_fabrica_CheckedChanged(sender As Object, e As EventArgs) Handles chk_fabrica.CheckedChanged
-        If chk_fabrica.Checked = True Then
-            If cmb_fabrica.SelectedIndex = -1 Then
-                MsgBox("Fabrica no seleccionada", MsgBoxStyle.OkOnly, "Error")
-                Me.chk_fabrica.Checked = False
-            Else
-                If MessageBox.Show("¿La fábrica seleccionada es correcta?", "Compras", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-                    Me.habilitar_detalle()
-                    Me.chk_fabrica.Enabled = False
-                    Me.cmb_fabrica.Enabled = False
-                Else
-                    Me.chk_fabrica.Checked = False
-                End If
-            End If
-        End If
     End Sub
 
     Private Sub txt_monto_TextChanged(sender As Object, e As EventArgs) Handles txt_monto.TextChanged

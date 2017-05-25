@@ -1,59 +1,44 @@
-﻿Public Class FormParaBuscarCupones
+﻿Public Class FormCupones_Buscar
 
     Private Sub FormParaBuscarCupones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Me.cargar_grilla_cupon()
+        SoporteGUI.cargar_combo(Me.cmb_bancoBUSCAR, SoporteBD.leerBD_simple("SELECT * FROM bancos"), "id_banco", "nombre")
+        SoporteGUI.cargar_combo(Me.cmb_tarjetaBUSCAR, SoporteBD.leerBD_simple("SELECT * FROM entidades_crediticias"), "id_entidad_crediticia", "nombre")
+        Me.limpiar_campos()
     End Sub
     Private Sub cargar_grilla_cupon()
         Dim tabla As New DataTable
-        Dim sql_cargar_grilla As String = ""
-        sql_cargar_grilla &= "SELECT * FROM cupon WHERE numero_lote =" & Me.txt_buscar.Text
+        Dim sql As String = ""
+        sql &= "SELECT cupon.id_cupon, cupon.numero_lote, cupon.numero_autorizacion_online, bancos.id_banco, bancos.nombre, ventasXformas_pago.id_venta, ventasXformas_pago.id_forma_pago, "
+        sql &= " ventasXformas_pago.id_cupon, entidades_crediticias.id_entidad_crediticia, entidades_crediticias.nombre As nombre_entidad, ventasXformas_pago.id_banco, "
+        sql &= " ventasXformas_pago.id_entidad_crediticia AS id_entidad"
+        sql &= " FROM bancos b INNER JOIN"
+        sql &= " ventasXformas_pago ON bancos.id_banco = ventasXformas_pago.id_banco INNER JOIN"
+        sql &= " cupon ON ventasXformas_pago.id_cupon = cupon.id_cupon INNER JOIN"
+        sql &= " entidades_crediticias ON ventasXformas_pago.id_entidad_crediticia = entidades_crediticias.id_entidad_crediticia"
 
-        tabla = SoporteBD.leerBD_simple(sql_cargar_grilla)
+        tabla = SoporteBD.leerBD_simple(sql)
 
         Dim c As Integer
         Me.grid1.Rows.Clear()
         For c = 0 To tabla.Rows.Count - 1
-
             Me.grid1.Rows.Add()
             Me.grid1.Rows(c).Cells(0).Value = tabla.Rows(c)("id_cupon")
             Me.grid1.Rows(c).Cells(1).Value = tabla.Rows(c)("numero_cupon")
             Me.grid1.Rows(c).Cells(2).Value = tabla.Rows(c)("numero_autorizacion_online")
-
+            Me.grid1.Rows(c).Cells(3).Value = tabla.Rows(c)("id_cupon")
+            Me.grid1.Rows(c).Cells(4).Value = tabla.Rows(c)("id_cupon")
+            Me.grid1.Rows(c).Cells(5).Value = tabla.Rows(c)("id_cupon")
+            Me.grid1.Rows(c).Cells(6).Value = tabla.Rows(c)("id_cupon")
+            Me.grid1.Rows(c).Cells(7).Value = tabla.Rows(c)("id_cupon")
         Next
-        Me.txt_buscar.Focus()
     End Sub
-    ''Private Sub busquedaDinamica(ByVal id As String, ByVal dgv As DataGridView)
 
-    ''    Try
-    ''        Dim sql As String = ""
-    ''        Dim tabla As New DataTable
-    ''        sql &= "SELECT * FROM cupon WHERE  numero_lote like '" & id + "%" & "'"
-    ''        tabla = SoporteBD.leerBD_simple(sql)
-    ''        dgv.DataSource = tabla
-    ''        Dim c As Integer
-    ''        For c = 0 To tabla.Rows.Count - 1
-    ''            Me.grid1.Rows(c).Cells(0).Value = tabla.Rows(c)("id_cupon")
-    ''            Me.grid1.Rows(c).Cells(1).Value = tabla.Rows(c)("numero_lote")
-    ''            Me.grid1.Rows(c).Cells(2).Value = tabla.Rows(c)("numero_autorizacion_online")
-    ''            Me.txt_buscar.Focus()
-    ''        Next
-    ''    Catch ex As Exception
-    ''        MsgBox("Error al buscar en la grilla" + ex.ToString)
-    ''    End Try
-    ''End Sub
-
-    ''Private Sub txt_buscar_usuario_TextChanged(sender As Object, e As EventArgs) Handles txt_buscar.TextChanged
-    ''    busquedaDinamica(txt_buscar.Text, grid1)
-    ''End Sub
     Private Sub limpiar_campos()
-
-        
-        
-        cmb_tarjetaBUSCAR.Text = "(Seleccione fábrica)"
-        cmb_bancoBUSCAR.Text = "(Seleccione rubro)"
-
-
+        cmb_tarjetaBUSCAR.Text = "(seleccione tarjeta)"
+        cmb_bancoBUSCAR.Text = "(seleccione banco)"
     End Sub
+
     Private Sub buscar(ByVal sql As String)
         Me.limpiar_campos()
         Dim tabla As New DataTable
@@ -66,7 +51,7 @@
             Me.grid1.Rows(c).Cells(0).Value = tabla.Rows(c)("id_cupon")
             Me.grid1.Rows(c).Cells(1).Value = tabla.Rows(c)("numero_lote")
             Me.grid1.Rows(c).Cells(2).Value = tabla.Rows(c)("numero_autorizacion_online")
-           
+
         Next
 
         If tabla.Rows.Count = 0 Then
@@ -75,9 +60,9 @@
     End Sub
     'PARA BUSCAR POR COMBOS
 
-    
 
-    
+
+
     Private Sub btn_buscarBANCO_Click(sender As Object, e As EventArgs) Handles btn_buscarBANCO.Click
         If cmb_bancoBUSCAR.Text = "(Seleccione Banco)" Then
             Me.cargar_grilla_cupon()

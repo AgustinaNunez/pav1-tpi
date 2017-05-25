@@ -1,4 +1,4 @@
-﻿Public Class FormCupones
+﻿Public Class FormCupones_Registrar
     Enum respuesta_validacion
         _error
         _ok

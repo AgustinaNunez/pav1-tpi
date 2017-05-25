@@ -34,6 +34,7 @@ Partial Class FormProductos
         Me.precio_lista = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_rubro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_fabrica = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dado_de_baja = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txt_idBUSCAR = New System.Windows.Forms.MaskedTextBox()
         Me.cbo_fabrica = New System.Windows.Forms.ComboBox()
@@ -48,7 +49,6 @@ Partial Class FormProductos
         Me.lbl_descripcion = New System.Windows.Forms.Label()
         Me.lbl_id = New System.Windows.Forms.Label()
         Me.gb_listado = New System.Windows.Forms.GroupBox()
-        Me.btn_buscarID = New System.Windows.Forms.Button()
         Me.gb_datos = New System.Windows.Forms.GroupBox()
         Me.txt_id = New System.Windows.Forms.TextBox()
         Me.lbl_descripcionERROR = New System.Windows.Forms.Label()
@@ -57,18 +57,19 @@ Partial Class FormProductos
         Me.lbl_rubroERROR = New System.Windows.Forms.Label()
         Me.lbl_precioERROR = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.btn_guardar = New System.Windows.Forms.Button()
-        Me.btn_eliminar = New System.Windows.Forms.Button()
-        Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.gb_busqueda = New System.Windows.Forms.GroupBox()
         Me.btn_buscarFABRICA = New System.Windows.Forms.Button()
         Me.btn_buscarRUBRO = New System.Windows.Forms.Button()
+        Me.btn_buscarID = New System.Windows.Forms.Button()
         Me.cbo_fabricaBUSCAR = New System.Windows.Forms.ComboBox()
         Me.cbo_rubroBUSCAR = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.lbl_msj = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.btn_guardar = New System.Windows.Forms.Button()
+        Me.btn_eliminar = New System.Windows.Forms.Button()
+        Me.btn_nuevo = New System.Windows.Forms.Button()
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_listado.SuspendLayout()
         Me.gb_datos.SuspendLayout()
@@ -91,7 +92,7 @@ Partial Class FormProductos
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_productos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_productos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_producto, Me.descrip, Me.stock, Me.precio_lista, Me.id_rubro, Me.id_fabrica})
+        Me.dgv_productos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_producto, Me.descrip, Me.stock, Me.precio_lista, Me.id_rubro, Me.id_fabrica, Me.dado_de_baja})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -157,6 +158,13 @@ Partial Class FormProductos
         Me.id_fabrica.Name = "id_fabrica"
         Me.id_fabrica.ReadOnly = True
         Me.id_fabrica.Width = 120
+        '
+        'dado_de_baja
+        '
+        Me.dado_de_baja.HeaderText = "dado_de_baja"
+        Me.dado_de_baja.Name = "dado_de_baja"
+        Me.dado_de_baja.ReadOnly = True
+        Me.dado_de_baja.Visible = False
         '
         'Label7
         '
@@ -328,21 +336,6 @@ Partial Class FormProductos
         Me.gb_listado.TabStop = False
         Me.gb_listado.Text = "Listado de Productos"
         '
-        'btn_buscarID
-        '
-        Me.btn_buscarID.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_buscarID.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_buscarID.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_buscarID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_buscarID.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
-        Me.btn_buscarID.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscarID.Location = New System.Drawing.Point(345, 34)
-        Me.btn_buscarID.Name = "btn_buscarID"
-        Me.btn_buscarID.Size = New System.Drawing.Size(25, 25)
-        Me.btn_buscarID.TabIndex = 2
-        Me.btn_buscarID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_buscarID.UseVisualStyleBackColor = True
-        '
         'gb_datos
         '
         Me.gb_datos.Controls.Add(Me.txt_id)
@@ -446,55 +439,6 @@ Partial Class FormProductos
         Me.Label8.Text = "  Administración de Productos"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'btn_guardar
-        '
-        Me.btn_guardar.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_guardar.Enabled = False
-        Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_guardar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_guardar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
-        Me.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_guardar.Location = New System.Drawing.Point(968, 318)
-        Me.btn_guardar.Name = "btn_guardar"
-        Me.btn_guardar.Size = New System.Drawing.Size(105, 45)
-        Me.btn_guardar.TabIndex = 6
-        Me.btn_guardar.Text = "Guardar"
-        Me.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_guardar.UseVisualStyleBackColor = True
-        '
-        'btn_eliminar
-        '
-        Me.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_eliminar.Enabled = False
-        Me.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_eliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_eliminar.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
-        Me.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_eliminar.Location = New System.Drawing.Point(857, 318)
-        Me.btn_eliminar.Name = "btn_eliminar"
-        Me.btn_eliminar.Size = New System.Drawing.Size(105, 45)
-        Me.btn_eliminar.TabIndex = 5
-        Me.btn_eliminar.Text = "Eliminar"
-        Me.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_eliminar.UseVisualStyleBackColor = True
-        Me.btn_eliminar.Visible = False
-        '
-        'btn_nuevo
-        '
-        Me.btn_nuevo.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_nuevo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_nuevo.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
-        Me.btn_nuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_nuevo.Location = New System.Drawing.Point(746, 318)
-        Me.btn_nuevo.Name = "btn_nuevo"
-        Me.btn_nuevo.Size = New System.Drawing.Size(105, 45)
-        Me.btn_nuevo.TabIndex = 2
-        Me.btn_nuevo.Tag = ""
-        Me.btn_nuevo.Text = "Nuevo"
-        Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_nuevo.UseVisualStyleBackColor = True
-        '
         'gb_busqueda
         '
         Me.gb_busqueda.Controls.Add(Me.btn_buscarFABRICA)
@@ -545,6 +489,21 @@ Partial Class FormProductos
         Me.btn_buscarRUBRO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_buscarRUBRO.UseVisualStyleBackColor = True
         '
+        'btn_buscarID
+        '
+        Me.btn_buscarID.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_buscarID.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_buscarID.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_buscarID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_buscarID.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
+        Me.btn_buscarID.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_buscarID.Location = New System.Drawing.Point(345, 34)
+        Me.btn_buscarID.Name = "btn_buscarID"
+        Me.btn_buscarID.Size = New System.Drawing.Size(25, 25)
+        Me.btn_buscarID.TabIndex = 2
+        Me.btn_buscarID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_buscarID.UseVisualStyleBackColor = True
+        '
         'cbo_fabricaBUSCAR
         '
         Me.cbo_fabricaBUSCAR.BackColor = System.Drawing.Color.White
@@ -591,6 +550,18 @@ Partial Class FormProductos
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Rubro"
         '
+        'lbl_msj
+        '
+        Me.lbl_msj.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.lbl_msj.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_msj.ForeColor = System.Drawing.Color.White
+        Me.lbl_msj.Location = New System.Drawing.Point(746, 520)
+        Me.lbl_msj.Name = "lbl_msj"
+        Me.lbl_msj.Size = New System.Drawing.Size(382, 36)
+        Me.lbl_msj.TabIndex = 17
+        Me.lbl_msj.Text = "Id. producto"
+        Me.lbl_msj.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -601,17 +572,53 @@ Partial Class FormProductos
         Me.Label3.Size = New System.Drawing.Size(109, 33)
         Me.Label3.TabIndex = 16
         '
-        'lbl_msj
+        'btn_guardar
         '
-        Me.lbl_msj.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.lbl_msj.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_msj.ForeColor = System.Drawing.Color.White
-        Me.lbl_msj.Location = New System.Drawing.Point(746, 514)
-        Me.lbl_msj.Name = "lbl_msj"
-        Me.lbl_msj.Size = New System.Drawing.Size(382, 36)
-        Me.lbl_msj.TabIndex = 17
-        Me.lbl_msj.Text = "Id. producto"
-        Me.lbl_msj.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_guardar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_guardar.Enabled = False
+        Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_guardar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_guardar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
+        Me.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_guardar.Location = New System.Drawing.Point(857, 318)
+        Me.btn_guardar.Name = "btn_guardar"
+        Me.btn_guardar.Size = New System.Drawing.Size(105, 45)
+        Me.btn_guardar.TabIndex = 6
+        Me.btn_guardar.Text = "Guardar"
+        Me.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_guardar.UseVisualStyleBackColor = True
+        '
+        'btn_eliminar
+        '
+        Me.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_eliminar.Enabled = False
+        Me.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_eliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_eliminar.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
+        Me.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_eliminar.Location = New System.Drawing.Point(968, 318)
+        Me.btn_eliminar.Name = "btn_eliminar"
+        Me.btn_eliminar.Size = New System.Drawing.Size(105, 45)
+        Me.btn_eliminar.TabIndex = 5
+        Me.btn_eliminar.Text = "Eliminar"
+        Me.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_eliminar.UseVisualStyleBackColor = True
+        '
+        'btn_nuevo
+        '
+        Me.btn_nuevo.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_nuevo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_nuevo.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
+        Me.btn_nuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_nuevo.Location = New System.Drawing.Point(746, 318)
+        Me.btn_nuevo.Name = "btn_nuevo"
+        Me.btn_nuevo.Size = New System.Drawing.Size(105, 45)
+        Me.btn_nuevo.TabIndex = 2
+        Me.btn_nuevo.Tag = ""
+        Me.btn_nuevo.Text = "Nuevo"
+        Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_nuevo.UseVisualStyleBackColor = True
         '
         'FormProductos
         '
@@ -666,12 +673,6 @@ Partial Class FormProductos
     Friend WithEvents btn_eliminar As Button
     Friend WithEvents btn_guardar As Button
     Friend WithEvents btn_buscarID As Button
-    Friend WithEvents id_producto As DataGridViewTextBoxColumn
-    Friend WithEvents descrip As DataGridViewTextBoxColumn
-    Friend WithEvents stock As DataGridViewTextBoxColumn
-    Friend WithEvents precio_lista As DataGridViewTextBoxColumn
-    Friend WithEvents id_rubro As DataGridViewTextBoxColumn
-    Friend WithEvents id_fabrica As DataGridViewTextBoxColumn
     Friend WithEvents lbl_fabricaERROR As Label
     Friend WithEvents lbl_rubroERROR As Label
     Friend WithEvents lbl_precioERROR As Label
@@ -687,4 +688,11 @@ Partial Class FormProductos
     Friend WithEvents lbl_msj As Label
     Friend WithEvents lbl_descripcionERROR As Label
     Friend WithEvents txt_id As System.Windows.Forms.TextBox
+    Friend WithEvents id_producto As DataGridViewTextBoxColumn
+    Friend WithEvents descrip As DataGridViewTextBoxColumn
+    Friend WithEvents stock As DataGridViewTextBoxColumn
+    Friend WithEvents precio_lista As DataGridViewTextBoxColumn
+    Friend WithEvents id_rubro As DataGridViewTextBoxColumn
+    Friend WithEvents id_fabrica As DataGridViewTextBoxColumn
+    Friend WithEvents dado_de_baja As DataGridViewTextBoxColumn
 End Class

@@ -346,7 +346,7 @@ Partial Class FormUsuarios
         Me.cmd_eliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.cmd_eliminar.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
         Me.cmd_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_eliminar.Location = New System.Drawing.Point(118, 342)
+        Me.cmd_eliminar.Location = New System.Drawing.Point(224, 342)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(100, 40)
         Me.cmd_eliminar.TabIndex = 2
@@ -363,7 +363,7 @@ Partial Class FormUsuarios
         Me.cmd_grabar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.cmd_grabar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
         Me.cmd_grabar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_grabar.Location = New System.Drawing.Point(224, 342)
+        Me.cmd_grabar.Location = New System.Drawing.Point(118, 342)
         Me.cmd_grabar.Name = "cmd_grabar"
         Me.cmd_grabar.Size = New System.Drawing.Size(100, 40)
         Me.cmd_grabar.TabIndex = 3
@@ -467,7 +467,7 @@ Partial Class FormUsuarios
         Me.lbl_msj.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.lbl_msj.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_msj.ForeColor = System.Drawing.Color.White
-        Me.lbl_msj.Location = New System.Drawing.Point(12, 387)
+        Me.lbl_msj.Location = New System.Drawing.Point(12, 389)
         Me.lbl_msj.Name = "lbl_msj"
         Me.lbl_msj.Size = New System.Drawing.Size(377, 36)
         Me.lbl_msj.TabIndex = 40

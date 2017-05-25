@@ -47,6 +47,11 @@ PAV1_TPI
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:PAV1_TPI.My.Resources.Resources.cancel_button32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:PAV1_TPI.My.Resources.Resources.check_mark">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.

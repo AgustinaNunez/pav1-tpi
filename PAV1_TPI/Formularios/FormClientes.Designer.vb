@@ -94,7 +94,7 @@ Partial Class FormClientes
         Me.btn_eliminar_cliente_carga.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_eliminar_cliente_carga.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
         Me.btn_eliminar_cliente_carga.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_eliminar_cliente_carga.Location = New System.Drawing.Point(937, 326)
+        Me.btn_eliminar_cliente_carga.Location = New System.Drawing.Point(1042, 326)
         Me.btn_eliminar_cliente_carga.Name = "btn_eliminar_cliente_carga"
         Me.btn_eliminar_cliente_carga.Size = New System.Drawing.Size(98, 45)
         Me.btn_eliminar_cliente_carga.TabIndex = 8
@@ -111,7 +111,7 @@ Partial Class FormClientes
         Me.btn_guardar_cliente_carga.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_guardar_cliente_carga.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
         Me.btn_guardar_cliente_carga.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_guardar_cliente_carga.Location = New System.Drawing.Point(1040, 326)
+        Me.btn_guardar_cliente_carga.Location = New System.Drawing.Point(938, 326)
         Me.btn_guardar_cliente_carga.Name = "btn_guardar_cliente_carga"
         Me.btn_guardar_cliente_carga.Size = New System.Drawing.Size(98, 45)
         Me.btn_guardar_cliente_carga.TabIndex = 7

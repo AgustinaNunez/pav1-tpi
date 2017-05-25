@@ -154,10 +154,10 @@
     <Compile Include="Formularios\FormLogin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FormParaBuscarCupones.Designer.vb">
-      <DependentUpon>FormParaBuscarCupones.vb</DependentUpon>
+    <Compile Include="Formularios\FormCupones_Buscar.Designer.vb">
+      <DependentUpon>FormCupones_Buscar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FormParaBuscarCupones.vb">
+    <Compile Include="Formularios\FormCupones_Buscar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FormPrincipal.vb">
@@ -173,10 +173,10 @@
     <Compile Include="Formularios\FormProductos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FormCupones.Designer.vb">
-      <DependentUpon>FormCupones.vb</DependentUpon>
+    <Compile Include="Formularios\FormCupones_Registrar.Designer.vb">
+      <DependentUpon>FormCupones_Registrar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FormCupones.vb">
+    <Compile Include="Formularios\FormCupones_Registrar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FormUsuarios.Designer.vb">
@@ -227,8 +227,8 @@
     <EmbeddedResource Include="Formularios\FormLogin.resx">
       <DependentUpon>FormLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FormParaBuscarCupones.resx">
-      <DependentUpon>FormParaBuscarCupones.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\FormCupones_Buscar.resx">
+      <DependentUpon>FormCupones_Buscar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.vb</DependentUpon>
@@ -236,8 +236,8 @@
     <EmbeddedResource Include="Formularios\FormProductos.resx">
       <DependentUpon>FormProductos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FormCupones.resx">
-      <DependentUpon>FormCupones.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\FormCupones_Registrar.resx">
+      <DependentUpon>FormCupones_Registrar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormUsuarios.resx">
       <DependentUpon>FormUsuarios.vb</DependentUpon>
@@ -348,6 +348,8 @@
   <ItemGroup>
     <None Include="Resources\user641.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\cancel-button32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
