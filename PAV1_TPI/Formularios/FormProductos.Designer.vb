@@ -54,6 +54,8 @@ Partial Class FormProductos
         Me.lbl_fabricaERROR = New System.Windows.Forms.Label()
         Me.lbl_rubroERROR = New System.Windows.Forms.Label()
         Me.lbl_precioERROR = New System.Windows.Forms.Label()
+        Me.lbl_stock = New System.Windows.Forms.Label()
+        Me.txt_stock = New System.Windows.Forms.MaskedTextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.gb_busqueda = New System.Windows.Forms.GroupBox()
         Me.btn_buscarFABRICA = New System.Windows.Forms.Button()
@@ -68,8 +70,6 @@ Partial Class FormProductos
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
-        Me.txt_stock = New System.Windows.Forms.MaskedTextBox()
-        Me.lbl_stock = New System.Windows.Forms.Label()
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_listado.SuspendLayout()
         Me.gb_datos.SuspendLayout()
@@ -400,6 +400,31 @@ Partial Class FormProductos
         Me.lbl_precioERROR.TabIndex = 14
         Me.lbl_precioERROR.Visible = False
         '
+        'lbl_stock
+        '
+        Me.lbl_stock.AutoSize = True
+        Me.lbl_stock.Enabled = False
+        Me.lbl_stock.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_stock.ForeColor = System.Drawing.Color.Black
+        Me.lbl_stock.Location = New System.Drawing.Point(87, 96)
+        Me.lbl_stock.Name = "lbl_stock"
+        Me.lbl_stock.Size = New System.Drawing.Size(39, 17)
+        Me.lbl_stock.TabIndex = 4
+        Me.lbl_stock.Text = "Stock"
+        '
+        'txt_stock
+        '
+        Me.txt_stock.BackColor = System.Drawing.Color.White
+        Me.txt_stock.Enabled = False
+        Me.txt_stock.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_stock.ForeColor = System.Drawing.Color.Black
+        Me.txt_stock.Location = New System.Drawing.Point(132, 93)
+        Me.txt_stock.Mask = "99999"
+        Me.txt_stock.Name = "txt_stock"
+        Me.txt_stock.Size = New System.Drawing.Size(124, 25)
+        Me.txt_stock.TabIndex = 5
+        Me.txt_stock.ValidatingType = GetType(Integer)
+        '
         'Label8
         '
         Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
@@ -425,7 +450,7 @@ Partial Class FormProductos
         Me.gb_busqueda.Controls.Add(Me.txt_idBUSCAR)
         Me.gb_busqueda.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gb_busqueda.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.gb_busqueda.Location = New System.Drawing.Point(746, 378)
+        Me.gb_busqueda.Location = New System.Drawing.Point(746, 384)
         Me.gb_busqueda.Name = "gb_busqueda"
         Me.gb_busqueda.Size = New System.Drawing.Size(382, 133)
         Me.gb_busqueda.TabIndex = 7
@@ -592,31 +617,6 @@ Partial Class FormProductos
         Me.btn_nuevo.Text = "Nuevo"
         Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_nuevo.UseVisualStyleBackColor = True
-        '
-        'txt_stock
-        '
-        Me.txt_stock.BackColor = System.Drawing.Color.White
-        Me.txt_stock.Enabled = False
-        Me.txt_stock.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_stock.ForeColor = System.Drawing.Color.Black
-        Me.txt_stock.Location = New System.Drawing.Point(132, 93)
-        Me.txt_stock.Mask = "99999"
-        Me.txt_stock.Name = "txt_stock"
-        Me.txt_stock.Size = New System.Drawing.Size(124, 25)
-        Me.txt_stock.TabIndex = 5
-        Me.txt_stock.ValidatingType = GetType(Integer)
-        '
-        'lbl_stock
-        '
-        Me.lbl_stock.AutoSize = True
-        Me.lbl_stock.Enabled = False
-        Me.lbl_stock.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_stock.ForeColor = System.Drawing.Color.Black
-        Me.lbl_stock.Location = New System.Drawing.Point(87, 96)
-        Me.lbl_stock.Name = "lbl_stock"
-        Me.lbl_stock.Size = New System.Drawing.Size(39, 17)
-        Me.lbl_stock.TabIndex = 4
-        Me.lbl_stock.Text = "Stock"
         '
         'FormProductos
         '

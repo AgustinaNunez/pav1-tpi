@@ -29,11 +29,23 @@ Public Class FormProductos
         If SoporteGUI.tipo_form_ACTUAL = SoporteGUI.tipo_form.abm Then
             Me.btn_nuevo.Enabled = False
         Else
+            gb_busqueda.Visible = False
             SoporteGUI.cargar_combo(cbo_fabrica, SoporteBD.leerBD_simple("SELECT * FROM fabricas WHERE id_fabrica = " & Fabrica.id & " ORDER BY nombre"), "id_fabrica", "nombre")
             cbo_fabrica.SelectedValue = Fabrica.id
             Me.cbo_fabrica.Text = Fabrica.nombre
+            Me.cargar_productosTRANSACCION()
         End If
         'Me.txt_id.Text = Format(GENERARCODIGO, "000")
+    End Sub
+
+    Private Sub cargar_productosTRANSACCION()
+        Dim tabla As New DataTable
+        Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, r.nombre AS n_rubro, f.nombre AS n_fabrica, p.dado_de_baja FROM productos p"
+        sql &= " JOIN rubros r ON p.id_rubro = r.id_rubro"
+        sql &= " JOIN fabricas f ON p.id_fabrica = f.id_fabrica"
+        sql &= " WHERE p.dado_de_baja = 0 AND p.id_fabrica = " & Fabrica.id
+        tabla = SoporteBD.leerBD_simple(sql)
+        Me.cargar_grilla(tabla)
     End Sub
 
     Private Sub limpiar_campos()
@@ -186,7 +198,7 @@ Public Class FormProductos
         Me.txt_id.Text = SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_productos")
 
         Me.txt_descrip.Focus()
-        Me.cargar_productos()
+        Me.cargar_productosTRANSACCION()
         Me.btn_guardar.Enabled = True
         Me.btn_eliminar.Enabled = False
     End Sub
@@ -269,7 +281,6 @@ Public Class FormProductos
         sql &= " WHERE p.dado_de_baja = 0"
         tabla = SoporteBD.leerBD_simple(sql)
         Me.cargar_grilla(tabla)
-        'Me.txt_id.Focus()
     End Sub
 
     Private Sub cargar_grilla(ByRef tabla As DataTable)

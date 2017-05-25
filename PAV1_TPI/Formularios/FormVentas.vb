@@ -25,7 +25,6 @@ Public Class FormVentas
         Me.limpiar_camposDETALLE()
         Me.limpiar_camposFORMAPAGO()
         Me.txt_idVENTA.Text = Format(SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_ventas"), "000000")
-
     End Sub
 
     Private Sub deshabilitar_formapago()
@@ -88,16 +87,34 @@ Public Class FormVentas
         End If
         If validar_camposARTICULO() Then
             Dim cantidad As Integer = Convert.ToInt32(Me.txt_cantidad.Text)
+            Dim stock_actual As Integer = Me.stock_disponible(Me.cmb_producto.SelectedValue)
+            Dim stock_final As Integer = stock_actual - cantidad
+            If stock_final < 0 Then
+                MessageBox.Show("Stock insuficiente." & vbCrLf & "Cantidad disponible: " & stock_actual & ".", "Gestión de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.limpiar_camposDETALLE()
+                Return
+            End If
             Dim precio As Integer = Convert.ToDouble(Me.txt_precio.Text)
-            Me.dgv_detalle.Rows.Add(Me.cmb_producto.SelectedValue, Me.cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cantidad * precio)
+            Me.dgv_detalle.Rows.Add(Me.cmb_producto.SelectedValue, Me.cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cantidad * precio, Me.stock_final)
             Me.calcular_subtotal()
-            'Me.habilitar_camposPAGO()
-            Me.limpiar_camposDETALLE()
-            Me.txt_dtoVENTA.Enabled = True
-            Me.chk_descuento.Enabled = True
-            Me.btn_cancelarVENTA.Enabled = True
-        End If
+                'Me.habilitar_camposPAGO()
+                Me.limpiar_camposDETALLE()
+                Me.txt_dtoVENTA.Enabled = True
+                Me.chk_descuento.Enabled = True
+                Me.btn_cancelarVENTA.Enabled = True
+            End If
     End Sub
+
+    Private Function stock_disponible(ByRef id_producto As Integer)
+        Dim stock As Integer = 0
+        Dim sql As String = "SELECT stock FROM productos WHERE id_producto = " & id_producto
+        Dim tabla As New DataTable
+        tabla = SoporteBD.leerBD_simple(sql)
+        If tabla.Rows.Count = 1 Then
+            stock = tabla.Rows(0)("stock")
+        End If
+        Return stock
+    End Function
 
     Private Function validar_camposARTICULO()
         Dim flag As Boolean = True
@@ -629,6 +646,16 @@ Public Class FormVentas
                 sql_insertar_detalle &= "," & Me.dgv_detalle.Rows(c).Cells("col_precio").Value & ")"
                 SoporteBD.escribirBD_transaccion(sql_insertar_detalle)
                 sql_insertar_detalle = ""
+            Next
+
+            'ACTUALIZAR STOCK DE PRODUCTOS
+            Dim tabla_productos As New DataTable
+            Dim sql_actualizar_productos As String = ""
+            For c = 0 To Me.dgv_detalle.Rows.Count - 1
+                sql_actualizar_productos &= "UPDATE productos SET stock = " & Me.dgv_detalle.Rows(c).Cells(5).Value
+                sql_actualizar_productos &= " WHERE id_producto = " & Me.dgv_detalle.Rows(c).Cells(4).Value
+                SoporteBD.escribirBD_transaccion(sql_actualizar_productos)
+                sql_actualizar_productos = ""
             Next
 
             'INSERTAR FORMA DE PAGO

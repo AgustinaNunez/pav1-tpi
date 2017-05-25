@@ -77,11 +77,6 @@ Partial Class FormVentas
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dgv_detalle = New System.Windows.Forms.DataGridView()
-        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txt_idVENTA = New System.Windows.Forms.TextBox()
         Me.txt_hora = New System.Windows.Forms.TextBox()
         Me.txt_fecha = New System.Windows.Forms.TextBox()
@@ -91,6 +86,12 @@ Partial Class FormVentas
         Me.btn_cancelarVENTA = New System.Windows.Forms.Button()
         Me.btn_nuevaVENTA = New System.Windows.Forms.Button()
         Me.btn_guardarVENTA = New System.Windows.Forms.Button()
+        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_total = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.stock_final = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -718,7 +719,7 @@ Partial Class FormVentas
         DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_detalle.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.dgv_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_id_producto, Me.col_producto, Me.col_cantidad, Me.col_precio, Me.col_total})
+        Me.dgv_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_producto, Me.col_cantidad, Me.col_precio, Me.col_total, Me.col_id_producto, Me.stock_final})
         DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -741,39 +742,6 @@ Partial Class FormVentas
         Me.dgv_detalle.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.dgv_detalle.Size = New System.Drawing.Size(645, 123)
         Me.dgv_detalle.TabIndex = 9
-        '
-        'col_id_producto
-        '
-        Me.col_id_producto.HeaderText = "id_producto"
-        Me.col_id_producto.Name = "col_id_producto"
-        Me.col_id_producto.ReadOnly = True
-        Me.col_id_producto.Visible = False
-        '
-        'col_producto
-        '
-        Me.col_producto.HeaderText = "Producto"
-        Me.col_producto.Name = "col_producto"
-        Me.col_producto.ReadOnly = True
-        Me.col_producto.Width = 250
-        '
-        'col_cantidad
-        '
-        Me.col_cantidad.HeaderText = "Cantidad"
-        Me.col_cantidad.Name = "col_cantidad"
-        Me.col_cantidad.ReadOnly = True
-        '
-        'col_precio
-        '
-        Me.col_precio.HeaderText = "Precio Unitario"
-        Me.col_precio.Name = "col_precio"
-        Me.col_precio.ReadOnly = True
-        Me.col_precio.Width = 150
-        '
-        'col_total
-        '
-        Me.col_total.HeaderText = "Precio"
-        Me.col_total.Name = "col_total"
-        Me.col_total.ReadOnly = True
         '
         'txt_idVENTA
         '
@@ -893,6 +861,48 @@ Partial Class FormVentas
         Me.btn_guardarVENTA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_guardarVENTA.UseVisualStyleBackColor = True
         '
+        'col_producto
+        '
+        Me.col_producto.HeaderText = "Producto"
+        Me.col_producto.Name = "col_producto"
+        Me.col_producto.ReadOnly = True
+        Me.col_producto.Width = 250
+        '
+        'col_cantidad
+        '
+        Me.col_cantidad.HeaderText = "Cantidad"
+        Me.col_cantidad.Name = "col_cantidad"
+        Me.col_cantidad.ReadOnly = True
+        Me.col_cantidad.Width = 95
+        '
+        'col_precio
+        '
+        Me.col_precio.HeaderText = "Precio Unitario"
+        Me.col_precio.Name = "col_precio"
+        Me.col_precio.ReadOnly = True
+        Me.col_precio.Width = 140
+        '
+        'col_total
+        '
+        Me.col_total.HeaderText = "Precio"
+        Me.col_total.Name = "col_total"
+        Me.col_total.ReadOnly = True
+        Me.col_total.Width = 90
+        '
+        'col_id_producto
+        '
+        Me.col_id_producto.HeaderText = "id_producto"
+        Me.col_id_producto.Name = "col_id_producto"
+        Me.col_id_producto.ReadOnly = True
+        Me.col_id_producto.Visible = False
+        '
+        'stock_final
+        '
+        Me.stock_final.HeaderText = "stock_final"
+        Me.stock_final.Name = "stock_final"
+        Me.stock_final.ReadOnly = True
+        Me.stock_final.Visible = False
+        '
         'FormVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -968,11 +978,6 @@ Partial Class FormVentas
     Friend WithEvents txt_usuarioLogueado As TextBox
     Friend WithEvents btn_agregarCUPON As Button
     Friend WithEvents btn_aceptarDETALLE As Button
-    Friend WithEvents col_id_producto As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents col_producto As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents col_cantidad As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents col_precio As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents col_total As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btn_aceptar As System.Windows.Forms.Button
     Friend WithEvents chk_descuento As System.Windows.Forms.CheckBox
     Friend WithEvents txt_dtoVENTA As System.Windows.Forms.TextBox
@@ -984,4 +989,10 @@ Partial Class FormVentas
     Friend WithEvents btn_cancelarVENTA As Button
     Friend WithEvents btn_nuevaVENTA As Button
     Friend WithEvents btn_guardarVENTA As Button
+    Friend WithEvents col_producto As DataGridViewTextBoxColumn
+    Friend WithEvents col_cantidad As DataGridViewTextBoxColumn
+    Friend WithEvents col_precio As DataGridViewTextBoxColumn
+    Friend WithEvents col_total As DataGridViewTextBoxColumn
+    Friend WithEvents col_id_producto As DataGridViewTextBoxColumn
+    Friend WithEvents stock_final As DataGridViewTextBoxColumn
 End Class
