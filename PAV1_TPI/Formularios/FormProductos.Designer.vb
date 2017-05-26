@@ -34,9 +34,8 @@ Partial Class FormProductos
         Me.precio_lista = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_rubro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_fabrica = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dado_de_baja = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_dado_de_baja = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txt_idBUSCAR = New System.Windows.Forms.MaskedTextBox()
         Me.cbo_fabrica = New System.Windows.Forms.ComboBox()
         Me.cbo_rubro = New System.Windows.Forms.ComboBox()
         Me.lbl_fabrica = New System.Windows.Forms.Label()
@@ -58,10 +57,9 @@ Partial Class FormProductos
         Me.txt_stock = New System.Windows.Forms.MaskedTextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.gb_busqueda = New System.Windows.Forms.GroupBox()
-        Me.btn_buscarFABRICA = New System.Windows.Forms.Button()
-        Me.btn_buscarRUBRO = New System.Windows.Forms.Button()
-        Me.btn_buscarID = New System.Windows.Forms.Button()
+        Me.cmb_habilitado = New System.Windows.Forms.ComboBox()
         Me.cbo_fabricaBUSCAR = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.cbo_rubroBUSCAR = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -70,6 +68,7 @@ Partial Class FormProductos
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
+        Me.txt_idBUSCAR = New System.Windows.Forms.TextBox()
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_listado.SuspendLayout()
         Me.gb_datos.SuspendLayout()
@@ -92,7 +91,7 @@ Partial Class FormProductos
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_productos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_productos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_producto, Me.descrip, Me.stock, Me.precio_lista, Me.id_rubro, Me.id_fabrica, Me.dado_de_baja})
+        Me.dgv_productos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_producto, Me.descrip, Me.stock, Me.precio_lista, Me.id_rubro, Me.id_fabrica, Me.col_dado_de_baja})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -114,7 +113,7 @@ Partial Class FormProductos
         Me.dgv_productos.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgv_productos.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.dgv_productos.Size = New System.Drawing.Size(683, 531)
+        Me.dgv_productos.Size = New System.Drawing.Size(677, 531)
         Me.dgv_productos.TabIndex = 3
         '
         'id_producto
@@ -159,33 +158,23 @@ Partial Class FormProductos
         Me.id_fabrica.ReadOnly = True
         Me.id_fabrica.Width = 120
         '
-        'dado_de_baja
+        'col_dado_de_baja
         '
-        Me.dado_de_baja.HeaderText = "dado_de_baja"
-        Me.dado_de_baja.Name = "dado_de_baja"
-        Me.dado_de_baja.ReadOnly = True
-        Me.dado_de_baja.Visible = False
+        Me.col_dado_de_baja.HeaderText = "dado_de_baja"
+        Me.col_dado_de_baja.Name = "col_dado_de_baja"
+        Me.col_dado_de_baja.ReadOnly = True
+        Me.col_dado_de_baja.Visible = False
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Black
-        Me.Label7.Location = New System.Drawing.Point(46, 37)
+        Me.Label7.Location = New System.Drawing.Point(46, 27)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(80, 17)
         Me.Label7.TabIndex = 0
         Me.Label7.Text = "Id. producto"
-        '
-        'txt_idBUSCAR
-        '
-        Me.txt_idBUSCAR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_idBUSCAR.Location = New System.Drawing.Point(132, 34)
-        Me.txt_idBUSCAR.Mask = "999"
-        Me.txt_idBUSCAR.Name = "txt_idBUSCAR"
-        Me.txt_idBUSCAR.Size = New System.Drawing.Size(124, 25)
-        Me.txt_idBUSCAR.TabIndex = 1
-        Me.txt_idBUSCAR.ValidatingType = GetType(Integer)
         '
         'cbo_fabrica
         '
@@ -439,99 +428,77 @@ Partial Class FormProductos
         '
         'gb_busqueda
         '
-        Me.gb_busqueda.Controls.Add(Me.btn_buscarFABRICA)
-        Me.gb_busqueda.Controls.Add(Me.btn_buscarRUBRO)
-        Me.gb_busqueda.Controls.Add(Me.btn_buscarID)
+        Me.gb_busqueda.Controls.Add(Me.txt_idBUSCAR)
+        Me.gb_busqueda.Controls.Add(Me.cmb_habilitado)
         Me.gb_busqueda.Controls.Add(Me.cbo_fabricaBUSCAR)
+        Me.gb_busqueda.Controls.Add(Me.Label5)
         Me.gb_busqueda.Controls.Add(Me.cbo_rubroBUSCAR)
         Me.gb_busqueda.Controls.Add(Me.Label1)
         Me.gb_busqueda.Controls.Add(Me.Label2)
         Me.gb_busqueda.Controls.Add(Me.Label7)
-        Me.gb_busqueda.Controls.Add(Me.txt_idBUSCAR)
         Me.gb_busqueda.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gb_busqueda.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.gb_busqueda.Location = New System.Drawing.Point(746, 384)
+        Me.gb_busqueda.Location = New System.Drawing.Point(746, 369)
         Me.gb_busqueda.Name = "gb_busqueda"
-        Me.gb_busqueda.Size = New System.Drawing.Size(382, 133)
+        Me.gb_busqueda.Size = New System.Drawing.Size(382, 180)
         Me.gb_busqueda.TabIndex = 7
         Me.gb_busqueda.TabStop = False
         Me.gb_busqueda.Text = "Búsqueda"
         '
-        'btn_buscarFABRICA
+        'cmb_habilitado
         '
-        Me.btn_buscarFABRICA.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_buscarFABRICA.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_buscarFABRICA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_buscarFABRICA.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_buscarFABRICA.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
-        Me.btn_buscarFABRICA.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscarFABRICA.Location = New System.Drawing.Point(345, 96)
-        Me.btn_buscarFABRICA.Name = "btn_buscarFABRICA"
-        Me.btn_buscarFABRICA.Size = New System.Drawing.Size(25, 25)
-        Me.btn_buscarFABRICA.TabIndex = 16
-        Me.btn_buscarFABRICA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_buscarFABRICA.UseVisualStyleBackColor = True
-        '
-        'btn_buscarRUBRO
-        '
-        Me.btn_buscarRUBRO.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_buscarRUBRO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_buscarRUBRO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_buscarRUBRO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_buscarRUBRO.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
-        Me.btn_buscarRUBRO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscarRUBRO.Location = New System.Drawing.Point(345, 65)
-        Me.btn_buscarRUBRO.Name = "btn_buscarRUBRO"
-        Me.btn_buscarRUBRO.Size = New System.Drawing.Size(25, 25)
-        Me.btn_buscarRUBRO.TabIndex = 8
-        Me.btn_buscarRUBRO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_buscarRUBRO.UseVisualStyleBackColor = True
-        '
-        'btn_buscarID
-        '
-        Me.btn_buscarID.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_buscarID.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_buscarID.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_buscarID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_buscarID.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
-        Me.btn_buscarID.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscarID.Location = New System.Drawing.Point(345, 34)
-        Me.btn_buscarID.Name = "btn_buscarID"
-        Me.btn_buscarID.Size = New System.Drawing.Size(25, 25)
-        Me.btn_buscarID.TabIndex = 2
-        Me.btn_buscarID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_buscarID.UseVisualStyleBackColor = True
+        Me.cmb_habilitado.BackColor = System.Drawing.Color.White
+        Me.cmb_habilitado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_habilitado.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmb_habilitado.ForeColor = System.Drawing.Color.Black
+        Me.cmb_habilitado.FormattingEnabled = True
+        Me.cmb_habilitado.Items.AddRange(New Object() {"Si", "No", "Ambos"})
+        Me.cmb_habilitado.Location = New System.Drawing.Point(131, 114)
+        Me.cmb_habilitado.Name = "cmb_habilitado"
+        Me.cmb_habilitado.Size = New System.Drawing.Size(207, 25)
+        Me.cmb_habilitado.TabIndex = 15
         '
         'cbo_fabricaBUSCAR
         '
         Me.cbo_fabricaBUSCAR.BackColor = System.Drawing.Color.White
+        Me.cbo_fabricaBUSCAR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbo_fabricaBUSCAR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_fabricaBUSCAR.ForeColor = System.Drawing.Color.Black
         Me.cbo_fabricaBUSCAR.FormattingEnabled = True
-        Me.cbo_fabricaBUSCAR.Location = New System.Drawing.Point(132, 96)
+        Me.cbo_fabricaBUSCAR.Location = New System.Drawing.Point(131, 83)
         Me.cbo_fabricaBUSCAR.Name = "cbo_fabricaBUSCAR"
         Me.cbo_fabricaBUSCAR.Size = New System.Drawing.Size(207, 25)
         Me.cbo_fabricaBUSCAR.TabIndex = 15
-        Me.cbo_fabricaBUSCAR.Text = "(seleccione fábrica)"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Black
+        Me.Label5.Location = New System.Drawing.Point(57, 117)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(68, 17)
+        Me.Label5.TabIndex = 14
+        Me.Label5.Text = "Habilitado"
         '
         'cbo_rubroBUSCAR
         '
         Me.cbo_rubroBUSCAR.BackColor = System.Drawing.Color.White
+        Me.cbo_rubroBUSCAR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbo_rubroBUSCAR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_rubroBUSCAR.ForeColor = System.Drawing.Color.Black
         Me.cbo_rubroBUSCAR.FormattingEnabled = True
-        Me.cbo_rubroBUSCAR.Location = New System.Drawing.Point(132, 65)
+        Me.cbo_rubroBUSCAR.Location = New System.Drawing.Point(131, 52)
         Me.cbo_rubroBUSCAR.Name = "cbo_rubroBUSCAR"
         Me.cbo_rubroBUSCAR.Size = New System.Drawing.Size(207, 25)
         Me.cbo_rubroBUSCAR.TabIndex = 13
-        Me.cbo_rubroBUSCAR.Text = "(seleccione rubro)"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(76, 99)
+        Me.Label1.Location = New System.Drawing.Point(75, 86)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(50, 17)
         Me.Label1.TabIndex = 14
@@ -542,7 +509,7 @@ Partial Class FormProductos
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(82, 68)
+        Me.Label2.Location = New System.Drawing.Point(81, 55)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(44, 17)
         Me.Label2.TabIndex = 12
@@ -553,7 +520,7 @@ Partial Class FormProductos
         Me.lbl_msj.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.lbl_msj.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_msj.ForeColor = System.Drawing.Color.White
-        Me.lbl_msj.Location = New System.Drawing.Point(746, 520)
+        Me.lbl_msj.Location = New System.Drawing.Point(743, 555)
         Me.lbl_msj.Name = "lbl_msj"
         Me.lbl_msj.Size = New System.Drawing.Size(382, 36)
         Me.lbl_msj.TabIndex = 17
@@ -565,7 +532,7 @@ Partial Class FormProductos
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
         Me.Label3.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
-        Me.Label3.Location = New System.Drawing.Point(1019, 591)
+        Me.Label3.Location = New System.Drawing.Point(1019, 594)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(109, 33)
         Me.Label3.TabIndex = 16
@@ -598,7 +565,7 @@ Partial Class FormProductos
         Me.btn_eliminar.Name = "btn_eliminar"
         Me.btn_eliminar.Size = New System.Drawing.Size(105, 45)
         Me.btn_eliminar.TabIndex = 5
-        Me.btn_eliminar.Text = "Eliminar"
+        Me.btn_eliminar.Text = "Cancelar"
         Me.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_eliminar.UseVisualStyleBackColor = True
         '
@@ -617,6 +584,13 @@ Partial Class FormProductos
         Me.btn_nuevo.Text = "Nuevo"
         Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_nuevo.UseVisualStyleBackColor = True
+        '
+        'txt_idBUSCAR
+        '
+        Me.txt_idBUSCAR.Location = New System.Drawing.Point(131, 23)
+        Me.txt_idBUSCAR.Name = "txt_idBUSCAR"
+        Me.txt_idBUSCAR.Size = New System.Drawing.Size(100, 25)
+        Me.txt_idBUSCAR.TabIndex = 16
         '
         'FormProductos
         '
@@ -652,7 +626,6 @@ Partial Class FormProductos
 
     Friend WithEvents dgv_productos As DataGridView
     Friend WithEvents Label7 As Label
-    Friend WithEvents txt_idBUSCAR As MaskedTextBox
     Friend WithEvents cbo_fabrica As ComboBox
     Friend WithEvents cbo_rubro As ComboBox
     Friend WithEvents lbl_fabrica As Label
@@ -668,7 +641,6 @@ Partial Class FormProductos
     Friend WithEvents btn_nuevo As Button
     Friend WithEvents btn_eliminar As Button
     Friend WithEvents btn_guardar As Button
-    Friend WithEvents btn_buscarID As Button
     Friend WithEvents lbl_fabricaERROR As Label
     Friend WithEvents lbl_rubroERROR As Label
     Friend WithEvents lbl_precioERROR As Label
@@ -677,20 +649,21 @@ Partial Class FormProductos
     Friend WithEvents cbo_rubroBUSCAR As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents btn_buscarFABRICA As Button
-    Friend WithEvents btn_buscarRUBRO As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents lbl_msj As Label
     Friend WithEvents lbl_descripcionERROR As Label
     Friend WithEvents txt_id As System.Windows.Forms.TextBox
-    Friend WithEvents id_producto As DataGridViewTextBoxColumn
-    Friend WithEvents descrip As DataGridViewTextBoxColumn
-    Friend WithEvents stock As DataGridViewTextBoxColumn
-    Friend WithEvents precio_lista As DataGridViewTextBoxColumn
-    Friend WithEvents id_rubro As DataGridViewTextBoxColumn
-    Friend WithEvents id_fabrica As DataGridViewTextBoxColumn
-    Friend WithEvents dado_de_baja As DataGridViewTextBoxColumn
     Friend WithEvents lbl_stock As Label
     Friend WithEvents txt_stock As MaskedTextBox
+    Friend WithEvents cmb_habilitado As System.Windows.Forms.ComboBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents id_producto As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents descrip As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents stock As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents precio_lista As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_rubro As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_fabrica As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents col_dado_de_baja As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents txt_idBUSCAR As System.Windows.Forms.TextBox
 End Class

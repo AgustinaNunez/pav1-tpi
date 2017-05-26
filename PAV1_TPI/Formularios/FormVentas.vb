@@ -657,7 +657,7 @@ Public Class FormVentas
             Dim tabla_productos As New DataTable
             Dim sql_actualizar_productos As String = ""
             For c = 0 To Me.dgv_detalle.Rows.Count - 1
-                sql_actualizar_productos &= "UPDATE productos SET stock = " & Me.dgv_detalle.Rows(c).Cells(5).Value
+                sql_actualizar_productos &= "UPDATE productos SET stock = stock - " & Convert.ToInt32(Me.dgv_detalle.Rows(c).Cells(5).Value)
                 sql_actualizar_productos &= " WHERE id_producto = " & Me.dgv_detalle.Rows(c).Cells(0).Value
                 SoporteBD.escribirBD_transaccion(sql_actualizar_productos)
                 sql_actualizar_productos = ""

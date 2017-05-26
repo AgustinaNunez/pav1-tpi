@@ -73,6 +73,7 @@ stock integer,
 precio_lista float,
 id_rubro integer,
 id_fabrica integer,
+dado_de_baja bit,
 CONSTRAINT pk_productos PRIMARY KEY (id_producto),
 CONSTRAINT fk_rubro FOREIGN KEY (id_rubro) REFERENCES rubros(id_rubro),
 CONSTRAINT fk_farbrica FOREIGN KEY (id_fabrica) REFERENCES fabricas(id_fabrica)
@@ -140,7 +141,7 @@ monto_vxfp float,
 id_cupon integer,
 id_banco integer,
 id_entidad_crediticia integer,
-CONSTRAINT pk_ventas_forma_pago PRIMARY KEY (id_forma_pago, id_venta),
+CONSTRAINT pk_ventas_forma_pago PRIMARY KEY (id_forma_pago, id_venta, id_entidad_crediticia, id_banco),
 CONSTRAINT fk_venta_fp FOREIGN KEY (id_venta) REFERENCES ventas(id_venta),
 CONSTRAINT fk_forma_pago_fp FOREIGN KEY (id_forma_pago) REFERENCES formas_pago(id_forma_pago),
 CONSTRAINT fk_cupon FOREIGN KEY (id_cupon) REFERENCES cupon(id_cupon),
@@ -179,7 +180,7 @@ INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (1,'EFECTIVO',0.
 INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (2,'DÉBITO',0.15)
 INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (3,'CRÉDITO',0.00)
 
-INSERT INTO rubros(id_rubro,nombre) VALUES(0,'Remeras')
+INSERT INTO rubros(id_rubro,nombre) VALUES(0,'(Seleccionar valor')
 INSERT INTO rubros(id_rubro,nombre) VALUES(1,'Jean')
 INSERT INTO rubros(id_rubro,nombre) VALUES(2,'Jean Chupin')
 INSERT INTO rubros(id_rubro,nombre) VALUES(3,'Calzas')
@@ -202,7 +203,7 @@ INSERT INTO rubros(id_rubro,nombre) VALUES(19,'Tapados')
 INSERT INTO rubros(id_rubro,nombre) VALUES(20,'Vestidos')
 INSERT INTO rubros(id_rubro,nombre) VALUES(21,'Chalecos')
 
-INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (0,'Sisa',01146827047)
+INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (0,'Seleccionar valor',01146827047)
 INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (1,'47 Street',03487434551)
 INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (2,'Sara',01145236582)
 INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (3,'Shira',011452875315)
@@ -214,31 +215,31 @@ INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (8,'Chocolate',011437388
 INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (9,'Complot',02204853490)
 INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (10,'De la Ostia',03624464981)
 
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (0,'Campera verde', 1, 750,	10,1)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (1,'Jean nevado celeste', 1, 645, 2,2)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (2,'Camisa Hindú', 1, 320, 2,3)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (3,'Sweater Hilo Estampado', 1, 480,	3,9)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (4,'Buzo con Mickey', 1,650,	12,5)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (5,'Musculosa lisa blanca', 0, 350,3,10)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (6,'Musculosa lisa negra', 0, 275,	3,4)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (7,'Campera vaquera celeste', 1, 545,	3,5)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (8,'Buzo gris mangas 3/4',	1, 635,	12,7)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (9,'Sweater grueso azul marino', 1,12,3,8)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (10,'Chalina verde con detalles dorados',2, 150,9,10)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (11,'Remera mangas largas c/inscripción', 0, 340,3,3)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (12,'Chupin negro',2, 650,	3,4)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (13,'Gorro verde militar', 2, 150,	14,7)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (14,'Mochila portanotebook cuero bordó',1, 870,3,6)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (15,'Cartera color beige', 1, 450,	3,2)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (16,'Saquito de lana gris', 1, 575,19,1)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (17,'Vestido verde estampado', 1, 700,	20,9)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (18,'Soquetes rallados rosa', 10, 50,	3,8)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (19,'Campera de cuero negro', 2, 950,	3,5)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (20,'Pulseras de plata',3, 120,14,8)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (21,'Aros c/ detalle violeta', 3, 70,14,2)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (22,'Buzo blanco c/inscripción',1, 480,12,3)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (23,'Cartera de mano estampada',1, 350,	3,6)
-INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica) VALUES (24,'Remera violeta',0, 275,3,10)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (0,'Campera verde', 1, 750,10,1,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (1,'Jean nevado celeste', 1, 645, 2,2,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (2,'Camisa Hindú', 1, 320, 2,3,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (3,'Sweater Hilo Estampado', 1, 480,3,9,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (4,'Buzo con Mickey', 1,650,12,5,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (5,'Musculosa lisa blanca', 0, 350,3,10,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (6,'Musculosa lisa negra', 0, 275,	3,4,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (7,'Campera vaquera celeste', 1, 545,3,5,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (8,'Buzo gris mangas 3/4',	1, 635,	12,7,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (9,'Sweater grueso azul marino', 1,12,3,8,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (10,'Chalina verde con detalles dorados',2, 150,9,10,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (11,'Remera mangas largas c/inscripción', 0, 340,3,3,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (12,'Chupin negro',2, 650,	3,4,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (13,'Gorro verde militar', 2, 150,	14,7,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (14,'Mochila portanotebook cuero bordó',1, 870,3,6,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (15,'Cartera color beige', 1, 450,	3,2,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (16,'Saquito de lana gris', 1, 575,19,1,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (17,'Vestido verde estampado', 1, 700,20,9,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (18,'Soquetes rallados rosa', 10, 50,3,8,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (19,'Campera de cuero negro', 2, 950,3,5,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (20,'Pulseras de plata',3, 120,14,8,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (21,'Aros c/ detalle violeta', 3, 70,14,2,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (22,'Buzo blanco c/inscripción',1, 480,12,3,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (23,'Cartera de mano estampada',1, 350,3,6,0)
+INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (24,'Remera violeta',0, 275,3,10,0)
 
 
 INSERT INTO usuarios(id_usuario,nombre,apellido,contraseña,fecha_alta) VALUES('62719','Juan Ignacio','Van Heerden','37665760',(convert(datetime,'21-05-17 10:34:09 PM',5)))

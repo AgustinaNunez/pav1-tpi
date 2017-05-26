@@ -318,6 +318,16 @@ Public Class FormCompras
                 sql_insertar_detalle = ""
             Next
 
+
+            'ACTUALIZAR STOCK DE PRODUCTOS
+            Dim tabla_productos As New DataTable
+            Dim sql_actualizar_productos As String = ""
+            For c = 0 To Me.dgv_compras.Rows.Count - 1
+                sql_actualizar_productos &= "UPDATE productos SET stock = stock + " & Convert.ToInt32(Me.dgv_compras.Rows(c).Cells(1).Value)
+                sql_actualizar_productos &= " WHERE id_producto = " & Me.dgv_compras.Rows(c).Cells(3).Value
+            Next
+
+
             MessageBox.Show("Compra registrada.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Information)
             SoporteBD.cerrar_conexion_con_transaccion()
             estado_actual_transaccion = estado_transaccion._sin_iniciar
@@ -330,6 +340,6 @@ Public Class FormCompras
     End Sub
 
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
-
+        Me.Close()
     End Sub
 End Class
