@@ -9,6 +9,8 @@ Public Class FormVentas
     Dim frmCupon As New FormCupones_Registrar
     Dim total_con_descuento_sinfp As Double = 0
     Private estado_actual_transaccion As estado_transaccion = estado_transaccion._sin_iniciar
+    Dim flag_cupon_debito As Boolean = False
+    Dim flag_cupon_credito As Boolean = False
 
     Enum estado_transaccion
         _iniciada
@@ -271,31 +273,40 @@ Public Class FormVentas
         Dim pago_debito As Integer = 2
         Dim pago_credito As Integer = 3
         Dim c As Integer
-        For c = 0 To Me.dgv_formaPago.Rows.Count - 1
-            If pago_debito = Me.dgv_formaPago.Rows(c).Cells("col_id_formapago").Value Then
-                Dim frmCupon As New FormCupones_Registrar
-                frmCupon.ShowDialog()
-                If SoporteGUI.respuesta_ventana = Windows.Forms.DialogResult.OK Then
-                    Me.btn_guardarVENTA.Enabled = True
-                    Me.btn_agregarCUPON.Enabled = False
-                End If
-            End If
 
-            If pago_credito = Me.dgv_formaPago.Rows(c).Cells("col_id_formapago").Value Then
-                Dim frmCupon As New FormCupones_Registrar
-                frmCupon.ShowDialog()
-                'If frmCupon.ShowDialog() = Windows.Forms.DialogResult.OK Then
-                If SoporteGUI.respuesta_ventana = Windows.Forms.DialogResult.OK Then
-                    Me.btn_guardarVENTA.Enabled = True
-                    Me.btn_agregarCUPON.Enabled = False
-                End If
+        If pago_debito = Me.dgv_formaPago.CurrentRow.Cells("col_id_formapago").Value Then
+            Me.flag_cupon_debito = True
+            Me.dgv_formaPago.CurrentRow.Cells("col_flag").Value = False
+            Cupon.precio = Math.Round(Me.dgv_formaPago.Rows(c).Cells("col_montoDTO").Value)
+            Dim frmCupon As New FormCupones_Registrar
+            frmCupon.ShowDialog()
+            If SoporteGUI.respuesta_ventana = Windows.Forms.DialogResult.OK Then
+                For Each row As DataGridViewRow In Me.dgv_formaPago.Rows
+                    If CBool(row.Cells("col_flag").Value) = False Then
+                        row.ReadOnly = True
+                    End If
+                Next
+                Me.btn_guardarVENTA.Enabled = True
+                Me.btn_agregarCUPON.Enabled = False
             End If
-        Next
+        End If
 
-        'Dim frmCupon As New FormCupones
-        'frmCupon.ShowDialog()
-        'Me.btn_guardarVENTA.Enabled = True
-        'Me.btn_agregarCUPON.Enabled = False
+        If pago_credito = Me.dgv_formaPago.CurrentRow.Cells("col_id_formapago").Value Then
+            Me.flag_cupon_credito = True
+            Me.dgv_formaPago.CurrentRow.Cells("col_flag").Value = False
+            Cupon.precio = Math.Round(Me.dgv_formaPago.CurrentRow.Cells("col_montoDTO").Value)
+            Dim frmCupon As New FormCupones_Registrar
+            frmCupon.ShowDialog()
+            If SoporteGUI.respuesta_ventana = Windows.Forms.DialogResult.OK Then
+                For Each row As DataGridViewRow In Me.dgv_formaPago.Rows
+                    If CBool(row.Cells("col_flag").Value) = False Then
+                        row.ReadOnly = True
+                    End If
+                Next
+                Me.btn_guardarVENTA.Enabled = True
+                Me.btn_agregarCUPON.Enabled = False
+            End If
+        End If
 
     End Sub
 
@@ -362,17 +373,17 @@ Public Class FormVentas
 
         If cmb_formaPago.SelectedValue <> 3 Then
             If cmb_formaPago.SelectedValue = 1 Then
-                Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, Math.Round((1 - porcentaje) * monto_sin_descuento), Me.cmb_formaPago.SelectedValue)
+                Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, Math.Round((1 - porcentaje) * monto_sin_descuento), Me.cmb_formaPago.SelectedValue, True)
                 Me.calcular_monto_formapago()
                 Me.calcular_total_con_dto_formapago()
                 Me.btn_guardarVENTA.Enabled = True
             Else
-                Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, Math.Round((1 - porcentaje) * monto_sin_descuento), Me.cmb_formaPago.SelectedValue)
+                Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, Math.Round((1 - porcentaje) * monto_sin_descuento), Me.cmb_formaPago.SelectedValue, True)
                 Me.calcular_monto_formapago()
                 Me.calcular_total_con_dto_formapago()
             End If
         Else
-            Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, Math.Round(monto_sin_descuento), Me.cmb_formaPago.SelectedValue)
+            Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, Math.Round(monto_sin_descuento), Me.cmb_formaPago.SelectedValue, True)
             Me.calcular_monto_formapago()
             Me.calcular_total_con_dto_formapago()
         End If
@@ -416,13 +427,25 @@ Public Class FormVentas
     Private Sub dgv_formaPago_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_formaPago.CellContentClick
 
         If dgv_formaPago.CurrentRow.Cells(0).Value = "DÉBITO" Then
-            Me.btn_agregarCUPON.Visible = True
-            Me.btn_agregarCUPON.Enabled = True
+            If flag_cupon_debito = False Then
+                Me.btn_agregarCUPON.Visible = True
+                Me.btn_agregarCUPON.Enabled = True
+            Else
+                Me.btn_agregarCUPON.Visible = True
+                Me.btn_agregarCUPON.Enabled = False
+            End If
+
         End If
 
         If dgv_formaPago.CurrentRow.Cells(0).Value = "CRÉDITO" Then
-            Me.btn_agregarCUPON.Visible = True
-            Me.btn_agregarCUPON.Enabled = True
+            If flag_cupon_credito = False Then
+                Me.btn_agregarCUPON.Visible = True
+                Me.btn_agregarCUPON.Enabled = True
+            Else
+                Me.btn_agregarCUPON.Visible = True
+                Me.btn_agregarCUPON.Enabled = False
+            End If
+
         End If
 
         If dgv_formaPago.CurrentRow.Cells(0).Value = "EFECTIVO" Then
@@ -453,6 +476,9 @@ Public Class FormVentas
     End Function
 
     Private Sub btn_eliminarFORMAPAGO_Click(sender As Object, e As EventArgs) Handles btn_eliminarFORMAPAGO.Click
+        Dim pago_debito As Integer = 2
+        Dim pago_credito As Integer = 3
+
         If Me.dgv_formaPago.Rows.Count = 0 Then
             Me.limpiar_camposFORMAPAGO()
             Me.txt_totalVENTA.Text = obtener_subtotal()
@@ -470,6 +496,19 @@ Public Class FormVentas
             Me.btn_agregarCUPON.Visible = False
             Me.btn_guardarVENTA.Enabled = False
         End If
+
+        If pago_debito = Me.dgv_formaPago.CurrentRow.Cells("col_id_formapago").Value Then
+            flag_cupon_debito = False
+            Me.btn_agregarCUPON.Visible = False
+            Me.btn_agregarCUPON.Enabled = True
+        End If
+
+        If pago_debito = Me.dgv_formaPago.CurrentRow.Cells("col_id_formapago").Value Then
+            flag_cupon_debito = False
+            Me.btn_agregarCUPON.Visible = False
+            Me.btn_agregarCUPON.Enabled = True
+        End If
+
 
         Me.btn_agregarFORMAPAGO.Enabled = True
         Me.btn_eliminarFORMAPAGO.Enabled = False

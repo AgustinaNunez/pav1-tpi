@@ -8,6 +8,7 @@
         Me.txt_numero_cupon.Focus()
         SoporteGUI.cargar_combo(cmb_banco, SoporteBD.leerBD_simple("SELECT * FROM bancos"), "id_banco", "nombre")
         SoporteGUI.cargar_combo(cmb_entidad, SoporteBD.leerBD_simple("SELECT * FROM entidades_crediticias"), "id_entidad_crediticia", "nombre")
+        Me.txt_precio.Text = Cupon.precio
     End Sub
 
 

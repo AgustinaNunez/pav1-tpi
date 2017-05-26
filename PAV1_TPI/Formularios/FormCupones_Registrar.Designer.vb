@@ -224,6 +224,7 @@ Partial Class FormCupones_Registrar
         '
         'txt_precio
         '
+        Me.txt_precio.Enabled = False
         Me.txt_precio.Location = New System.Drawing.Point(143, 152)
         Me.txt_precio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_precio.Name = "txt_precio"
@@ -241,7 +242,7 @@ Partial Class FormCupones_Registrar
         Me.lbl_precioERROR.Text = "   "
         Me.lbl_precioERROR.Visible = False
         '
-        'FormCupones
+        'FormCupones_Registrar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -272,7 +273,7 @@ Partial Class FormCupones_Registrar
         Me.ImeMode = System.Windows.Forms.ImeMode.Off
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
-        Me.Name = "FormCupones"
+        Me.Name = "FormCupones_Registrar"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Cupón"
