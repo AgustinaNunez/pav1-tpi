@@ -134,7 +134,10 @@ Public Class FormProductos
         Me.accion = tipo_grabacion.modificar
         Me.habilitar_campos()
         Me.btn_guardar.Enabled = True
-        Me.btn_eliminar.Enabled = True
+        If Me.dgv_productos.CurrentRow.Cells("stock").Value = 0 Then
+            Me.btn_eliminar.Enabled = True
+        End If
+
     End Sub
 
     Private Sub insertar()
@@ -236,6 +239,7 @@ Public Class FormProductos
     End Sub
 
     Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
+
         If MessageBox.Show("¿Está seguro de cancelar el producto " & Me.txt_descrip.Text & " ?", "Error", MessageBoxButtons.OKCancel) = Windows.Forms.DialogResult.OK Then
             Dim sql As String = ""
             sql &= "UPDATE productos SET dado_de_baja = 1 WHERE id_producto = " & Me.txt_id.Text
@@ -248,6 +252,8 @@ Public Class FormProductos
         If Me.dgv_productos.CurrentCell.Selected = False Then
             lbl_msj.Text = " Falta seleccionar dato."
         End If
+
+
     End Sub
 
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
@@ -390,12 +396,9 @@ Public Class FormProductos
             End If
         End If
 
-
-
-
         If cmb_habilitado.SelectedIndex = -1 Then
 
-            If cbo_fabricaBUSCAR.SelectedIndex = -1 Then
+            If cbo_fabricaBUSCAR.SelectedIndex = 0 Then
 
                 If cbo_rubroBUSCAR.SelectedIndex = 0 Then
 

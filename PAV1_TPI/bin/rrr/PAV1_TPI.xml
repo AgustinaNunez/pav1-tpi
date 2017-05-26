@@ -35,7 +35,23 @@ PAV1_TPI
 	<summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.cancel_button">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.cancel_button32">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.cancel_button321">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
 </member><member name="P:PAV1_TPI.My.Resources.Resources.check_mark">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.check_mark1">
 	<summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
@@ -87,11 +103,19 @@ PAV1_TPI
 	<summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.plus_circular_button">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
 </member><member name="P:PAV1_TPI.My.Resources.Resources.plus_circular_button32">
 	<summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member><member name="P:PAV1_TPI.My.Resources.Resources.puerta">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAV1_TPI.My.Resources.Resources.trash_bin">
 	<summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
