@@ -135,8 +135,19 @@ Public Class FormProductos
         Me.habilitar_campos()
         Me.btn_guardar.Enabled = True
         If Me.dgv_productos.CurrentRow.Cells("stock").Value = 0 Then
-            Me.btn_eliminar.Enabled = True
+            If Me.dgv_productos.CurrentRow.Cells("col_dado_de_baja").Value = False Then
+                Me.btn_eliminar.Enabled = True
+                Me.btn_eliminar.Visible = True
+                Me.btn_habilitar.Visible = False
+                Me.btn_habilitar.Enabled = False
+            Else
+                Me.btn_eliminar.Enabled = False
+                Me.btn_eliminar.Visible = False
+                Me.btn_habilitar.Visible = True
+                Me.btn_habilitar.Enabled = True
+            End If
         End If
+
 
     End Sub
 
@@ -240,13 +251,14 @@ Public Class FormProductos
 
     Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
 
-        If MessageBox.Show("¿Está seguro de cancelar el producto " & Me.txt_descrip.Text & " ?", "Error", MessageBoxButtons.OKCancel) = Windows.Forms.DialogResult.OK Then
+        If MessageBox.Show("¿Está seguro de deshabilitar el producto " & Me.txt_descrip.Text & " ?", "Error", MessageBoxButtons.OKCancel) = Windows.Forms.DialogResult.OK Then
             Dim sql As String = ""
             sql &= "UPDATE productos SET dado_de_baja = 1 WHERE id_producto = " & Me.txt_id.Text
             SoporteBD.leerBD_simple(sql)
             deshabilitar_campos()
             Me.btn_eliminar.Enabled = False
             Me.btn_guardar.Enabled = False
+            Me.cargar_productos()
         End If
 
         If Me.dgv_productos.CurrentCell.Selected = False Then
@@ -336,7 +348,6 @@ Public Class FormProductos
     Private Sub cmb_habilitado_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_habilitado.SelectedIndexChanged
         buscador_general()
     End Sub
-
 
     Private Sub cbo_rubroBUSCAR_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbo_rubroBUSCAR.SelectedValueChanged
         buscador_general()
@@ -676,4 +687,20 @@ Public Class FormProductos
         buscador_general()
     End Sub
 
+    Private Sub btn_habilitar_Click(sender As Object, e As EventArgs) Handles btn_habilitar.Click
+        If MessageBox.Show("¿Está seguro de habilitar el producto " & Me.txt_descrip.Text & " ?", "Error", MessageBoxButtons.OKCancel) = Windows.Forms.DialogResult.OK Then
+            Dim sql As String = ""
+            sql &= "UPDATE productos SET dado_de_baja = 0 WHERE id_producto = " & Me.txt_id.Text
+            SoporteBD.leerBD_simple(sql)
+            deshabilitar_campos()
+            Me.btn_habilitar.Visible = False
+            Me.btn_habilitar.Enabled = False
+            Me.btn_guardar.Enabled = False
+            Me.cargar_productos()
+        End If
+
+        If Me.dgv_productos.CurrentCell.Selected = False Then
+            lbl_msj.Text = " Falta seleccionar dato."
+        End If
+    End Sub
 End Class

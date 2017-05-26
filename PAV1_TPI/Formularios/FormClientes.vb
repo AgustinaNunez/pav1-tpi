@@ -296,49 +296,6 @@
 
     End Sub
 
-    'SUBRUTINA PARA BUSCAR Y ENCONTRAR UN CLIENTE X NUMERO Y TIPO DE DOCUMENTO
-    Private Sub btn_buscar_cliente_Click(sender As Object, e As EventArgs) Handles btn_buscar_cliente.Click
-        If txt_numero_documento_cliente_busqueda.Text = "" Then
-            Me.cargar_grilla_cliente()
-            Me.txt_numero_documento_cliente_busqueda.Focus()
-
-        Else
-            Dim sql As String = ""
-            sql &= "SELECT * FROM clientes c JOIN tipo_documento td ON c.tipo_documento = td.id_tipo_documento "
-            sql &= " WHERE td.nombre_tipo_documento = '" & Me.cmb_tipo_documento_cliente_busqueda.Text & "'"
-            sql &= " AND c.numero_documento LIKE '%" & Me.txt_numero_documento_cliente_busqueda.Text & "%'"
-            Dim tabla As New DataTable
-            tabla = SoporteBD.leerBD_simple(sql)
-
-            If tabla.Rows.Count = 0 Then
-                'MessageBox.Show("No se encontró ningún cliente.", "Clientes", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.limpiar_campos()
-                Me.lbl_msj.Text = "No se encontró ningún cliente."
-                Me.lbl_msj.Visible = True
-                Me.cargar_grilla_cliente()
-                Return
-            End If
-
-            Me.limpiar_campos()
-            Dim c As Integer
-            Me.dgv_clientes.Rows.Clear()
-            For c = 0 To tabla.Rows.Count - 1
-                Me.dgv_clientes.Rows.Add()
-                Me.dgv_clientes.Rows(c).Cells(0).Value = tabla.Rows(c)("apellido_cliente")
-                Me.dgv_clientes.Rows(c).Cells(1).Value = tabla.Rows(c)("nombre_cliente")
-                Me.dgv_clientes.Rows(c).Cells(2).Value = tabla.Rows(c)("nombre_tipo_documento")
-                Me.dgv_clientes.Rows(c).Cells(3).Value = tabla.Rows(c)("numero_documento")
-                Me.dgv_clientes.Rows(c).Cells(4).Value = tabla.Rows(c)("e_mail_cliente")
-                Me.dgv_clientes.Rows(c).Cells(5).Value = tabla.Rows(c)("telefono_cliente")
-            Next
-
-            'limpio campos
-            Me.txt_numero_documento_cliente_busqueda.Text = ""
-            Me.cmb_tipo_documento_cliente_busqueda.SelectedIndex = -1
-
-        End If
-
-    End Sub
 
     Private Sub btn_seleccionar_Click(sender As Object, e As EventArgs) Handles btn_seleccionar.Click
         Dim sql As String = ""
@@ -390,30 +347,30 @@
         Return flag
     End Function
 
-    'FUNCION PARA VALIDAR DATOS A GUARDAR
-    'Private Function validar_datos() As respuesta_validacion
-    '    For Each obj As Windows.Forms.Control In Me.Controls
-    '        If obj.GetType().Name = "TextBox" Or obj.GetType().Name = "MaskedTextBox" Then
-    '            If obj.Text = "" Then
-    '                MsgBox("El campo " + obj.Name + "esta vacio.", MsgBoxStyle.OkOnly, "Error")
-    '                obj.Focus()
-    '                Return respuesta_validacion._error
-    '            End If
-    '        End If
+    Private Sub txt_numero_documento_cliente_busqueda_TextChanged(sender As Object, e As EventArgs) Handles txt_numero_documento_cliente_busqueda.TextChanged
+        If txt_numero_documento_cliente_busqueda.Text = "" Then
+            Me.cargar_grilla_cliente()
+            Return
+        Else
+            Dim sql As String = ""
+            sql &= "SELECT * FROM clientes c JOIN tipo_documento td ON c.tipo_documento = td.id_tipo_documento "
+            sql &= " WHERE td.nombre_tipo_documento = '" & Me.cmb_tipo_documento_cliente_busqueda.Text & "'"
+            sql &= " AND c.numero_documento LIKE '%" & Me.txt_numero_documento_cliente_busqueda.Text & "%'"
+            Dim tabla As New DataTable
+            tabla = SoporteBD.leerBD_simple(sql)
 
-    '        If obj.GetType().Name = "ComboBox" Then
-    '            Dim local As ComboBox = obj
-    '            If local.SelectedValue = -1 Then
-    '                MsgBox("El campo " + obj.Name + "esta vacio.", MsgBoxStyle.OkOnly, "Error")
-    '                obj.Focus()
-    '                Return respuesta_validacion._error
-    '            End If
-    '        End If
-    '    Next
-    '    Return respuesta_validacion._ok
-    'End Function
+            Dim c As Integer
+            Me.dgv_clientes.Rows.Clear()
+            For c = 0 To tabla.Rows.Count - 1
+                Me.dgv_clientes.Rows.Add()
+                Me.dgv_clientes.Rows(c).Cells(0).Value = tabla.Rows(c)("apellido_cliente")
+                Me.dgv_clientes.Rows(c).Cells(1).Value = tabla.Rows(c)("nombre_cliente")
+                Me.dgv_clientes.Rows(c).Cells(2).Value = tabla.Rows(c)("nombre_tipo_documento")
+                Me.dgv_clientes.Rows(c).Cells(3).Value = tabla.Rows(c)("numero_documento")
+                Me.dgv_clientes.Rows(c).Cells(4).Value = tabla.Rows(c)("e_mail_cliente")
+                Me.dgv_clientes.Rows(c).Cells(5).Value = tabla.Rows(c)("telefono_cliente")
+            Next
 
-    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
-
+        End If
     End Sub
 End Class

@@ -36,3 +36,7 @@ C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\rrr\PAV1_TPI.FormUsuarios.r
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\rrr\PAV1_TPI.FormVentas.resources
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\rrr\PAV1_TPI.Resources.resources
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\rrr\PAV1_TPI.vbproj.GenerateResource.Cache
+C:\Users\juani\Desktop\pav1-tpi\PAV1_TPI\bin\rrr\PAV1_TPI.exe.config
+C:\Users\juani\Desktop\pav1-tpi\PAV1_TPI\obj\rrr\PAV1_TPI.exe
+C:\Users\juani\Desktop\pav1-tpi\PAV1_TPI\obj\rrr\PAV1_TPI.xml
+C:\Users\juani\Desktop\pav1-tpi\PAV1_TPI\obj\rrr\PAV1_TPI.pdb

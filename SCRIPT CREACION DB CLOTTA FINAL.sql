@@ -155,6 +155,7 @@ INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (2
 INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (3,'LE')
 INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (4,'S/D')
 
+INSERT INTO bancos(id_banco, nombre, telefono) VALUES (0,'(Seleccionar banco)',013842)
 INSERT INTO bancos(id_banco, nombre, telefono) VALUES (1,'Galicia',013842)
 INSERT INTO bancos(id_banco, nombre, telefono) VALUES (2,'Santander Rio',083143)
 INSERT INTO bancos(id_banco, nombre, telefono) VALUES (3,'Banco Nación',083202)
@@ -170,6 +171,8 @@ INSERT INTO bancos(id_banco, nombre, telefono) VALUES (12,'Hipotecario',4308424)
 INSERT INTO bancos(id_banco, nombre, telefono) VALUES (13,'Supervielle',208434)
 INSERT INTO bancos(id_banco, nombre, telefono) VALUES (14,'City Bank', 3284)
 
+
+INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (0,'(Seleccionar tarjeta)',32480)
 INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (1,'VISA',32480)
 INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (2,'Master Card',32483)
 INSERT INTO entidades_crediticias(id_entidad_crediticia, nombre, telefono) VALUES (3,'Naranja',32040)

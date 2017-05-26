@@ -44,7 +44,6 @@ Partial Class FormClientes
         Me.txt_telefono_cliente_carga = New System.Windows.Forms.MaskedTextBox()
         Me.cmb_tipo_documento_cliente_busqueda = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.btn_buscar_cliente = New System.Windows.Forms.Button()
         Me.dgv_clientes = New System.Windows.Forms.DataGridView()
         Me.col_apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -258,22 +257,6 @@ Partial Class FormClientes
         Me.Label8.TabIndex = 1
         Me.Label8.Text = "Documento:"
         '
-        'btn_buscar_cliente
-        '
-        Me.btn_buscar_cliente.BackColor = System.Drawing.Color.White
-        Me.btn_buscar_cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_buscar_cliente.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_buscar_cliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_buscar_cliente.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
-        Me.btn_buscar_cliente.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscar_cliente.Location = New System.Drawing.Point(408, 33)
-        Me.btn_buscar_cliente.Name = "btn_buscar_cliente"
-        Me.btn_buscar_cliente.Size = New System.Drawing.Size(122, 25)
-        Me.btn_buscar_cliente.TabIndex = 2
-        Me.btn_buscar_cliente.Text = "Buscar Cliente"
-        Me.btn_buscar_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_buscar_cliente.UseVisualStyleBackColor = False
-        '
         'dgv_clientes
         '
         Me.dgv_clientes.AllowUserToAddRows = False
@@ -373,7 +356,6 @@ Partial Class FormClientes
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.cmb_tipo_documento_cliente_busqueda)
         Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.btn_buscar_cliente)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.GroupBox1.Location = New System.Drawing.Point(8, 50)
@@ -580,7 +562,6 @@ Partial Class FormClientes
     Friend WithEvents txt_telefono_cliente_carga As System.Windows.Forms.MaskedTextBox
     Friend WithEvents cmb_tipo_documento_cliente_busqueda As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents btn_buscar_cliente As System.Windows.Forms.Button
     Friend WithEvents dgv_clientes As System.Windows.Forms.DataGridView
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox

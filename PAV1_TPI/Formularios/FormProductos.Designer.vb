@@ -57,6 +57,7 @@ Partial Class FormProductos
         Me.txt_stock = New System.Windows.Forms.MaskedTextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.gb_busqueda = New System.Windows.Forms.GroupBox()
+        Me.txt_idBUSCAR = New System.Windows.Forms.TextBox()
         Me.cmb_habilitado = New System.Windows.Forms.ComboBox()
         Me.cbo_fabricaBUSCAR = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -68,7 +69,7 @@ Partial Class FormProductos
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
-        Me.txt_idBUSCAR = New System.Windows.Forms.TextBox()
+        Me.btn_habilitar = New System.Windows.Forms.Button()
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_listado.SuspendLayout()
         Me.gb_datos.SuspendLayout()
@@ -445,6 +446,13 @@ Partial Class FormProductos
         Me.gb_busqueda.TabStop = False
         Me.gb_busqueda.Text = "Búsqueda"
         '
+        'txt_idBUSCAR
+        '
+        Me.txt_idBUSCAR.Location = New System.Drawing.Point(131, 23)
+        Me.txt_idBUSCAR.Name = "txt_idBUSCAR"
+        Me.txt_idBUSCAR.Size = New System.Drawing.Size(100, 25)
+        Me.txt_idBUSCAR.TabIndex = 16
+        '
         'cmb_habilitado
         '
         Me.cmb_habilitado.BackColor = System.Drawing.Color.White
@@ -563,11 +571,12 @@ Partial Class FormProductos
         Me.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_eliminar.Location = New System.Drawing.Point(968, 318)
         Me.btn_eliminar.Name = "btn_eliminar"
-        Me.btn_eliminar.Size = New System.Drawing.Size(105, 45)
+        Me.btn_eliminar.Size = New System.Drawing.Size(117, 45)
         Me.btn_eliminar.TabIndex = 5
-        Me.btn_eliminar.Text = "Cancelar"
+        Me.btn_eliminar.Text = "Deshabilitar"
         Me.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_eliminar.UseVisualStyleBackColor = True
+        Me.btn_eliminar.Visible = False
         '
         'btn_nuevo
         '
@@ -585,12 +594,22 @@ Partial Class FormProductos
         Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_nuevo.UseVisualStyleBackColor = True
         '
-        'txt_idBUSCAR
+        'btn_habilitar
         '
-        Me.txt_idBUSCAR.Location = New System.Drawing.Point(131, 23)
-        Me.txt_idBUSCAR.Name = "txt_idBUSCAR"
-        Me.txt_idBUSCAR.Size = New System.Drawing.Size(100, 25)
-        Me.txt_idBUSCAR.TabIndex = 16
+        Me.btn_habilitar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_habilitar.Enabled = False
+        Me.btn_habilitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_habilitar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_habilitar.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
+        Me.btn_habilitar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_habilitar.Location = New System.Drawing.Point(968, 318)
+        Me.btn_habilitar.Name = "btn_habilitar"
+        Me.btn_habilitar.Size = New System.Drawing.Size(117, 45)
+        Me.btn_habilitar.TabIndex = 5
+        Me.btn_habilitar.Text = "Habilitar"
+        Me.btn_habilitar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_habilitar.UseVisualStyleBackColor = True
+        Me.btn_habilitar.Visible = False
         '
         'FormProductos
         '
@@ -602,6 +621,7 @@ Partial Class FormProductos
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.gb_busqueda)
         Me.Controls.Add(Me.btn_guardar)
+        Me.Controls.Add(Me.btn_habilitar)
         Me.Controls.Add(Me.btn_eliminar)
         Me.Controls.Add(Me.btn_nuevo)
         Me.Controls.Add(Me.Label8)
@@ -666,4 +686,5 @@ Partial Class FormProductos
     Friend WithEvents id_fabrica As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents col_dado_de_baja As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents txt_idBUSCAR As System.Windows.Forms.TextBox
+    Friend WithEvents btn_habilitar As System.Windows.Forms.Button
 End Class

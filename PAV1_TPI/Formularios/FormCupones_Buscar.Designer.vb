@@ -96,7 +96,7 @@ Partial Class FormCupones_Buscar
         Me.cmb_tarjetaBUSCAR.Name = "cmb_tarjetaBUSCAR"
         Me.cmb_tarjetaBUSCAR.Size = New System.Drawing.Size(176, 25)
         Me.cmb_tarjetaBUSCAR.TabIndex = 24
-        Me.cmb_tarjetaBUSCAR.Text = "(seleccione Tarjeta)"
+        Me.cmb_tarjetaBUSCAR.Text = "(Seleccionar Tarjeta)"
         '
         'cmb_bancoBUSCAR
         '
@@ -109,7 +109,7 @@ Partial Class FormCupones_Buscar
         Me.cmb_bancoBUSCAR.Name = "cmb_bancoBUSCAR"
         Me.cmb_bancoBUSCAR.Size = New System.Drawing.Size(176, 25)
         Me.cmb_bancoBUSCAR.TabIndex = 22
-        Me.cmb_bancoBUSCAR.Text = "(seleccione Banco)"
+        Me.cmb_bancoBUSCAR.Text = "(Seleccionar Banco)"
         '
         'Label3
         '
@@ -176,7 +176,7 @@ Partial Class FormCupones_Buscar
         '
         'id_tarjeta
         '
-        Me.id_tarjeta.HeaderText = "Nro. Tarjeta"
+        Me.id_tarjeta.HeaderText = "Tarjeta"
         Me.id_tarjeta.Name = "id_tarjeta"
         Me.id_tarjeta.Width = 120
         '
@@ -204,7 +204,7 @@ Partial Class FormCupones_Buscar
         Me.id_cupon.Name = "id_cupon"
         Me.id_cupon.Visible = False
         '
-        'FormCuponesBusqueda
+        'FormCupones_Buscar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -216,7 +216,7 @@ Partial Class FormCupones_Buscar
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Name = "FormCuponesBusqueda"
+        Me.Name = "FormCupones_Buscar"
         Me.Text = "Cupones Registrados"
         CType(Me.grid1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
@@ -233,11 +233,11 @@ Partial Class FormCupones_Buscar
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label2 As Label
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents numero_lote As DataGridViewTextBoxColumn
-    Friend WithEvents numero_autorizacion_online As DataGridViewTextBoxColumn
-    Friend WithEvents id_tarjeta As DataGridViewTextBoxColumn
-    Friend WithEvents nombre_banco As DataGridViewTextBoxColumn
-    Friend WithEvents monto As DataGridViewTextBoxColumn
-    Friend WithEvents id_banco As DataGridViewTextBoxColumn
-    Friend WithEvents id_cupon As DataGridViewTextBoxColumn
+    Friend WithEvents numero_lote As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents numero_autorizacion_online As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_tarjeta As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nombre_banco As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents monto As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_banco As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_cupon As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
