@@ -17,6 +17,7 @@ Public Class FormVentas
     End Enum
 
     Private Sub FormVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        SoporteGUI.tipo_form_ACTUAL = SoporteGUI.tipo_form.transaccion
         SoporteGUI.cargar_combo(cmb_tipoDocCLIENTE, SoporteBD.leerBD_simple("SELECT * FROM tipo_documento"), "id_tipo_documento", "nombre_tipo_documento")
         SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos ORDER BY descripcion"), "id_producto", "descripcion")
         SoporteGUI.cargar_combo(cmb_formaPago, SoporteBD.leerBD_simple("SELECT * FROM formas_pago ORDER BY nombre"), "id_forma_pago", "nombre")

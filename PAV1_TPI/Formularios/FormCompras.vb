@@ -17,6 +17,7 @@ Public Class FormCompras
 
     'LOADER DE COMPRAS
     Private Sub form_compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        SoporteGUI.tipo_form_ACTUAL = SoporteGUI.tipo_form.transaccion
         SoporteGUI.cargar_combo(cmb_fabrica, SoporteBD.leerBD_simple("SELECT * FROM fabricas"), "id_fabrica", "nombre")
         Me.cmb_fabrica.SelectedIndex = -1
         Me.limpiar_campos_detalle()

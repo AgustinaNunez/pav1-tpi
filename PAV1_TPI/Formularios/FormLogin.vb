@@ -57,6 +57,8 @@ Public Class FormLogin
             'SI NO EXISTE EL USUARIO...
             If tabla.Rows.Count = 0 Then
                 Me.mostrar_mensaje("El usuario ingresado no existe.")
+                Me.limpiar_campos()
+                Me.txt_nombre.Focus()
             Else
                 'SI EXISTE EL USUARIO...
                 Dim sql2 As String = "SELECT * FROM usuarios WHERE id_usuario = " & Me.txt_nombre.Text & " AND contraseña = " & Me.txt_clave.Text & ""
@@ -65,6 +67,8 @@ Public Class FormLogin
                 'SI LA CLAVE ESTA MAL
                 If tabla2.Rows.Count = 0 Then
                     Me.mostrar_mensaje("La clave ingresada es incorrecta.")
+                    Me.txt_clave.Text = ""
+                    Me.txt_clave.Focus()
                 Else
                     'SI LA CLAVE ESTA BIEN
                     Usuario.login(tabla2)
