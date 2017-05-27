@@ -6,7 +6,6 @@ Public Class FormVentas
     Dim total As Double = 0
     Dim flag As Boolean = False
     Dim valor_monto_inicial As Double
-    Dim frmCupon As New FormCupones_Registrar
     Dim total_con_descuento_sinfp As Double = 0
     Private estado_actual_transaccion As estado_transaccion = estado_transaccion._sin_iniciar
     Dim flag_cupon_debito As Boolean = False
@@ -99,12 +98,12 @@ Public Class FormVentas
             Dim precio As Integer = Convert.ToDouble(Me.txt_precio.Text)
             Me.dgv_detalle.Rows.Add(Me.cmb_producto.SelectedValue, Me.cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cantidad * precio, Me.stock_final)
             Me.calcular_subtotal()
-                'Me.habilitar_camposPAGO()
-                Me.limpiar_camposDETALLE()
-                Me.txt_dtoVENTA.Enabled = True
-                Me.chk_descuento.Enabled = True
-                Me.btn_cancelarVENTA.Enabled = True
-            End If
+            'Me.habilitar_camposPAGO()
+            Me.limpiar_camposDETALLE()
+            Me.txt_dtoVENTA.Enabled = True
+            Me.chk_descuento.Enabled = True
+            Me.btn_cancelarVENTA.Enabled = True
+        End If
     End Sub
 
     Private Function stock_disponible(ByRef id_producto As Integer)
@@ -278,7 +277,7 @@ Public Class FormVentas
             Me.flag_cupon_debito = True
             Me.dgv_formaPago.CurrentRow.Cells("col_flag").Value = False
             Cupon.precio = Math.Round(Me.dgv_formaPago.Rows(c).Cells("col_montoDTO").Value)
-            Dim frmCupon As New FormCupones_Registrar
+            Dim frmCupon As New FormVentasFormasPago
             frmCupon.ShowDialog()
             If SoporteGUI.respuesta_ventana = Windows.Forms.DialogResult.OK Then
                 For Each row As DataGridViewRow In Me.dgv_formaPago.Rows
@@ -295,7 +294,7 @@ Public Class FormVentas
             Me.flag_cupon_credito = True
             Me.dgv_formaPago.CurrentRow.Cells("col_flag").Value = False
             Cupon.precio = Math.Round(Me.dgv_formaPago.CurrentRow.Cells("col_montoDTO").Value)
-            Dim frmCupon As New FormCupones_Registrar
+            Dim frmCupon As New FormVentasFormasPago
             frmCupon.ShowDialog()
             If SoporteGUI.respuesta_ventana = Windows.Forms.DialogResult.OK Then
                 For Each row As DataGridViewRow In Me.dgv_formaPago.Rows
@@ -815,5 +814,10 @@ Public Class FormVentas
 
     Private Sub btn_borrarCLIENTE_Click(sender As Object, e As EventArgs) Handles btn_borrarCLIENTE.Click
         Me.limpiar_camposCLIENTE()
+    End Sub
+
+    Private Sub btn_formasPago_Click(sender As Object, e As EventArgs) Handles btn_formasPago.Click
+        Dim frm As FormVentasFORMASPAGO
+        frm.ShowDialog()
     End Sub
 End Class

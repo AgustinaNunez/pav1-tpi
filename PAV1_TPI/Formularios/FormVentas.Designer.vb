@@ -34,6 +34,7 @@ Partial Class FormVentas
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormVentas))
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btn_formasPago = New System.Windows.Forms.Button()
         Me.chk_descuento = New System.Windows.Forms.CheckBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txt_usuarioLogueado = New System.Windows.Forms.TextBox()
@@ -50,6 +51,12 @@ Partial Class FormVentas
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.btn_agregarCUPON = New System.Windows.Forms.Button()
         Me.dgv_formaPago = New System.Windows.Forms.DataGridView()
+        Me.forma_pago = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_montoSINDTO = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_montoDTO = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_id_formapago = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_flag = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btn_aceptar = New System.Windows.Forms.Button()
         Me.btn_eliminarFORMAPAGO = New System.Windows.Forms.Button()
         Me.btn_agregarFORMAPAGO = New System.Windows.Forms.Button()
@@ -88,12 +95,6 @@ Partial Class FormVentas
         Me.btn_cancelarVENTA = New System.Windows.Forms.Button()
         Me.btn_nuevaVENTA = New System.Windows.Forms.Button()
         Me.btn_guardarVENTA = New System.Windows.Forms.Button()
-        Me.forma_pago = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_montoSINDTO = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_montoDTO = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_id_formapago = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_flag = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -116,6 +117,7 @@ Partial Class FormVentas
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btn_formasPago)
         Me.GroupBox1.Controls.Add(Me.chk_descuento)
         Me.GroupBox1.Controls.Add(Me.Label16)
         Me.GroupBox1.Controls.Add(Me.txt_usuarioLogueado)
@@ -141,6 +143,25 @@ Partial Class FormVentas
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de la Venta"
+        '
+        'btn_formasPago
+        '
+        Me.btn_formasPago.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_formasPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_formasPago.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_formasPago.ForeColor = System.Drawing.Color.White
+        Me.btn_formasPago.Image = Global.PAV1_TPI.My.Resources.Resources.item_list
+        Me.btn_formasPago.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_formasPago.Location = New System.Drawing.Point(490, 512)
+        Me.btn_formasPago.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_formasPago.Name = "btn_formasPago"
+        Me.btn_formasPago.Size = New System.Drawing.Size(152, 45)
+        Me.btn_formasPago.TabIndex = 15
+        Me.btn_formasPago.Text = "Formas de Pago"
+        Me.btn_formasPago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_formasPago.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.btn_formasPago.UseVisualStyleBackColor = False
+        Me.btn_formasPago.Visible = False
         '
         'chk_descuento
         '
@@ -385,6 +406,48 @@ Partial Class FormVentas
         Me.dgv_formaPago.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.dgv_formaPago.Size = New System.Drawing.Size(423, 99)
         Me.dgv_formaPago.TabIndex = 13
+        '
+        'forma_pago
+        '
+        Me.forma_pago.HeaderText = "Forma de pago"
+        Me.forma_pago.Name = "forma_pago"
+        Me.forma_pago.ReadOnly = True
+        Me.forma_pago.Width = 125
+        '
+        'dto
+        '
+        Me.dto.HeaderText = "% Dto."
+        Me.dto.Name = "dto"
+        Me.dto.ReadOnly = True
+        Me.dto.Width = 80
+        '
+        'col_montoSINDTO
+        '
+        Me.col_montoSINDTO.HeaderText = "s/ Dto."
+        Me.col_montoSINDTO.Name = "col_montoSINDTO"
+        Me.col_montoSINDTO.ReadOnly = True
+        Me.col_montoSINDTO.Width = 80
+        '
+        'col_montoDTO
+        '
+        Me.col_montoDTO.HeaderText = "c/ Dto."
+        Me.col_montoDTO.Name = "col_montoDTO"
+        Me.col_montoDTO.ReadOnly = True
+        Me.col_montoDTO.Width = 80
+        '
+        'col_id_formapago
+        '
+        Me.col_id_formapago.HeaderText = "id_forma_pago"
+        Me.col_id_formapago.Name = "col_id_formapago"
+        Me.col_id_formapago.ReadOnly = True
+        Me.col_id_formapago.Visible = False
+        '
+        'col_flag
+        '
+        Me.col_flag.HeaderText = "flag"
+        Me.col_flag.Name = "col_flag"
+        Me.col_flag.ReadOnly = True
+        Me.col_flag.Visible = False
         '
         'btn_aceptar
         '
@@ -887,48 +950,6 @@ Partial Class FormVentas
         Me.btn_guardarVENTA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_guardarVENTA.UseVisualStyleBackColor = True
         '
-        'forma_pago
-        '
-        Me.forma_pago.HeaderText = "Forma de pago"
-        Me.forma_pago.Name = "forma_pago"
-        Me.forma_pago.ReadOnly = True
-        Me.forma_pago.Width = 125
-        '
-        'dto
-        '
-        Me.dto.HeaderText = "% Dto."
-        Me.dto.Name = "dto"
-        Me.dto.ReadOnly = True
-        Me.dto.Width = 80
-        '
-        'col_montoSINDTO
-        '
-        Me.col_montoSINDTO.HeaderText = "s/ Dto."
-        Me.col_montoSINDTO.Name = "col_montoSINDTO"
-        Me.col_montoSINDTO.ReadOnly = True
-        Me.col_montoSINDTO.Width = 80
-        '
-        'col_montoDTO
-        '
-        Me.col_montoDTO.HeaderText = "c/ Dto."
-        Me.col_montoDTO.Name = "col_montoDTO"
-        Me.col_montoDTO.ReadOnly = True
-        Me.col_montoDTO.Width = 80
-        '
-        'col_id_formapago
-        '
-        Me.col_id_formapago.HeaderText = "id_forma_pago"
-        Me.col_id_formapago.Name = "col_id_formapago"
-        Me.col_id_formapago.ReadOnly = True
-        Me.col_id_formapago.Visible = False
-        '
-        'col_flag
-        '
-        Me.col_flag.HeaderText = "flag"
-        Me.col_flag.Name = "col_flag"
-        Me.col_flag.ReadOnly = True
-        Me.col_flag.Visible = False
-        '
         'FormVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -1023,4 +1044,5 @@ Partial Class FormVentas
     Friend WithEvents col_montoDTO As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents col_id_formapago As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents col_flag As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btn_formasPago As Button
 End Class

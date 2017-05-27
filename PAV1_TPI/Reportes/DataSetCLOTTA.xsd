@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetCLOTTA" targetNamespace="http://tempuri.org/DataSetCLOTTA.xsd" xmlns:mstns="http://tempuri.org/DataSetCLOTTA.xsd" xmlns="http://tempuri.org/DataSetCLOTTA.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetCLOTTA" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetCLOTTA" msprop:Generator_UserDSName="DataSetCLOTTA">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="t_cupones" msprop:Generator_TableClassName="t_cuponesDataTable" msprop:Generator_TableVarName="tablet_cupones" msprop:Generator_TablePropName="t_cupones" msprop:Generator_RowDeletingName="t_cuponesRowDeleting" msprop:Generator_RowChangingName="t_cuponesRowChanging" msprop:Generator_RowEvHandlerName="t_cuponesRowChangeEventHandler" msprop:Generator_RowDeletedName="t_cuponesRowDeleted" msprop:Generator_UserTableName="t_cupones" msprop:Generator_RowChangedName="t_cuponesRowChanged" msprop:Generator_RowEvArgName="t_cuponesRowChangeEvent" msprop:Generator_RowClassName="t_cuponesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_cupon" msprop:Generator_ColumnVarNameInTable="columnid_cupon" msprop:Generator_ColumnPropNameInRow="id_cupon" msprop:Generator_ColumnPropNameInTable="id_cuponColumn" msprop:Generator_UserColumnName="id_cupon" type="xs:string" minOccurs="0" />
+              <xs:element name="numero_lote" msprop:Generator_ColumnVarNameInTable="columnnumero_lote" msprop:Generator_ColumnPropNameInRow="numero_lote" msprop:Generator_ColumnPropNameInTable="numero_loteColumn" msprop:Generator_UserColumnName="numero_lote" type="xs:string" minOccurs="0" />
+              <xs:element name="numero_autorizacion_online" msprop:Generator_ColumnVarNameInTable="columnnumero_autorizacion_online" msprop:Generator_ColumnPropNameInRow="numero_autorizacion_online" msprop:Generator_ColumnPropNameInTable="numero_autorizacion_onlineColumn" msprop:Generator_UserColumnName="numero_autorizacion_online" type="xs:string" minOccurs="0" />
+              <xs:element name="precio" msprop:Generator_ColumnVarNameInTable="columnprecio" msprop:Generator_ColumnPropNameInRow="precio" msprop:Generator_ColumnPropNameInTable="precioColumn" msprop:Generator_UserColumnName="precio" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="t_ventas" msprop:Generator_TableClassName="t_ventasDataTable" msprop:Generator_TableVarName="tablet_ventas" msprop:Generator_TablePropName="t_ventas" msprop:Generator_RowDeletingName="t_ventasRowDeleting" msprop:Generator_RowChangingName="t_ventasRowChanging" msprop:Generator_RowEvHandlerName="t_ventasRowChangeEventHandler" msprop:Generator_RowDeletedName="t_ventasRowDeleted" msprop:Generator_UserTableName="t_ventas" msprop:Generator_RowChangedName="t_ventasRowChanged" msprop:Generator_RowEvArgName="t_ventasRowChangeEvent" msprop:Generator_RowClassName="t_ventasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_venta" msprop:Generator_ColumnVarNameInTable="columnid_venta" msprop:Generator_ColumnPropNameInRow="id_venta" msprop:Generator_ColumnPropNameInTable="id_ventaColumn" msprop:Generator_UserColumnName="id_venta" type="xs:string" minOccurs="0" />
+              <xs:element name="fecha_venta" msprop:Generator_ColumnVarNameInTable="columnfecha_venta" msprop:Generator_ColumnPropNameInRow="fecha_venta" msprop:Generator_ColumnPropNameInTable="fecha_ventaColumn" msprop:Generator_UserColumnName="fecha_venta" type="xs:string" minOccurs="0" />
+              <xs:element name="hora_venta" msprop:Generator_ColumnVarNameInTable="columnhora_venta" msprop:Generator_ColumnPropNameInRow="hora_venta" msprop:Generator_ColumnPropNameInTable="hora_ventaColumn" msprop:Generator_UserColumnName="hora_venta" type="xs:string" minOccurs="0" />
+              <xs:element name="id_usuario" msprop:Generator_ColumnVarNameInTable="columnid_usuario" msprop:Generator_ColumnPropNameInRow="id_usuario" msprop:Generator_ColumnPropNameInTable="id_usuarioColumn" msprop:Generator_UserColumnName="id_usuario" type="xs:string" minOccurs="0" />
+              <xs:element name="numero_documento_cliente" msprop:Generator_ColumnVarNameInTable="columnnumero_documento_cliente" msprop:Generator_ColumnPropNameInRow="numero_documento_cliente" msprop:Generator_ColumnPropNameInTable="numero_documento_clienteColumn" msprop:Generator_UserColumnName="numero_documento_cliente" type="xs:string" minOccurs="0" />
+              <xs:element name="tipo_documento_cliente" msprop:Generator_ColumnVarNameInTable="columntipo_documento_cliente" msprop:Generator_ColumnPropNameInRow="tipo_documento_cliente" msprop:Generator_ColumnPropNameInTable="tipo_documento_clienteColumn" msprop:Generator_UserColumnName="tipo_documento_cliente" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="t_detalle_ventas" msprop:Generator_TableClassName="t_detalle_ventasDataTable" msprop:Generator_TableVarName="tablet_detalle_ventas" msprop:Generator_TablePropName="t_detalle_ventas" msprop:Generator_RowDeletingName="t_detalle_ventasRowDeleting" msprop:Generator_RowChangingName="t_detalle_ventasRowChanging" msprop:Generator_RowEvHandlerName="t_detalle_ventasRowChangeEventHandler" msprop:Generator_RowDeletedName="t_detalle_ventasRowDeleted" msprop:Generator_UserTableName="t_detalle_ventas" msprop:Generator_RowChangedName="t_detalle_ventasRowChanged" msprop:Generator_RowEvArgName="t_detalle_ventasRowChangeEvent" msprop:Generator_RowClassName="t_detalle_ventasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_venta" msprop:Generator_ColumnVarNameInTable="columnid_venta" msprop:Generator_ColumnPropNameInRow="id_venta" msprop:Generator_ColumnPropNameInTable="id_ventaColumn" msprop:Generator_UserColumnName="id_venta" type="xs:string" minOccurs="0" />
+              <xs:element name="id_producto" msprop:Generator_ColumnVarNameInTable="columnid_producto" msprop:Generator_ColumnPropNameInRow="id_producto" msprop:Generator_ColumnPropNameInTable="id_productoColumn" msprop:Generator_UserColumnName="id_producto" type="xs:string" minOccurs="0" />
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:string" minOccurs="0" />
+              <xs:element name="precio_unitario" msprop:Generator_ColumnVarNameInTable="columnprecio_unitario" msprop:Generator_ColumnPropNameInRow="precio_unitario" msprop:Generator_ColumnPropNameInTable="precio_unitarioColumn" msprop:Generator_UserColumnName="precio_unitario" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

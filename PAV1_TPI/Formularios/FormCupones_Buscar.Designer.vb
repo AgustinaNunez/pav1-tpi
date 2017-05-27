@@ -24,6 +24,13 @@ Partial Class FormCupones_Buscar
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormCupones_Buscar))
         Me.grid1 = New System.Windows.Forms.DataGridView()
+        Me.numero_lote = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.numero_autorizacion_online = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_tarjeta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_banco = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_banco = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_cupon = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btn_buscarTARJETA = New System.Windows.Forms.Button()
         Me.btn_buscarBANCO = New System.Windows.Forms.Button()
         Me.cmb_tarjetaBUSCAR = New System.Windows.Forms.ComboBox()
@@ -32,13 +39,6 @@ Partial Class FormCupones_Buscar
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.numero_lote = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.numero_autorizacion_online = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_tarjeta = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre_banco = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_banco = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_cupon = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.grid1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
@@ -52,6 +52,48 @@ Partial Class FormCupones_Buscar
         Me.grid1.Name = "grid1"
         Me.grid1.Size = New System.Drawing.Size(651, 327)
         Me.grid1.TabIndex = 3
+        '
+        'numero_lote
+        '
+        Me.numero_lote.HeaderText = "Nro. Lote"
+        Me.numero_lote.Name = "numero_lote"
+        Me.numero_lote.Width = 90
+        '
+        'numero_autorizacion_online
+        '
+        Me.numero_autorizacion_online.HeaderText = "Nro. Autorización"
+        Me.numero_autorizacion_online.Name = "numero_autorizacion_online"
+        Me.numero_autorizacion_online.Width = 140
+        '
+        'id_tarjeta
+        '
+        Me.id_tarjeta.HeaderText = "Tarjeta"
+        Me.id_tarjeta.Name = "id_tarjeta"
+        Me.id_tarjeta.Width = 120
+        '
+        'nombre_banco
+        '
+        Me.nombre_banco.HeaderText = "Banco"
+        Me.nombre_banco.Name = "nombre_banco"
+        Me.nombre_banco.Width = 150
+        '
+        'monto
+        '
+        Me.monto.HeaderText = "Monto"
+        Me.monto.Name = "monto"
+        Me.monto.Width = 80
+        '
+        'id_banco
+        '
+        Me.id_banco.HeaderText = "id_banco"
+        Me.id_banco.Name = "id_banco"
+        Me.id_banco.Visible = False
+        '
+        'id_cupon
+        '
+        Me.id_cupon.HeaderText = "id_cupon"
+        Me.id_cupon.Name = "id_cupon"
+        Me.id_cupon.Visible = False
         '
         'btn_buscarTARJETA
         '
@@ -161,48 +203,6 @@ Partial Class FormCupones_Buscar
         Me.GroupBox3.TabIndex = 50
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Filtrar cupones por..."
-        '
-        'numero_lote
-        '
-        Me.numero_lote.HeaderText = "Nro. Lote"
-        Me.numero_lote.Name = "numero_lote"
-        Me.numero_lote.Width = 90
-        '
-        'numero_autorizacion_online
-        '
-        Me.numero_autorizacion_online.HeaderText = "Nro. Autorización"
-        Me.numero_autorizacion_online.Name = "numero_autorizacion_online"
-        Me.numero_autorizacion_online.Width = 140
-        '
-        'id_tarjeta
-        '
-        Me.id_tarjeta.HeaderText = "Tarjeta"
-        Me.id_tarjeta.Name = "id_tarjeta"
-        Me.id_tarjeta.Width = 120
-        '
-        'nombre_banco
-        '
-        Me.nombre_banco.HeaderText = "Banco"
-        Me.nombre_banco.Name = "nombre_banco"
-        Me.nombre_banco.Width = 150
-        '
-        'monto
-        '
-        Me.monto.HeaderText = "Monto"
-        Me.monto.Name = "monto"
-        Me.monto.Width = 80
-        '
-        'id_banco
-        '
-        Me.id_banco.HeaderText = "id_banco"
-        Me.id_banco.Name = "id_banco"
-        Me.id_banco.Visible = False
-        '
-        'id_cupon
-        '
-        Me.id_cupon.HeaderText = "id_cupon"
-        Me.id_cupon.Name = "id_cupon"
-        Me.id_cupon.Visible = False
         '
         'FormCupones_Buscar
         '

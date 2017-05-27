@@ -223,6 +223,16 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property item_list() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("item-list", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property loop_arrow() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("loop-arrow", resourceCulture)
@@ -406,6 +416,26 @@ Namespace My.Resources
         Friend ReadOnly Property user641() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("user641", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property vertical_dots2() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("vertical-dots2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property vertical_dots21() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("vertical-dots21", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

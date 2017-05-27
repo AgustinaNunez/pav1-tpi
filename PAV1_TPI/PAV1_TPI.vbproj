@@ -175,12 +175,6 @@
     <Compile Include="Formularios\FormProductos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FormCupones_Registrar.Designer.vb">
-      <DependentUpon>FormCupones_Registrar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\FormCupones_Registrar.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\FormUsuarios.Designer.vb">
       <DependentUpon>FormUsuarios.vb</DependentUpon>
     </Compile>
@@ -191,6 +185,12 @@
       <DependentUpon>FormVentas.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FormVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormVentasFORMASPAGO.Designer.vb">
+      <DependentUpon>FormVentasFORMASPAGO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormVentasFORMASPAGO.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -238,14 +238,14 @@
     <EmbeddedResource Include="Formularios\FormProductos.resx">
       <DependentUpon>FormProductos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FormCupones_Registrar.resx">
-      <DependentUpon>FormCupones_Registrar.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormUsuarios.resx">
       <DependentUpon>FormUsuarios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormVentas.resx">
       <DependentUpon>FormVentas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormVentasFORMASPAGO.resx">
+      <DependentUpon>FormVentasFORMASPAGO.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -367,6 +367,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cancel-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vertical-dots2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vertical-dots21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item-list.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
