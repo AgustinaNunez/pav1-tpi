@@ -132,6 +132,7 @@
   <ItemGroup>
     <Compile Include="Clases auxiliares\Fabrica.vb" />
     <Compile Include="Clases auxiliares\Producto.vb" />
+    <Compile Include="Clases auxiliares\Venta.vb" />
     <Compile Include="Formularios\FormClientes.Designer.vb">
       <DependentUpon>FormClientes.vb</DependentUpon>
     </Compile>
@@ -376,6 +377,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\item-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item-list1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vertical-dots.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-mark2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volume-level.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new-document.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

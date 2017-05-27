@@ -29,8 +29,6 @@ Partial Class FormVentasFORMASPAGO
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormVentasFORMASPAGO))
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.btn_aceptar = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.dgv_formaPago = New System.Windows.Forms.DataGridView()
         Me.forma_pago = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -39,20 +37,11 @@ Partial Class FormVentasFORMASPAGO
         Me.col_montoDTO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_id_formapago = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_flag = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.btn_eliminarFORMAPAGO = New System.Windows.Forms.Button()
-        Me.btn_agregarFORMAPAGO = New System.Windows.Forms.Button()
         Me.cmb_formaPago = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.lbl_entidadERROR = New System.Windows.Forms.Label()
-        Me.lbl_bancoERROR = New System.Windows.Forms.Label()
         Me.cmb_entidad = New System.Windows.Forms.ComboBox()
         Me.cmb_banco = New System.Windows.Forms.ComboBox()
-        Me.lbl_montoERROR = New System.Windows.Forms.Label()
-        Me.lbl_autorizacionERROR = New System.Windows.Forms.Label()
-        Me.lbl_loteERROR = New System.Windows.Forms.Label()
-        Me.lbl_cuponERROR = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt_monto = New System.Windows.Forms.TextBox()
         Me.txt_numero_autorizacion = New System.Windows.Forms.TextBox()
@@ -64,11 +53,26 @@ Partial Class FormVentasFORMASPAGO
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.txt_subtotal = New System.Windows.Forms.TextBox()
+        Me.txt_subtotalFACTURA = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.lbl_entidadERROR = New System.Windows.Forms.Label()
+        Me.lbl_bancoERROR = New System.Windows.Forms.Label()
+        Me.lbl_montoERROR = New System.Windows.Forms.Label()
+        Me.lbl_autorizacionERROR = New System.Windows.Forms.Label()
+        Me.lbl_loteERROR = New System.Windows.Forms.Label()
+        Me.lbl_cuponERROR = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_eliminarFORMAPAGO = New System.Windows.Forms.Button()
+        Me.btn_agregarFORMAPAGO = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.btn_aceptar = New System.Windows.Forms.Button()
+        Me.txt_totalFACTURA = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3.SuspendLayout()
         CType(Me.dgv_formaPago, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label8
@@ -78,36 +82,10 @@ Partial Class FormVentasFORMASPAGO
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(0, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(910, 47)
+        Me.Label8.Size = New System.Drawing.Size(902, 47)
         Me.Label8.TabIndex = 48
         Me.Label8.Text = "   Formas de Pago"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label4
-        '
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.Black
-        Me.Label4.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
-        Me.Label4.Location = New System.Drawing.Point(780, 421)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(109, 33)
-        Me.Label4.TabIndex = 43
-        '
-        'btn_aceptar
-        '
-        Me.btn_aceptar.BackColor = System.Drawing.Color.White
-        Me.btn_aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_aceptar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_aceptar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
-        Me.btn_aceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_aceptar.Location = New System.Drawing.Point(478, 393)
-        Me.btn_aceptar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_aceptar.Name = "btn_aceptar"
-        Me.btn_aceptar.Size = New System.Drawing.Size(100, 41)
-        Me.btn_aceptar.TabIndex = 41
-        Me.btn_aceptar.Text = "Aceptar"
-        Me.btn_aceptar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_aceptar.UseVisualStyleBackColor = False
         '
         'GroupBox3
         '
@@ -119,7 +97,7 @@ Partial Class FormVentasFORMASPAGO
         Me.GroupBox3.Controls.Add(Me.Label12)
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 103)
+        Me.GroupBox3.Location = New System.Drawing.Point(429, 50)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(460, 351)
         Me.GroupBox3.TabIndex = 49
@@ -209,63 +187,9 @@ Partial Class FormVentasFORMASPAGO
         Me.col_flag.ReadOnly = True
         Me.col_flag.Visible = False
         '
-        'Button1
-        '
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Button1.Enabled = False
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.Button1.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.Location = New System.Drawing.Point(240, 290)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(105, 45)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "Aceptar"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.UseVisualStyleBackColor = True
-        Me.Button1.Visible = False
-        '
-        'btn_eliminarFORMAPAGO
-        '
-        Me.btn_eliminarFORMAPAGO.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_eliminarFORMAPAGO.Enabled = False
-        Me.btn_eliminarFORMAPAGO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_eliminarFORMAPAGO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_eliminarFORMAPAGO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_eliminarFORMAPAGO.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
-        Me.btn_eliminarFORMAPAGO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_eliminarFORMAPAGO.Location = New System.Drawing.Point(129, 290)
-        Me.btn_eliminarFORMAPAGO.Name = "btn_eliminarFORMAPAGO"
-        Me.btn_eliminarFORMAPAGO.Size = New System.Drawing.Size(105, 45)
-        Me.btn_eliminarFORMAPAGO.TabIndex = 10
-        Me.btn_eliminarFORMAPAGO.Text = "Eliminar"
-        Me.btn_eliminarFORMAPAGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_eliminarFORMAPAGO.UseVisualStyleBackColor = True
-        Me.btn_eliminarFORMAPAGO.Visible = False
-        '
-        'btn_agregarFORMAPAGO
-        '
-        Me.btn_agregarFORMAPAGO.Enabled = False
-        Me.btn_agregarFORMAPAGO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_agregarFORMAPAGO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_agregarFORMAPAGO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_agregarFORMAPAGO.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
-        Me.btn_agregarFORMAPAGO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_agregarFORMAPAGO.Location = New System.Drawing.Point(18, 290)
-        Me.btn_agregarFORMAPAGO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_agregarFORMAPAGO.Name = "btn_agregarFORMAPAGO"
-        Me.btn_agregarFORMAPAGO.Size = New System.Drawing.Size(105, 45)
-        Me.btn_agregarFORMAPAGO.TabIndex = 10
-        Me.btn_agregarFORMAPAGO.Text = "Agregar"
-        Me.btn_agregarFORMAPAGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_agregarFORMAPAGO.UseVisualStyleBackColor = True
-        '
         'cmb_formaPago
         '
         Me.cmb_formaPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmb_formaPago.Enabled = False
         Me.cmb_formaPago.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_formaPago.ForeColor = System.Drawing.Color.Black
         Me.cmb_formaPago.FormattingEnabled = True
@@ -293,6 +217,7 @@ Partial Class FormVentasFORMASPAGO
         Me.GroupBox1.Controls.Add(Me.cmb_entidad)
         Me.GroupBox1.Controls.Add(Me.cmb_banco)
         Me.GroupBox1.Controls.Add(Me.lbl_montoERROR)
+        Me.GroupBox1.Controls.Add(Me.btn_aceptar)
         Me.GroupBox1.Controls.Add(Me.lbl_autorizacionERROR)
         Me.GroupBox1.Controls.Add(Me.lbl_loteERROR)
         Me.GroupBox1.Controls.Add(Me.lbl_cuponERROR)
@@ -309,42 +234,17 @@ Partial Class FormVentasFORMASPAGO
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.GroupBox1.Location = New System.Drawing.Point(478, 103)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 164)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(411, 283)
+        Me.GroupBox1.Size = New System.Drawing.Size(411, 331)
         Me.GroupBox1.TabIndex = 50
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del cupón"
         '
-        'lbl_entidadERROR
-        '
-        Me.lbl_entidadERROR.AutoSize = True
-        Me.lbl_entidadERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_entidadERROR.ForeColor = System.Drawing.Color.Black
-        Me.lbl_entidadERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_entidadERROR.Location = New System.Drawing.Point(368, 202)
-        Me.lbl_entidadERROR.Name = "lbl_entidadERROR"
-        Me.lbl_entidadERROR.Size = New System.Drawing.Size(20, 17)
-        Me.lbl_entidadERROR.TabIndex = 66
-        Me.lbl_entidadERROR.Text = "   "
-        Me.lbl_entidadERROR.Visible = False
-        '
-        'lbl_bancoERROR
-        '
-        Me.lbl_bancoERROR.AutoSize = True
-        Me.lbl_bancoERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_bancoERROR.ForeColor = System.Drawing.Color.Black
-        Me.lbl_bancoERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_bancoERROR.Location = New System.Drawing.Point(368, 169)
-        Me.lbl_bancoERROR.Name = "lbl_bancoERROR"
-        Me.lbl_bancoERROR.Size = New System.Drawing.Size(20, 17)
-        Me.lbl_bancoERROR.TabIndex = 65
-        Me.lbl_bancoERROR.Text = "   "
-        Me.lbl_bancoERROR.Visible = False
-        '
         'cmb_entidad
         '
         Me.cmb_entidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_entidad.Enabled = False
         Me.cmb_entidad.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_entidad.ForeColor = System.Drawing.Color.Black
         Me.cmb_entidad.FormattingEnabled = True
@@ -356,6 +256,7 @@ Partial Class FormVentasFORMASPAGO
         'cmb_banco
         '
         Me.cmb_banco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_banco.Enabled = False
         Me.cmb_banco.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_banco.ForeColor = System.Drawing.Color.Black
         Me.cmb_banco.FormattingEnabled = True
@@ -363,58 +264,6 @@ Partial Class FormVentasFORMASPAGO
         Me.cmb_banco.Name = "cmb_banco"
         Me.cmb_banco.Size = New System.Drawing.Size(216, 25)
         Me.cmb_banco.TabIndex = 58
-        '
-        'lbl_montoERROR
-        '
-        Me.lbl_montoERROR.AutoSize = True
-        Me.lbl_montoERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_montoERROR.ForeColor = System.Drawing.Color.Black
-        Me.lbl_montoERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_montoERROR.Location = New System.Drawing.Point(368, 136)
-        Me.lbl_montoERROR.Name = "lbl_montoERROR"
-        Me.lbl_montoERROR.Size = New System.Drawing.Size(20, 17)
-        Me.lbl_montoERROR.TabIndex = 64
-        Me.lbl_montoERROR.Text = "   "
-        Me.lbl_montoERROR.Visible = False
-        '
-        'lbl_autorizacionERROR
-        '
-        Me.lbl_autorizacionERROR.AutoSize = True
-        Me.lbl_autorizacionERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_autorizacionERROR.ForeColor = System.Drawing.Color.Black
-        Me.lbl_autorizacionERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_autorizacionERROR.Location = New System.Drawing.Point(368, 101)
-        Me.lbl_autorizacionERROR.Name = "lbl_autorizacionERROR"
-        Me.lbl_autorizacionERROR.Size = New System.Drawing.Size(20, 17)
-        Me.lbl_autorizacionERROR.TabIndex = 63
-        Me.lbl_autorizacionERROR.Text = "   "
-        Me.lbl_autorizacionERROR.Visible = False
-        '
-        'lbl_loteERROR
-        '
-        Me.lbl_loteERROR.AutoSize = True
-        Me.lbl_loteERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_loteERROR.ForeColor = System.Drawing.Color.Black
-        Me.lbl_loteERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_loteERROR.Location = New System.Drawing.Point(368, 68)
-        Me.lbl_loteERROR.Name = "lbl_loteERROR"
-        Me.lbl_loteERROR.Size = New System.Drawing.Size(20, 17)
-        Me.lbl_loteERROR.TabIndex = 62
-        Me.lbl_loteERROR.Text = "   "
-        Me.lbl_loteERROR.Visible = False
-        '
-        'lbl_cuponERROR
-        '
-        Me.lbl_cuponERROR.AutoSize = True
-        Me.lbl_cuponERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_cuponERROR.ForeColor = System.Drawing.Color.Black
-        Me.lbl_cuponERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
-        Me.lbl_cuponERROR.Location = New System.Drawing.Point(368, 35)
-        Me.lbl_cuponERROR.Name = "lbl_cuponERROR"
-        Me.lbl_cuponERROR.Size = New System.Drawing.Size(20, 17)
-        Me.lbl_cuponERROR.TabIndex = 61
-        Me.lbl_cuponERROR.Text = "   "
-        Me.lbl_cuponERROR.Visible = False
         '
         'Label6
         '
@@ -440,6 +289,7 @@ Partial Class FormVentasFORMASPAGO
         '
         'txt_numero_autorizacion
         '
+        Me.txt_numero_autorizacion.Enabled = False
         Me.txt_numero_autorizacion.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_numero_autorizacion.ForeColor = System.Drawing.Color.Black
         Me.txt_numero_autorizacion.Location = New System.Drawing.Point(146, 98)
@@ -450,6 +300,7 @@ Partial Class FormVentasFORMASPAGO
         '
         'txt_numero_lote
         '
+        Me.txt_numero_lote.Enabled = False
         Me.txt_numero_lote.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_numero_lote.ForeColor = System.Drawing.Color.Black
         Me.txt_numero_lote.Location = New System.Drawing.Point(146, 65)
@@ -460,6 +311,7 @@ Partial Class FormVentasFORMASPAGO
         '
         'txt_numero_cupon
         '
+        Me.txt_numero_cupon.Enabled = False
         Me.txt_numero_cupon.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_numero_cupon.ForeColor = System.Drawing.Color.Black
         Me.txt_numero_cupon.Location = New System.Drawing.Point(146, 32)
@@ -534,41 +386,234 @@ Partial Class FormVentasFORMASPAGO
         Me.Label2.TabIndex = 48
         Me.Label2.Text = "N° Cupón (*)"
         '
-        'txt_subtotal
+        'txt_subtotalFACTURA
         '
-        Me.txt_subtotal.Enabled = False
-        Me.txt_subtotal.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_subtotal.ForeColor = System.Drawing.Color.Black
-        Me.txt_subtotal.Location = New System.Drawing.Point(147, 71)
-        Me.txt_subtotal.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txt_subtotal.Name = "txt_subtotal"
-        Me.txt_subtotal.Size = New System.Drawing.Size(125, 25)
-        Me.txt_subtotal.TabIndex = 68
+        Me.txt_subtotalFACTURA.Enabled = False
+        Me.txt_subtotalFACTURA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_subtotalFACTURA.ForeColor = System.Drawing.Color.Black
+        Me.txt_subtotalFACTURA.Location = New System.Drawing.Point(146, 32)
+        Me.txt_subtotalFACTURA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_subtotalFACTURA.Name = "txt_subtotalFACTURA"
+        Me.txt_subtotalFACTURA.Size = New System.Drawing.Size(125, 25)
+        Me.txt_subtotalFACTURA.TabIndex = 68
+        Me.txt_subtotalFACTURA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Black
-        Me.Label7.Location = New System.Drawing.Point(41, 74)
+        Me.Label7.Location = New System.Drawing.Point(40, 35)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(102, 17)
         Me.Label7.TabIndex = 67
         Me.Label7.Text = "Subtotal Factura"
+        '
+        'lbl_entidadERROR
+        '
+        Me.lbl_entidadERROR.AutoSize = True
+        Me.lbl_entidadERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_entidadERROR.ForeColor = System.Drawing.Color.Black
+        Me.lbl_entidadERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_entidadERROR.Location = New System.Drawing.Point(368, 202)
+        Me.lbl_entidadERROR.Name = "lbl_entidadERROR"
+        Me.lbl_entidadERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_entidadERROR.TabIndex = 66
+        Me.lbl_entidadERROR.Text = "   "
+        Me.lbl_entidadERROR.Visible = False
+        '
+        'lbl_bancoERROR
+        '
+        Me.lbl_bancoERROR.AutoSize = True
+        Me.lbl_bancoERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_bancoERROR.ForeColor = System.Drawing.Color.Black
+        Me.lbl_bancoERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_bancoERROR.Location = New System.Drawing.Point(368, 169)
+        Me.lbl_bancoERROR.Name = "lbl_bancoERROR"
+        Me.lbl_bancoERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_bancoERROR.TabIndex = 65
+        Me.lbl_bancoERROR.Text = "   "
+        Me.lbl_bancoERROR.Visible = False
+        '
+        'lbl_montoERROR
+        '
+        Me.lbl_montoERROR.AutoSize = True
+        Me.lbl_montoERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_montoERROR.ForeColor = System.Drawing.Color.Black
+        Me.lbl_montoERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_montoERROR.Location = New System.Drawing.Point(368, 136)
+        Me.lbl_montoERROR.Name = "lbl_montoERROR"
+        Me.lbl_montoERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_montoERROR.TabIndex = 64
+        Me.lbl_montoERROR.Text = "   "
+        Me.lbl_montoERROR.Visible = False
+        '
+        'lbl_autorizacionERROR
+        '
+        Me.lbl_autorizacionERROR.AutoSize = True
+        Me.lbl_autorizacionERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_autorizacionERROR.ForeColor = System.Drawing.Color.Black
+        Me.lbl_autorizacionERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_autorizacionERROR.Location = New System.Drawing.Point(368, 101)
+        Me.lbl_autorizacionERROR.Name = "lbl_autorizacionERROR"
+        Me.lbl_autorizacionERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_autorizacionERROR.TabIndex = 63
+        Me.lbl_autorizacionERROR.Text = "   "
+        Me.lbl_autorizacionERROR.Visible = False
+        '
+        'lbl_loteERROR
+        '
+        Me.lbl_loteERROR.AutoSize = True
+        Me.lbl_loteERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_loteERROR.ForeColor = System.Drawing.Color.Black
+        Me.lbl_loteERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_loteERROR.Location = New System.Drawing.Point(368, 68)
+        Me.lbl_loteERROR.Name = "lbl_loteERROR"
+        Me.lbl_loteERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_loteERROR.TabIndex = 62
+        Me.lbl_loteERROR.Text = "   "
+        Me.lbl_loteERROR.Visible = False
+        '
+        'lbl_cuponERROR
+        '
+        Me.lbl_cuponERROR.AutoSize = True
+        Me.lbl_cuponERROR.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_cuponERROR.ForeColor = System.Drawing.Color.Black
+        Me.lbl_cuponERROR.Image = Global.PAV1_TPI.My.Resources.Resources.close_cross16
+        Me.lbl_cuponERROR.Location = New System.Drawing.Point(368, 35)
+        Me.lbl_cuponERROR.Name = "lbl_cuponERROR"
+        Me.lbl_cuponERROR.Size = New System.Drawing.Size(20, 17)
+        Me.lbl_cuponERROR.TabIndex = 61
+        Me.lbl_cuponERROR.Text = "   "
+        Me.lbl_cuponERROR.Visible = False
+        '
+        'Button1
+        '
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Button1.Enabled = False
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.Button1.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.Location = New System.Drawing.Point(240, 290)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(105, 45)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "Aceptar"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btn_eliminarFORMAPAGO
+        '
+        Me.btn_eliminarFORMAPAGO.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_eliminarFORMAPAGO.Enabled = False
+        Me.btn_eliminarFORMAPAGO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_eliminarFORMAPAGO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_eliminarFORMAPAGO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_eliminarFORMAPAGO.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
+        Me.btn_eliminarFORMAPAGO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_eliminarFORMAPAGO.Location = New System.Drawing.Point(129, 290)
+        Me.btn_eliminarFORMAPAGO.Name = "btn_eliminarFORMAPAGO"
+        Me.btn_eliminarFORMAPAGO.Size = New System.Drawing.Size(105, 45)
+        Me.btn_eliminarFORMAPAGO.TabIndex = 10
+        Me.btn_eliminarFORMAPAGO.Text = "Eliminar"
+        Me.btn_eliminarFORMAPAGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_eliminarFORMAPAGO.UseVisualStyleBackColor = True
+        '
+        'btn_agregarFORMAPAGO
+        '
+        Me.btn_agregarFORMAPAGO.Enabled = False
+        Me.btn_agregarFORMAPAGO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_agregarFORMAPAGO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_agregarFORMAPAGO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_agregarFORMAPAGO.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
+        Me.btn_agregarFORMAPAGO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_agregarFORMAPAGO.Location = New System.Drawing.Point(18, 290)
+        Me.btn_agregarFORMAPAGO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_agregarFORMAPAGO.Name = "btn_agregarFORMAPAGO"
+        Me.btn_agregarFORMAPAGO.Size = New System.Drawing.Size(105, 45)
+        Me.btn_agregarFORMAPAGO.TabIndex = 10
+        Me.btn_agregarFORMAPAGO.Text = "Agregar"
+        Me.btn_agregarFORMAPAGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_agregarFORMAPAGO.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Black
+        Me.Label4.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
+        Me.Label4.Location = New System.Drawing.Point(780, 462)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(109, 33)
+        Me.Label4.TabIndex = 43
+        '
+        'btn_aceptar
+        '
+        Me.btn_aceptar.BackColor = System.Drawing.Color.White
+        Me.btn_aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_aceptar.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.btn_aceptar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_aceptar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
+        Me.btn_aceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_aceptar.Location = New System.Drawing.Point(146, 275)
+        Me.btn_aceptar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_aceptar.Name = "btn_aceptar"
+        Me.btn_aceptar.Size = New System.Drawing.Size(100, 41)
+        Me.btn_aceptar.TabIndex = 41
+        Me.btn_aceptar.Text = "Aceptar"
+        Me.btn_aceptar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_aceptar.UseVisualStyleBackColor = False
+        '
+        'txt_totalFACTURA
+        '
+        Me.txt_totalFACTURA.Enabled = False
+        Me.txt_totalFACTURA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_totalFACTURA.ForeColor = System.Drawing.Color.Black
+        Me.txt_totalFACTURA.Location = New System.Drawing.Point(146, 65)
+        Me.txt_totalFACTURA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_totalFACTURA.Name = "txt_totalFACTURA"
+        Me.txt_totalFACTURA.Size = New System.Drawing.Size(125, 25)
+        Me.txt_totalFACTURA.TabIndex = 70
+        Me.txt_totalFACTURA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.Black
+        Me.Label11.Location = New System.Drawing.Point(60, 68)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(82, 17)
+        Me.Label11.TabIndex = 69
+        Me.Label11.Text = "Total Factura"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Label7)
+        Me.GroupBox2.Controls.Add(Me.txt_totalFACTURA)
+        Me.GroupBox2.Controls.Add(Me.txt_subtotalFACTURA)
+        Me.GroupBox2.Controls.Add(Me.Label11)
+        Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 50)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(411, 106)
+        Me.GroupBox2.TabIndex = 67
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Datos de la factura"
         '
         'FormVentasFORMASPAGO
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(910, 474)
-        Me.Controls.Add(Me.txt_subtotal)
+        Me.ClientSize = New System.Drawing.Size(902, 509)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.btn_aceptar)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -581,8 +626,9 @@ Partial Class FormVentasFORMASPAGO
         CType(Me.dgv_formaPago, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label8 As Label
@@ -621,6 +667,9 @@ Partial Class FormVentasFORMASPAGO
     Friend WithEvents Label5 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents txt_subtotal As TextBox
+    Friend WithEvents txt_subtotalFACTURA As TextBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents txt_totalFACTURA As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents GroupBox2 As GroupBox
 End Class

@@ -29,11 +29,15 @@ Partial Class FormVentas
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormVentas))
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btn_dtoVENTA = New System.Windows.Forms.Button()
         Me.btn_formasPago = New System.Windows.Forms.Button()
         Me.chk_descuento = New System.Windows.Forms.CheckBox()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -49,7 +53,6 @@ Partial Class FormVentas
         Me.txt_dtoVENTA = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.btn_agregarCUPON = New System.Windows.Forms.Button()
         Me.dgv_formaPago = New System.Windows.Forms.DataGridView()
         Me.forma_pago = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dto = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -80,12 +83,6 @@ Partial Class FormVentas
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dgv_detalle = New System.Windows.Forms.DataGridView()
-        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_total = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.stock_final = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txt_idVENTA = New System.Windows.Forms.TextBox()
         Me.txt_hora = New System.Windows.Forms.TextBox()
         Me.txt_fecha = New System.Windows.Forms.TextBox()
@@ -95,6 +92,12 @@ Partial Class FormVentas
         Me.btn_cancelarVENTA = New System.Windows.Forms.Button()
         Me.btn_nuevaVENTA = New System.Windows.Forms.Button()
         Me.btn_guardarVENTA = New System.Windows.Forms.Button()
+        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_total = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.stock_final = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -117,6 +120,7 @@ Partial Class FormVentas
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btn_dtoVENTA)
         Me.GroupBox1.Controls.Add(Me.btn_formasPago)
         Me.GroupBox1.Controls.Add(Me.chk_descuento)
         Me.GroupBox1.Controls.Add(Me.Label16)
@@ -139,29 +143,44 @@ Partial Class FormVentas
         Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.GroupBox1.Location = New System.Drawing.Point(16, 50)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(729, 628)
+        Me.GroupBox1.Size = New System.Drawing.Size(729, 526)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de la Venta"
         '
+        'btn_dtoVENTA
+        '
+        Me.btn_dtoVENTA.BackColor = System.Drawing.Color.White
+        Me.btn_dtoVENTA.Enabled = False
+        Me.btn_dtoVENTA.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_dtoVENTA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_dtoVENTA.ForeColor = System.Drawing.Color.White
+        Me.btn_dtoVENTA.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark2
+        Me.btn_dtoVENTA.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_dtoVENTA.Location = New System.Drawing.Point(663, 397)
+        Me.btn_dtoVENTA.Name = "btn_dtoVENTA"
+        Me.btn_dtoVENTA.Size = New System.Drawing.Size(25, 25)
+        Me.btn_dtoVENTA.TabIndex = 19
+        Me.btn_dtoVENTA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_dtoVENTA.UseVisualStyleBackColor = False
+        '
         'btn_formasPago
         '
-        Me.btn_formasPago.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_formasPago.BackColor = System.Drawing.Color.White
+        Me.btn_formasPago.Enabled = False
         Me.btn_formasPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_formasPago.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_formasPago.ForeColor = System.Drawing.Color.White
-        Me.btn_formasPago.Image = Global.PAV1_TPI.My.Resources.Resources.item_list
+        Me.btn_formasPago.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.btn_formasPago.Image = Global.PAV1_TPI.My.Resources.Resources.new_document
         Me.btn_formasPago.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_formasPago.Location = New System.Drawing.Point(490, 512)
+        Me.btn_formasPago.Location = New System.Drawing.Point(21, 397)
         Me.btn_formasPago.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_formasPago.Name = "btn_formasPago"
         Me.btn_formasPago.Size = New System.Drawing.Size(152, 45)
         Me.btn_formasPago.TabIndex = 15
         Me.btn_formasPago.Text = "Formas de Pago"
         Me.btn_formasPago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_formasPago.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
         Me.btn_formasPago.UseVisualStyleBackColor = False
-        Me.btn_formasPago.Visible = False
         '
         'chk_descuento
         '
@@ -169,12 +188,13 @@ Partial Class FormVentas
         Me.chk_descuento.Enabled = False
         Me.chk_descuento.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_descuento.ForeColor = System.Drawing.Color.Black
-        Me.chk_descuento.Location = New System.Drawing.Point(576, 402)
+        Me.chk_descuento.Location = New System.Drawing.Point(409, 535)
         Me.chk_descuento.Name = "chk_descuento"
         Me.chk_descuento.Size = New System.Drawing.Size(139, 21)
         Me.chk_descuento.TabIndex = 18
         Me.chk_descuento.Text = "Guardar descuento"
         Me.chk_descuento.UseVisualStyleBackColor = True
+        Me.chk_descuento.Visible = False
         '
         'Label16
         '
@@ -311,11 +331,11 @@ Partial Class FormVentas
         Me.txt_dtoVENTA.Enabled = False
         Me.txt_dtoVENTA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_dtoVENTA.ForeColor = System.Drawing.Color.Black
-        Me.txt_dtoVENTA.Location = New System.Drawing.Point(579, 430)
+        Me.txt_dtoVENTA.Location = New System.Drawing.Point(557, 397)
         Me.txt_dtoVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_dtoVENTA.MaxLength = 2
         Me.txt_dtoVENTA.Name = "txt_dtoVENTA"
-        Me.txt_dtoVENTA.Size = New System.Drawing.Size(127, 25)
+        Me.txt_dtoVENTA.Size = New System.Drawing.Size(105, 25)
         Me.txt_dtoVENTA.TabIndex = 13
         Me.txt_dtoVENTA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -324,7 +344,7 @@ Partial Class FormVentas
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Black
-        Me.Label10.Location = New System.Drawing.Point(505, 433)
+        Me.Label10.Location = New System.Drawing.Point(483, 400)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(69, 17)
         Me.Label10.TabIndex = 12
@@ -332,7 +352,6 @@ Partial Class FormVentas
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.btn_agregarCUPON)
         Me.GroupBox3.Controls.Add(Me.dgv_formaPago)
         Me.GroupBox3.Controls.Add(Me.btn_aceptar)
         Me.GroupBox3.Controls.Add(Me.btn_eliminarFORMAPAGO)
@@ -343,28 +362,13 @@ Partial Class FormVentas
         Me.GroupBox3.Controls.Add(Me.Label12)
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.GroupBox3.Location = New System.Drawing.Point(21, 396)
+        Me.GroupBox3.Location = New System.Drawing.Point(21, 447)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(460, 223)
+        Me.GroupBox3.Size = New System.Drawing.Size(365, 172)
         Me.GroupBox3.TabIndex = 11
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Forma de Pago"
-        '
-        'btn_agregarCUPON
-        '
-        Me.btn_agregarCUPON.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_agregarCUPON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_agregarCUPON.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_agregarCUPON.ForeColor = System.Drawing.Color.White
-        Me.btn_agregarCUPON.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_agregarCUPON.Location = New System.Drawing.Point(351, 168)
-        Me.btn_agregarCUPON.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_agregarCUPON.Name = "btn_agregarCUPON"
-        Me.btn_agregarCUPON.Size = New System.Drawing.Size(90, 45)
-        Me.btn_agregarCUPON.TabIndex = 14
-        Me.btn_agregarCUPON.Text = "Cupón"
-        Me.btn_agregarCUPON.UseVisualStyleBackColor = False
-        Me.btn_agregarCUPON.Visible = False
+        Me.GroupBox3.Visible = False
         '
         'dgv_formaPago
         '
@@ -391,7 +395,7 @@ Partial Class FormVentas
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv_formaPago.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgv_formaPago.Enabled = False
-        Me.dgv_formaPago.Location = New System.Drawing.Point(18, 62)
+        Me.dgv_formaPago.Location = New System.Drawing.Point(18, 64)
         Me.dgv_formaPago.Name = "dgv_formaPago"
         Me.dgv_formaPago.ReadOnly = True
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -404,7 +408,7 @@ Partial Class FormVentas
         Me.dgv_formaPago.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgv_formaPago.RowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.dgv_formaPago.Size = New System.Drawing.Size(423, 99)
+        Me.dgv_formaPago.Size = New System.Drawing.Size(327, 45)
         Me.dgv_formaPago.TabIndex = 13
         '
         'forma_pago
@@ -458,7 +462,7 @@ Partial Class FormVentas
         Me.btn_aceptar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_aceptar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark
         Me.btn_aceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_aceptar.Location = New System.Drawing.Point(240, 168)
+        Me.btn_aceptar.Location = New System.Drawing.Point(240, 116)
         Me.btn_aceptar.Name = "btn_aceptar"
         Me.btn_aceptar.Size = New System.Drawing.Size(105, 45)
         Me.btn_aceptar.TabIndex = 10
@@ -476,7 +480,7 @@ Partial Class FormVentas
         Me.btn_eliminarFORMAPAGO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_eliminarFORMAPAGO.Image = Global.PAV1_TPI.My.Resources.Resources.trash_bin32
         Me.btn_eliminarFORMAPAGO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_eliminarFORMAPAGO.Location = New System.Drawing.Point(129, 168)
+        Me.btn_eliminarFORMAPAGO.Location = New System.Drawing.Point(129, 116)
         Me.btn_eliminarFORMAPAGO.Name = "btn_eliminarFORMAPAGO"
         Me.btn_eliminarFORMAPAGO.Size = New System.Drawing.Size(105, 45)
         Me.btn_eliminarFORMAPAGO.TabIndex = 10
@@ -493,7 +497,7 @@ Partial Class FormVentas
         Me.btn_agregarFORMAPAGO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.btn_agregarFORMAPAGO.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button32
         Me.btn_agregarFORMAPAGO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_agregarFORMAPAGO.Location = New System.Drawing.Point(18, 168)
+        Me.btn_agregarFORMAPAGO.Location = New System.Drawing.Point(18, 116)
         Me.btn_agregarFORMAPAGO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_agregarFORMAPAGO.Name = "btn_agregarFORMAPAGO"
         Me.btn_agregarFORMAPAGO.Size = New System.Drawing.Size(105, 45)
@@ -509,10 +513,10 @@ Partial Class FormVentas
         Me.cmb_formaPago.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_formaPago.ForeColor = System.Drawing.Color.Black
         Me.cmb_formaPago.FormattingEnabled = True
-        Me.cmb_formaPago.Location = New System.Drawing.Point(135, 30)
+        Me.cmb_formaPago.Location = New System.Drawing.Point(135, 29)
         Me.cmb_formaPago.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cmb_formaPago.Name = "cmb_formaPago"
-        Me.cmb_formaPago.Size = New System.Drawing.Size(125, 25)
+        Me.cmb_formaPago.Size = New System.Drawing.Size(52, 25)
         Me.cmb_formaPago.TabIndex = 2
         '
         'Label11
@@ -520,7 +524,7 @@ Partial Class FormVentas
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.Black
-        Me.Label11.Location = New System.Drawing.Point(266, 33)
+        Me.Label11.Location = New System.Drawing.Point(193, 32)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(64, 17)
         Me.Label11.TabIndex = 3
@@ -531,10 +535,10 @@ Partial Class FormVentas
         Me.txt_montoFORMAPAGO.Enabled = False
         Me.txt_montoFORMAPAGO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_montoFORMAPAGO.ForeColor = System.Drawing.Color.Black
-        Me.txt_montoFORMAPAGO.Location = New System.Drawing.Point(336, 30)
+        Me.txt_montoFORMAPAGO.Location = New System.Drawing.Point(263, 29)
         Me.txt_montoFORMAPAGO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_montoFORMAPAGO.Name = "txt_montoFORMAPAGO"
-        Me.txt_montoFORMAPAGO.Size = New System.Drawing.Size(105, 25)
+        Me.txt_montoFORMAPAGO.Size = New System.Drawing.Size(82, 25)
         Me.txt_montoFORMAPAGO.TabIndex = 4
         Me.txt_montoFORMAPAGO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -543,7 +547,7 @@ Partial Class FormVentas
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Black
-        Me.Label12.Location = New System.Drawing.Point(15, 33)
+        Me.Label12.Location = New System.Drawing.Point(15, 32)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(116, 17)
         Me.Label12.TabIndex = 1
@@ -554,7 +558,7 @@ Partial Class FormVentas
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Black
         Me.Label9.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
-        Me.Label9.Location = New System.Drawing.Point(597, 586)
+        Me.Label9.Location = New System.Drawing.Point(597, 476)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(109, 33)
         Me.Label9.TabIndex = 0
@@ -663,10 +667,10 @@ Partial Class FormVentas
         Me.txt_subtotalVENTA.Enabled = False
         Me.txt_subtotalVENTA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_subtotalVENTA.ForeColor = System.Drawing.Color.Black
-        Me.txt_subtotalVENTA.Location = New System.Drawing.Point(536, 203)
+        Me.txt_subtotalVENTA.Location = New System.Drawing.Point(536, 212)
         Me.txt_subtotalVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_subtotalVENTA.Name = "txt_subtotalVENTA"
-        Me.txt_subtotalVENTA.Size = New System.Drawing.Size(127, 25)
+        Me.txt_subtotalVENTA.Size = New System.Drawing.Size(105, 25)
         Me.txt_subtotalVENTA.TabIndex = 15
         Me.txt_subtotalVENTA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -675,7 +679,7 @@ Partial Class FormVentas
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.Black
-        Me.Label13.Location = New System.Drawing.Point(474, 206)
+        Me.Label13.Location = New System.Drawing.Point(474, 215)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(56, 17)
         Me.Label13.TabIndex = 14
@@ -759,7 +763,7 @@ Partial Class FormVentas
         Me.dgv_detalle.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
         DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -767,70 +771,28 @@ Partial Class FormVentas
         Me.dgv_detalle.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.dgv_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_id_producto, Me.col_producto, Me.col_cantidad, Me.col_precio, Me.col_total, Me.stock_final})
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_detalle.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_detalle.DefaultCellStyle = DataGridViewCellStyle11
         Me.dgv_detalle.Location = New System.Drawing.Point(18, 61)
         Me.dgv_detalle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgv_detalle.Name = "dgv_detalle"
         Me.dgv_detalle.ReadOnly = True
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_detalle.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_detalle.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
         Me.dgv_detalle.Size = New System.Drawing.Size(645, 123)
         Me.dgv_detalle.TabIndex = 9
-        '
-        'col_id_producto
-        '
-        Me.col_id_producto.HeaderText = "id_producto"
-        Me.col_id_producto.Name = "col_id_producto"
-        Me.col_id_producto.ReadOnly = True
-        Me.col_id_producto.Visible = False
-        '
-        'col_producto
-        '
-        Me.col_producto.HeaderText = "Producto"
-        Me.col_producto.Name = "col_producto"
-        Me.col_producto.ReadOnly = True
-        Me.col_producto.Width = 250
-        '
-        'col_cantidad
-        '
-        Me.col_cantidad.HeaderText = "Cantidad"
-        Me.col_cantidad.Name = "col_cantidad"
-        Me.col_cantidad.ReadOnly = True
-        Me.col_cantidad.Width = 95
-        '
-        'col_precio
-        '
-        Me.col_precio.HeaderText = "Precio Unitario"
-        Me.col_precio.Name = "col_precio"
-        Me.col_precio.ReadOnly = True
-        Me.col_precio.Width = 140
-        '
-        'col_total
-        '
-        Me.col_total.HeaderText = "Precio"
-        Me.col_total.Name = "col_total"
-        Me.col_total.ReadOnly = True
-        Me.col_total.Width = 90
-        '
-        'stock_final
-        '
-        Me.stock_final.HeaderText = "stock_final"
-        Me.stock_final.Name = "stock_final"
-        Me.stock_final.ReadOnly = True
-        Me.stock_final.Visible = False
         '
         'txt_idVENTA
         '
@@ -873,10 +835,10 @@ Partial Class FormVentas
         Me.txt_totalVENTA.Enabled = False
         Me.txt_totalVENTA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_totalVENTA.ForeColor = System.Drawing.Color.Black
-        Me.txt_totalVENTA.Location = New System.Drawing.Point(579, 463)
+        Me.txt_totalVENTA.Location = New System.Drawing.Point(557, 430)
         Me.txt_totalVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_totalVENTA.Name = "txt_totalVENTA"
-        Me.txt_totalVENTA.Size = New System.Drawing.Size(127, 25)
+        Me.txt_totalVENTA.Size = New System.Drawing.Size(105, 25)
         Me.txt_totalVENTA.TabIndex = 2
         Me.txt_totalVENTA.Text = "0"
         Me.txt_totalVENTA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -897,7 +859,7 @@ Partial Class FormVentas
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Black
-        Me.Label4.Location = New System.Drawing.Point(487, 466)
+        Me.Label4.Location = New System.Drawing.Point(465, 433)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(86, 17)
         Me.Label4.TabIndex = 1
@@ -942,7 +904,7 @@ Partial Class FormVentas
         Me.btn_guardarVENTA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_guardarVENTA.ForeColor = System.Drawing.Color.White
         Me.btn_guardarVENTA.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark1
-        Me.btn_guardarVENTA.Location = New System.Drawing.Point(661, 7)
+        Me.btn_guardarVENTA.Location = New System.Drawing.Point(662, 7)
         Me.btn_guardarVENTA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_guardarVENTA.Name = "btn_guardarVENTA"
         Me.btn_guardarVENTA.Size = New System.Drawing.Size(40, 40)
@@ -950,12 +912,61 @@ Partial Class FormVentas
         Me.btn_guardarVENTA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_guardarVENTA.UseVisualStyleBackColor = True
         '
+        'col_id_producto
+        '
+        Me.col_id_producto.HeaderText = "id_producto"
+        Me.col_id_producto.Name = "col_id_producto"
+        Me.col_id_producto.ReadOnly = True
+        Me.col_id_producto.Visible = False
+        '
+        'col_producto
+        '
+        Me.col_producto.HeaderText = "Producto"
+        Me.col_producto.Name = "col_producto"
+        Me.col_producto.ReadOnly = True
+        Me.col_producto.Width = 290
+        '
+        'col_cantidad
+        '
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.col_cantidad.DefaultCellStyle = DataGridViewCellStyle8
+        Me.col_cantidad.HeaderText = "Cantidad"
+        Me.col_cantidad.Name = "col_cantidad"
+        Me.col_cantidad.ReadOnly = True
+        Me.col_cantidad.Width = 85
+        '
+        'col_precio
+        '
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle9.NullValue = Nothing
+        Me.col_precio.DefaultCellStyle = DataGridViewCellStyle9
+        Me.col_precio.HeaderText = "Precio Unit."
+        Me.col_precio.Name = "col_precio"
+        Me.col_precio.ReadOnly = True
+        Me.col_precio.Width = 105
+        '
+        'col_total
+        '
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.col_total.DefaultCellStyle = DataGridViewCellStyle10
+        Me.col_total.HeaderText = "Precio"
+        Me.col_total.Name = "col_total"
+        Me.col_total.ReadOnly = True
+        Me.col_total.Width = 90
+        '
+        'stock_final
+        '
+        Me.stock_final.HeaderText = "stock_final"
+        Me.stock_final.Name = "stock_final"
+        Me.stock_final.ReadOnly = True
+        Me.stock_final.Visible = False
+        '
         'FormVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(757, 689)
+        Me.ClientSize = New System.Drawing.Size(757, 588)
         Me.Controls.Add(Me.btn_cancelarVENTA)
         Me.Controls.Add(Me.btn_nuevaVENTA)
         Me.Controls.Add(Me.btn_guardarVENTA)
@@ -1023,7 +1034,6 @@ Partial Class FormVentas
     Friend WithEvents btn_agregarDETALLE As Button
     Friend WithEvents Label16 As Label
     Friend WithEvents txt_usuarioLogueado As TextBox
-    Friend WithEvents btn_agregarCUPON As Button
     Friend WithEvents btn_aceptarDETALLE As Button
     Friend WithEvents btn_aceptar As System.Windows.Forms.Button
     Friend WithEvents chk_descuento As System.Windows.Forms.CheckBox
@@ -1031,12 +1041,6 @@ Partial Class FormVentas
     Friend WithEvents btn_cancelarVENTA As Button
     Friend WithEvents btn_nuevaVENTA As Button
     Friend WithEvents btn_guardarVENTA As Button
-    Friend WithEvents col_id_producto As DataGridViewTextBoxColumn
-    Friend WithEvents col_producto As DataGridViewTextBoxColumn
-    Friend WithEvents col_cantidad As DataGridViewTextBoxColumn
-    Friend WithEvents col_precio As DataGridViewTextBoxColumn
-    Friend WithEvents col_total As DataGridViewTextBoxColumn
-    Friend WithEvents stock_final As DataGridViewTextBoxColumn
     Friend WithEvents btn_borrarCLIENTE As Button
     Friend WithEvents forma_pago As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dto As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1045,4 +1049,11 @@ Partial Class FormVentas
     Friend WithEvents col_id_formapago As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents col_flag As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btn_formasPago As Button
+    Friend WithEvents btn_dtoVENTA As Button
+    Friend WithEvents col_id_producto As DataGridViewTextBoxColumn
+    Friend WithEvents col_producto As DataGridViewTextBoxColumn
+    Friend WithEvents col_cantidad As DataGridViewTextBoxColumn
+    Friend WithEvents col_precio As DataGridViewTextBoxColumn
+    Friend WithEvents col_total As DataGridViewTextBoxColumn
+    Friend WithEvents stock_final As DataGridViewTextBoxColumn
 End Class

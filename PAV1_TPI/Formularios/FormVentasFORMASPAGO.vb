@@ -5,11 +5,25 @@
     End Enum
 
     Private Sub FormVentasFORMASPAGO_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.txt_numero_cupon.Focus()
         SoporteGUI.cargar_combo(cmb_formaPago, SoporteBD.leerBD_simple("SELECT * FROM formas_pago ORDER BY nombre"), "id_forma_pago", "nombre")
         SoporteGUI.cargar_combo(cmb_banco, SoporteBD.leerBD_simple("SELECT * FROM bancos"), "id_banco", "nombre")
         SoporteGUI.cargar_combo(cmb_entidad, SoporteBD.leerBD_simple("SELECT * FROM entidades_crediticias"), "id_entidad_crediticia", "nombre")
-        Me.txt_monto.Text = Cupon.precio
+
+        Me.habilitar_campos(False)
+        Me.txt_subtotalFACTURA.Text = Venta.subtotal
+        Me.txt_totalFACTURA.Text = Venta.subtotal
+        Me.cmb_formaPago.SelectedIndex = -1
+        Me.limpiar_campos()
+        'Me.txt_monto.Text = Cupon.precio
+    End Sub
+
+    Private Sub limpiar_campos()
+        Me.txt_numero_cupon.Text = ""
+        Me.txt_numero_lote.Text = ""
+        Me.txt_numero_autorizacion.Text = ""
+        Me.txt_monto.Text = ""
+        Me.cmb_banco.SelectedIndex = -1
+        Me.cmb_entidad.SelectedIndex = -1
     End Sub
 
     'SUBRUTINA PARA INSERTAR TARJETAS A LA BD
@@ -131,12 +145,10 @@
     End Sub
 
     Private Sub cmb_formaPago_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_formaPago.SelectionChangeCommitted
-        Dim tabla As New DataTable
-        tabla = SoporteBD.leerBD_simple("SELECT id_forma_pago FROM formas_pago")
-        If cmb_formaPago.SelectedText = "EFECTIVO" Then
-            Me.habilitar_campos(False)
-        Else
+        If Me.cmb_formaPago.SelectedIndex = 3 Then
             Me.habilitar_campos(True)
+        Else
+            Me.habilitar_campos(False)
         End If
     End Sub
 
@@ -147,5 +159,6 @@
         Me.txt_monto.Enabled = flag
         Me.cmb_banco.Enabled = flag
         Me.cmb_entidad.Enabled = flag
+        Me.btn_aceptar.Enabled = flag
     End Sub
 End Class

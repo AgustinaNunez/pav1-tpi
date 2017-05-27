@@ -72,6 +72,11 @@ PAV1_TPI
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:PAV1_TPI.My.Resources.Resources.check_mark2">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:PAV1_TPI.My.Resources.Resources.check_mark24">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
@@ -107,6 +112,11 @@ PAV1_TPI
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:PAV1_TPI.My.Resources.Resources.item_list1">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:PAV1_TPI.My.Resources.Resources.loop_arrow">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
@@ -133,6 +143,11 @@ PAV1_TPI
 </summary>
 </member>
 <member name="P:PAV1_TPI.My.Resources.Resources.move_to_next2">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:PAV1_TPI.My.Resources.Resources.new_document">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
@@ -202,12 +217,22 @@ PAV1_TPI
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:PAV1_TPI.My.Resources.Resources.vertical_dots">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:PAV1_TPI.My.Resources.Resources.vertical_dots2">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:PAV1_TPI.My.Resources.Resources.vertical_dots21">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:PAV1_TPI.My.Resources.Resources.volume_level">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
