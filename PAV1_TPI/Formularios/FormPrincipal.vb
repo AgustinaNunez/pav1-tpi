@@ -44,7 +44,7 @@ Public Class Frm_Principal
     Private Sub btn_productos_Click(sender As Object, e As EventArgs) Handles btn_productos.Click
         SoporteGUI.tipo_form_ACTUAL = SoporteGUI.tipo_form.abm
         Dim frmProductos = New FormProductos
-        frmProductos.ShowDialog()
+        frmProductos.Visible = True
     End Sub
 
     Private Sub Frm_Principal_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing

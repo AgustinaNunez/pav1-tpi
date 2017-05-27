@@ -816,7 +816,7 @@ Public Class FormVentas
     End Sub
 
     Private Sub btn_formasPago_Click(sender As Object, e As EventArgs) Handles btn_formasPago.Click
-        Venta.subtotal = Me.txt_subtotalVENTA.Text
+        Venta.subtotal = Me.txt_totalVENTA.Text
         Dim frm = New FormVentasFORMASPAGO
         frm.ShowDialog()
     End Sub

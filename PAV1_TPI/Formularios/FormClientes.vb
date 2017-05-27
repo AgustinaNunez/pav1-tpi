@@ -33,13 +33,11 @@
         Dim sql_cargar_grilla As String = ""
         sql_cargar_grilla &= "SELECT * FROM clientes c "
         sql_cargar_grilla &= "JOIN tipo_documento td ON c.tipo_documento = td.id_tipo_documento"
-
         tabla = SoporteBD.leerBD_simple(sql_cargar_grilla)
 
         Dim c As Integer
         Me.dgv_clientes.Rows.Clear()
         For c = 0 To tabla.Rows.Count - 1
-
             Me.dgv_clientes.Rows.Add()
             Me.dgv_clientes.Rows(c).Cells(0).Value = tabla.Rows(c)("apellido_cliente")
             Me.dgv_clientes.Rows(c).Cells(1).Value = tabla.Rows(c)("nombre_cliente")
