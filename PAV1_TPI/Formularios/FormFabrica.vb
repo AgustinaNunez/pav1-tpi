@@ -23,7 +23,7 @@ Public Class FormFabrica
 
     Private Sub cargar_grilla_fabrica()
         Dim tabla As New DataTable
-        Dim sql_cargar_grilla As String = " SELECT nombre, telefono, id_fabrica FROM fabricas "
+        Dim sql_cargar_grilla As String = " SELECT nombre, telefono, id_fabrica FROM fabricas WHERE id_fabrica <> 0"
         tabla = SoporteBD.leerBD_simple(sql_cargar_grilla)
 
         Dim c As Integer
@@ -62,29 +62,6 @@ Public Class FormFabrica
         Me.txt_nombre_fabrica.Enabled = True
         Me.txt_telefono_fabrica.Enabled = True
     End Sub
-
-    'Private Function GENERARCODIGO() As Integer
-
-    '    Dim RG As New OleDbCommand
-    '    Dim conexion As New Data.OleDb.OleDbConnection
-    '    Dim cmd As New Data.OleDb.OleDbCommand
-
-    '    conexion.ConnectionString = SoporteBD.cadena_conexion_juan
-
-    '    conexion.Open()
-    '    cmd.Connection = conexion
-    '    RG = New OleDbCommand("AUTOGENERARCODIGO", conexion)
-    '    Dim PARAM As New OleDbParameter("@CODIGO", SqlDbType.Int)
-    '    PARAM.Direction = ParameterDirection.Output
-    '    With RG
-    '        .CommandType = CommandType.StoredProcedure
-    '        .Parameters.Add(PARAM)
-    '        .ExecuteNonQuery()
-    '        conexion.Close()
-    '        Return .Parameters("@CODIGO").Value
-    '    End With
-
-    'End Function
 
     Private Sub ocultar_lblERROR()
         lbl_nombreERROR.Visible = False
@@ -233,43 +210,23 @@ Public Class FormFabrica
             Me.btn_guardar_fabrica.Enabled = False
         End If
 
-        'If Me.Grilla_Fabrica.CurrentCell.Selected = False Then
-        '    MessageBox.Show("Falta sereccionar dato en grilla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-        'End If
-
-
     End Sub
 
-    Private Sub btn_buscar_fabrica_Click(sender As Object, e As EventArgs) Handles btn_buscar_fabrica.Click
+    Private Sub txt_bucar_fabrica_TextChanged(sender As Object, e As EventArgs) Handles txt_bucar_fabrica.TextChanged
         Dim tabla As New DataTable
         Dim sql As String = ""
+        sql &= " SELECT * FROM fabricas WHERE nombre LIKE '%" & Me.txt_bucar_fabrica.Text & "%' AND id_fabrica <> 0"
+        tabla = SoporteBD.leerBD_simple(sql)
 
-        sql &= " SELECT * FROM fabricas WHERE nombre = '" & Me.txt_bucar_fabrica.Text & "'"
+        Dim c As Integer
+        Me.Grilla_Fabrica.Rows.Clear()
+        For c = 0 To tabla.Rows.Count - 1
 
-        If txt_bucar_fabrica.Text = "" Then
-            MsgBox("No existe valor de búsqueda", MsgBoxStyle.OkOnly, "Error")
-            txt_bucar_fabrica.Focus()
-
-        Else
-            tabla = SoporteBD.leerBD_simple(sql)
-
-            Dim c As Integer
-            Me.Grilla_Fabrica.Rows.Clear()
-            For c = 0 To tabla.Rows.Count - 1
-
-                Me.Grilla_Fabrica.Rows.Add()
-                Me.Grilla_Fabrica.Rows(c).Cells(0).Value = tabla.Rows(c)("nombre")
-                Me.Grilla_Fabrica.Rows(c).Cells(1).Value = tabla.Rows(c)("telefono")
-                Me.Grilla_Fabrica.Rows(c).Cells(2).Value = tabla.Rows(c)("id_fabrica")
-            Next
-
-            If tabla.Rows.Count = 0 Then
-                MsgBox("No se encontró ningun resultado", MsgBoxStyle.OkOnly, "Error")
-                cargar_grilla_fabrica()
-            End If
-
-        End If
+            Me.Grilla_Fabrica.Rows.Add()
+            Me.Grilla_Fabrica.Rows(c).Cells(0).Value = tabla.Rows(c)("nombre")
+            Me.Grilla_Fabrica.Rows(c).Cells(1).Value = tabla.Rows(c)("telefono")
+            Me.Grilla_Fabrica.Rows(c).Cells(2).Value = tabla.Rows(c)("id_fabrica")
+        Next
 
     End Sub
 End Class

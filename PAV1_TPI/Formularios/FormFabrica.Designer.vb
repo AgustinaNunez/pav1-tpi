@@ -28,6 +28,9 @@ Partial Class FormFabrica
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormFabrica))
         Me.Grilla_Fabrica = New System.Windows.Forms.DataGridView()
+        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_fabrica = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt_nombre_fabrica = New System.Windows.Forms.TextBox()
         Me.txt_telefono_fabrica = New System.Windows.Forms.MaskedTextBox()
@@ -38,7 +41,6 @@ Partial Class FormFabrica
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txt_codigo_fabrica = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.btn_buscar_fabrica = New System.Windows.Forms.Button()
         Me.btn_guardar_fabrica = New System.Windows.Forms.Button()
         Me.btn_eliminar_fabrica = New System.Windows.Forms.Button()
         Me.btn_nueva_fabrica = New System.Windows.Forms.Button()
@@ -46,9 +48,6 @@ Partial Class FormFabrica
         Me.lbl_nombreERROR = New System.Windows.Forms.Label()
         Me.lbl_telefonoERROR = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_fabrica = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label8 = New System.Windows.Forms.Label()
         CType(Me.Grilla_Fabrica, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -64,7 +63,7 @@ Partial Class FormFabrica
         Me.Grilla_Fabrica.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -74,8 +73,8 @@ Partial Class FormFabrica
         Me.Grilla_Fabrica.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Nombre, Me.Telefono, Me.id_fabrica})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
@@ -86,7 +85,7 @@ Partial Class FormFabrica
         Me.Grilla_Fabrica.ReadOnly = True
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -94,6 +93,28 @@ Partial Class FormFabrica
         Me.Grilla_Fabrica.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.Grilla_Fabrica.Size = New System.Drawing.Size(369, 293)
         Me.Grilla_Fabrica.TabIndex = 2
+        '
+        'Nombre
+        '
+        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.MinimumWidth = 7
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.ReadOnly = True
+        Me.Nombre.Width = 170
+        '
+        'Telefono
+        '
+        Me.Telefono.HeaderText = "Teléfono"
+        Me.Telefono.Name = "Telefono"
+        Me.Telefono.ReadOnly = True
+        Me.Telefono.Width = 120
+        '
+        'id_fabrica
+        '
+        Me.id_fabrica.HeaderText = "id_fabrica"
+        Me.id_fabrica.Name = "id_fabrica"
+        Me.id_fabrica.ReadOnly = True
+        Me.id_fabrica.Visible = False
         '
         'Label6
         '
@@ -197,7 +218,6 @@ Partial Class FormFabrica
         '
         Me.GroupBox1.Controls.Add(Me.Grilla_Fabrica)
         Me.GroupBox1.Controls.Add(Me.labelbuscar)
-        Me.GroupBox1.Controls.Add(Me.btn_buscar_fabrica)
         Me.GroupBox1.Controls.Add(Me.txt_bucar_fabrica)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
@@ -207,21 +227,6 @@ Partial Class FormFabrica
         Me.GroupBox1.TabIndex = 46
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Listado de Fábricas"
-        '
-        'btn_buscar_fabrica
-        '
-        Me.btn_buscar_fabrica.BackColor = System.Drawing.Color.White
-        Me.btn_buscar_fabrica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_buscar_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_buscar_fabrica.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_buscar_fabrica.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
-        Me.btn_buscar_fabrica.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscar_fabrica.Location = New System.Drawing.Point(259, 30)
-        Me.btn_buscar_fabrica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_buscar_fabrica.Name = "btn_buscar_fabrica"
-        Me.btn_buscar_fabrica.Size = New System.Drawing.Size(25, 25)
-        Me.btn_buscar_fabrica.TabIndex = 1
-        Me.btn_buscar_fabrica.UseVisualStyleBackColor = False
         '
         'btn_guardar_fabrica
         '
@@ -331,28 +336,6 @@ Partial Class FormFabrica
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Listado de Fábricas"
         '
-        'Nombre
-        '
-        Me.Nombre.HeaderText = "Nombre"
-        Me.Nombre.MinimumWidth = 7
-        Me.Nombre.Name = "Nombre"
-        Me.Nombre.ReadOnly = True
-        Me.Nombre.Width = 170
-        '
-        'Telefono
-        '
-        Me.Telefono.HeaderText = "Teléfono"
-        Me.Telefono.Name = "Telefono"
-        Me.Telefono.ReadOnly = True
-        Me.Telefono.Width = 120
-        '
-        'id_fabrica
-        '
-        Me.id_fabrica.HeaderText = "id_fabrica"
-        Me.id_fabrica.Name = "id_fabrica"
-        Me.id_fabrica.ReadOnly = True
-        Me.id_fabrica.Visible = False
-        '
         'Label8
         '
         Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
@@ -402,7 +385,6 @@ Partial Class FormFabrica
     Friend WithEvents txt_telefono_fabrica As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents btn_buscar_fabrica As System.Windows.Forms.Button
     Friend WithEvents labelbuscar As System.Windows.Forms.Label
     Friend WithEvents txt_bucar_fabrica As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label

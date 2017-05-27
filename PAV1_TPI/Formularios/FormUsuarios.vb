@@ -235,29 +235,6 @@
         End If
     End Sub
 
-    'BUSCAR UN USUARIO POR SU ID_USUARIO
-    Private Sub cmd_buscar_Click_1(sender As Object, e As EventArgs) Handles cmd_buscar.Click
-        Dim sql As String = ""
-        Dim tabla As New DataTable
-        sql &= "SELECT * FROM usuarios "
-        sql &= " WHERE id_usuario LIKE '%" & Me.txt_buscar_usuario.Text & "%'"
-        tabla = SoporteBD.leerBD_simple(sql)
-        Dim c As Integer
-        Me.grilla_usuarios.Rows.Clear()
-        For c = 0 To tabla.Rows.Count - 1
-            Me.grilla_usuarios.Rows.Add()
-            Me.grilla_usuarios.Rows(c).Cells(0).Value = tabla.Rows(c)("id_usuario")
-            Me.grilla_usuarios.Rows(c).Cells(1).Value = tabla.Rows(c)("nombre")
-            Me.grilla_usuarios.Rows(c).Cells(2).Value = tabla.Rows(c)("apellido")
-            Me.grilla_usuarios.Rows(c).Cells(3).Value = tabla.Rows(c)("fecha_alta")
-        Next
-
-        If tabla.Rows.Count = 0 Then
-            MsgBox("No se encontró ningun resultado", MsgBoxStyle.OkOnly, "Error")
-            cargar_grilla_usuarios()
-        End If
-    End Sub
-
     'INTERACCION CON LA GRILLA (DOBLE CLICK)
     Private Sub grilla_usuarios_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grilla_usuarios.CellContentDoubleClick
         Dim sql As String = ""
@@ -308,7 +285,21 @@
         Return respuesta_validacion._ok
     End Function
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
+    Private Sub txt_buscar_usuario_TextChanged(sender As Object, e As EventArgs) Handles txt_buscar_usuario.TextChanged
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+        sql &= "SELECT * FROM usuarios "
+        sql &= " WHERE id_usuario LIKE '%" & Me.txt_buscar_usuario.Text & "%'"
+        tabla = SoporteBD.leerBD_simple(sql)
+        Dim c As Integer
+        Me.grilla_usuarios.Rows.Clear()
+        For c = 0 To tabla.Rows.Count - 1
+            Me.grilla_usuarios.Rows.Add()
+            Me.grilla_usuarios.Rows(c).Cells(0).Value = tabla.Rows(c)("id_usuario")
+            Me.grilla_usuarios.Rows(c).Cells(1).Value = tabla.Rows(c)("nombre")
+            Me.grilla_usuarios.Rows(c).Cells(2).Value = tabla.Rows(c)("apellido")
+            Me.grilla_usuarios.Rows(c).Cells(3).Value = tabla.Rows(c)("fecha_alta")
+        Next
     End Sub
 End Class
