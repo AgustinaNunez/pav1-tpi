@@ -150,6 +150,8 @@ CONSTRAINT fk_entidad FOREIGN KEY (id_entidad_crediticia) REFERENCES entidades_c
 )
 
 
+INSERT INTO cupon(id_cupon,numero_autorizacion_online,numero_lote,precio) VALUES (0,0,0,0) 
+
 INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (1,'DNI')
 INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (2,'PASAPORTE')
 INSERT INTO tipo_documento (id_tipo_documento, nombre_tipo_documento ) VALUES (3,'LE')

@@ -638,6 +638,7 @@ Partial Class FormVentasFORMASPAGO
         'btn_aceptar
         '
         Me.btn_aceptar.BackColor = System.Drawing.Color.White
+        Me.btn_aceptar.Enabled = False
         Me.btn_aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_aceptar.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.btn_aceptar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))

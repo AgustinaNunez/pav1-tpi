@@ -4,12 +4,8 @@
 *LOGO CLOTTA
 -Verificar si esta bien cargado el .ico en los forms
 
+
 *VENTAS
-
--Modificar el INSERT para que almacene los datos de la nueva forma de pago (entidad crediticia + banco + cupon + forma de pago)
-
-
--SI ES PAGO CON DEBITO + CREDITO, TIENE QUE CARGAR 2 CUPONES
 
 -Consultas para eliminar de la BD lo cargado en ventas
 delete from detalle_ventas where id_venta in (0,1,2,3)
@@ -19,20 +15,3 @@ delete from ventas where id_venta in (0,1,2,3)
 *REPORTES
 
 
-*PRODUCTOS 
--
-
-
-*ventasXformaspago
-
--Obtener valor de subtotal del form ventas
-
--Enviar valor total factura al form ventas
-
--Enviar datos al insert del form ventas
-
--Verificar como vamos a hacer para agregar cupones dos veces del mismo forma de pago
-
--Cambiar dinamicamente los valores del total a pagar
-
--Cuando el Form de ventasXformaspago de OK, cambiar el valor del total a pagar, NO ANTES

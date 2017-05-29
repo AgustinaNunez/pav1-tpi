@@ -10,7 +10,7 @@
     Dim monto_actual As Double
     Dim listado_cupones_mostrar As New ArrayList
     Dim listado_cupones_grabar As New ArrayList
-    Dim cadena As String = ""
+    Public Shared cadena As String = ""
 
     Private Sub FormVentasFORMASPAGO_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SoporteGUI.cargar_combo(cmb_formaPago, SoporteBD.leerBD_simple("SELECT * FROM formas_pago ORDER BY nombre"), "id_forma_pago", "nombre")
@@ -73,14 +73,14 @@
             mensaje &= vbCrLf & "- producto"
         End If
 
-        If cmb_banco.SelectedValue = Nothing Then
+        If cmb_banco.SelectedValue = Nothing Or cmb_banco.Text = "(Seleccionar banco)" Then
             lbl_bancoERROR.Visible = True
             cmb_banco.Focus()
             rdo = respuesta_validacion._error
             mensaje &= vbCrLf & "- banco"
         End If
 
-        If cmb_entidad.SelectedValue = Nothing Then
+        If cmb_entidad.SelectedValue = Nothing Or cmb_entidad.Text = "(Seleccionar tarjeta)" Then
             lbl_entidadERROR.Visible = True
             cmb_entidad.Focus()
             rdo = respuesta_validacion._error
@@ -98,6 +98,9 @@
         lbl_autorizacionERROR.Visible = False
         lbl_cuponERROR.Visible = False
         lbl_loteERROR.Visible = False
+        lbl_bancoERROR.Visible = False
+        lbl_entidadERROR.Visible = False
+        lbl_montoERROR.Visible = False
     End Sub
 
     Private Function validar_cupon()
@@ -115,6 +118,11 @@
 
     'BOTON ACEPTAR
     Private Sub btn_aceptar_Click(sender As Object, e As EventArgs) Handles btn_aceptar.Click
+        If dgv_formaPago.Rows.Count = 0 Then
+            MessageBox.Show("Se deben cargar formas de pago para continuar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Me.btn_aceptar.Enabled = False
+            Return
+        End If
         Dim c As Integer
         Dim contador As Integer
         For c = 0 To Me.dgv_formaPago.Rows.Count - 1
@@ -128,9 +136,20 @@
         End If
 
         If contador = 0 Then
+
+            If Convert.ToString(Me.dgv_formaPago.CurrentRow.Cells("forma_pago").Value) = "EFECTIVO" Then
+                concatenador_ventaxformapago(Convert.ToInt32(Me.dgv_formaPago.CurrentRow.Cells("col_id_formapago").Value), _
+                             Convert.ToDouble(Me.dgv_formaPago.CurrentRow.Cells("col_montoDTO").Value), _
+                             0, _
+                             0, _
+                             0)
+            End If
+
             SoporteGUI.respuesta_ventana = Windows.Forms.DialogResult.OK
             Me.Close()
         End If
+
+
     End Sub
 
     Private Structure estructura_cupon_mostrar
@@ -211,7 +230,7 @@
 
 
         If dgv_formaPago.CurrentRow.Cells(0).Value = "EFECTIVO" Then
-            Me.btn_aceptar.Enabled = True
+            'Me.btn_aceptar.Enabled = True
             Me.limpiar_cupon()
             Me.habilitar_cupon(False)
         End If
@@ -271,9 +290,9 @@
             Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, Math.Round((1 - porcentaje) * monto_sin_descuento), Me.cmb_formaPago.SelectedValue, False)
             Me.calcular_monto_formapago()
             Me.calcular_total_con_dto_formapago()
-            If txt_monto_formapago.Enabled = False Then
-                Me.btn_aceptar.Enabled = True
-            End If
+            'If txt_monto_formapago.Enabled = False Then
+            '    Me.btn_aceptar.Enabled = True
+            'End If
         End If
 
         If cmb_formaPago.Text = "DÉBITO" Or cmb_formaPago.Text = "CRÉDITO" Then
@@ -283,6 +302,7 @@
         End If
 
         Me.dgv_formaPago.Enabled = True
+        Me.limpiar_formapago()
     End Sub
 
     Private Sub calcular_monto_formapago()
@@ -304,6 +324,23 @@
         Me.txt_totalFACTURA.Text = precio_con_dto
     End Sub
 
+
+    Private Function ya_existe_efectivo()
+        Dim c As Integer
+        Dim contador As Integer = 0
+        For c = 0 To dgv_formaPago.Rows.Count - 1
+            If Me.dgv_formaPago.CurrentRow().Cells("forma_pago").Value = "EFECTIVO" Then
+                contador = contador + 1
+            End If
+        Next
+
+        If contador > 0 Then
+            Return True
+        End If
+
+        Return False
+    End Function
+
     Private Sub btn_agregarFORMAPAGO_Click(sender As Object, e As EventArgs) Handles btn_agregarFORMAPAGO.Click
 
         If validar_formapago() = respuesta_validacion._ok Then
@@ -311,21 +348,41 @@
             valor_monto_inicial = Math.Round(Convert.ToDouble(Me.txt_monto_formapago.Text))
 
             If Me.dgv_formaPago.Rows.Count > 0 Then
-                If Convert.ToDouble(txt_monto_formapago.Text) > valor_monto_inicial Then
-                    MsgBox("El monto no puede ser mayor que el total a abonar", MsgBoxStyle.OkOnly, "Error")
-                    Me.txt_monto_formapago.Text = valor_monto_inicial
+                If Convert.ToInt32(Me.txt_monto_formapago.Text) <= 0 Then
+                    MsgBox("El monto seleccionado no se puede almacenar", MsgBoxStyle.OkOnly, "Error")
+                    Me.limpiar_formapago()
+                    Me.calcular_monto_formapago()
                 Else
-                    Me.cargar_tabla_formapago()
+                    If Convert.ToDouble(txt_monto_formapago.Text) > valor_monto_inicial Then
+                        MsgBox("El monto no puede ser mayor que el total a abonar", MsgBoxStyle.OkOnly, "Error")
+                        Me.txt_monto_formapago.Text = valor_monto_inicial
+                    Else
+                        If ya_existe_efectivo() = False Then
+                            Me.cargar_tabla_formapago()
+                        Else
+                            If cmb_formaPago.Text = "EFECTIVO" Then
+                                MsgBox("La forma de pago EFECTIVO ya fue cargada", MsgBoxStyle.OkOnly, "Error")
+                            Else
+                                Me.cargar_tabla_formapago()
+                            End If
+                        End If
+                    End If
                 End If
             End If
 
             If Me.dgv_formaPago.Rows.Count = 0 Then
-                If Convert.ToDouble(txt_monto_formapago.Text) > total_con_descuento_sinfp Then
+                If Convert.ToInt32(Me.txt_monto_formapago.Text) <= 0 Then
+                    MsgBox("El monto seleccionado no se puede almacenar", MsgBoxStyle.OkOnly, "Error")
+                    Me.limpiar_formapago()
                     Me.calcular_monto_formapago()
-                    MsgBox("El monto no puede ser mayor que el total a abonar", MsgBoxStyle.OkOnly, "Error")
                 Else
-                    valor_monto_inicial = total_a_pagar - Convert.ToDouble(Me.txt_monto_formapago.Text)
-                    Me.cargar_tabla_formapago()
+                    If Convert.ToDouble(txt_monto_formapago.Text) > total_con_descuento_sinfp Then
+                        Me.calcular_monto_formapago()
+                        MsgBox("El monto no puede ser mayor que el total a abonar", MsgBoxStyle.OkOnly, "Error")
+                    Else
+                        valor_monto_inicial = total_a_pagar - Convert.ToDouble(Me.txt_monto_formapago.Text)
+                        Me.cargar_tabla_formapago()
+                    End If
                 End If
             End If
 
@@ -365,6 +422,7 @@
         Me.btn_agregarFORMAPAGO.Enabled = True
         Me.btn_eliminarFORMAPAGO.Enabled = False
         Me.btn_aceptar_formapago.Enabled = False
+        Me.btn_aceptar.Enabled = False
 
         Me.cmb_formaPago.Enabled = True
         Me.cmb_formaPago.SelectedIndex = -1
@@ -373,6 +431,9 @@
         Me.calcular_monto_formapago()
         Me.calcular_total_con_dto_formapago()
         Me.txt_monto_formapago.Enabled = True
+
+        Me.limpiar_campos()
+        Me.habilitar_cupon(False)
     End Sub
 
     Private Sub habilitar_cupon(ByVal flag As Boolean)
@@ -407,6 +468,7 @@
             If Convert.ToDouble(txt_monto_formapago.Text) = 0 Then
                 Me.txt_monto_formapago.Enabled = False
                 Me.btn_agregarFORMAPAGO.Enabled = False
+                Me.btn_aceptar.Enabled = True
             Else
                 Me.txt_monto_formapago.Enabled = True
             End If
@@ -418,15 +480,10 @@
             If validar_cupon() = respuesta_validacion._ok Then
                 If MessageBox.Show("¿Los datos ingresados son correctos?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
 
-                    If Convert.ToString(Me.dgv_formaPago.CurrentRow.Cells("forma_pago").Value) = "EFECTIVO" Then
-                        concatenador_ventaxformapago(Convert.ToInt32(Me.dgv_formaPago.CurrentRow.Cells("col_id_formapago").Value), _
-                                     Convert.ToDouble(Me.dgv_formaPago.CurrentRow.Cells("col_montoDTO").Value), _
-                                     0, _
-                                     0, _
-                                     0)
-                    End If
-
                     If Convert.ToString(Me.dgv_formaPago.CurrentRow.Cells("forma_pago").Value) = "DÉBITO" Then
+                        concatenador_cupones(Me.txt_numero_cupon.Text, Me.txt_numero_lote.Text, Me.txt_numero_autorizacion.Text, _
+                                             Convert.ToDouble(Me.txt_monto_cupon.Text))
+
                         concatenador_ventaxformapago(Convert.ToInt32(Me.dgv_formaPago.CurrentRow.Cells("col_id_formapago").Value), _
                                      Convert.ToDouble(Me.dgv_formaPago.CurrentRow.Cells("col_montoDTO").Value), _
                                      Me.txt_numero_cupon.Text, _
@@ -435,11 +492,13 @@
 
                         Me.dgv_formaPago.CurrentRow.Cells("col_flag").Value = False
 
-                        concatenador_cupones(Me.txt_numero_cupon.Text, Me.txt_numero_lote.Text, Me.txt_numero_autorizacion.Text, _
-                                             Convert.ToDouble(Me.txt_monto_cupon.Text))
+
                     End If
 
                     If Convert.ToString(Me.dgv_formaPago.CurrentRow.Cells("forma_pago").Value) = "CRÉDITO" Then
+                        concatenador_cupones(Me.txt_numero_cupon.Text, Me.txt_numero_lote.Text, Me.txt_numero_autorizacion.Text, _
+                                             Convert.ToDouble(Me.txt_monto_cupon.Text))
+
                         concatenador_ventaxformapago(Convert.ToInt32(Me.dgv_formaPago.CurrentRow.Cells("col_id_formapago").Value), _
                                      Convert.ToDouble(Me.dgv_formaPago.CurrentRow.Cells("col_montoDTO").Value), _
                                      Me.txt_numero_cupon.Text, _
@@ -448,11 +507,15 @@
 
                         Me.dgv_formaPago.CurrentRow.Cells("col_flag").Value = False
 
-                        concatenador_cupones(Me.txt_numero_cupon.Text, Me.txt_numero_lote.Text, Me.txt_numero_autorizacion.Text, _
-                                             Convert.ToDouble(Me.txt_monto_cupon.Text))
+
                     End If
 
+                    Me.limpiar_campos()
+                    Me.habilitar_cupon(False)
+                    Me.ocultar_lblERROR()
                 End If
+
+
 
             End If
         End If
@@ -492,16 +555,15 @@
 
     End Sub
 
-    Public Function get_string_ventaxformapago()
-        Return cadena
-    End Function
-
     Private Sub btn_aceptar_formapago_Click(sender As Object, e As EventArgs) Handles btn_aceptar_formapago.Click
         Me.btn_eliminarFORMAPAGO.Enabled = False
         Me.btn_agregarFORMAPAGO.Enabled = True
         Me.btn_aceptar_formapago.Enabled = False
         Me.limpiar_formapago()
-
+        Me.calcular_monto_formapago()
+        Me.calcular_total_con_dto_formapago()
+        Me.habilitar_cupon(False)
+        Me.limpiar_campos()
     End Sub
 
 End Class

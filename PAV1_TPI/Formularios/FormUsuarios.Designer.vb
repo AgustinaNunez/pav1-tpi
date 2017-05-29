@@ -49,7 +49,6 @@ Partial Class FormUsuarios
         Me.txt_id_usuario = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.groupBox = New System.Windows.Forms.GroupBox()
-        Me.cmd_buscar = New System.Windows.Forms.Button()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.cmd_grabar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
@@ -306,7 +305,6 @@ Partial Class FormUsuarios
         '
         'groupBox
         '
-        Me.groupBox.Controls.Add(Me.cmd_buscar)
         Me.groupBox.Controls.Add(Me.grilla_usuarios)
         Me.groupBox.Controls.Add(Me.txt_buscar_usuario)
         Me.groupBox.Controls.Add(Me.Label9)
@@ -320,22 +318,6 @@ Partial Class FormUsuarios
         Me.groupBox.TabIndex = 4
         Me.groupBox.TabStop = False
         Me.groupBox.Text = "Listado de Usuarios"
-        '
-        'cmd_buscar
-        '
-        Me.cmd_buscar.BackColor = System.Drawing.Color.White
-        Me.cmd_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmd_buscar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd_buscar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.cmd_buscar.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
-        Me.cmd_buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_buscar.Location = New System.Drawing.Point(287, 33)
-        Me.cmd_buscar.Name = "cmd_buscar"
-        Me.cmd_buscar.Size = New System.Drawing.Size(93, 25)
-        Me.cmd_buscar.TabIndex = 1
-        Me.cmd_buscar.Text = "Buscar"
-        Me.cmd_buscar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_buscar.UseVisualStyleBackColor = False
         '
         'cmd_eliminar
         '
@@ -566,7 +548,6 @@ Partial Class FormUsuarios
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
     Friend WithEvents cmd_grabar As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
-    Friend WithEvents cmd_buscar As System.Windows.Forms.Button
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents lbl_usuarioERROR As System.Windows.Forms.Label
     Friend WithEvents lbl_constraseñaERROR As System.Windows.Forms.Label

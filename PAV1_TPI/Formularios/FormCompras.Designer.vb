@@ -47,18 +47,18 @@ Partial Class FormCompras
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.cmb_fabrica = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.btn_cancelar = New System.Windows.Forms.Button()
-        Me.btn_guardar = New System.Windows.Forms.Button()
-        Me.btn_nuevo = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.btn_nuevo_producto = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_modificar = New System.Windows.Forms.Button()
         Me.btn_agregar = New System.Windows.Forms.Button()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.btn_cancelar = New System.Windows.Forms.Button()
+        Me.btn_guardar = New System.Windows.Forms.Button()
+        Me.btn_nuevo = New System.Windows.Forms.Button()
         CType(Me.dgv_compras, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -310,6 +310,16 @@ Partial Class FormCompras
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de la Compra"
         '
+        'Label9
+        '
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.Black
+        Me.Label9.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
+        Me.Label9.Location = New System.Drawing.Point(596, 416)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(109, 33)
+        Me.Label9.TabIndex = 0
+        '
         'cmb_fabrica
         '
         Me.cmb_fabrica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -355,75 +365,6 @@ Partial Class FormCompras
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalles de la Compra"
-        '
-        'Label8
-        '
-        Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(0, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(755, 47)
-        Me.Label8.TabIndex = 0
-        Me.Label8.Text = "  Registro de Compra"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'btn_cancelar
-        '
-        Me.btn_cancelar.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_cancelar.Enabled = False
-        Me.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_cancelar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_cancelar.ForeColor = System.Drawing.Color.White
-        Me.btn_cancelar.Image = Global.PAV1_TPI.My.Resources.Resources.cancel_button321
-        Me.btn_cancelar.Location = New System.Drawing.Point(701, 7)
-        Me.btn_cancelar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_cancelar.Name = "btn_cancelar"
-        Me.btn_cancelar.Size = New System.Drawing.Size(40, 40)
-        Me.btn_cancelar.TabIndex = 13
-        Me.btn_cancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_cancelar.UseVisualStyleBackColor = True
-        '
-        'btn_guardar
-        '
-        Me.btn_guardar.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_guardar.Enabled = False
-        Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_guardar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_guardar.ForeColor = System.Drawing.Color.White
-        Me.btn_guardar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark1
-        Me.btn_guardar.Location = New System.Drawing.Point(661, 7)
-        Me.btn_guardar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_guardar.Name = "btn_guardar"
-        Me.btn_guardar.Size = New System.Drawing.Size(40, 40)
-        Me.btn_guardar.TabIndex = 14
-        Me.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_guardar.UseVisualStyleBackColor = True
-        '
-        'btn_nuevo
-        '
-        Me.btn_nuevo.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_nuevo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_nuevo.ForeColor = System.Drawing.Color.White
-        Me.btn_nuevo.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button
-        Me.btn_nuevo.Location = New System.Drawing.Point(622, 7)
-        Me.btn_nuevo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_nuevo.Name = "btn_nuevo"
-        Me.btn_nuevo.Size = New System.Drawing.Size(40, 40)
-        Me.btn_nuevo.TabIndex = 14
-        Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_nuevo.UseVisualStyleBackColor = True
-        '
-        'Label9
-        '
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.Black
-        Me.Label9.Image = Global.PAV1_TPI.My.Resources.Resources.clotta_nombre
-        Me.Label9.Location = New System.Drawing.Point(596, 416)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(109, 33)
-        Me.Label9.TabIndex = 0
         '
         'btn_nuevo_producto
         '
@@ -492,6 +433,65 @@ Partial Class FormCompras
         Me.btn_agregar.Text = "Agregar"
         Me.btn_agregar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_agregar.UseVisualStyleBackColor = True
+        '
+        'Label8
+        '
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.Label8.Location = New System.Drawing.Point(0, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(755, 47)
+        Me.Label8.TabIndex = 0
+        Me.Label8.Text = "  Registro de Compra"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'btn_cancelar
+        '
+        Me.btn_cancelar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_cancelar.Enabled = False
+        Me.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_cancelar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_cancelar.ForeColor = System.Drawing.Color.White
+        Me.btn_cancelar.Image = Global.PAV1_TPI.My.Resources.Resources.cancel_button321
+        Me.btn_cancelar.Location = New System.Drawing.Point(701, 7)
+        Me.btn_cancelar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_cancelar.Name = "btn_cancelar"
+        Me.btn_cancelar.Size = New System.Drawing.Size(40, 40)
+        Me.btn_cancelar.TabIndex = 13
+        Me.btn_cancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_cancelar.UseVisualStyleBackColor = True
+        '
+        'btn_guardar
+        '
+        Me.btn_guardar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_guardar.Enabled = False
+        Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_guardar.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_guardar.ForeColor = System.Drawing.Color.White
+        Me.btn_guardar.Image = Global.PAV1_TPI.My.Resources.Resources.check_mark1
+        Me.btn_guardar.Location = New System.Drawing.Point(661, 7)
+        Me.btn_guardar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_guardar.Name = "btn_guardar"
+        Me.btn_guardar.Size = New System.Drawing.Size(40, 40)
+        Me.btn_guardar.TabIndex = 14
+        Me.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_guardar.UseVisualStyleBackColor = True
+        '
+        'btn_nuevo
+        '
+        Me.btn_nuevo.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_nuevo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_nuevo.ForeColor = System.Drawing.Color.White
+        Me.btn_nuevo.Image = Global.PAV1_TPI.My.Resources.Resources.plus_circular_button
+        Me.btn_nuevo.Location = New System.Drawing.Point(622, 7)
+        Me.btn_nuevo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btn_nuevo.Name = "btn_nuevo"
+        Me.btn_nuevo.Size = New System.Drawing.Size(40, 40)
+        Me.btn_nuevo.TabIndex = 14
+        Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_nuevo.UseVisualStyleBackColor = True
         '
         'FormCompras
         '

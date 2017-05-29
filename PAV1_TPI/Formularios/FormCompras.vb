@@ -211,7 +211,7 @@ Public Class FormCompras
             Me.btn_nuevo_producto.Enabled = True
             Fabrica.id = Me.cmb_fabrica.SelectedValue
             Fabrica.nombre = Me.cmb_fabrica.Text
-            SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos WHERE id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
+            SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos WHERE dado_de_baja = 0 AND id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
         End If
     End Sub
 
@@ -343,4 +343,6 @@ Public Class FormCompras
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
         Me.Close()
     End Sub
+
+
 End Class
