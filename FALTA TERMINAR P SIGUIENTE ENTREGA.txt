@@ -21,3 +21,18 @@ delete from ventas where id_venta in (0,1,2,3)
 
 *PRODUCTOS 
 -
+
+
+*ventasXformaspago
+
+-Obtener valor de subtotal del form ventas
+
+-Enviar valor total factura al form ventas
+
+-Enviar datos al insert del form ventas
+
+-Verificar como vamos a hacer para agregar cupones dos veces del mismo forma de pago
+
+-Cambiar dinamicamente los valores del total a pagar
+
+-Cuando el Form de ventasXformaspago de OK, cambiar el valor del total a pagar, NO ANTES
