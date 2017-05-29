@@ -31,8 +31,6 @@ Partial Class FormCupones_Buscar
         Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_banco = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_cupon = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btn_buscarTARJETA = New System.Windows.Forms.Button()
-        Me.btn_buscarBANCO = New System.Windows.Forms.Button()
         Me.cmb_tarjetaBUSCAR = New System.Windows.Forms.ComboBox()
         Me.cmb_bancoBUSCAR = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -45,11 +43,14 @@ Partial Class FormCupones_Buscar
         '
         'grid1
         '
+        Me.grid1.AllowUserToAddRows = False
+        Me.grid1.AllowUserToDeleteRows = False
         Me.grid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grid1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.numero_lote, Me.numero_autorizacion_online, Me.id_tarjeta, Me.nombre_banco, Me.monto, Me.id_banco, Me.id_cupon})
         Me.grid1.Location = New System.Drawing.Point(12, 178)
         Me.grid1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.grid1.Name = "grid1"
+        Me.grid1.ReadOnly = True
         Me.grid1.Size = New System.Drawing.Size(651, 327)
         Me.grid1.TabIndex = 3
         '
@@ -57,75 +58,50 @@ Partial Class FormCupones_Buscar
         '
         Me.numero_lote.HeaderText = "Nro. Lote"
         Me.numero_lote.Name = "numero_lote"
+        Me.numero_lote.ReadOnly = True
         Me.numero_lote.Width = 90
         '
         'numero_autorizacion_online
         '
         Me.numero_autorizacion_online.HeaderText = "Nro. Autorización"
         Me.numero_autorizacion_online.Name = "numero_autorizacion_online"
+        Me.numero_autorizacion_online.ReadOnly = True
         Me.numero_autorizacion_online.Width = 140
         '
         'id_tarjeta
         '
         Me.id_tarjeta.HeaderText = "Tarjeta"
         Me.id_tarjeta.Name = "id_tarjeta"
+        Me.id_tarjeta.ReadOnly = True
         Me.id_tarjeta.Width = 120
         '
         'nombre_banco
         '
         Me.nombre_banco.HeaderText = "Banco"
         Me.nombre_banco.Name = "nombre_banco"
+        Me.nombre_banco.ReadOnly = True
         Me.nombre_banco.Width = 150
         '
         'monto
         '
         Me.monto.HeaderText = "Monto"
         Me.monto.Name = "monto"
+        Me.monto.ReadOnly = True
         Me.monto.Width = 80
         '
         'id_banco
         '
         Me.id_banco.HeaderText = "id_banco"
         Me.id_banco.Name = "id_banco"
+        Me.id_banco.ReadOnly = True
         Me.id_banco.Visible = False
         '
         'id_cupon
         '
         Me.id_cupon.HeaderText = "id_cupon"
         Me.id_cupon.Name = "id_cupon"
+        Me.id_cupon.ReadOnly = True
         Me.id_cupon.Visible = False
-        '
-        'btn_buscarTARJETA
-        '
-        Me.btn_buscarTARJETA.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_buscarTARJETA.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_buscarTARJETA.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_buscarTARJETA.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_buscarTARJETA.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
-        Me.btn_buscarTARJETA.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscarTARJETA.Location = New System.Drawing.Point(267, 69)
-        Me.btn_buscarTARJETA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_buscarTARJETA.Name = "btn_buscarTARJETA"
-        Me.btn_buscarTARJETA.Size = New System.Drawing.Size(25, 25)
-        Me.btn_buscarTARJETA.TabIndex = 25
-        Me.btn_buscarTARJETA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_buscarTARJETA.UseVisualStyleBackColor = True
-        '
-        'btn_buscarBANCO
-        '
-        Me.btn_buscarBANCO.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btn_buscarBANCO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_buscarBANCO.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_buscarBANCO.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.btn_buscarBANCO.Image = Global.PAV1_TPI.My.Resources.Resources.magnifier16
-        Me.btn_buscarBANCO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscarBANCO.Location = New System.Drawing.Point(267, 36)
-        Me.btn_buscarBANCO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btn_buscarBANCO.Name = "btn_buscarBANCO"
-        Me.btn_buscarBANCO.Size = New System.Drawing.Size(25, 25)
-        Me.btn_buscarBANCO.TabIndex = 20
-        Me.btn_buscarBANCO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_buscarBANCO.UseVisualStyleBackColor = True
         '
         'cmb_tarjetaBUSCAR
         '
@@ -191,9 +167,7 @@ Partial Class FormCupones_Buscar
         '
         Me.GroupBox3.Controls.Add(Me.cmb_bancoBUSCAR)
         Me.GroupBox3.Controls.Add(Me.Label4)
-        Me.GroupBox3.Controls.Add(Me.btn_buscarTARJETA)
         Me.GroupBox3.Controls.Add(Me.Label3)
-        Me.GroupBox3.Controls.Add(Me.btn_buscarBANCO)
         Me.GroupBox3.Controls.Add(Me.cmb_tarjetaBUSCAR)
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
@@ -225,8 +199,6 @@ Partial Class FormCupones_Buscar
 
     End Sub
     Friend WithEvents grid1 As System.Windows.Forms.DataGridView
-    Friend WithEvents btn_buscarTARJETA As System.Windows.Forms.Button
-    Friend WithEvents btn_buscarBANCO As System.Windows.Forms.Button
     Friend WithEvents cmb_tarjetaBUSCAR As System.Windows.Forms.ComboBox
     Friend WithEvents cmb_bancoBUSCAR As System.Windows.Forms.ComboBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
