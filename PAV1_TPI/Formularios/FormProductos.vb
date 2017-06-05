@@ -146,6 +146,9 @@ Public Class FormProductos
                 Me.btn_habilitar.Visible = True
                 Me.btn_habilitar.Enabled = True
             End If
+        Else
+            Me.btn_eliminar.Visible = False
+            Me.btn_habilitar.Visible = False
         End If
 
 
@@ -370,6 +373,14 @@ Public Class FormProductos
     End Sub
 
     Private Sub buscador_general()
+
+        If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
+            cargar_productos()
+        End If
+
+        If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
+            cargar_productos()
+        End If
 
         If txt_idBUSCAR.Text = "" Then
 
@@ -688,7 +699,7 @@ Public Class FormProductos
     End Sub
 
     Private Sub btn_habilitar_Click(sender As Object, e As EventArgs) Handles btn_habilitar.Click
-        If MessageBox.Show("¿Está seguro de habilitar el producto " & Me.txt_descrip.Text & " ?", "Error", MessageBoxButtons.OKCancel) = Windows.Forms.DialogResult.OK Then
+        If MessageBox.Show("¿Está seguro de habilitar el producto " & Me.txt_descrip.Text & " ?", "Consulta", MessageBoxButtons.OKCancel) = Windows.Forms.DialogResult.OK Then
             Dim sql As String = ""
             sql &= "UPDATE productos SET dado_de_baja = 0 WHERE id_producto = " & Me.txt_id.Text
             SoporteBD.leerBD_simple(sql)

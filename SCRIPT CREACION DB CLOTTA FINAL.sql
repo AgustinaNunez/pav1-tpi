@@ -185,7 +185,7 @@ INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (1,'EFECTIVO',0.
 INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (2,'DÉBITO',0.15)
 INSERT INTO formas_pago(id_forma_pago,nombre,porcentaje) VALUES (3,'CRÉDITO',0.00)
 
-INSERT INTO rubros(id_rubro,nombre) VALUES(0,'(Seleccionar valor')
+INSERT INTO rubros(id_rubro,nombre) VALUES(0,'(Seleccionar valor)')
 INSERT INTO rubros(id_rubro,nombre) VALUES(1,'Jean')
 INSERT INTO rubros(id_rubro,nombre) VALUES(2,'Jean Chupin')
 INSERT INTO rubros(id_rubro,nombre) VALUES(3,'Calzas')
@@ -208,7 +208,7 @@ INSERT INTO rubros(id_rubro,nombre) VALUES(19,'Tapados')
 INSERT INTO rubros(id_rubro,nombre) VALUES(20,'Vestidos')
 INSERT INTO rubros(id_rubro,nombre) VALUES(21,'Chalecos')
 
-INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (0,'Seleccionar valor',01146827047)
+INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (0,'(Seleccionar valor)',01146827047)
 INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (1,'47 Street',03487434551)
 INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (2,'Sara',01145236582)
 INSERT INTO fabricas(id_fabrica,nombre,telefono) VALUES (3,'Shira',011452875315)
