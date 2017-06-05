@@ -248,6 +248,17 @@
     <Compile Include="ReporteCupones\ReporteCupones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ReporteProductos\DataSetProductos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetProductos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteProductos\ReporteProductos.Designer.vb">
+      <DependentUpon>ReporteProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteProductos\ReporteProductos.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Formularios\FormClientes.resx">
@@ -290,6 +301,10 @@
     <EmbeddedResource Include="ReporteCupones\ReporteCupones.resx">
       <DependentUpon>ReporteCupones.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteProductos\ReporteProductos.rdlc" />
+    <EmbeddedResource Include="ReporteProductos\ReporteProductos.resx">
+      <DependentUpon>ReporteProductos.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReporteCupones\DataSetClotta.xsc">
@@ -316,6 +331,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="ReporteProductos\DataSetProductos.xsc">
+      <DependentUpon>DataSetProductos.xsd</DependentUpon>
+    </None>
+    <None Include="ReporteProductos\DataSetProductos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetProductos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="ReporteProductos\DataSetProductos.xss">
+      <DependentUpon>DataSetProductos.xsd</DependentUpon>
+    </None>
     <None Include="Resources\clotta_logo.png" />
   </ItemGroup>
   <ItemGroup>

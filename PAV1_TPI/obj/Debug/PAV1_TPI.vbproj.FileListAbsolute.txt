@@ -368,3 +368,4 @@ C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\bin\Debug\zh-CHT\Microsoft.Repo
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\bin\Debug\zh-HANS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\bin\Debug\zh-HANT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.ReporteCupones.resources
+C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.ReporteProductos.resources
