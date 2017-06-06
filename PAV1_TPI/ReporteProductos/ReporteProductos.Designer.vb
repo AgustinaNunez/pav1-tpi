@@ -35,6 +35,8 @@ Partial Class ReporteProductos
         Me.txt_nombre = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cmb_stock = New System.Windows.Forms.ComboBox()
         CType(Me.t_productosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSetProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -77,7 +79,7 @@ Partial Class ReporteProductos
         'cbo_fabricaBUSCAR
         '
         Me.cbo_fabricaBUSCAR.FormattingEnabled = True
-        Me.cbo_fabricaBUSCAR.Location = New System.Drawing.Point(544, 55)
+        Me.cbo_fabricaBUSCAR.Location = New System.Drawing.Point(344, 54)
         Me.cbo_fabricaBUSCAR.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbo_fabricaBUSCAR.Name = "cbo_fabricaBUSCAR"
         Me.cbo_fabricaBUSCAR.Size = New System.Drawing.Size(140, 25)
@@ -86,7 +88,7 @@ Partial Class ReporteProductos
         'Rubro
         '
         Me.Rubro.AutoSize = True
-        Me.Rubro.Location = New System.Drawing.Point(690, 59)
+        Me.Rubro.Location = New System.Drawing.Point(490, 58)
         Me.Rubro.Name = "Rubro"
         Me.Rubro.Size = New System.Drawing.Size(44, 17)
         Me.Rubro.TabIndex = 1
@@ -95,7 +97,7 @@ Partial Class ReporteProductos
         'cbo_rubroBUSCAR
         '
         Me.cbo_rubroBUSCAR.FormattingEnabled = True
-        Me.cbo_rubroBUSCAR.Location = New System.Drawing.Point(739, 55)
+        Me.cbo_rubroBUSCAR.Location = New System.Drawing.Point(539, 54)
         Me.cbo_rubroBUSCAR.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbo_rubroBUSCAR.Name = "cbo_rubroBUSCAR"
         Me.cbo_rubroBUSCAR.Size = New System.Drawing.Size(140, 25)
@@ -106,13 +108,13 @@ Partial Class ReporteProductos
         Me.txt_nombre.Location = New System.Drawing.Point(94, 55)
         Me.txt_nombre.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_nombre.Name = "txt_nombre"
-        Me.txt_nombre.Size = New System.Drawing.Size(388, 25)
+        Me.txt_nombre.Size = New System.Drawing.Size(188, 25)
         Me.txt_nombre.TabIndex = 3
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(488, 59)
+        Me.Label3.Location = New System.Drawing.Point(288, 58)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(50, 17)
         Me.Label3.TabIndex = 1
@@ -130,6 +132,25 @@ Partial Class ReporteProductos
         Me.Label8.Text = "  Listado de Productos"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(690, 58)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 17)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Stock"
+        '
+        'cmb_stock
+        '
+        Me.cmb_stock.FormattingEnabled = True
+        Me.cmb_stock.Items.AddRange(New Object() {"Disponible", "No disponible", "Ambos"})
+        Me.cmb_stock.Location = New System.Drawing.Point(739, 54)
+        Me.cmb_stock.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cmb_stock.Name = "cmb_stock"
+        Me.cmb_stock.Size = New System.Drawing.Size(140, 25)
+        Me.cmb_stock.TabIndex = 2
+        '
         'ReporteProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -138,7 +159,9 @@ Partial Class ReporteProductos
         Me.ClientSize = New System.Drawing.Size(891, 575)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txt_nombre)
+        Me.Controls.Add(Me.cmb_stock)
         Me.Controls.Add(Me.cbo_rubroBUSCAR)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Rubro)
         Me.Controls.Add(Me.cbo_fabricaBUSCAR)
@@ -167,4 +190,6 @@ Partial Class ReporteProductos
     Friend WithEvents DataSetProductos As DataSetProductos
     Friend WithEvents Label3 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents cmb_stock As ComboBox
 End Class

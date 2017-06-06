@@ -3,7 +3,7 @@
         SoporteGUI.cargar_combo(cbo_rubroBUSCAR, SoporteBD.leerBD_simple("SELECT * FROM rubros ORDER BY nombre"), "id_rubro", "nombre")
         SoporteGUI.cargar_combo(cbo_fabricaBUSCAR, SoporteBD.leerBD_simple("SELECT * FROM fabricas ORDER BY nombre"), "id_fabrica", "nombre")
         Me.cargar_productos()
-        Me.limpiar_campos()
+        'Me.limpiar_campos()
     End Sub
 
     Private Sub cargar_productos()
@@ -51,8 +51,8 @@
 
         End If
 
-        'If cmb_habilitado.SelectedIndex = -1 Then
-        If cbo_fabricaBUSCAR.SelectedIndex = -1 Then
+        If cmb_stock.SelectedIndex = -1 Then
+            If cbo_fabricaBUSCAR.SelectedIndex = -1 Then
                 If cbo_rubroBUSCAR.SelectedIndex = -1 Then
                     Return
                 End If
@@ -81,11 +81,11 @@
                     Return
                 End If
             End If
-        'End If
+        End If
 
-        'If cmb_habilitado.SelectedIndex = -1 Then
+        If cmb_stock.SelectedIndex = -1 Then
 
-        If cbo_fabricaBUSCAR.SelectedIndex = 0 Then
+            If cbo_fabricaBUSCAR.SelectedIndex = 0 Then
 
                 If cbo_rubroBUSCAR.SelectedIndex = 0 Then
 
@@ -147,17 +147,18 @@
 
             End If
 
-        'Else
+        Else
 
-        'If cmb_habilitado.Text = "Si" Then
+            If cmb_stock.Text = "Disponible" Then
 
-        If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
+                If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
                     If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                         Dim sql As String = ""
 
                         sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE dado_de_baja = 0"
+                        sql &= " AND stock > 0"
                         If txt_nombre.Text <> "" Then
                             sql &= " AND descripcion LIKE '%" & Me.txt_nombre.Text & "%'"
                         End If
@@ -172,6 +173,7 @@
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                         sql &= " AND dado_de_baja = 0"
+                        sql &= " AND stock > 0"
                         If txt_nombre.Text <> "" Then
                             sql &= " AND descripcion LIKE '%" & Me.txt_nombre.Text & "%'"
                         End If
@@ -190,6 +192,7 @@
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
                         sql &= " AND dado_de_baja = 0"
+                        sql &= " AND stock > 0"
                         If txt_nombre.Text <> "" Then
                             sql &= " AND descripcion LIKE '%" & Me.txt_nombre.Text & "%'"
                         End If
@@ -205,6 +208,7 @@
                         sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                         sql &= " AND f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
                         sql &= " AND dado_de_baja = 0"
+                        sql &= " AND stock > 0"
                         If txt_nombre.Text <> "" Then
                             sql &= " AND descripcion LIKE '%" & Me.txt_nombre.Text & "%'"
                         End If
@@ -216,16 +220,17 @@
 
                 End If
 
-        'End If
+            End If
 
-        'If cmb_habilitado.Text = "No" Then
-        If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
+            If cmb_stock.Text = "No disponible" Then
+                If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
                     If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                         Dim sql As String = ""
 
                         sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
-                        sql &= " WHERE dado_de_baja = 1"
+                        sql &= " WHERE dado_de_baja = 0"
+                        sql &= " AND stock = 0"
                         If txt_nombre.Text <> "" Then
                             sql &= " AND descripcion LIKE '%" & Me.txt_nombre.Text & "%'"
                         End If
@@ -239,7 +244,8 @@
                         sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
-                        sql &= " AND dado_de_baja = 1"
+                        sql &= " AND dado_de_baja = 0"
+                        sql &= " AND stock = 0"
                         If txt_nombre.Text <> "" Then
                             sql &= " AND descripcion LIKE '%" & Me.txt_nombre.Text & "%'"
                         End If
@@ -257,7 +263,8 @@
                         sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
-                        sql &= " AND dado_de_baja = 1"
+                        sql &= " AND dado_de_baja = 0"
+                        sql &= " AND stock = 0"
                         If txt_nombre.Text <> "" Then
                             sql &= " AND descripcion LIKE '%" & Me.txt_nombre.Text & "%'"
                         End If
@@ -272,7 +279,8 @@
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                         sql &= " AND f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
-                        sql &= " AND dado_de_baja = 1"
+                        sql &= " AND dado_de_baja = 0"
+                        sql &= " AND stock = 0"
                         If txt_nombre.Text <> "" Then
                             sql &= " AND descripcion LIKE '%" & Me.txt_nombre.Text & "%'"
                         End If
@@ -284,18 +292,19 @@
 
                 End If
 
-        '    End If
+            End If
 
-        'End If
+        End If
 
-        'If cmb_habilitado.Text = "Ambos" Then
-        If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
+        If cmb_stock.Text = "Ambos" Then
+            If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
                 If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                     Dim sql As String = ""
 
                     sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
-                    sql &= " WHERE dado_de_baja in (0,1)"
+                    sql &= " WHERE dado_de_baja = 0"
+                    sql &= " AND stock >= 0"
                     If txt_nombre.Text <> "" Then
                         sql &= " AND descripcion LIKE '%" & Me.txt_nombre.Text & "%'"
                     End If
@@ -309,7 +318,8 @@
                     sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
-                    sql &= " AND dado_de_baja in (0,1)"
+                    sql &= " AND dado_de_baja = 0"
+                    sql &= " AND stock >= 0"
                     If txt_nombre.Text <> "" Then
                         sql &= " AND descripcion LIKE '%" & Me.txt_nombre.Text & "%'"
                     End If
@@ -327,7 +337,8 @@
                     sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
-                    sql &= " AND dado_de_baja in (0,1)"
+                    sql &= " AND dado_de_baja = 0"
+                    sql &= " AND stock >= 0"
                     If txt_nombre.Text <> "" Then
                         sql &= " AND descripcion LIKE '%" & Me.txt_nombre.Text & "%'"
                     End If
@@ -342,7 +353,8 @@
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                     sql &= " AND f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
-                    sql &= " AND dado_de_baja in (0,1)"
+                    sql &= " AND dado_de_baja = 0"
+                    sql &= " AND stock >= 0"
                     If txt_nombre.Text <> "" Then
                         sql &= " AND descripcion LIKE '%" & Me.txt_nombre.Text & "%'"
                     End If
@@ -354,10 +366,10 @@
 
             End If
 
-        'End If
+        End If
     End Sub
 
-    Private Sub cbo_rubroBUSCAR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbo_rubroBUSCAR.SelectedIndexChanged
+    Private Sub cbo_rubroBUSCAR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbo_rubroBUSCAR.SelectedIndexChanged, cmb_stock.SelectedIndexChanged
         buscador_general()
     End Sub
 
