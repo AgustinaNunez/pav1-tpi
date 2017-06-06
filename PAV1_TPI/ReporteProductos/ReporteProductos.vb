@@ -2,15 +2,22 @@
     Private Sub ReporteProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SoporteGUI.cargar_combo(cbo_rubroBUSCAR, SoporteBD.leerBD_simple("SELECT * FROM rubros ORDER BY nombre"), "id_rubro", "nombre")
         SoporteGUI.cargar_combo(cbo_fabricaBUSCAR, SoporteBD.leerBD_simple("SELECT * FROM fabricas ORDER BY nombre"), "id_fabrica", "nombre")
+        Me.cargar_productos()
+        Me.limpiar_campos()
     End Sub
 
     Private Sub cargar_productos()
-
         Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica' FROM productos p"
         sql &= " JOIN rubros r ON p.id_rubro = r.id_rubro"
         sql &= " JOIN fabricas f ON p.id_fabrica = f.id_fabrica"
         sql &= " WHERE p.dado_de_baja = 0"
         Me.cargar_grilla(sql)
+    End Sub
+
+    Private Sub limpiar_campos()
+        Me.cbo_fabricaBUSCAR.SelectedIndex = -1
+        Me.cbo_rubroBUSCAR.SelectedIndex = -1
+        Me.txt_nombre.Text = ""
     End Sub
 
     Private Sub cargar_grilla(ByRef sql As String)
@@ -44,8 +51,8 @@
 
         End If
 
-        If cmb_habilitado.SelectedIndex = -1 Then
-            If cbo_fabricaBUSCAR.SelectedIndex = -1 Then
+        'If cmb_habilitado.SelectedIndex = -1 Then
+        If cbo_fabricaBUSCAR.SelectedIndex = -1 Then
                 If cbo_rubroBUSCAR.SelectedIndex = -1 Then
                     Return
                 End If
@@ -74,11 +81,11 @@
                     Return
                 End If
             End If
-        End If
+        'End If
 
-        If cmb_habilitado.SelectedIndex = -1 Then
+        'If cmb_habilitado.SelectedIndex = -1 Then
 
-            If cbo_fabricaBUSCAR.SelectedIndex = 0 Then
+        If cbo_fabricaBUSCAR.SelectedIndex = 0 Then
 
                 If cbo_rubroBUSCAR.SelectedIndex = 0 Then
 
@@ -140,11 +147,11 @@
 
             End If
 
-        Else
+        'Else
 
-            If cmb_habilitado.Text = "Si" Then
+        'If cmb_habilitado.Text = "Si" Then
 
-                If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
+        If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
                     If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                         Dim sql As String = ""
 
@@ -209,10 +216,10 @@
 
                 End If
 
-            End If
+        'End If
 
-            If cmb_habilitado.Text = "No" Then
-                If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
+        'If cmb_habilitado.Text = "No" Then
+        If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
                     If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                         Dim sql As String = ""
 
@@ -277,12 +284,12 @@
 
                 End If
 
-            End If
+        '    End If
 
-        End If
+        'End If
 
-        If cmb_habilitado.Text = "Ambos" Then
-            If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
+        'If cmb_habilitado.Text = "Ambos" Then
+        If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
                 If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                     Dim sql As String = ""
 
@@ -347,14 +354,14 @@
 
             End If
 
-        End If
+        'End If
     End Sub
 
     Private Sub cbo_rubroBUSCAR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbo_rubroBUSCAR.SelectedIndexChanged
         buscador_general()
     End Sub
 
-    Private Sub cmb_habilitado_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_habilitado.SelectedIndexChanged
+    Private Sub cmb_habilitado_SelectedIndexChanged(sender As Object, e As EventArgs)
         buscador_general()
     End Sub
 End Class

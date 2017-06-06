@@ -34,6 +34,8 @@ Partial Class Frm_Principal
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btn_productosINFORME = New System.Windows.Forms.Button()
+        Me.btn_cuponesINFORME = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btn_clientes
@@ -42,7 +44,7 @@ Partial Class Frm_Principal
         Me.btn_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_clientes.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_clientes.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_clientes.Location = New System.Drawing.Point(774, 111)
+        Me.btn_clientes.Location = New System.Drawing.Point(774, 184)
         Me.btn_clientes.Name = "btn_clientes"
         Me.btn_clientes.Size = New System.Drawing.Size(183, 34)
         Me.btn_clientes.TabIndex = 2
@@ -65,7 +67,7 @@ Partial Class Frm_Principal
         Me.btn_fabricas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_fabricas.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_fabricas.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_fabricas.Location = New System.Drawing.Point(774, 151)
+        Me.btn_fabricas.Location = New System.Drawing.Point(774, 224)
         Me.btn_fabricas.Name = "btn_fabricas"
         Me.btn_fabricas.Size = New System.Drawing.Size(183, 34)
         Me.btn_fabricas.TabIndex = 4
@@ -78,7 +80,7 @@ Partial Class Frm_Principal
         Me.btn_tarjetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_tarjetas.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_tarjetas.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_tarjetas.Location = New System.Drawing.Point(774, 191)
+        Me.btn_tarjetas.Location = New System.Drawing.Point(774, 264)
         Me.btn_tarjetas.Name = "btn_tarjetas"
         Me.btn_tarjetas.Size = New System.Drawing.Size(183, 34)
         Me.btn_tarjetas.TabIndex = 6
@@ -91,7 +93,7 @@ Partial Class Frm_Principal
         Me.btn_usuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_usuarios.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_usuarios.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_usuarios.Location = New System.Drawing.Point(774, 71)
+        Me.btn_usuarios.Location = New System.Drawing.Point(774, 144)
         Me.btn_usuarios.Name = "btn_usuarios"
         Me.btn_usuarios.Size = New System.Drawing.Size(183, 34)
         Me.btn_usuarios.TabIndex = 7
@@ -104,7 +106,7 @@ Partial Class Frm_Principal
         Me.btn_compras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_compras.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_compras.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_compras.Location = New System.Drawing.Point(774, 271)
+        Me.btn_compras.Location = New System.Drawing.Point(774, 344)
         Me.btn_compras.Name = "btn_compras"
         Me.btn_compras.Size = New System.Drawing.Size(183, 34)
         Me.btn_compras.TabIndex = 7
@@ -117,7 +119,7 @@ Partial Class Frm_Principal
         Me.btn_productos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_productos.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_productos.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_productos.Location = New System.Drawing.Point(774, 231)
+        Me.btn_productos.Location = New System.Drawing.Point(774, 304)
         Me.btn_productos.Name = "btn_productos"
         Me.btn_productos.Size = New System.Drawing.Size(183, 34)
         Me.btn_productos.TabIndex = 9
@@ -130,7 +132,7 @@ Partial Class Frm_Principal
         Me.btn_ventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_ventas.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_ventas.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_ventas.Location = New System.Drawing.Point(774, 311)
+        Me.btn_ventas.Location = New System.Drawing.Point(774, 384)
         Me.btn_ventas.Name = "btn_ventas"
         Me.btn_ventas.Size = New System.Drawing.Size(183, 34)
         Me.btn_ventas.TabIndex = 10
@@ -163,6 +165,32 @@ Partial Class Frm_Principal
         Me.Label1.Size = New System.Drawing.Size(915, 622)
         Me.Label1.TabIndex = 0
         '
+        'btn_productosINFORME
+        '
+        Me.btn_productosINFORME.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(13, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.btn_productosINFORME.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_productosINFORME.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_productosINFORME.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btn_productosINFORME.Location = New System.Drawing.Point(774, 64)
+        Me.btn_productosINFORME.Name = "btn_productosINFORME"
+        Me.btn_productosINFORME.Size = New System.Drawing.Size(183, 34)
+        Me.btn_productosINFORME.TabIndex = 11
+        Me.btn_productosINFORME.Text = "Informe de Productos"
+        Me.btn_productosINFORME.UseVisualStyleBackColor = False
+        '
+        'btn_cuponesINFORME
+        '
+        Me.btn_cuponesINFORME.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(13, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.btn_cuponesINFORME.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_cuponesINFORME.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_cuponesINFORME.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btn_cuponesINFORME.Location = New System.Drawing.Point(774, 104)
+        Me.btn_cuponesINFORME.Name = "btn_cuponesINFORME"
+        Me.btn_cuponesINFORME.Size = New System.Drawing.Size(183, 34)
+        Me.btn_cuponesINFORME.TabIndex = 12
+        Me.btn_cuponesINFORME.Text = "Informe de Cupones"
+        Me.btn_cuponesINFORME.UseVisualStyleBackColor = False
+        '
         'Frm_Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -170,6 +198,8 @@ Partial Class Frm_Principal
         Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(982, 614)
+        Me.Controls.Add(Me.btn_cuponesINFORME)
+        Me.Controls.Add(Me.btn_productosINFORME)
         Me.Controls.Add(Me.btn_ventas)
         Me.Controls.Add(Me.btn_productos)
         Me.Controls.Add(Me.Label4)
@@ -201,4 +231,6 @@ Partial Class Frm_Principal
     Friend WithEvents btn_compras As System.Windows.Forms.Button
     Friend WithEvents btn_productos As Button
     Friend WithEvents btn_ventas As Button
+    Friend WithEvents btn_productosINFORME As Button
+    Friend WithEvents btn_cuponesINFORME As Button
 End Class

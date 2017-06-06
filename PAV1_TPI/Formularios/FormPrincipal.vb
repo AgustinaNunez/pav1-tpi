@@ -51,4 +51,9 @@ Public Class Frm_Principal
             e.Cancel = True
         End If
     End Sub
+
+    Private Sub btn_productosINFORME_Click(sender As Object, e As EventArgs) Handles btn_productosINFORME.Click
+        Dim frm As New ReporteProductos
+        frm.ShowDialog()
+    End Sub
 End Class
