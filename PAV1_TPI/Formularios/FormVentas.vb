@@ -315,6 +315,7 @@ Public Class FormVentas
         Me.btn_aceptarDETALLE.Visible = False
         Me.chk_descuento.Enabled = False
         Me.chk_descuento.Checked = False
+        FormVentasFORMASPAGO.cadena = ""
     End Sub
 
     Private Sub btn_guardarVENTA_Click(sender As Object, e As EventArgs) Handles btn_guardarVENTA.Click
@@ -364,38 +365,9 @@ Public Class FormVentas
             sql_actualizar_productos = ""
         Next
 
-        ''INSERTAR FORMA DE PAGO
-        'Dim tabla_formapago As New DataTable
-        'Dim sql_insertar_formapago As String = ""
-        'For d = 0 To Me.dgv_formaPago.Rows.Count - 1
-        '    'SI LA FORMA DE PAGO ES EN EFECTIVO QUE INSERTE NULL EN LOS VALORES DEL CUPON
-        '    If dgv_formaPago.Rows(d).Cells("col_id_formapago").Value = 1 Then
-        '        sql_insertar_formapago &= "INSERT INTO ventasXformas_pago(id_venta,id_forma_pago,monto_vxfp,id_cupon,id_banco,id_entidad_crediticia) VALUES ("
-        '        sql_insertar_formapago &= txt_idVENTA.Text
-        '        sql_insertar_formapago &= ", " & Me.dgv_formaPago.Rows(d).Cells("col_id_formapago").Value
-        '        sql_insertar_formapago &= ", " & Me.dgv_formaPago.Rows(d).Cells("col_montoDTO").Value
-        '        sql_insertar_formapago &= ", NULL"
-        '        sql_insertar_formapago &= ", NULL"
-        '        sql_insertar_formapago &= ", NULL)"
-        '        SoporteBD.escribirBD_transaccion(sql_insertar_formapago)
-        '        sql_insertar_formapago = ""
-        '    Else
-        '        sql_insertar_formapago &= "INSERT INTO ventasXformas_pago(id_venta,id_forma_pago,monto_vxfp,id_cupon,id_banco,id_entidad_crediticia) VALUES ("
-        '        sql_insertar_formapago &= txt_idVENTA.Text
-        '        sql_insertar_formapago &= ", " & Me.dgv_formaPago.Rows(d).Cells("col_id_formapago").Value
-        '        sql_insertar_formapago &= ", " & Me.dgv_formaPago.Rows(d).Cells("col_montoDTO").Value
-        '        sql_insertar_formapago &= ", " & Cupon.id_cupon
-        '        sql_insertar_formapago &= ", " & Cupon.id_banco
-        '        sql_insertar_formapago &= ", " & Cupon.id_entidad_crediticia & ")"
-        '        SoporteBD.escribirBD_transaccion(sql_insertar_formapago)
-        '        sql_insertar_formapago = ""
-        '    End If
-        'Next
-
-
-
         'INSERTAR FORMAS DE PAGO + CUPONES
         SoporteBD.escribirBD_transaccion(FormVentasFORMASPAGO.cadena)
+        FormVentasFORMASPAGO.cadena = ""
 
         MessageBox.Show("Venta registrada.", "Gestión de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
