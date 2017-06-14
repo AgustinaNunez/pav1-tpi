@@ -752,7 +752,7 @@ Partial Class FormVentas
         Me.MaximizeBox = False
         Me.Name = "FormVentas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "CLOTTA _ Ventas"
+        Me.Text = "Ventas"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)

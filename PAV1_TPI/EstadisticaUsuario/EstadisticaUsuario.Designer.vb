@@ -22,24 +22,31 @@ Partial Class EstadisticaUsuario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EstadisticaUsuario))
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.SuspendLayout()
         '
         'ReportViewer1
         '
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 35)
+        Me.ReportViewer1.Location = New System.Drawing.Point(12, 74)
+        Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(619, 387)
+        Me.ReportViewer1.Size = New System.Drawing.Size(722, 481)
         Me.ReportViewer1.TabIndex = 0
         '
         'EstadisticaUsuario
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(662, 434)
+        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ClientSize = New System.Drawing.Size(772, 568)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "EstadisticaUsuario"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "EstadisticaUsuario"
         Me.ResumeLayout(False)
 

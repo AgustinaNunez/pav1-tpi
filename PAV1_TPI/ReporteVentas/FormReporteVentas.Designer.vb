@@ -23,7 +23,8 @@ Partial Class FormReporteVentas
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormReporteVentas))
         Me.t_ventaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSetVentas = New PAV1_TPI.DataSetVentas()
         Me.cmb_buscar_usuario = New System.Windows.Forms.ComboBox()
@@ -48,16 +49,17 @@ Partial Class FormReporteVentas
         '
         Me.cmb_buscar_usuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_buscar_usuario.FormattingEnabled = True
-        Me.cmb_buscar_usuario.Location = New System.Drawing.Point(81, 67)
+        Me.cmb_buscar_usuario.Location = New System.Drawing.Point(91, 61)
+        Me.cmb_buscar_usuario.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cmb_buscar_usuario.Name = "cmb_buscar_usuario"
-        Me.cmb_buscar_usuario.Size = New System.Drawing.Size(121, 21)
+        Me.cmb_buscar_usuario.Size = New System.Drawing.Size(140, 25)
         Me.cmb_buscar_usuario.TabIndex = 55
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(22, 67)
+        Me.Label1.Location = New System.Drawing.Point(23, 64)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(53, 17)
         Me.Label1.TabIndex = 54
@@ -70,33 +72,42 @@ Partial Class FormReporteVentas
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(0, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(965, 47)
+        Me.Label8.Size = New System.Drawing.Size(1002, 61)
         Me.Label8.TabIndex = 53
         Me.Label8.Text = "  Listado de Ventas"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'ReportViewer1
         '
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.t_ventaBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.t_ventaBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "PAV1_TPI.ReportVenta.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(22, 94)
+        Me.ReportViewer1.Location = New System.Drawing.Point(26, 94)
+        Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(907, 436)
+        Me.ReportViewer1.Size = New System.Drawing.Size(954, 490)
         Me.ReportViewer1.TabIndex = 56
         '
         'FormReporteVentas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(965, 542)
+        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ClientSize = New System.Drawing.Size(1002, 597)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.cmb_buscar_usuario)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label8)
+        Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FormReporteVentas"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reporte de ventas"
         CType(Me.t_ventaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSetVentas, System.ComponentModel.ISupportInitialize).EndInit()

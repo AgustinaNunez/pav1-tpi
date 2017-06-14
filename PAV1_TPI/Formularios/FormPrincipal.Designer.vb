@@ -215,7 +215,7 @@ Partial Class Frm_Principal
         Me.MaximizeBox = False
         Me.Name = "Frm_Principal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "CLOTTA _ Principal"
+        Me.Text = "Principal"
         Me.ResumeLayout(False)
 
     End Sub

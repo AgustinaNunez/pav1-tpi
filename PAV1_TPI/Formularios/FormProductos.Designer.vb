@@ -114,7 +114,7 @@ Partial Class FormProductos
         Me.dgv_productos.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgv_productos.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.dgv_productos.Size = New System.Drawing.Size(677, 531)
+        Me.dgv_productos.Size = New System.Drawing.Size(689, 531)
         Me.dgv_productos.TabIndex = 3
         '
         'id_producto

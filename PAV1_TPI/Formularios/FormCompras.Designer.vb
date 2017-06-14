@@ -510,7 +510,7 @@ Partial Class FormCompras
         Me.MaximizeBox = False
         Me.Name = "FormCompras"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Gestión de Compras"
+        Me.Text = "Compras"
         CType(Me.dgv_compras, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

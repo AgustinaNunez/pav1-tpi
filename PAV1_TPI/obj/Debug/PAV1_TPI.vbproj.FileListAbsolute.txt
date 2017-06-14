@@ -621,3 +621,6 @@ C:\Users\Georgina\Desktop\Clotaa 13-06\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.pdb
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.EstadisticaFabrica.resources
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.EstadisticaUsuario.resources
 C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormReporteVentas.resources
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\pav1-tpiPRIMERAENTREGA\PAV1_TPI\obj\Debug\PAV1_TPI.EstadisticaFabrica.resources
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\pav1-tpiPRIMERAENTREGA\PAV1_TPI\obj\Debug\PAV1_TPI.EstadisticaUsuario.resources
+D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\PAV_TPI_2017\pav1-tpiPRIMERAENTREGA\PAV1_TPI\obj\Debug\PAV1_TPI.FormReporteVentas.resources

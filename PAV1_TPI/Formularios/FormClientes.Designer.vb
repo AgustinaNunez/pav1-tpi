@@ -536,7 +536,7 @@ Partial Class FormClientes
         Me.MaximizeBox = False
         Me.Name = "FormClientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "CLOTTA Clientes"
+        Me.Text = "Clientes"
         CType(Me.dgv_clientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
