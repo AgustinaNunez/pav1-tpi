@@ -2,20 +2,6 @@
     Private Sub FormReporteVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         SoporteGUI.cargar_combo(cmb_buscar_usuario, SoporteBD.leerBD_simple("SELECT * FROM usuarios ORDER BY nombre"), "id_usuario", "id_usuario")
-        Me.cargar_ventas()
-    End Sub
-
-    Private Sub cargar_ventas()
-        Dim sql As String = ""
-        sql &= " SELECT ventas.id_venta, convert(char(10), ventas.fecha_venta,103) as fecha_venta, ventas.id_usuario, usuarios.id_usuario AS Expr1, ventas.total"
-        sql &= " From    ventas INNER JOIN "
-        sql &= "   usuarios ON ventas.id_usuario = usuarios.id_usuario"
-        Me.cargar_grilla(sql)
-    End Sub
-
-    Private Sub limpiar_campos()
-        Me.cmb_buscar_usuario.SelectedIndex = -1
-
     End Sub
 
     Private Sub cargar_grilla(ByRef sql As String)
@@ -26,16 +12,14 @@
 
 
     Private Sub buscador_general()
-        If cmb_buscar_usuario.SelectedIndex = 0 Then
-
-            Me.cargar_ventas()
-
+        If cmb_buscar_usuario.SelectedIndex = -1 Then
+            Return
         Else
             Dim sql As String = ""
-            sql &= " SELECT ventas.id_venta, convert(char(10), ventas.fecha_venta,103) as fecha_venta, ventas.id_usuario, usuarios.id_usuario AS Expr1, ventas.total"
-            sql &= " From      ventas INNER JOIN "
-            sql &= "  usuarios ON ventas.id_usuario = usuarios.id_usuario"
-            sql &= " WHERE id_usuario = " & Me.cmb_buscar_usuario.SelectedValue
+            sql &= " SELECT v.id_venta, convert(char(10), v.fecha_venta,103) as fecha_venta, v.id_usuario, v.total"
+            sql &= " FROM ventas v "
+            sql &= " JOIN usuarios u ON v.id_usuario = u.id_usuario "
+            sql &= " WHERE u.id_usuario = '" & Me.cmb_buscar_usuario.Text & "'"
 
             Me.cargar_grilla(sql)
         End If
@@ -46,4 +30,6 @@
     Private Sub cmb_buscar_usuario_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_buscar_usuario.SelectedIndexChanged
         Me.buscador_general()
     End Sub
+
+
 End Class

@@ -8,8 +8,6 @@
     Dim valor_monto_inicial As Double
     Dim txt_error As String
     Dim monto_actual As Double
-    Dim listado_cupones_mostrar As New ArrayList
-    Dim listado_cupones_grabar As New ArrayList
     Public Shared cadena As String = ""
 
     Private Sub FormVentasFORMASPAGO_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -152,50 +150,6 @@
 
     End Sub
 
-    Private Structure estructura_cupon_mostrar
-        Public numero_cupon As Integer
-        Public numero_lote As Integer
-        Public numero_autorizacion As Integer
-        Public monto_cupon As Double
-        Public banco_cupon As Integer
-        Public entidad_cupon As Integer
-    End Structure
-
-    Private Sub agregar_cupon_mostrar(ByVal cupon As Integer, ByVal lote As Integer, ByVal autorizacion As Integer, _
-                                      ByVal monto As Double, banco As Integer, entidad As Integer)
-
-        Dim obj_cupon As estructura_cupon_mostrar
-
-        obj_cupon.numero_cupon = cupon
-        obj_cupon.numero_lote = lote
-        obj_cupon.numero_autorizacion = autorizacion
-        obj_cupon.monto_cupon = monto
-        obj_cupon.banco_cupon = banco
-        obj_cupon.entidad_cupon = entidad
-
-        listado_cupones_mostrar.Add(obj_cupon)
-
-    End Sub
-
-    Private Structure estructura_cupon_grabar
-        Public numero_cupon As Integer
-        Public numero_lote As Integer
-        Public numero_autorizacion As Integer
-        Public monto_cupon As Double
-    End Structure
-
-    Private Sub agregar_cupon_grabar(ByVal cupon As Integer, ByVal lote As Integer, ByVal autorizacion As Integer, ByVal monto As Double)
-
-        Dim obj_cupon As estructura_cupon_grabar
-
-        obj_cupon.numero_cupon = cupon
-        obj_cupon.numero_lote = lote
-        obj_cupon.numero_autorizacion = autorizacion
-        obj_cupon.monto_cupon = monto
-
-        listado_cupones_mostrar.Add(obj_cupon)
-
-    End Sub
 
     Private Sub limpiar_cupon()
         Me.txt_numero_cupon.Text = ""
@@ -278,21 +232,13 @@
         tabla_porcentaje = SoporteBD.leerBD_simple(consulta_porcentaje)
         Dim porcentaje As Double = tabla_porcentaje.Rows(0)("porcentaje")
 
-        'Dim tabla_formaspago As New DataTable
-        'Dim consulta_formaspago As String = ""
-        'consulta_formaspago &= "SELECT nombre FROM formas_pago WHERE id_forma_pago = " & Me.cmb_formaPago.SelectedValue
-        'tabla_formaspago = SoporteBD.leerBD_simple(consulta_formaspago)
-        'Dim forma_de_pago As String = tabla_formaspago.Rows(0)("nombre")
-
         Dim monto_sin_descuento As Double = Convert.ToDouble(Me.txt_monto_formapago.Text)
 
         If cmb_formaPago.Text = "EFECTIVO" Then
             Me.dgv_formaPago.Rows.Add(Me.cmb_formaPago.Text, porcentaje, monto_sin_descuento, Math.Round((1 - porcentaje) * monto_sin_descuento), Me.cmb_formaPago.SelectedValue, False)
             Me.calcular_monto_formapago()
             Me.calcular_total_con_dto_formapago()
-            'If txt_monto_formapago.Enabled = False Then
-            '    Me.btn_aceptar.Enabled = True
-            'End If
+
         End If
 
         If cmb_formaPago.Text = "DÉBITO" Or cmb_formaPago.Text = "CRÉDITO" Then
@@ -323,7 +269,6 @@
         Next
         Me.txt_totalFACTURA.Text = precio_con_dto
     End Sub
-
 
     Private Function ya_existe_efectivo()
         Dim c As Integer
@@ -440,7 +385,6 @@
         Me.txt_numero_cupon.Enabled = flag
         Me.txt_numero_autorizacion.Enabled = flag
         Me.txt_numero_lote.Enabled = flag
-        'Me.txt_monto_cupon.Enabled = flag
         Me.cmb_banco.Enabled = flag
         Me.cmb_entidad.Enabled = flag
         Me.btn_guardar_cupon.Enabled = flag

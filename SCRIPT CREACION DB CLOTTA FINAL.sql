@@ -106,6 +106,7 @@ hora_venta varchar(90),
 id_usuario varchar(30),
 numero_documento_cliente varchar(20),
 tipo_documento_cliente integer,
+total float,
 CONSTRAINT pk_ventas PRIMARY KEY (id_venta),
 CONSTRAINT fk_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
 CONSTRAINT fk_cliente_venta FOREIGN KEY (numero_documento_cliente, tipo_documento_cliente) REFERENCES clientes(numero_documento, tipo_documento)

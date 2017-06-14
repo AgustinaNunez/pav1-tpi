@@ -56,4 +56,9 @@ Public Class Frm_Principal
         Dim frm As New ReporteProductos
         frm.ShowDialog()
     End Sub
+
+    Private Sub btn_cuponesINFORME_Click(sender As Object, e As EventArgs) Handles btn_cuponesINFORME.Click
+        Dim frm As New FormReporteVentas
+        frm.ShowDialog()
+    End Sub
 End Class

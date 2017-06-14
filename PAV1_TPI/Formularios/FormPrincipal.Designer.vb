@@ -44,7 +44,7 @@ Partial Class Frm_Principal
         Me.btn_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_clientes.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_clientes.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_clientes.Location = New System.Drawing.Point(774, 184)
+        Me.btn_clientes.Location = New System.Drawing.Point(774, 225)
         Me.btn_clientes.Name = "btn_clientes"
         Me.btn_clientes.Size = New System.Drawing.Size(183, 34)
         Me.btn_clientes.TabIndex = 2
@@ -67,7 +67,7 @@ Partial Class Frm_Principal
         Me.btn_fabricas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_fabricas.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_fabricas.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_fabricas.Location = New System.Drawing.Point(774, 224)
+        Me.btn_fabricas.Location = New System.Drawing.Point(774, 265)
         Me.btn_fabricas.Name = "btn_fabricas"
         Me.btn_fabricas.Size = New System.Drawing.Size(183, 34)
         Me.btn_fabricas.TabIndex = 4
@@ -80,7 +80,7 @@ Partial Class Frm_Principal
         Me.btn_tarjetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_tarjetas.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_tarjetas.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_tarjetas.Location = New System.Drawing.Point(774, 264)
+        Me.btn_tarjetas.Location = New System.Drawing.Point(774, 305)
         Me.btn_tarjetas.Name = "btn_tarjetas"
         Me.btn_tarjetas.Size = New System.Drawing.Size(183, 34)
         Me.btn_tarjetas.TabIndex = 6
@@ -93,7 +93,7 @@ Partial Class Frm_Principal
         Me.btn_usuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_usuarios.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_usuarios.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_usuarios.Location = New System.Drawing.Point(774, 144)
+        Me.btn_usuarios.Location = New System.Drawing.Point(774, 185)
         Me.btn_usuarios.Name = "btn_usuarios"
         Me.btn_usuarios.Size = New System.Drawing.Size(183, 34)
         Me.btn_usuarios.TabIndex = 7
@@ -106,7 +106,7 @@ Partial Class Frm_Principal
         Me.btn_compras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_compras.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_compras.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_compras.Location = New System.Drawing.Point(774, 344)
+        Me.btn_compras.Location = New System.Drawing.Point(774, 385)
         Me.btn_compras.Name = "btn_compras"
         Me.btn_compras.Size = New System.Drawing.Size(183, 34)
         Me.btn_compras.TabIndex = 7
@@ -119,7 +119,7 @@ Partial Class Frm_Principal
         Me.btn_productos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_productos.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_productos.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_productos.Location = New System.Drawing.Point(774, 304)
+        Me.btn_productos.Location = New System.Drawing.Point(774, 345)
         Me.btn_productos.Name = "btn_productos"
         Me.btn_productos.Size = New System.Drawing.Size(183, 34)
         Me.btn_productos.TabIndex = 9
@@ -132,7 +132,7 @@ Partial Class Frm_Principal
         Me.btn_ventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_ventas.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_ventas.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_ventas.Location = New System.Drawing.Point(774, 384)
+        Me.btn_ventas.Location = New System.Drawing.Point(774, 425)
         Me.btn_ventas.Name = "btn_ventas"
         Me.btn_ventas.Size = New System.Drawing.Size(183, 34)
         Me.btn_ventas.TabIndex = 10

@@ -310,12 +310,12 @@ Public Class FormVentas
         Me.txt_idVENTA.Text = SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_ventas")
         Me.dgv_detalle.Rows.Clear()
         Me.btn_guardarVENTA.Enabled = False
-        'Me.btn_agregarCUPON.Visible = False
+        Venta.id_venta = Me.txt_idVENTA.Text
         Me.btn_eliminarDETALLE.Visible = False
         Me.btn_aceptarDETALLE.Visible = False
         Me.chk_descuento.Enabled = False
         Me.chk_descuento.Checked = False
-        FormVentasFORMASPAGO.cadena = ""
+        FormVentasFORMASPAGO.cadena = Nothing
     End Sub
 
     Private Sub btn_guardarVENTA_Click(sender As Object, e As EventArgs) Handles btn_guardarVENTA.Click
@@ -323,7 +323,7 @@ Public Class FormVentas
         'INSERTAR VENTA
         Dim tabla_venta As New DataTable
         Dim sql_insertar_venta As String = ""
-        sql_insertar_venta &= "INSERT INTO ventas(id_venta,fecha_venta,hora_venta,id_usuario,numero_documento_cliente,tipo_documento_cliente) VALUES("
+        sql_insertar_venta &= "INSERT INTO ventas(id_venta,fecha_venta,hora_venta,id_usuario,numero_documento_cliente,tipo_documento_cliente,total) VALUES("
         sql_insertar_venta &= txt_idVENTA.Text
         sql_insertar_venta &= ", '" & txt_fecha.Text & "'"
         sql_insertar_venta &= ", '" & txt_hora.Text & "'"
@@ -336,10 +336,12 @@ Public Class FormVentas
         End If
 
         If cmb_tipoDocCLIENTE.SelectedIndex = -1 Then
-            sql_insertar_venta &= ", NULL)"
+            sql_insertar_venta &= ", NULL"
         Else
-            sql_insertar_venta &= ", '" & cmb_tipoDocCLIENTE.SelectedValue & "')"
+            sql_insertar_venta &= ", '" & cmb_tipoDocCLIENTE.SelectedValue & "'"
         End If
+
+        sql_insertar_venta &= ", " & txt_totalVENTA.Text & ")"
 
         SoporteBD.escribirBD_transaccion(sql_insertar_venta)
 
@@ -367,7 +369,7 @@ Public Class FormVentas
 
         'INSERTAR FORMAS DE PAGO + CUPONES
         SoporteBD.escribirBD_transaccion(FormVentasFORMASPAGO.cadena)
-        FormVentasFORMASPAGO.cadena = ""
+        FormVentasFORMASPAGO.cadena = Nothing
 
         MessageBox.Show("Venta registrada.", "Gestión de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
@@ -481,14 +483,19 @@ Public Class FormVentas
     End Sub
 
     Private Sub btn_guardarDESCUENTO_Click(sender As Object, e As EventArgs) Handles btn_dtoVENTA.Click
-        If MessageBox.Show("¿El descuento aplicado es correcto?", "Gestión de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = DialogResult.OK Then
-            total_con_descuento_sinfp = Math.Round(Convert.ToDouble(Me.txt_totalVENTA.Text))
-            Venta.total = total_con_descuento_sinfp
-            Me.txt_dtoVENTA.Enabled = False
-            Me.btn_dtoVENTA.Enabled = False
-            Me.deshabilitar_camposDETALLE()
-            Me.btn_formasPago.Enabled = True
+        If dgv_detalle.Rows.Count = 0 Then
+            MessageBox.Show("No hay productos agregados", "Gestión de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            If MessageBox.Show("¿El descuento aplicado es correcto?", "Gestión de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = DialogResult.OK Then
+                total_con_descuento_sinfp = Math.Round(Convert.ToDouble(Me.txt_totalVENTA.Text))
+                Venta.total = total_con_descuento_sinfp
+                Me.txt_dtoVENTA.Enabled = False
+                Me.btn_dtoVENTA.Enabled = False
+                Me.deshabilitar_camposDETALLE()
+                Me.btn_formasPago.Enabled = True
+            End If
         End If
+
     End Sub
 
 End Class

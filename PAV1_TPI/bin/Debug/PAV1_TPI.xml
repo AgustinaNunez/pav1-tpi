@@ -237,6 +237,16 @@ PAV1_TPI
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="T:PAV1_TPI.DatosEstadisticaFabrica">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:PAV1_TPI.DatosEstadisticaUsuario">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
 <member name="T:PAV1_TPI.DataSetClotta">
 <summary>
 Represents a strongly typed in-memory cache of data.

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Estadi" targetNamespace="http://tempuri.org/Estadi.xsd" xmlns:mstns="http://tempuri.org/Estadi.xsd" xmlns="http://tempuri.org/Estadi.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Estadi" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Estadi" msprop:Generator_UserDSName="Estadi">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="t_usuarios" msprop:Generator_TableClassName="t_usuariosDataTable" msprop:Generator_TableVarName="tablet_usuarios" msprop:Generator_TablePropName="t_usuarios" msprop:Generator_RowDeletingName="t_usuariosRowDeleting" msprop:Generator_RowChangingName="t_usuariosRowChanging" msprop:Generator_RowEvHandlerName="t_usuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="t_usuariosRowDeleted" msprop:Generator_UserTableName="t_usuarios" msprop:Generator_RowChangedName="t_usuariosRowChanged" msprop:Generator_RowEvArgName="t_usuariosRowChangeEvent" msprop:Generator_RowClassName="t_usuariosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_usuario" msprop:Generator_ColumnVarNameInTable="columnid_usuario" msprop:Generator_ColumnPropNameInRow="id_usuario" msprop:Generator_ColumnPropNameInTable="id_usuarioColumn" msprop:Generator_UserColumnName="id_usuario" type="xs:string" minOccurs="0" />
+              <xs:element name="monto" msprop:Generator_ColumnVarNameInTable="columnmonto" msprop:Generator_ColumnPropNameInRow="monto" msprop:Generator_ColumnPropNameInTable="montoColumn" msprop:Generator_UserColumnName="monto" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="t_fabricas" msprop:Generator_TableClassName="t_fabricasDataTable" msprop:Generator_TableVarName="tablet_fabricas" msprop:Generator_TablePropName="t_fabricas" msprop:Generator_RowDeletingName="t_fabricasRowDeleting" msprop:Generator_RowChangingName="t_fabricasRowChanging" msprop:Generator_RowEvHandlerName="t_fabricasRowChangeEventHandler" msprop:Generator_RowDeletedName="t_fabricasRowDeleted" msprop:Generator_UserTableName="t_fabricas" msprop:Generator_RowChangedName="t_fabricasRowChanged" msprop:Generator_RowEvArgName="t_fabricasRowChangeEvent" msprop:Generator_RowClassName="t_fabricasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="monto" msprop:Generator_ColumnVarNameInTable="columnmonto" msprop:Generator_ColumnPropNameInRow="monto" msprop:Generator_ColumnPropNameInTable="montoColumn" msprop:Generator_UserColumnName="monto" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

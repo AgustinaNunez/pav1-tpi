@@ -151,6 +151,28 @@
     <Compile Include="Clases auxiliares\Fabrica.vb" />
     <Compile Include="Clases auxiliares\Producto.vb" />
     <Compile Include="Clases auxiliares\Venta.vb" />
+    <Compile Include="EstadisticaFabrica\DatosEstadisticaFabrica.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatosEstadisticaFabrica.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EstadisticaFabrica\EstadisticaFabrica.Designer.vb">
+      <DependentUpon>EstadisticaFabrica.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EstadisticaFabrica\EstadisticaFabrica.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstadisticaUsuario\DatosEstadisticaUsuario.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatosEstadisticaUsuario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EstadisticaUsuario\EstadisticaUsuario.Designer.vb">
+      <DependentUpon>EstadisticaUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EstadisticaUsuario\EstadisticaUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ReporteCupones\DataSetClotta.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -272,6 +294,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EstadisticaFabrica\EstadisticaFabrica.resx">
+      <DependentUpon>EstadisticaFabrica.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstadisticaFabrica\GraficoFabrica.rdlc" />
+    <EmbeddedResource Include="EstadisticaUsuario\EstadisticaUsuario.resx">
+      <DependentUpon>EstadisticaUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstadisticaUsuario\GraficoUsuario.rdlc" />
     <EmbeddedResource Include="Formularios\FormClientes.resx">
       <DependentUpon>FormClientes.vb</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +352,28 @@
     <EmbeddedResource Include="ReporteVentas\ReportVenta.rdlc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="EstadisticaFabrica\DatosEstadisticaFabrica.xsc">
+      <DependentUpon>DatosEstadisticaFabrica.xsd</DependentUpon>
+    </None>
+    <None Include="EstadisticaFabrica\DatosEstadisticaFabrica.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatosEstadisticaFabrica.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="EstadisticaFabrica\DatosEstadisticaFabrica.xss">
+      <DependentUpon>DatosEstadisticaFabrica.xsd</DependentUpon>
+    </None>
+    <None Include="EstadisticaUsuario\DatosEstadisticaUsuario.xsc">
+      <DependentUpon>DatosEstadisticaUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="EstadisticaUsuario\DatosEstadisticaUsuario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatosEstadisticaUsuario.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="EstadisticaUsuario\DatosEstadisticaUsuario.xss">
+      <DependentUpon>DatosEstadisticaUsuario.xsd</DependentUpon>
+    </None>
     <None Include="ReporteCupones\DataSetClotta.xsc">
       <DependentUpon>DataSetClotta.xsd</DependentUpon>
     </None>
