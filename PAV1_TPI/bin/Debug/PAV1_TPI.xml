@@ -277,5 +277,25 @@ Represents strongly named DataRow class.
 Row event argument class
 </summary>
 </member>
+<member name="T:PAV1_TPI.DataSetVentas">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:PAV1_TPI.DataSetVentas.t_ventaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PAV1_TPI.DataSetVentas.t_ventaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PAV1_TPI.DataSetVentas.t_ventaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 </members>
 </doc>
