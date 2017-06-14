@@ -11,7 +11,7 @@ Public Class Frm_Principal
         frmFabrica.ShowDialog()
     End Sub
 
-    Private Sub btn_cupones_Click(sender As Object, e As EventArgs) Handles btn_tarjetas.Click
+    Private Sub btn_cupones_Click(sender As Object, e As EventArgs)
         Dim frmCupones = New FormCupones_Buscar
         frmCupones.ShowDialog()
     End Sub
@@ -45,8 +45,6 @@ Public Class Frm_Principal
         If MessageBox.Show("¿Desea cerrar la sesión antes de salir?", "CLOTTA _ Principal", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = DialogResult.OK Then
             e.Cancel = False
             Usuario.logout()
-            'Dim frmlogin As New FormLogin
-            'frmlogin.Show()
         Else
             e.Cancel = True
         End If
@@ -58,7 +56,22 @@ Public Class Frm_Principal
     End Sub
 
     Private Sub btn_cuponesINFORME_Click(sender As Object, e As EventArgs) Handles btn_cuponesINFORME.Click
+        Dim frm As New ReporteCupones
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub btn_informe_ventas_Click(sender As Object, e As EventArgs) Handles btn_informe_ventas.Click
         Dim frm As New FormReporteVentas
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub btn_estadisticas_fabrica_Click(sender As Object, e As EventArgs) Handles btn_estadisticas_fabrica.Click
+        Dim frm As New EstadisticaFabrica
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub btn_estadisticas_usuario_Click(sender As Object, e As EventArgs) Handles btn_estadisticas_usuario.Click
+        Dim frm As New EstadisticaUsuario
         frm.ShowDialog()
     End Sub
 End Class

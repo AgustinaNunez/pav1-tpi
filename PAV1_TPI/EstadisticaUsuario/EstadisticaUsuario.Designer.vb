@@ -23,17 +23,58 @@ Partial Class EstadisticaUsuario
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EstadisticaUsuario))
+        Me.cmb_temporadas = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.cmb_año = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
+        '
+        'cmb_temporadas
+        '
+        Me.cmb_temporadas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_temporadas.FormattingEnabled = True
+        Me.cmb_temporadas.Items.AddRange(New Object() {"Otoño-Invierno", "Primavera-Verano"})
+        Me.cmb_temporadas.Location = New System.Drawing.Point(90, 25)
+        Me.cmb_temporadas.Name = "cmb_temporadas"
+        Me.cmb_temporadas.Size = New System.Drawing.Size(121, 25)
+        Me.cmb_temporadas.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(9, 28)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(75, 17)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Temporada"
         '
         'ReportViewer1
         '
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 74)
-        Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ReportViewer1.Location = New System.Drawing.Point(12, 67)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(722, 481)
-        Me.ReportViewer1.TabIndex = 0
+        Me.ReportViewer1.Size = New System.Drawing.Size(748, 489)
+        Me.ReportViewer1.TabIndex = 3
+        '
+        'cmb_año
+        '
+        Me.cmb_año.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_año.FormattingEnabled = True
+        Me.cmb_año.Items.AddRange(New Object() {"2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"})
+        Me.cmb_año.Location = New System.Drawing.Point(275, 25)
+        Me.cmb_año.Name = "cmb_año"
+        Me.cmb_año.Size = New System.Drawing.Size(121, 25)
+        Me.cmb_año.TabIndex = 1
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(238, 28)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(31, 17)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Año"
         '
         'EstadisticaUsuario
         '
@@ -42,15 +83,24 @@ Partial Class EstadisticaUsuario
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(772, 568)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.cmb_año)
+        Me.Controls.Add(Me.cmb_temporadas)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
         Me.Name = "EstadisticaUsuario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "EstadisticaUsuario"
+        Me.Text = "Estadística de usuario que más vendió por temporada"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-
+    Friend WithEvents cmb_temporadas As ComboBox
+    Friend WithEvents Label1 As Label
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents cmb_año As ComboBox
+    Friend WithEvents Label2 As Label
 End Class

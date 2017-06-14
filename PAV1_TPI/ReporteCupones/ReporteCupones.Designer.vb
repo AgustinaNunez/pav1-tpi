@@ -23,7 +23,7 @@ Partial Class ReporteCupones
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ReporteCupones))
         Me.t_cuponBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSetClotta = New PAV1_TPI.DataSetClotta()
@@ -49,9 +49,9 @@ Partial Class ReporteCupones
         '
         'ReportCupon
         '
-        ReportDataSource2.Name = "ReporteCupon"
-        ReportDataSource2.Value = Me.t_cuponBindingSource
-        Me.ReportCupon.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource1.Name = "ReporteCupon"
+        ReportDataSource1.Value = Me.t_cuponBindingSource
+        Me.ReportCupon.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportCupon.LocalReport.ReportEmbeddedResource = "PAV1_TPI.Report2.rdlc"
         Me.ReportCupon.Location = New System.Drawing.Point(13, 91)
         Me.ReportCupon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -123,6 +123,7 @@ Partial Class ReporteCupones
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
         Me.Name = "ReporteCupones"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ReporteCupones"
