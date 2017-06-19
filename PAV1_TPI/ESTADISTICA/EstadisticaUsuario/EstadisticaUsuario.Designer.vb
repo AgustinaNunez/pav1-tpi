@@ -22,12 +22,18 @@ Partial Class EstadisticaUsuario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EstadisticaUsuario))
         Me.cmb_temporadas = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.cmb_año = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.DatosUsuarios = New PAV1_TPI.DatosUsuarios()
+        Me.usuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.DatosUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.usuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmb_temporadas
@@ -51,6 +57,10 @@ Partial Class EstadisticaUsuario
         '
         'ReportViewer1
         '
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.usuariosBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "PAV1_TPI.Usuario.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(12, 67)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
@@ -76,6 +86,16 @@ Partial Class EstadisticaUsuario
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Año"
         '
+        'DatosUsuarios
+        '
+        Me.DatosUsuarios.DataSetName = "DatosUsuarios"
+        Me.DatosUsuarios.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'usuariosBindingSource
+        '
+        Me.usuariosBindingSource.DataMember = "usuarios"
+        Me.usuariosBindingSource.DataSource = Me.DatosUsuarios
+        '
         'EstadisticaUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -94,6 +114,8 @@ Partial Class EstadisticaUsuario
         Me.Name = "EstadisticaUsuario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Estadística de usuario que más vendió por temporada"
+        CType(Me.DatosUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.usuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -103,4 +125,6 @@ Partial Class EstadisticaUsuario
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents cmb_año As ComboBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents usuariosBindingSource As BindingSource
+    Friend WithEvents DatosUsuarios As DatosUsuarios
 End Class

@@ -508,6 +508,13 @@
         Me.calcular_total_con_dto_formapago()
         Me.habilitar_cupon(False)
         Me.limpiar_campos()
+        If txt_monto_formapago.Text = 0 Then
+            Me.cmb_formaPago.Enabled = False
+        Else
+            Me.cmb_formaPago.Enabled = True
+        End If
+
     End Sub
+
 
 End Class

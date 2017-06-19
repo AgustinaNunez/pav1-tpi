@@ -151,34 +151,34 @@
     <Compile Include="Clases auxiliares\Fabrica.vb" />
     <Compile Include="Clases auxiliares\Producto.vb" />
     <Compile Include="Clases auxiliares\Venta.vb" />
-    <Compile Include="EstadisticaFabrica\DatosEstadisticaFabrica.Designer.vb">
+    <Compile Include="ESTADISTICA\EstadisticaFabrica\DatosFabrica.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DatosEstadisticaFabrica.xsd</DependentUpon>
+      <DependentUpon>DatosFabrica.xsd</DependentUpon>
     </Compile>
-    <Compile Include="EstadisticaFabrica\EstadisticaFabrica.Designer.vb">
+    <Compile Include="ESTADISTICA\EstadisticaFabrica\EstadisticaFabrica.Designer.vb">
       <DependentUpon>EstadisticaFabrica.vb</DependentUpon>
     </Compile>
-    <Compile Include="EstadisticaFabrica\EstadisticaFabrica.vb">
+    <Compile Include="ESTADISTICA\EstadisticaFabrica\EstadisticaFabrica.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EstadisticaUsuario\DatosEstadisticaUsuario.Designer.vb">
+    <Compile Include="ESTADISTICA\EstadisticaUsuario\DatosUsuarios.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DatosEstadisticaUsuario.xsd</DependentUpon>
+      <DependentUpon>DatosUsuarios.xsd</DependentUpon>
     </Compile>
-    <Compile Include="EstadisticaUsuario\EstadisticaUsuario.Designer.vb">
+    <Compile Include="ESTADISTICA\EstadisticaUsuario\EstadisticaUsuario.Designer.vb">
       <DependentUpon>EstadisticaUsuario.vb</DependentUpon>
     </Compile>
-    <Compile Include="EstadisticaUsuario\EstadisticaUsuario.vb">
+    <Compile Include="ESTADISTICA\EstadisticaUsuario\EstadisticaUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReporteCupones\DataSetClotta.Designer.vb">
+    <Compile Include="REPORT\ReporteCupones\DataSetClotta.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetClotta.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ReporteCupones\DataSetClotta.vb">
+    <Compile Include="REPORT\ReporteCupones\DataSetClotta.vb">
       <DependentUpon>DataSetClotta.xsd</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FormClientes.Designer.vb">
@@ -264,44 +264,44 @@
     <Compile Include="Clases Soporte\SoporteGUI.vb" />
     <Compile Include="Clases auxiliares\Usuario.vb" />
     <Compile Include="Clases auxiliares\Articulo.vb" />
-    <Compile Include="ReporteCupones\ReporteCupones.Designer.vb">
+    <Compile Include="REPORT\ReporteCupones\ReporteCupones.Designer.vb">
       <DependentUpon>ReporteCupones.vb</DependentUpon>
     </Compile>
-    <Compile Include="ReporteCupones\ReporteCupones.vb">
+    <Compile Include="REPORT\ReporteCupones\ReporteCupones.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReporteProductos\DataSetProductos.Designer.vb">
+    <Compile Include="REPORT\ReporteProductos\DataSetProductos.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetProductos.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ReporteProductos\ReporteProductos.Designer.vb">
+    <Compile Include="REPORT\ReporteProductos\ReporteProductos.Designer.vb">
       <DependentUpon>ReporteProductos.vb</DependentUpon>
     </Compile>
-    <Compile Include="ReporteProductos\ReporteProductos.vb">
+    <Compile Include="REPORT\ReporteProductos\ReporteProductos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReporteVentas\DataSetVentas.Designer.vb">
+    <Compile Include="REPORT\ReporteVentas\DataSetVentas.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetVentas.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ReporteVentas\FormReporteVentas.Designer.vb">
+    <Compile Include="REPORT\ReporteVentas\FormReporteVentas.Designer.vb">
       <DependentUpon>FormReporteVentas.vb</DependentUpon>
     </Compile>
-    <Compile Include="ReporteVentas\FormReporteVentas.vb">
+    <Compile Include="REPORT\ReporteVentas\FormReporteVentas.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="EstadisticaFabrica\EstadisticaFabrica.resx">
+    <EmbeddedResource Include="ESTADISTICA\EstadisticaFabrica\EstadisticaFabrica.resx">
       <DependentUpon>EstadisticaFabrica.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EstadisticaFabrica\GraficoFabrica.rdlc" />
-    <EmbeddedResource Include="EstadisticaUsuario\EstadisticaUsuario.resx">
+    <EmbeddedResource Include="ESTADISTICA\EstadisticaFabrica\Fabrica.rdlc" />
+    <EmbeddedResource Include="ESTADISTICA\EstadisticaUsuario\EstadisticaUsuario.resx">
       <DependentUpon>EstadisticaUsuario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EstadisticaUsuario\GraficoUsuario.rdlc" />
+    <EmbeddedResource Include="ESTADISTICA\EstadisticaUsuario\Usuario.rdlc" />
     <EmbeddedResource Include="Formularios\FormClientes.resx">
       <DependentUpon>FormClientes.vb</DependentUpon>
     </EmbeddedResource>
@@ -338,51 +338,51 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteCupones\Report2.rdlc" />
-    <EmbeddedResource Include="ReporteCupones\ReporteCupones.resx">
+    <EmbeddedResource Include="REPORT\ReporteCupones\Report2.rdlc" />
+    <EmbeddedResource Include="REPORT\ReporteCupones\ReporteCupones.resx">
       <DependentUpon>ReporteCupones.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteProductos\ReporteProductos.rdlc" />
-    <EmbeddedResource Include="ReporteProductos\ReporteProductos.resx">
+    <EmbeddedResource Include="REPORT\ReporteProductos\ReporteProductos.rdlc" />
+    <EmbeddedResource Include="REPORT\ReporteProductos\ReporteProductos.resx">
       <DependentUpon>ReporteProductos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteVentas\FormReporteVentas.resx">
+    <EmbeddedResource Include="REPORT\ReporteVentas\FormReporteVentas.resx">
       <DependentUpon>FormReporteVentas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteVentas\ReportVenta.rdlc" />
+    <EmbeddedResource Include="REPORT\ReporteVentas\ReportVenta.rdlc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="EstadisticaFabrica\DatosEstadisticaFabrica.xsc">
-      <DependentUpon>DatosEstadisticaFabrica.xsd</DependentUpon>
+    <None Include="ESTADISTICA\EstadisticaFabrica\DatosFabrica.xsc">
+      <DependentUpon>DatosFabrica.xsd</DependentUpon>
     </None>
-    <None Include="EstadisticaFabrica\DatosEstadisticaFabrica.xsd">
-      <SubType>Designer</SubType>
+    <None Include="ESTADISTICA\EstadisticaFabrica\DatosFabrica.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DatosEstadisticaFabrica.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="EstadisticaFabrica\DatosEstadisticaFabrica.xss">
-      <DependentUpon>DatosEstadisticaFabrica.xsd</DependentUpon>
-    </None>
-    <None Include="EstadisticaUsuario\DatosEstadisticaUsuario.xsc">
-      <DependentUpon>DatosEstadisticaUsuario.xsd</DependentUpon>
-    </None>
-    <None Include="EstadisticaUsuario\DatosEstadisticaUsuario.xsd">
+      <LastGenOutput>DatosFabrica.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="ESTADISTICA\EstadisticaFabrica\DatosFabrica.xss">
+      <DependentUpon>DatosFabrica.xsd</DependentUpon>
+    </None>
+    <None Include="ESTADISTICA\EstadisticaUsuario\DatosUsuarios.xsc">
+      <DependentUpon>DatosUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="ESTADISTICA\EstadisticaUsuario\DatosUsuarios.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DatosEstadisticaUsuario.Designer.vb</LastGenOutput>
+      <LastGenOutput>DatosUsuarios.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
-    <None Include="EstadisticaUsuario\DatosEstadisticaUsuario.xss">
-      <DependentUpon>DatosEstadisticaUsuario.xsd</DependentUpon>
+    <None Include="ESTADISTICA\EstadisticaUsuario\DatosUsuarios.xss">
+      <DependentUpon>DatosUsuarios.xsd</DependentUpon>
     </None>
-    <None Include="ReporteCupones\DataSetClotta.xsc">
+    <None Include="REPORT\ReporteCupones\DataSetClotta.xsc">
       <DependentUpon>DataSetClotta.xsd</DependentUpon>
     </None>
-    <None Include="ReporteCupones\DataSetClotta.xsd">
+    <None Include="REPORT\ReporteCupones\DataSetClotta.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSetClotta.Designer.vb</LastGenOutput>
     </None>
-    <None Include="ReporteCupones\DataSetClotta.xss">
+    <None Include="REPORT\ReporteCupones\DataSetClotta.xss">
       <DependentUpon>DataSetClotta.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
@@ -398,26 +398,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="ReporteProductos\DataSetProductos.xsc">
+    <None Include="REPORT\ReporteProductos\DataSetProductos.xsc">
       <DependentUpon>DataSetProductos.xsd</DependentUpon>
     </None>
-    <None Include="ReporteProductos\DataSetProductos.xsd">
+    <None Include="REPORT\ReporteProductos\DataSetProductos.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSetProductos.Designer.vb</LastGenOutput>
     </None>
-    <None Include="ReporteProductos\DataSetProductos.xss">
+    <None Include="REPORT\ReporteProductos\DataSetProductos.xss">
       <DependentUpon>DataSetProductos.xsd</DependentUpon>
     </None>
-    <None Include="ReporteVentas\DataSetVentas.xsc">
+    <None Include="REPORT\ReporteVentas\DataSetVentas.xsc">
       <DependentUpon>DataSetVentas.xsd</DependentUpon>
     </None>
-    <None Include="ReporteVentas\DataSetVentas.xsd">
+    <None Include="REPORT\ReporteVentas\DataSetVentas.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSetVentas.Designer.vb</LastGenOutput>
     </None>
-    <None Include="ReporteVentas\DataSetVentas.xss">
+    <None Include="REPORT\ReporteVentas\DataSetVentas.xss">
       <DependentUpon>DataSetVentas.xsd</DependentUpon>
     </None>
     <None Include="Resources\clotta_logo.png" />

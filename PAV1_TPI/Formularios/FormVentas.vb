@@ -36,7 +36,8 @@ Public Class FormVentas
 
 
     Private Sub limpiar_camposVENTA()
-        Me.txt_fecha.Text = Today
+        'Me.txt_fecha.Text = DateTime.Now.ToString("d-MM-yyyy")
+        Me.txt_fecha.Text = DateTime.Now.ToString("yyyy-MM-d")
         Me.txt_hora.Text = TimeOfDay
         Me.txt_subtotalVENTA.Text = "0"
         Me.txt_dtoVENTA.Text = "0"
@@ -296,6 +297,7 @@ Public Class FormVentas
     End Sub
 
     Private Sub btn_nuevaVENTA_Click(sender As Object, e As EventArgs) Handles btn_nuevaVENTA.Click
+        SoporteGUI.respuesta_ventana = DialogResult.No
         If estado_actual_transaccion = estado_transaccion._iniciada Then
             If MessageBox.Show("¿Está seguro que desea cancelar la venta actual?", "Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Cancel Then
                 Return
@@ -319,68 +321,72 @@ Public Class FormVentas
     End Sub
 
     Private Sub btn_guardarVENTA_Click(sender As Object, e As EventArgs) Handles btn_guardarVENTA.Click
-        SoporteBD.iniciar_conexion_con_transaccion()
-        'INSERTAR VENTA
-        Dim tabla_venta As New DataTable
-        Dim sql_insertar_venta As String = ""
-        sql_insertar_venta &= "INSERT INTO ventas(id_venta,fecha_venta,hora_venta,id_usuario,numero_documento_cliente,tipo_documento_cliente,total) VALUES("
-        sql_insertar_venta &= txt_idVENTA.Text
-        sql_insertar_venta &= ", '" & txt_fecha.Text & "'"
-        sql_insertar_venta &= ", '" & txt_hora.Text & "'"
-        sql_insertar_venta &= ", '" & Usuario.username & "'"
+        If SoporteGUI.respuesta_ventana = DialogResult.OK Then
+            SoporteBD.iniciar_conexion_con_transaccion()
+            'INSERTAR VENTA
+            Dim tabla_venta As New DataTable
+            Dim sql_insertar_venta As String = ""
+            sql_insertar_venta &= "INSERT INTO ventas(id_venta,fecha_venta,hora_venta,id_usuario,numero_documento_cliente,tipo_documento_cliente,total) VALUES("
+            sql_insertar_venta &= txt_idVENTA.Text
+            sql_insertar_venta &= ", '" & txt_fecha.Text & "'"
+            sql_insertar_venta &= ", '" & txt_hora.Text & "'"
+            sql_insertar_venta &= ", '" & Usuario.username & "'"
 
-        If txt_nroDocCLIENTE.Text = "" Then
-            sql_insertar_venta &= ", NULL"
+            If txt_nroDocCLIENTE.Text = "" Then
+                sql_insertar_venta &= ", NULL"
+            Else
+                sql_insertar_venta &= ", '" & txt_nroDocCLIENTE.Text & "'"
+            End If
+
+            If cmb_tipoDocCLIENTE.SelectedIndex = -1 Then
+                sql_insertar_venta &= ", NULL"
+            Else
+                sql_insertar_venta &= ", '" & cmb_tipoDocCLIENTE.SelectedValue & "'"
+            End If
+
+            sql_insertar_venta &= ", " & txt_totalVENTA.Text & ")"
+
+            SoporteBD.escribirBD_transaccion(sql_insertar_venta)
+
+            'INSERTAR DETALLE DE VENTA
+            Dim tabla_detalle As New DataTable
+            Dim sql_insertar_detalle As String = ""
+            For c = 0 To Me.dgv_detalle.Rows.Count - 1
+                sql_insertar_detalle &= " INSERT INTO detalle_ventas(id_venta,id_producto,cantidad,precio_unitario) VALUES (" & txt_idVENTA.Text
+                sql_insertar_detalle &= "," & Me.dgv_detalle.Rows(c).Cells("col_id_producto").Value
+                sql_insertar_detalle &= "," & Me.dgv_detalle.Rows(c).Cells("col_cantidad").Value
+                sql_insertar_detalle &= "," & Me.dgv_detalle.Rows(c).Cells("col_precio").Value & ")"
+                SoporteBD.escribirBD_transaccion(sql_insertar_detalle)
+                sql_insertar_detalle = ""
+            Next
+
+            'ACTUALIZAR STOCK DE PRODUCTOS
+            Dim tabla_productos As New DataTable
+            Dim sql_actualizar_productos As String = ""
+            For c = 0 To Me.dgv_detalle.Rows.Count - 1
+                sql_actualizar_productos &= "UPDATE productos SET stock = stock - " & Convert.ToInt32(Me.dgv_detalle.Rows(c).Cells(2).Value)
+                sql_actualizar_productos &= " WHERE id_producto = " & Me.dgv_detalle.Rows(c).Cells(0).Value
+                SoporteBD.escribirBD_transaccion(sql_actualizar_productos)
+                sql_actualizar_productos = ""
+            Next
+
+            'INSERTAR FORMAS DE PAGO + CUPONES
+            SoporteBD.escribirBD_transaccion(FormVentasFORMASPAGO.cadena)
+            FormVentasFORMASPAGO.cadena = Nothing
+
+            MessageBox.Show("Venta registrada.", "Gestión de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            SoporteBD.cerrar_conexion_con_transaccion()
+            estado_actual_transaccion = estado_transaccion._sin_iniciar
+            Me.deshabilitar_cliente()
+            Me.deshabilitar_detalle_venta()
+            Me.btn_guardarVENTA.Enabled = False
+            Me.btn_agregarDETALLE.Enabled = False
+            Me.btn_cancelarVENTA.Enabled = False
+            Me.limpiar_deshabilitar_todo()
         Else
-            sql_insertar_venta &= ", '" & txt_nroDocCLIENTE.Text & "'"
+            MessageBox.Show("No hay formas de pago almacenadas", "Gestión de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
-
-        If cmb_tipoDocCLIENTE.SelectedIndex = -1 Then
-            sql_insertar_venta &= ", NULL"
-        Else
-            sql_insertar_venta &= ", '" & cmb_tipoDocCLIENTE.SelectedValue & "'"
-        End If
-
-        sql_insertar_venta &= ", " & txt_totalVENTA.Text & ")"
-
-        SoporteBD.escribirBD_transaccion(sql_insertar_venta)
-
-        'INSERTAR DETALLE DE VENTA
-        Dim tabla_detalle As New DataTable
-        Dim sql_insertar_detalle As String = ""
-        For c = 0 To Me.dgv_detalle.Rows.Count - 1
-            sql_insertar_detalle &= " INSERT INTO detalle_ventas(id_venta,id_producto,cantidad,precio_unitario) VALUES (" & txt_idVENTA.Text
-            sql_insertar_detalle &= "," & Me.dgv_detalle.Rows(c).Cells("col_id_producto").Value
-            sql_insertar_detalle &= "," & Me.dgv_detalle.Rows(c).Cells("col_cantidad").Value
-            sql_insertar_detalle &= "," & Me.dgv_detalle.Rows(c).Cells("col_precio").Value & ")"
-            SoporteBD.escribirBD_transaccion(sql_insertar_detalle)
-            sql_insertar_detalle = ""
-        Next
-
-        'ACTUALIZAR STOCK DE PRODUCTOS
-        Dim tabla_productos As New DataTable
-        Dim sql_actualizar_productos As String = ""
-        For c = 0 To Me.dgv_detalle.Rows.Count - 1
-            sql_actualizar_productos &= "UPDATE productos SET stock = stock - " & Convert.ToInt32(Me.dgv_detalle.Rows(c).Cells(2).Value)
-            sql_actualizar_productos &= " WHERE id_producto = " & Me.dgv_detalle.Rows(c).Cells(0).Value
-            SoporteBD.escribirBD_transaccion(sql_actualizar_productos)
-            sql_actualizar_productos = ""
-        Next
-
-        'INSERTAR FORMAS DE PAGO + CUPONES
-        SoporteBD.escribirBD_transaccion(FormVentasFORMASPAGO.cadena)
-        FormVentasFORMASPAGO.cadena = Nothing
-
-        MessageBox.Show("Venta registrada.", "Gestión de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-        SoporteBD.cerrar_conexion_con_transaccion()
-        estado_actual_transaccion = estado_transaccion._sin_iniciar
-        Me.deshabilitar_cliente()
-        Me.deshabilitar_detalle_venta()
-        Me.btn_guardarVENTA.Enabled = False
-        Me.btn_agregarDETALLE.Enabled = False
-        Me.btn_cancelarVENTA.Enabled = False
-        Me.limpiar_deshabilitar_todo()
     End Sub
 
     Private Sub limpiar_deshabilitar_todo()

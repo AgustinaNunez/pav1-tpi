@@ -22,12 +22,18 @@ Partial Class EstadisticaFabrica
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EstadisticaFabrica))
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmb_temporadas = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cmb_año = New System.Windows.Forms.ComboBox()
+        Me.DatosFabrica = New PAV1_TPI.DatosFabrica()
+        Me.fabricaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.DatosFabrica, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.fabricaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ReportViewer1
@@ -35,6 +41,10 @@ Partial Class EstadisticaFabrica
         Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        ReportDataSource1.Name = "DatosFabricas"
+        ReportDataSource1.Value = Me.fabricaBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "PAV1_TPI.Fabrica.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(14, 66)
         Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -80,6 +90,16 @@ Partial Class EstadisticaFabrica
         Me.cmb_año.Size = New System.Drawing.Size(121, 25)
         Me.cmb_año.TabIndex = 5
         '
+        'DatosFabrica
+        '
+        Me.DatosFabrica.DataSetName = "DatosFabrica"
+        Me.DatosFabrica.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'fabricaBindingSource
+        '
+        Me.fabricaBindingSource.DataMember = "fabrica"
+        Me.fabricaBindingSource.DataSource = Me.DatosFabrica
+        '
         'EstadisticaFabrica
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -98,6 +118,8 @@ Partial Class EstadisticaFabrica
         Me.Name = "EstadisticaFabrica"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Estadística de fábrica más vendida por temporada"
+        CType(Me.DatosFabrica, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.fabricaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -108,4 +130,6 @@ Partial Class EstadisticaFabrica
     Friend WithEvents cmb_temporadas As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents cmb_año As ComboBox
+    Friend WithEvents fabricaBindingSource As BindingSource
+    Friend WithEvents DatosFabrica As DatosFabrica
 End Class

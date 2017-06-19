@@ -101,7 +101,7 @@ CONSTRAINT fk_producto FOREIGN KEY (id_producto) REFERENCES productos(id_product
 
 create table ventas(
 id_venta integer,
-fecha_venta varchar(90), 
+fecha_venta date, 
 hora_venta varchar(90),
 id_usuario varchar(30),
 numero_documento_cliente varchar(20),

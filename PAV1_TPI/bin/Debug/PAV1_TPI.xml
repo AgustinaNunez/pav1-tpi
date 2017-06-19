@@ -237,14 +237,44 @@ PAV1_TPI
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="T:PAV1_TPI.DatosEstadisticaFabrica">
+<member name="T:PAV1_TPI.DatosFabrica">
 <summary>
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member>
-<member name="T:PAV1_TPI.DatosEstadisticaUsuario">
+<member name="T:PAV1_TPI.DatosFabrica.fabricaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PAV1_TPI.DatosFabrica.fabricaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PAV1_TPI.DatosFabrica.fabricaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:PAV1_TPI.DatosUsuarios">
 <summary>
 Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:PAV1_TPI.DatosUsuarios.usuariosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:PAV1_TPI.DatosUsuarios.usuariosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:PAV1_TPI.DatosUsuarios.usuariosRowChangeEvent">
+<summary>
+Row event argument class
 </summary>
 </member>
 <member name="T:PAV1_TPI.DataSetClotta">

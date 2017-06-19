@@ -14,7 +14,7 @@
         sql &= "JOIN bancos b ON b.id_banco = vxfp.id_banco "
         sql &= "JOIN entidades_crediticias ec ON ec.id_entidad_crediticia = vxfp.id_entidad_crediticia "
         sql &= "JOIN cupon c ON c.id_cupon = vxfp.id_cupon "
-        'sql &= "WHERE vxfp.id_entidad_crediticia  <> 0 AND vxfp.id_banco <> 0"
+        sql &= "WHERE vxfp.id_entidad_crediticia  <> 0 AND vxfp.id_banco <> 0"
 
         t_cuponBindingSource.DataSource = SoporteBD.leerBD_simple(sql)
         Me.ReportCupon.RefreshReport()
