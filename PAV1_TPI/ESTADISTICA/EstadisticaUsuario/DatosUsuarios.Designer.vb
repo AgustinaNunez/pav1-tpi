@@ -287,6 +287,10 @@ Partial Public Class DatosUsuarios
         
         Private columnvalor As Global.System.Data.DataColumn
         
+        Private columnnombre As Global.System.Data.DataColumn
+        
+        Private columnapellido As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -339,6 +343,22 @@ Partial Public Class DatosUsuarios
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property nombreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnombre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property apellidoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnapellido
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -375,9 +395,9 @@ Partial Public Class DatosUsuarios
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddusuariosRow(ByVal id_usuario As String, ByVal valor As Integer) As usuariosRow
+        Public Overloads Function AddusuariosRow(ByVal id_usuario As String, ByVal valor As Integer, ByVal nombre As String, ByVal apellido As String) As usuariosRow
             Dim rowusuariosRow As usuariosRow = CType(Me.NewRow,usuariosRow)
-            Dim columnValuesArray() As Object = New Object() {id_usuario, valor}
+            Dim columnValuesArray() As Object = New Object() {id_usuario, valor, nombre, apellido}
             rowusuariosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowusuariosRow)
             Return rowusuariosRow
@@ -402,6 +422,8 @@ Partial Public Class DatosUsuarios
         Friend Sub InitVars()
             Me.columnid_usuario = MyBase.Columns("id_usuario")
             Me.columnvalor = MyBase.Columns("valor")
+            Me.columnnombre = MyBase.Columns("nombre")
+            Me.columnapellido = MyBase.Columns("apellido")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -411,6 +433,10 @@ Partial Public Class DatosUsuarios
             MyBase.Columns.Add(Me.columnid_usuario)
             Me.columnvalor = New Global.System.Data.DataColumn("valor", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnvalor)
+            Me.columnnombre = New Global.System.Data.DataColumn("nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombre)
+            Me.columnapellido = New Global.System.Data.DataColumn("apellido", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnapellido)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -587,6 +613,36 @@ Partial Public Class DatosUsuarios
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property nombre() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableusuarios.nombreColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre' de la tabla 'usuarios' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableusuarios.nombreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property apellido() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableusuarios.apellidoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'apellido' de la tabla 'usuarios' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableusuarios.apellidoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function Isid_usuarioNull() As Boolean
             Return Me.IsNull(Me.tableusuarios.id_usuarioColumn)
         End Function
@@ -607,6 +663,30 @@ Partial Public Class DatosUsuarios
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetvalorNull()
             Me(Me.tableusuarios.valorColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsnombreNull() As Boolean
+            Return Me.IsNull(Me.tableusuarios.nombreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetnombreNull()
+            Me(Me.tableusuarios.nombreColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsapellidoNull() As Boolean
+            Return Me.IsNull(Me.tableusuarios.apellidoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetapellidoNull()
+            Me(Me.tableusuarios.apellidoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

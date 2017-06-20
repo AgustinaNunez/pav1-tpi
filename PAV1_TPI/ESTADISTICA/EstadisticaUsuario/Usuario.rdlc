@@ -8,15 +8,30 @@
             <ChartMember>
               <Group Name="Chart1_CategoryGroup">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!id_usuario.Value</GroupExpression>
+                  <GroupExpression>=Fields!apellido.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!id_usuario.Value</Value>
+                  <Value>=Fields!apellido.Value</Value>
                 </SortExpression>
               </SortExpressions>
-              <Label>=Fields!id_usuario.Value</Label>
+              <ChartMembers>
+                <ChartMember>
+                  <Group Name="Chart1_CategoryGroup1">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!nombre.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!nombre.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <Label>=Fields!nombre.Value</Label>
+                </ChartMember>
+              </ChartMembers>
+              <Label>=Fields!apellido.Value</Label>
             </ChartMember>
           </ChartMembers>
         </ChartCategoryHierarchy>
@@ -274,7 +289,7 @@
         <Top>0.76412cm</Top>
         <Left>0.6491cm</Left>
         <Height>8.38667cm</Height>
-        <Width>14.77606cm</Width>
+        <Width>13.74418cm</Width>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -288,28 +303,29 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.42937cm</Width>
+              <Width>5.55624cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>1.55567cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.70583cm</Height>
+              <Height>0.83812cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox1">
+                    <Textbox Name="Textbox4">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Usuario</Value>
+                              <Value>Vendedor</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
+                                <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -319,7 +335,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -343,9 +359,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Cantidad</Value>
+                              <Value>Cant.</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
+                                <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -373,11 +390,11 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.65292cm</Height>
+              <Height>0.7323cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="id_usuario">
+                    <Textbox Name="nombre">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -390,7 +407,19 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!id_usuario.Value</Value>
+                              <Value>=Fields!apellido.Value</Value>
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>, </Value>
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>=Fields!nombre.Value</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
                               </Style>
@@ -399,7 +428,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>id_usuario</rd:DefaultName>
+                      <rd:DefaultName>nombre</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -483,9 +512,9 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.76412cm</Top>
-        <Left>15.73037cm</Left>
-        <Height>1.35875cm</Height>
-        <Width>5.92937cm</Width>
+        <Left>14.56967cm</Left>
+        <Height>1.57042cm</Height>
+        <Width>7.11192cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -703,12 +732,20 @@
         </Field>
         <Field Name="valor">
           <DataField>valor</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="nombre">
+          <DataField>nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="apellido">
+          <DataField>apellido</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DatosUsuarios</rd:DataSetName>
-        <rd:SchemaPath>D:\asd\asd\Usuario\DatosUsuarios.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\pav1-tpi\PAV1_TPI\ESTADISTICA\EstadisticaUsuario\DatosUsuarios.xsd</rd:SchemaPath>
         <rd:TableName>usuarios</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

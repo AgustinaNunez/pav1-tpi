@@ -22,11 +22,11 @@
             Return
         Else
             If cmb_temporadas.Text = "Otoño-Invierno" Then
-                sql &= " SELECT u.id_usuario, count(*) as 'valor'"
+                sql &= " SELECT u.id_usuario, u.nombre, u.apellido, count(*) as 'valor'"
                 sql &= " FROM ventas v "
                 sql &= " JOIN usuarios u on v.id_usuario = u.id_usuario"
                 sql &= " WHERE v.fecha_venta BETWEEN '" & Me.cmb_año.Text & "-03-21' AND '" & Me.cmb_año.Text & "-09-21'"
-                sql &= " GROUP BY u.id_usuario "
+                sql &= " GROUP BY u.id_usuario, u.nombre, u.apellido"
                 sql &= " ORDER BY valor"
 
                 usuariosBindingSource.DataSource = SoporteBD.leerBD_simple(sql)
