@@ -532,7 +532,7 @@ Partial Class FormProductos
         Me.lbl_msj.Name = "lbl_msj"
         Me.lbl_msj.Size = New System.Drawing.Size(382, 36)
         Me.lbl_msj.TabIndex = 17
-        Me.lbl_msj.Text = "Id. producto"
+        Me.lbl_msj.Text = " Mensaje"
         Me.lbl_msj.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label3

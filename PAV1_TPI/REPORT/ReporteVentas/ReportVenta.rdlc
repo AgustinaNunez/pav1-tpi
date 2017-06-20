@@ -6,16 +6,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.03017cm</Width>
+              <Width>3.45685cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.7235cm</Width>
+              <Width>4.79746cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>5.59905cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.7235cm</Width>
+              <Width>3.86738cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -105,7 +105,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Usuario</Value>
+                              <Value>Vendedor</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -187,7 +187,6 @@
                               <Value>=Fields!id_venta.Value</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -222,14 +221,12 @@
                               <Value xml:space="preserve"> </Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!fecha_venta.Value</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -262,14 +259,12 @@
                               <Value xml:space="preserve"> </Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!id_usuario.Value</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -302,21 +297,18 @@
                               <Value>$</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!total.Value</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value xml:space="preserve"> </Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -365,7 +357,7 @@
         <Top>0.44662cm</Top>
         <Left>0.56165cm</Left>
         <Height>1.6226cm</Height>
-        <Width>21.07622cm</Width>
+        <Width>17.72074cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -376,7 +368,7 @@
     <Height>1.07292in</Height>
     <Style />
   </Body>
-  <Width>8.78444in</Width>
+  <Width>7.40625in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
@@ -439,7 +431,7 @@
           <Top>0.35292cm</Top>
           <Left>4.05377cm</Left>
           <Height>0.65cm</Height>
-          <Width>17.5841cm</Width>
+          <Width>14.22862cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -476,7 +468,7 @@
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>1.14404cm</Top>
           <Height>0.94965cm</Height>
-          <Width>22.26873cm</Width>
+          <Width>18.77623cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -493,7 +485,7 @@
           <KeepTogether>true</KeepTogether>
           <Top>2.23174cm</Top>
           <Height>0.13187cm</Height>
-          <Width>22.225cm</Width>
+          <Width>18.77623cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -510,7 +502,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.54cm</Height>
+      <Height>2.01083cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -518,7 +510,7 @@
           <KeepTogether>true</KeepTogether>
           <Top>0.14111cm</Top>
           <Height>0.13187cm</Height>
-          <Width>22.225cm</Width>
+          <Width>18.77623cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -558,7 +550,7 @@
           <Top>0.57873cm</Top>
           <Left>0.60537cm</Left>
           <Height>0.70583cm</Height>
-          <Width>18.60306cm</Width>
+          <Width>15.24757cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -574,8 +566,8 @@
           <Source>Embedded</Source>
           <Value>clotta_nombre</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.61402cm</Top>
-          <Left>19.38481cm</Left>
+          <Top>0.57873cm</Top>
+          <Left>16.02933cm</Left>
           <Height>0.70583cm</Height>
           <Width>2.25306cm</Width>
           <ZIndex>2</ZIndex>
@@ -594,10 +586,10 @@
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

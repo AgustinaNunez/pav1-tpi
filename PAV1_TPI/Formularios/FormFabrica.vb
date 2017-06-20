@@ -72,21 +72,26 @@ Public Class FormFabrica
     Private Function validar_datos() As respuesta_validacion
         Me.ocultar_lblERROR()
         Dim rdo = respuesta_validacion._ok
+        Dim mensaje As String = "Faltan completar los siguientes campos obligatorios:"
 
         If txt_nombre_fabrica.Text = "" Then
             lbl_nombreERROR.Visible = True
             txt_nombre_fabrica.Focus()
             rdo = respuesta_validacion._error
-            MsgBox("El nombre no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+            'MsgBox("El nombre no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+            mensaje &= vbCrLf & "    * nombre"
         End If
 
         If txt_telefono_fabrica.Text = "" Then
             lbl_telefonoERROR.Visible = True
             txt_telefono_fabrica.Focus()
             rdo = respuesta_validacion._error
-            MsgBox("El telefono no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+            'MsgBox("El telefono no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+            mensaje &= vbCrLf & "    * teléfono"
         End If
-
+        If rdo = respuesta_validacion._error Then
+            MessageBox.Show(mensaje, "Fábricas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
         Return rdo
     End Function
 
@@ -108,28 +113,28 @@ Public Class FormFabrica
 
     Private Sub btn_guardar_fabrica_Click(sender As Object, e As EventArgs) Handles btn_guardar_fabrica.Click
         If validar_datos() = respuesta_validacion._ok Then
-
             If accion = tipo_grabacion.insertar Then
-
                 If validar_fabrica() = respuesta_validacion._ok Then
                     insertar()
                 Else
-                    MsgBox("El nombre de la fabrica ya existe, por favor, modificarlo", MsgBoxStyle.OkOnly, "Error")
+                    'MsgBox("El nombre de la fabrica ya existe, por favor, modificarlo", MsgBoxStyle.OkOnly, "Error")
+                    MessageBox.Show("La fábrica " & txt_nombre_fabrica.Text & " ya existe.", "Fábricas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Me.limpiar_campos()
+                    txt_nombre_fabrica.Focus()
                 End If
-
-
             Else
                 modificar()
-
             End If
         End If
+    End Sub
 
+    Private Sub limpiar_campos()
+        txt_nombre_fabrica.Text = ""
+        txt_telefono_fabrica.Text = ""
     End Sub
 
     Private Sub insertar()
         Dim sql As String = ""
-
-
         sql &= "INSERT INTO fabricas("
         sql &= "id_fabrica,"
         sql &= "nombre,"
@@ -145,23 +150,16 @@ Public Class FormFabrica
         Me.txt_nombre_fabrica.Enabled = False
         Me.txt_telefono_fabrica.Enabled = False
         Me.btn_eliminar_fabrica.Enabled = False
-
-        MsgBox("La carga de la fábrica fue exitosa", MessageBoxButtons.OK, "Cargar Fabrica")
-
-
-
+        'MsgBox("La carga de la fábrica fue exitosa", MessageBoxButtons.OK, "Cargar Fabrica")
     End Sub
 
     Private Sub Grilla_Fabrica_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles Grilla_Fabrica.CellContentDoubleClick
-
         Dim sql As String = ""
         Dim tabla As New DataTable
 
         sql &= " SELECT * FROM fabricas "
         sql &= " WHERE id_fabrica = " & Me.Grilla_Fabrica.CurrentRow.Cells(2).Value
-
         tabla = SoporteBD.leerBD_simple(sql)
-
 
         Me.txt_nombre_fabrica.Text = tabla.Rows(0)("nombre")
         Me.txt_telefono_fabrica.Text = tabla.Rows(0)("telefono")
@@ -172,9 +170,6 @@ Public Class FormFabrica
         Me.txt_telefono_fabrica.Enabled = True
         Me.btn_guardar_fabrica.Enabled = True
         Me.btn_eliminar_fabrica.Enabled = True
-
-
-
     End Sub
 
     Private Sub modificar()

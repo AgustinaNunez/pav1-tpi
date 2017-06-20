@@ -42,7 +42,7 @@ Public Class Frm_Principal
     End Sub
 
     Private Sub Frm_Principal_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        If MessageBox.Show("¿Desea cerrar la sesión antes de salir?", "CLOTTA _ Principal", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = DialogResult.OK Then
+        If MessageBox.Show("¿Desea cerrar la sesión antes de salir?", "Principal", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = DialogResult.OK Then
             e.Cancel = False
             Usuario.logout()
         Else

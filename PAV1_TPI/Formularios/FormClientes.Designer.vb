@@ -243,7 +243,7 @@ Partial Class FormClientes
         Me.cmb_tipo_documento_cliente_busqueda.FormattingEnabled = True
         Me.cmb_tipo_documento_cliente_busqueda.Location = New System.Drawing.Point(126, 33)
         Me.cmb_tipo_documento_cliente_busqueda.Name = "cmb_tipo_documento_cliente_busqueda"
-        Me.cmb_tipo_documento_cliente_busqueda.Size = New System.Drawing.Size(89, 25)
+        Me.cmb_tipo_documento_cliente_busqueda.Size = New System.Drawing.Size(104, 25)
         Me.cmb_tipo_documento_cliente_busqueda.TabIndex = 0
         '
         'Label8
@@ -251,7 +251,7 @@ Partial Class FormClientes
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Black
-        Me.Label8.Location = New System.Drawing.Point(221, 36)
+        Me.Label8.Location = New System.Drawing.Point(236, 36)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(78, 17)
         Me.Label8.TabIndex = 1
@@ -381,7 +381,7 @@ Partial Class FormClientes
         'txt_numero_documento_cliente_busqueda
         '
         Me.txt_numero_documento_cliente_busqueda.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_numero_documento_cliente_busqueda.Location = New System.Drawing.Point(302, 33)
+        Me.txt_numero_documento_cliente_busqueda.Location = New System.Drawing.Point(317, 33)
         Me.txt_numero_documento_cliente_busqueda.Name = "txt_numero_documento_cliente_busqueda"
         Me.txt_numero_documento_cliente_busqueda.Size = New System.Drawing.Size(100, 25)
         Me.txt_numero_documento_cliente_busqueda.TabIndex = 1

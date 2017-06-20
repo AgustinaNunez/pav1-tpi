@@ -60,11 +60,11 @@ Partial Class ReporteProductos
         ReportDataSource1.Value = Me.t_productosBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "PAV1_TPI.ReporteProductos.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 107)
+        Me.ReportViewer1.Location = New System.Drawing.Point(12, 88)
         Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(867, 454)
+        Me.ReportViewer1.Size = New System.Drawing.Size(867, 473)
         Me.ReportViewer1.TabIndex = 0
         '
         'Label1
@@ -170,7 +170,6 @@ Partial Class ReporteProductos
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.MaximizeBox = False
         Me.Name = "ReporteProductos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Informes"

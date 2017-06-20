@@ -6,8 +6,17 @@
         <ChartCategoryHierarchy>
           <ChartMembers>
             <ChartMember>
-              <Group Name="ChartGroup" />
-              <Label />
+              <Group Name="Chart1_CategoryGroup">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!nombre_fabrica.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!nombre_fabrica.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <Label>=Fields!nombre_fabrica.Value</Label>
             </ChartMember>
           </ChartMembers>
         </ChartCategoryHierarchy>
@@ -34,7 +43,7 @@
               <ChartDataPoints>
                 <ChartDataPoint>
                   <ChartDataPointValues>
-                    <Y>=Count(Fields!valor.Value)</Y>
+                    <Y>=Sum(Fields!valor.Value)</Y>
                   </ChartDataPointValues>
                   <ChartDataLabel>
                     <Style />
@@ -73,10 +82,8 @@
                   <FontSize>8pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>Título del eje</Caption>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                  </Style>
+                  <Caption />
+                  <Style />
                 </ChartAxisTitle>
                 <ChartMajorGridLines>
                   <Enabled>False</Enabled>
@@ -148,10 +155,8 @@
                   <FontSize>8pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>Título del eje</Caption>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                  </Style>
+                  <Caption>Ventas</Caption>
+                  <Style />
                 </ChartAxisTitle>
                 <ChartMajorGridLines>
                   <Style>
@@ -220,29 +225,12 @@
             </Style>
           </ChartArea>
         </ChartAreas>
-        <ChartLegends>
-          <ChartLegend Name="Default">
-            <Style>
-              <BackgroundGradientType>None</BackgroundGradientType>
-              <FontSize>8pt</FontSize>
-            </Style>
-            <ChartLegendTitle>
-              <Caption />
-              <Style>
-                <FontSize>8pt</FontSize>
-                <FontWeight>Bold</FontWeight>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </ChartLegendTitle>
-            <HeaderSeparatorColor>Black</HeaderSeparatorColor>
-            <ColumnSeparatorColor>Black</ColumnSeparatorColor>
-          </ChartLegend>
-        </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Título del gráfico</Caption>
+            <Caption>Temporada</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
+              <FontSize>12pt</FontSize>
               <FontWeight>Bold</FontWeight>
               <TextAlign>General</TextAlign>
               <VerticalAlign>Top</VerticalAlign>
@@ -266,10 +254,10 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DatosFabricas</DataSetName>
-        <Top>1.39912cm</Top>
-        <Left>4.62703cm</Left>
-        <Height>5cm</Height>
-        <Width>7.5cm</Width>
+        <Top>0.49954cm</Top>
+        <Left>0.67095cm</Left>
+        <Height>7.38125cm</Height>
+        <Width>21.01064cm</Width>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -280,13 +268,185 @@
         </Style>
       </Chart>
     </ReportItems>
-    <Height>2.86309in</Height>
+    <Height>3.39434in</Height>
     <Style />
   </Body>
-  <Width>6.51401in</Width>
+  <Width>8.76722in</Width>
   <Page>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
+    <PageHeader>
+      <Height>2.54cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Estadísticas Fábricas</Value>
+                  <Style>
+                    <FontFamily>segoe ui</FontFamily>
+                    <FontSize>19pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>#ba0066</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>1.02049cm</Top>
+          <Left>0.04373cm</Left>
+          <Height>0.94965cm</Height>
+          <Width>22.225cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Rectangle Name="Rectangle2">
+          <KeepTogether>true</KeepTogether>
+          <Top>2.14348cm</Top>
+          <Height>0.13187cm</Height>
+          <Width>22.225cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <BackgroundColor>#ba0066</BackgroundColor>
+          </Style>
+        </Rectangle>
+        <Textbox Name="Textbox8">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Fecha de emisión:</Value>
+                  <Style>
+                    <FontFamily>segoe ui</FontFamily>
+                    <FontSize>11pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox8</rd:DefaultName>
+          <Top>0.26465cm</Top>
+          <Left>0.6491cm</Left>
+          <Height>0.65cm</Height>
+          <Width>3.3694cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox10">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!ExecutionTime</Value>
+                  <Style>
+                    <FontFamily>segoe ui</FontFamily>
+                    <FontSize>11pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox8</rd:DefaultName>
+          <Top>0.26465cm</Top>
+          <Left>4.05377cm</Left>
+          <Height>0.65cm</Height>
+          <Width>17.62782cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>1.82562cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Image Name="Image1">
+          <Source>Embedded</Source>
+          <Value>clotta_nombre</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.40094cm</Top>
+          <Left>19.40668cm</Left>
+          <Height>0.70583cm</Height>
+          <Width>2.25306cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Rectangle Name="Rectangle1">
+          <KeepTogether>true</KeepTogether>
+          <Top>0.16323cm</Top>
+          <Left>0.02186cm</Left>
+          <Height>0.13187cm</Height>
+          <Width>22.225cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <BackgroundColor>#ba0066</BackgroundColor>
+          </Style>
+        </Rectangle>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
     <TopMargin>2cm</TopMargin>
@@ -330,6 +490,17 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <EmbeddedImages>
+    <EmbeddedImage Name="clotta_nombre">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAAG8AAAAlCAIAAADDZCA9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAASdEVYdFNvZnR3YXJlAEdyZWVuc2hvdF5VCAUAABB0SURBVGhD7VoJVFRH1q5mMxpxQSAzk/gnc5KcGf8kkzP5R0xiNCbRiQrRKPsuCM02bCJ0s8kioNGJibuIW2LMaMzEhX0bwYmikYgRAxEFEWh2aJbupnf/e6u6H83iluSc5HjynceluHVvVb3vfVXv1XuQO7/h58MINrVaLbPjggswBKu6G3RB44ELYIVRYH4aiMAy9T84WNbDgnXHgXlY1ShwtYYYZpOr02p00YbgnGOrAKOd44SMANfUfftiBR3u1+zPi+ExaMaMUO/EgsEIR2tTo1azskqhkvZLpOJBpVTOPFwmswycUyNXKbulyu5BtVxl6B8L5gerUWuYR61Qyftk0JdqSMk8Wg0yysoALMMPQKXV9A6pe6Ua8ZCmV6YR06NXphbL1D1SzaACclggy2IFlUwh75EoxDJFn5Ra3SEXS8GvUalZJID2hmBldOkHCSeolsjVUrlWqaOIq+ISdWxiGtSqMG6gva9k94mMNyLW/M41wtIpYZbf0ehdoqu3oEpDZcPiMQ089LShp6s++wpMVxca+1XZ71DLlejU6DozBJfOLpukvf/8zoK985M3Pxn6gXXQ9pcEeYIj7VeboAoGA2EsHpvCHO3Ah+UinrDtifRW67Q2q/Vt1ul4QOGJtFbz5PYn0xWVIgyk5wkWyoMt4lNvbj04XXDk2eTDz6w78kzSZ39MOvJHtHDst4guDzyKKSroxIAdevmAaPhTUtt+PfXL8zZJZU+tOfP02kuLNzcfKlN1yzCSdqFLYWyyEhtBc1V93P/52pO/eZIFfKPFgca2vryFzsTGb8K7pZnZGqUGh6gXOWbRESi6JOUvxJwm9tnEpcQq
+SNkt4arGAhJZC41fX//o5TWRZFkszznZxDvFbFWCsRv8mWjucfmTsxCAZ0ivHzQFCRq5usvr8G2jIJFJYguJExGBiAj1Nr6FJ2wyWSM5+C1NRBaYODorG7Mej9gzIfLAVMHeiVF7J6xhx77Ho/dNjdlBQo7/dTOSgv3gqBiATEaI6JOKgml+J8nyHOKWR1blE+/TxPkkWXbujaTB6hYIwLHpE3XahEyA6LvGiJn2zmRO+KSVoRNXeJN3PMi8QFPbSHOn1SYLncicM1k5QIZhPisoe2Xn5qTkEQ/or/x5gUpMr5vB4DiAk6W3XmlM+YPPWrJyg0VQurl/LHEWEoeUiT4fTA+ON3WLIsuvfFIO8RDMstAqtd0enzUSnxaytpmsEZEkEUlsRRvXTCKbSUQTCZYeqsJIyiPjtKuyaY9p6DYSsIuEZk2KOvRE3MEZsYes4/aYRu4k/9hCfI/+5QPsgDLA+gKwXFHW16eIA/BYYhxSYMTPJq45xL3IJLDELPgrsrz0uTBZfReMjE0CAEEDF0aj1qq1W2xjXchrkeaOfOPFXuTNVJuQj+xiAx5b6kUWRE528jVb5G/xbscPzThQPaHMKnukX89OyiVuucSr7Nm1yl4pVzUKXGLm3OQosmLTjJAEU49Y4pQ5N+mg7caUSd6xxHHDjMAEM7cUC5/uujYIRvohC9SpvSM9ebXrrW3dKw52LdgjMk4ENoHKticyupYf6Pp7Zpf9AVVDD+sFLCSCHeqSng3/4sQ7Hxc57z/2Ysa+ydEHpgv2TxGcmLslb0XWyUUfVf2zlDKCCwvEA7Cs1vRfaSqw8M81ci82DskhrrnE89zc1PIXhdnEOY/4lJqFniDLv1nxsUqqoARiX6hNNV1Wa0qr/Ka8G2BmG2Bky5+8pGx/3mBn/1CfrPX72+tmB3qRt4BQJ2JzXJgFwewcWQEsanN2ch5xzyPe5c9G30ubdI7fLKkWEPv0KfykCZ6pU31qTlbKeiTygaGW
+S/U7XxHG85wzpgVAQP6awxCsVqqgKQQ0CafaMwR3G8X1rtapya0wwUlEt9vn4MF70YCCdqLrmlkALFDyXqlKprwQd2onCT0wXbjbOOxWTjUQIe+W0uvEmsdgKMBdEQq1of86xXMoNg0CPZ79c4y4og5us/LW/ttZZXnEs4CsLjTxz+a5ii/UsywAalOlgJvGndz1//Ik84MfW+5NFhyPQso4tF5rBLUGmtl5895OeSVYJcc7LyRyFtm00bP53L3YZJMiP+wTIXFMm+IXQxwu7i7R1dGzqS+9ljpjdfIE7wTisvfVZLxo+pVed7Zo7qgaekVTk+kcj+hx/5w5wY7t1NBzMSEb2Zwm3MULay79ATy0bphHsKw7Rf/QufmpOcSlgPgWTef3ll3HCD1upJ08ReyLTUNOk5U30k5BPABGSnC0uEZoj4ZnepD5ASa2/uZLakouQzVoFpvWaGRiScYb4TDf/Y0Wx8z0kEuGWD60y+yDs8nuDEcdt8YTt3Vm3ust/Jov1EEkyAHnl0arkAzteS0pjrgkEo9ts9ZK++gNTU8oWLg1gVX+0Nk6JYlqM7Lb+TONAuepYZihBbCqC8JTu0jYftCmUfjtwhrw4DkaTDIs0BFK6zvPviTIJR5wnH85BTwaygZYiBy40gQTHx5g4I50lb+P5mELVJtKFPYXUXvdyXy4iQeYL60tpWyqsCcoSHsHNy9a62u0MNj0PcH/eMEJs2TOPpQ2wR5z2QHSSzL1TLfmN1+4AZGw6sPSDVBK5HtfT4kjzgnEbfsLMdI+GXrp+sDAysq64Zne43JEq9I9QrGYsYBKsBdjT+tmulFYU1EteNi10QmeWvbQI7nZVfaiAM4oh3hWvJaGbcMTG7BBa8WXb+cb+Rbw/LKJ0zX+QcyiQDaZXo6t2QvaDDSxg0Xz+6JK8OD1VGMP0u6BhNmrl5GXYN0MMl8mH/ypbH7huj2euCaZeaVZ+jWdr0M/HSsUYPXMfDU5HrXpvv1/
+o2X99IY2hk3VMJuROjZHho0CGwywCdqkbIaPYNMAwBdYaX1XOafN2evBgyME0Nq+ylvw9FJo5A/arA44hGm0i2E2QZvIJtVmTTF9aqMPDRigVJ89mLfJLuZD25j8zUcZI4YT5EdpE9lMt/JvrriBfmQT4xWD8r2vgTYpm1Sb4PwF2NRpE9j0PG+zHmJw9gCAK+0dcWVjPs+n0Ai06cy0iYnjsGliZ8gm1AJo8B2lRKGQ6HaZAOZn9uG1eR82ddp8IUbW/wuxqdOmO7I5ez04NbCyA6EKFfQlvnQrn/gU8vxxpt9LmyPZpGGjeTH8k5UfVTZBm/B4VDE3g1VxkFxvy+OtKmDafHA2oRbAQjlgqn58zD7C2swnq84+F9uZW915sqr9i8r245XdxTX1mwvyie+P1OY9wIbyqLIJe8pioyB4UIe7DRAHSoTjNHECfxHxLyKB2cThNzYfQptFvADQYJEpnx4B9OAXmfALiR9UZRPH39h8OG0WojYdQZJ6bTrCtr3wR2gTagEsFLdO9IEJU/XjY/YR1ibsLMueiq7fUlC/Me9meg4cDR8XfR9+BCgu5PF/jDYhBjC2DGDlR5VNdk+/8EY6+mktw0B1S57RT7inA2TdEmnXICsDmJ/ZR5dN+rw58ukdyuJvYS/0QM+bI/dCMEB8yaQq2PZl6jvBaQtCjwuz2Bs8aJk1Afah2bzfXmiYzV9qL6TXJuwsK2angYfxyGr7cC8EO8vxtMm99cA37Qb7dGCZjU/SM7Bu9ur3yV9cyJygye/9HPv0HcAXsMnt09n7Kihw+3T21gO0Ce38omx6Vtggm+DHkTA2v23EvZARaPPuM92dzA+AffoUW/ZGDk5PS6+HtGdg06K1vsYLg0zfEzztKb/XOySvB9fmOlPPDGt+UwW+kTPUZtbrqcP7dLEUViz28oXh18Im7tPHsIlLAdWm7h2SsS3ffElN6bdw2uAHq1GrZX2SjW9GeJO3/HiLBTM9FXd5vwl3
+QNAm+5IBfvYAAGfIYvCX/soddd4eR1yTYaZP92++eBN6oe838cUwCJ+930wg7ltngTbxHRJbVRh+1WzCD333rj2dctiTzAt+bJkXeetEAkYAj2oVEt18tSFwqm2AyVIf3sKkl4OUQ/jBAFI4q9cmfhcqfz5a2SOBE9OxCaDjgDAA8AU2J+SQkIfv3oXE8ZvMM+ABlmF1hsLtirr1v/ODRQAm+545SeCHFC4d8KtmE36pqTa/z630nfz3ALOlAaZLQi1WXPz8Pyr6fwYtVQ0b3o70Im+GP+7gTGw+j9ql05zhXUj3lQ206Vn+vEAtw08ddJjQPRQRmAOguTcLrwqJQ/pkfqKZ+4aZgdf+/Q2cFcS0Vd3atyA1ltDvQjyH3LBPwcluehx+1WxiBCyPKrVCqtjwdoQLeT3C3GE1b9Fq40Uf28VnumVEPe3iSeaHTbT3M33X1/ydxss3IZPpjjUBYNrEHQLPr2RS8BWnXVVuOy87bKty2nFp5ab6LflMX5DFrgGskjtfiYshKzdaBMcbuSZP8vp02T+Pu+34YGaQgDhmTA9IMHVf97hXzw38Zsn1xcAoU17vFE1h334j8EuGkp7qPdikVReE+JVt/zTBLl7Y7cIa8NyNTcnNzrIXY0AfOfq3xVqDe7qYvi2G503YIFUbvt9kJbacia42Bk61cyPzwibZB5rZwcR3J/N8yaLwyQ58syUO5JXiLV/h6kafvFgiG4qiW/rfvybm8tyKjXEfBk9h0A3dirl+RexKLEPUEt3iwADllsr6hMluMNM3TAtKmbgKSIwh9onGHhkWATDNI4ltxbYCCBtFJYDdGFGb0wy1ieM3vFmNAmtEp02LEdrkzoWBaXCENufcX5tYxdiEX2BZo/UVNeG/d3AiNr5kIZ+3JMBoqT9Z7E7mehjNy9lwDIaLC5l+QWRZUFCKZedeTT5B3oN9GNzWC4gPHPlw9YhvDnH5j3WoalAO0SwFLFwPKDScqU170i+avJ/I
+80gxW5U8YdU64gmChSX13JZcDDP4xs2BrbzKmo6WCUIRiW4iwZ3vH9AocBisalwwbX4dfnwrCciaGLWV8BtzqsEDy8ioLtjYJD90lD4XRrfnjv/9czx44ILhydLa3osN2cQFbrknyfLvPDMxDRI5bUKL3GgkvYNfCvYlzvILs7IPtVwZ85THboe0mxV0XoxVCmRRZ8e/Lxf/IbDIOrDYKqTYKqjYMrjIKqjE6h+5Mzwrl32okashlEunfeGw+lt78mM+2zYrOsM6KMMycMvTEcect4suN2IMxuqAPenBPJo+WfsLW1tmxDVbRffF5KOHakcXNAbQNdjaTy/us157YIbw8LNJnZfov1mMnelMHz3Si8s25lh6FVj6fOe2G/z4DEd7gbKkruPMnyLzZ/jnWXo0bMrBLKzTDLNJf+kLFJ31ra21TbIBfEZh0IchqANB/8I/FWLJwLUW6Y0OSV2b9Ho72rr2wWsilYx+/9CH6a2uAIAh9jZ0dNWK2JMsgMYOdzEKrErdK1Nda1fVdWoU9Pv+3RdNANdaf0Nnb3WbrEO3RR63F9aUqn9osKZ1sLZVNeYZBn4U3YOD15oHr3ewBtDPaRMAf3NAERkMjl12Q+gq9K1j4cFOhoG2ocMovXMSo5UI5ufAPKP84zrHwjCAKz94U+OmDDtH/f8mA9ccnqjB3KSV4wAjDVJwhqI1OFguVo9uhHmwgmUZgAWMC1aLQZilC2b2buBi9MPDIucfBa7KcPyjrL4dg1pDbf6Gn4o7d/4fBuZsRo8AoGEAAAAASUVORK5CYII=</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>692459a5-add1-41a4-8d18-c6dc987cc3cb</rd:ReportID>
 </Report>
