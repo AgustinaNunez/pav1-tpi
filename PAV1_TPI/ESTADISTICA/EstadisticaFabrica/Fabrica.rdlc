@@ -227,9 +227,10 @@
         </ChartAreas>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Temporada</Caption>
+            <Caption>Volumen de ventas por Fábrica</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
+              <FontFamily>segoe ui</FontFamily>
               <FontSize>12pt</FontSize>
               <FontWeight>Bold</FontWeight>
               <TextAlign>General</TextAlign>

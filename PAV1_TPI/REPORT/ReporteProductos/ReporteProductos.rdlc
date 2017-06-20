@@ -253,7 +253,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.78521cm</Height>
+              <Height>0.75875cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -267,7 +267,6 @@
                               <Value>=Fields!id_producto.Value</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -303,14 +302,12 @@
                               <Value xml:space="preserve"> </Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!descripcion.Value</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -344,14 +341,12 @@
                               <Value>=Fields!stock.Value</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value xml:space="preserve"> </Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -387,14 +382,12 @@
                               <Value xml:space="preserve"> </Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!nombre_rubro.Value</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -428,14 +421,12 @@
                               <Value xml:space="preserve"> </Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!nombre_fabrica.Value</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -469,21 +460,18 @@
                               <Value>$</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!precio_lista.Value</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value xml:space="preserve"> </Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -534,7 +522,7 @@
         <DataSetName>ReporteProductos</DataSetName>
         <Top>0.34078cm</Top>
         <Left>0.6491cm</Left>
-        <Height>1.64979cm</Height>
+        <Height>1.62333cm</Height>
         <Width>21.0325cm</Width>
         <Style>
           <Border>
