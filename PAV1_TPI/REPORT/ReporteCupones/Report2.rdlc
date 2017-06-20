@@ -37,7 +37,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nro. Cupon</Value>
+                              <Value>Nro. Cupón</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
                                 <FontSize>11pt</FontSize>
