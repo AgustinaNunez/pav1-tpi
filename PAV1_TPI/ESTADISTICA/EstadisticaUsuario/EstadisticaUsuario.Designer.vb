@@ -54,7 +54,7 @@ Partial Class EstadisticaUsuario
         Me.cmb_temporadas.Items.AddRange(New Object() {"Otoño-Invierno", "Primavera-Verano"})
         Me.cmb_temporadas.Location = New System.Drawing.Point(93, 61)
         Me.cmb_temporadas.Name = "cmb_temporadas"
-        Me.cmb_temporadas.Size = New System.Drawing.Size(121, 25)
+        Me.cmb_temporadas.Size = New System.Drawing.Size(142, 25)
         Me.cmb_temporadas.TabIndex = 1
         '
         'Label1
