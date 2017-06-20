@@ -29,10 +29,6 @@ Partial Class FormUsuarios
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormUsuarios))
         Me.grilla_usuarios = New System.Windows.Forms.DataGridView()
-        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fecha_alta = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txt_fecha_alta = New System.Windows.Forms.MaskedTextBox()
@@ -62,6 +58,10 @@ Partial Class FormUsuarios
         Me.lbl_msj = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.gb_carga = New System.Windows.Forms.GroupBox()
+        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fecha_alta = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.grilla_usuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.groupBox.SuspendLayout()
         Me.gb_carga.SuspendLayout()
@@ -82,7 +82,7 @@ Partial Class FormUsuarios
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grilla_usuarios.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grilla_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grilla_usuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_usuario, Me.apellido, Me.nombre, Me.fecha_alta})
+        Me.grilla_usuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_usuario, Me.nombre, Me.apellido, Me.fecha_alta})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -107,33 +107,6 @@ Partial Class FormUsuarios
         Me.grilla_usuarios.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.grilla_usuarios.Size = New System.Drawing.Size(545, 368)
         Me.grilla_usuarios.TabIndex = 27
-        '
-        'id_usuario
-        '
-        Me.id_usuario.HeaderText = "User Name"
-        Me.id_usuario.Name = "id_usuario"
-        Me.id_usuario.ReadOnly = True
-        '
-        'apellido
-        '
-        Me.apellido.HeaderText = "Apellido"
-        Me.apellido.Name = "apellido"
-        Me.apellido.ReadOnly = True
-        Me.apellido.Width = 120
-        '
-        'nombre
-        '
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        Me.nombre.Width = 120
-        '
-        'fecha_alta
-        '
-        Me.fecha_alta.HeaderText = "Fecha Alta"
-        Me.fecha_alta.Name = "fecha_alta"
-        Me.fecha_alta.ReadOnly = True
-        Me.fecha_alta.Width = 150
         '
         'Label9
         '
@@ -220,6 +193,7 @@ Partial Class FormUsuarios
         '
         'txt_buscar_usuario
         '
+        Me.txt_buscar_usuario.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_buscar_usuario.Location = New System.Drawing.Point(165, 33)
         Me.txt_buscar_usuario.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_buscar_usuario.Name = "txt_buscar_usuario"
@@ -499,6 +473,33 @@ Partial Class FormUsuarios
         Me.gb_carga.TabStop = False
         Me.gb_carga.Text = "Carga de Usuarios"
         '
+        'id_usuario
+        '
+        Me.id_usuario.HeaderText = "User Name"
+        Me.id_usuario.Name = "id_usuario"
+        Me.id_usuario.ReadOnly = True
+        '
+        'nombre
+        '
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
+        Me.nombre.Width = 120
+        '
+        'apellido
+        '
+        Me.apellido.HeaderText = "Apellido"
+        Me.apellido.Name = "apellido"
+        Me.apellido.ReadOnly = True
+        Me.apellido.Width = 120
+        '
+        'fecha_alta
+        '
+        Me.fecha_alta.HeaderText = "Fecha Alta"
+        Me.fecha_alta.Name = "fecha_alta"
+        Me.fecha_alta.ReadOnly = True
+        Me.fecha_alta.Width = 150
+        '
         'FormUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -559,7 +560,7 @@ Partial Class FormUsuarios
     Friend WithEvents Label1 As Label
     Friend WithEvents gb_carga As GroupBox
     Friend WithEvents id_usuario As DataGridViewTextBoxColumn
-    Friend WithEvents apellido As DataGridViewTextBoxColumn
     Friend WithEvents nombre As DataGridViewTextBoxColumn
+    Friend WithEvents apellido As DataGridViewTextBoxColumn
     Friend WithEvents fecha_alta As DataGridViewTextBoxColumn
 End Class
