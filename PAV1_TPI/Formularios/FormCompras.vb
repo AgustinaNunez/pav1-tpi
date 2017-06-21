@@ -105,6 +105,12 @@ Public Class FormCompras
             flag = False
             mensaje &= vbCrLf & "- cantidad"
         End If
+
+        If Me.txt_precio_compra.Text = "" Then
+            flag = False
+            mensaje &= vbCrLf & "- precio de venta"
+        End If
+
         If Me.txt_precio_venta.Text = "" Then
             flag = False
             mensaje &= vbCrLf & "- precio unitario del producto comprado"
@@ -391,6 +397,8 @@ Public Class FormCompras
                 Me.limpiar_campos_compra()
                 Me.limpiar_campos_detalle()
                 Me.btn_cancelar.Enabled = False
+                Me.deshabilitar_detalle()
+                btn_nuevo_producto.Enabled = False
             End If
         End If
     End Sub

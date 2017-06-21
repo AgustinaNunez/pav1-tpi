@@ -76,7 +76,7 @@ Partial Class FormReporteVentas
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(0, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(1002, 61)
+        Me.Label8.Size = New System.Drawing.Size(751, 61)
         Me.Label8.TabIndex = 53
         Me.Label8.Text = "  Listado de Ventas"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -94,7 +94,7 @@ Partial Class FormReporteVentas
         Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(954, 490)
+        Me.ReportViewer1.Size = New System.Drawing.Size(713, 490)
         Me.ReportViewer1.TabIndex = 56
         '
         'Label2
@@ -144,7 +144,7 @@ Partial Class FormReporteVentas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(1002, 597)
+        Me.ClientSize = New System.Drawing.Size(751, 597)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.cmb_año)
         Me.Controls.Add(Me.cmb_mes)
