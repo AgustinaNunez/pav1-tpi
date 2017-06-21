@@ -106,7 +106,7 @@ Partial Class FormVentasFORMASPAGO
         Me.GroupBox3.Location = New System.Drawing.Point(429, 50)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(460, 351)
-        Me.GroupBox3.TabIndex = 1
+        Me.GroupBox3.TabIndex = 0
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Forma de pago"
         '
@@ -115,7 +115,7 @@ Partial Class FormVentasFORMASPAGO
         Me.txt_monto_formapago.Location = New System.Drawing.Point(333, 30)
         Me.txt_monto_formapago.Name = "txt_monto_formapago"
         Me.txt_monto_formapago.Size = New System.Drawing.Size(100, 25)
-        Me.txt_monto_formapago.TabIndex = 5
+        Me.txt_monto_formapago.TabIndex = 1
         Me.txt_monto_formapago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'dgv_formaPago
@@ -157,7 +157,7 @@ Partial Class FormVentasFORMASPAGO
         DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgv_formaPago.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.dgv_formaPago.Size = New System.Drawing.Size(415, 221)
-        Me.dgv_formaPago.TabIndex = 4
+        Me.dgv_formaPago.TabIndex = 2
         '
         'forma_pago
         '
@@ -220,7 +220,7 @@ Partial Class FormVentasFORMASPAGO
         Me.btn_aceptar_formapago.Location = New System.Drawing.Point(240, 290)
         Me.btn_aceptar_formapago.Name = "btn_aceptar_formapago"
         Me.btn_aceptar_formapago.Size = New System.Drawing.Size(105, 45)
-        Me.btn_aceptar_formapago.TabIndex = 3
+        Me.btn_aceptar_formapago.TabIndex = 5
         Me.btn_aceptar_formapago.Text = "Aceptar"
         Me.btn_aceptar_formapago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_aceptar_formapago.UseVisualStyleBackColor = True
@@ -237,7 +237,7 @@ Partial Class FormVentasFORMASPAGO
         Me.btn_eliminarFORMAPAGO.Location = New System.Drawing.Point(129, 290)
         Me.btn_eliminarFORMAPAGO.Name = "btn_eliminarFORMAPAGO"
         Me.btn_eliminarFORMAPAGO.Size = New System.Drawing.Size(105, 45)
-        Me.btn_eliminarFORMAPAGO.TabIndex = 2
+        Me.btn_eliminarFORMAPAGO.TabIndex = 4
         Me.btn_eliminarFORMAPAGO.Text = "Eliminar"
         Me.btn_eliminarFORMAPAGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_eliminarFORMAPAGO.UseVisualStyleBackColor = True
@@ -254,7 +254,7 @@ Partial Class FormVentasFORMASPAGO
         Me.btn_agregarFORMAPAGO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_agregarFORMAPAGO.Name = "btn_agregarFORMAPAGO"
         Me.btn_agregarFORMAPAGO.Size = New System.Drawing.Size(105, 45)
-        Me.btn_agregarFORMAPAGO.TabIndex = 1
+        Me.btn_agregarFORMAPAGO.TabIndex = 3
         Me.btn_agregarFORMAPAGO.Text = "Agregar"
         Me.btn_agregarFORMAPAGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_agregarFORMAPAGO.UseVisualStyleBackColor = True
@@ -320,7 +320,7 @@ Partial Class FormVentasFORMASPAGO
         Me.GroupBox1.Location = New System.Drawing.Point(12, 164)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(411, 331)
-        Me.GroupBox1.TabIndex = 2
+        Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del cupón"
         '
@@ -362,7 +362,7 @@ Partial Class FormVentasFORMASPAGO
         Me.btn_guardar_cupon.Location = New System.Drawing.Point(223, 276)
         Me.btn_guardar_cupon.Name = "btn_guardar_cupon"
         Me.btn_guardar_cupon.Size = New System.Drawing.Size(139, 45)
-        Me.btn_guardar_cupon.TabIndex = 3
+        Me.btn_guardar_cupon.TabIndex = 6
         Me.btn_guardar_cupon.Text = "Guardar cupón"
         Me.btn_guardar_cupon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_guardar_cupon.UseVisualStyleBackColor = True
@@ -648,7 +648,7 @@ Partial Class FormVentasFORMASPAGO
         Me.btn_aceptar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_aceptar.Name = "btn_aceptar"
         Me.btn_aceptar.Size = New System.Drawing.Size(100, 41)
-        Me.btn_aceptar.TabIndex = 6
+        Me.btn_aceptar.TabIndex = 2
         Me.btn_aceptar.Text = "Aceptar"
         Me.btn_aceptar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_aceptar.UseVisualStyleBackColor = False

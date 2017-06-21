@@ -138,6 +138,7 @@ Public Class FormCompras
         Me.dgv_compras.Enabled = False
         Me.btn_agregar.Enabled = False
         Me.btn_eliminar.Enabled = False
+        Me.btn_cancelar.Enabled = False
         Me.btn_nuevo_producto.Enabled = False
         Me.cmb_fabrica.Enabled = False
     End Sub
@@ -189,6 +190,7 @@ Public Class FormCompras
     Private Sub FormCompras_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         If MessageBox.Show("¿Está seguro que desea salir?", "Gestión de Compras", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = DialogResult.OK Then
             e.Cancel = False
+            SoporteGUI.tipo_form_ACTUAL = SoporteGUI.tipo_form.abm
         Else
             e.Cancel = True
         End If
@@ -293,6 +295,7 @@ Public Class FormCompras
         Me.cmb_fabrica.Enabled = True
         Me.txt_id_compra.Text = SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_compras")
         Me.txt_precio.Focus()
+        Me.btn_cancelar.Enabled = True
     End Sub
 
     Private Sub btn_guardar_Click_1(sender As Object, e As EventArgs) Handles btn_guardar.Click

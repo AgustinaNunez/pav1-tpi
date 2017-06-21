@@ -167,7 +167,11 @@ Public Class FormProductos
         sql &= ", 0)"
 
         SoporteBD.escribirBD_simple(sql)
-        Me.cargar_productos()
+        If SoporteGUI.tipo_form_ACTUAL = SoporteGUI.tipo_form.transaccion Then
+            cargar_productosTRANSACCION()
+        Else
+            Me.cargar_productos()
+        End If
         Me.deshabilitar_campos()
         Me.btn_guardar.Enabled = False
     End Sub

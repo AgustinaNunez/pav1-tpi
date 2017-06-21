@@ -315,6 +315,7 @@ Public Class FormVentas
         Venta.id_venta = Me.txt_idVENTA.Text
         Me.btn_eliminarDETALLE.Visible = False
         Me.btn_aceptarDETALLE.Visible = False
+        Me.btn_cancelarVENTA.Enabled = True
         Me.chk_descuento.Enabled = False
         Me.chk_descuento.Checked = False
         FormVentasFORMASPAGO.cadena = Nothing

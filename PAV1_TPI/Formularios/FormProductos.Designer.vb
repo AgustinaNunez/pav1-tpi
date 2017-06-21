@@ -180,6 +180,7 @@ Partial Class FormProductos
         'cbo_fabrica
         '
         Me.cbo_fabrica.BackColor = System.Drawing.Color.White
+        Me.cbo_fabrica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbo_fabrica.Enabled = False
         Me.cbo_fabrica.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_fabrica.ForeColor = System.Drawing.Color.Black
@@ -192,6 +193,7 @@ Partial Class FormProductos
         'cbo_rubro
         '
         Me.cbo_rubro.BackColor = System.Drawing.Color.White
+        Me.cbo_rubro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbo_rubro.Enabled = False
         Me.cbo_rubro.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_rubro.ForeColor = System.Drawing.Color.Black
