@@ -356,7 +356,13 @@ Public Class FormCompras
     End Sub
 
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
-        Me.Close()
+        If Me.dgv_compras.Rows.Count > 0 Then
+            If MessageBox.Show("¿Está seguro que desea cancelar la compra actual?", "Gestión de Compras", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+                Me.limpiar_campos_compra()
+                Me.limpiar_campos_detalle()
+                Me.btn_cancelar.Enabled = False
+            End If
+        End If
     End Sub
 
     Private Sub cmb_fabrica_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_fabrica.SelectedIndexChanged
