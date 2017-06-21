@@ -8,7 +8,7 @@ Public Class FormLogin
             e.Cancel = False
         Else
             e.Cancel = True
-            Me.Close()
+            'Me.Close()
             SoporteBD.cerrar_conexion_con_transaccion()
             SoporteBD.desconectar()
         End If
@@ -17,36 +17,6 @@ Public Class FormLogin
     Private Sub FormLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
-
-    'Private Sub btn_iniciarSesion_Click(sender As Object, e As EventArgs) Handles btn_iniciarSesion.Click
-    '    Dim sql As String = ""
-    '    Dim tabla As New DataTable
-    '    sql &= "SELECT * FROM usuarios "
-    '    sql &= " WHERE id_usuario = '" & Me.txt_nombre.Text & "'"
-    '    sql &= " AND contraseña = '" & Me.txt_clave.Text & "'"
-
-    '    If txt_nombre.Text = "" And txt_clave.Text = "" Then
-    '        'MessageBox.Show("Los campos usuario y contraseña no pueden estar vacíos.", "Inicio Sesión", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '        Me.mostrar_mensaje(" Los campos usuario y contraseña no pueden estar vacíos.")
-    '        Me.txt_nombre.Focus()
-    '    Else
-    '        tabla = SoporteBD.leerBD_simple(sql)
-
-    '        If tabla.Rows.Count <= 0 Then
-    '            'MessageBox.Show("Usuario o contraseña incorrectos")
-    '            Me.mostrar_mensaje(" Los datos ingresados son incorrectos o no existe el usuario ingresado.")
-    '            Me.limpiar_campos()
-    '            Me.txt_nombre.Focus()
-    '        Else
-    '            'MessageBox.Show("Bienvenida " & tabla.Rows(0)("nombre") & " " & tabla.Rows(0)("apellido"), "Principal", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '            Usuario.login(tabla)
-    '            Me.limpiar_campos()
-    '            Me.txt_nombre.Focus()
-    '            'Me.Hide()
-    '            Usuario.form.ShowDialog()
-    '        End If
-    '    End If
-    'End Sub
 
     Private Sub btn_iniciarSesion_Click(sender As Object, e As EventArgs) Handles btn_iniciarSesion.Click
         'VERIFICAR EXISTENCIA DEL USUARIO

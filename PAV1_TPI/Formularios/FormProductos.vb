@@ -42,7 +42,7 @@ Public Class FormProductos
 
     Private Sub cargar_productosTRANSACCION()
         Dim tabla As New DataTable
-        Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, r.nombre AS n_rubro, f.nombre AS n_fabrica, p.dado_de_baja FROM productos p"
+        Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, p.precio_compra, r.nombre AS n_rubro, f.nombre AS n_fabrica, p.dado_de_baja FROM productos p"
         sql &= " JOIN rubros r ON p.id_rubro = r.id_rubro"
         sql &= " JOIN fabricas f ON p.id_fabrica = f.id_fabrica"
         sql &= " WHERE p.dado_de_baja = 0 AND p.id_fabrica = " & Fabrica.id
@@ -53,7 +53,7 @@ Public Class FormProductos
     Private Sub limpiar_campos()
         txt_id.Text = ""
         txt_descrip.Text = ""
-        txt_precio.Text = ""
+        txt_precio_venta.Text = ""
         txt_stock.Text = ""
         cbo_fabrica.SelectedIndex = -1
         cbo_rubro.SelectedIndex = -1
@@ -78,9 +78,9 @@ Public Class FormProductos
             cbo_rubro.Focus()
             rdo = respuesta_validacion._error
         End If
-        If txt_precio.Text = "" Then
+        If txt_precio_venta.Text = "" Then
             lbl_precioERROR.Visible = True
-            txt_precio.Focus()
+            txt_precio_venta.Focus()
             rdo = respuesta_validacion._error
         End If
         If txt_descrip.Text = "" Then
@@ -126,7 +126,8 @@ Public Class FormProductos
         Me.txt_id.Text = tabla.Rows(0)("id_producto")
         Me.txt_descrip.Text = tabla.Rows(0)("descripcion")
         Me.txt_stock.Text = tabla.Rows(0)("stock")
-        Me.txt_precio.Text = tabla.Rows(0)("precio_lista")
+        Me.txt_precio_compra.Text = tabla.Rows(0)("precio_compra")
+        Me.txt_precio_venta.Text = tabla.Rows(0)("precio_lista")
         Me.cbo_rubro.SelectedValue = tabla.Rows(0)("id_rubro")
         Me.cbo_fabrica.SelectedValue = tabla.Rows(0)("id_fabrica")
 
@@ -156,12 +157,12 @@ Public Class FormProductos
 
     Private Sub insertar()
         Dim sql As String = ""
-        sql &= "INSERT INTO productos(id_producto, descripcion, stock, precio_lista, id_rubro, id_fabrica, dado_de_baja)"
+        sql &= "INSERT INTO productos(id_producto, descripcion, stock, precio_lista, precio_compra, id_rubro, id_fabrica, dado_de_baja)"
         sql &= " VALUES("
         sql &= Me.txt_id.Text
         sql &= ", '" & Me.txt_descrip.Text & "'"
         sql &= ", 0"
-        sql &= ", '" & Me.txt_precio.Text & "'"
+        sql &= ", '" & Me.txt_precio_venta.Text & "'"
         sql &= "," & Me.cbo_rubro.SelectedValue
         sql &= ", '" & Me.cbo_fabrica.SelectedValue & "'"
         sql &= ", 0)"
@@ -180,12 +181,13 @@ Public Class FormProductos
         Me.txt_id.Enabled = False
         Me.txt_descrip.Enabled = False
         Me.txt_stock.Enabled = False
-        Me.txt_precio.Enabled = False
+        Me.txt_precio_venta.Enabled = False
         Me.cbo_rubro.Enabled = False
         Me.cbo_fabrica.Enabled = False
     End Sub
 
     Private Sub dgv_productos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_productos.CellContentClick, dgv_productos.CellContentDoubleClick, dgv_productos.CellDoubleClick
+        Me.lbl_msj.Visible = False
         Dim sql As String = "SELECT * FROM productos "
         sql &= " WHERE id_producto = " & Me.dgv_productos.CurrentRow.Cells(0).Value
         Me.cargar_campos(sql)
@@ -196,14 +198,15 @@ Public Class FormProductos
         sql &= "UPDATE productos SET "
         sql &= "descripcion = '" & Me.txt_descrip.Text & "'"
         sql &= ", stock = " & Me.txt_stock.Text
-        sql &= ", precio_lista = " & Me.txt_precio.Text
+        sql &= ", precio_lista = " & Me.txt_precio_venta.Text
+        sql &= ", precio_compra = " & Me.txt_precio_compra.Text
         sql &= ", id_rubro = " & Me.cbo_rubro.SelectedValue
         sql &= ", id_fabrica = " & Me.cbo_fabrica.SelectedValue
         sql &= " WHERE id_producto = " & Me.txt_id.Text
 
         SoporteBD.escribirBD_simple(sql)
         cargar_productos()
-        MessageBox.Show("El producto fue modificado exitosamente.", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        'MessageBox.Show("El producto fue modificado exitosamente.", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Me.btn_guardar.Enabled = False
         Me.btn_eliminar.Enabled = False
         Me.deshabilitar_campos()
@@ -239,12 +242,12 @@ Public Class FormProductos
             Me.btn_guardar.Enabled = True
             Me.btn_eliminar.Enabled = False
         End If
-        
+
     End Sub
 
     Private Sub habilitar_campos()
         Me.txt_descrip.Enabled = True
-        Me.txt_precio.Enabled = True
+        Me.txt_precio_venta.Enabled = True
         Me.cbo_rubro.Enabled = True
         Me.cbo_fabrica.Enabled = True
 
@@ -300,11 +303,17 @@ Public Class FormProductos
                         End If
                 End Select
             Else
-                modificar()
-                Dim id_prod As String = txt_id.Text
-                Me.limpiar_campos()
-                lbl_msj.Text = " El producto " & id_prod & " se modificó correctamente."
-                lbl_msj.Visible = True
+                If Convert.ToInt32(Me.txt_precio_compra.Text) > Convert.ToInt32(Me.txt_precio_venta.Text) Then
+                    MessageBox.Show("El precio de venta es inferior al precio al cual fue comprado." & vbCrLf & "Por favor, ingrese un precio superior a $" & Me.txt_precio_compra.Text & ".", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Me.txt_precio_venta.Text = ""
+                    Me.txt_precio_venta.Focus()
+                Else
+                    modificar()
+                    Dim id_prod As String = txt_id.Text
+                    Me.limpiar_campos()
+                    lbl_msj.Text = " El producto " & id_prod & " se modificó correctamente."
+                    lbl_msj.Visible = True
+                End If
             End If
         Else
             lbl_msj.Text = " Faltan campos obligatorios."
@@ -314,7 +323,7 @@ Public Class FormProductos
 
     Private Sub cargar_productos()
         Dim tabla As New DataTable
-        Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, r.nombre AS n_rubro, f.nombre AS n_fabrica, p.dado_de_baja FROM productos p"
+        Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, precio_compra, r.nombre AS n_rubro, f.nombre AS n_fabrica, p.dado_de_baja FROM productos p"
         sql &= " JOIN rubros r ON p.id_rubro = r.id_rubro"
         sql &= " JOIN fabricas f ON p.id_fabrica = f.id_fabrica"
         sql &= " WHERE p.dado_de_baja = 0"
@@ -331,9 +340,10 @@ Public Class FormProductos
             Me.dgv_productos.Rows(c).Cells(1).Value = tabla.Rows(c)("descripcion")
             Me.dgv_productos.Rows(c).Cells(2).Value = tabla.Rows(c)("stock")
             Me.dgv_productos.Rows(c).Cells(3).Value = tabla.Rows(c)("precio_lista")
-            Me.dgv_productos.Rows(c).Cells(4).Value = tabla.Rows(c)("n_rubro")
-            Me.dgv_productos.Rows(c).Cells(5).Value = tabla.Rows(c)("n_fabrica")
-            Me.dgv_productos.Rows(c).Cells(6).Value = tabla.Rows(c)("dado_de_baja")
+            Me.dgv_productos.Rows(c).Cells(4).Value = tabla.Rows(c)("precio_compra")
+            Me.dgv_productos.Rows(c).Cells(5).Value = tabla.Rows(c)("n_rubro")
+            Me.dgv_productos.Rows(c).Cells(6).Value = tabla.Rows(c)("n_fabrica")
+            Me.dgv_productos.Rows(c).Cells(7).Value = tabla.Rows(c)("dado_de_baja")
         Next
     End Sub
 
@@ -430,20 +440,19 @@ Public Class FormProductos
 
                     Dim sql As String = ""
                     Dim tabla As New DataTable
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     If txt_idBUSCAR.Text <> "" Then
                         sql &= " WHERE id_producto = " & Me.txt_idBUSCAR.Text
                     End If
 
                     tabla = SoporteBD.leerBD_simple(sql)
-
                     Me.cargar_grilla(tabla)
 
                 Else
                     Dim sql As String = ""
                     Dim tabla As New DataTable
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                     If txt_idBUSCAR.Text <> "" Then
@@ -451,7 +460,6 @@ Public Class FormProductos
                     End If
 
                     tabla = SoporteBD.leerBD_simple(sql)
-
                     Me.cargar_grilla(tabla)
                 End If
 
@@ -460,7 +468,7 @@ Public Class FormProductos
                 If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                     Dim sql As String = ""
                     Dim tabla As New DataTable
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
                     If txt_idBUSCAR.Text <> "" Then
@@ -473,7 +481,7 @@ Public Class FormProductos
                 Else
                     Dim sql As String = ""
                     Dim tabla As New DataTable
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                     sql &= " AND f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
@@ -481,9 +489,7 @@ Public Class FormProductos
                         sql &= " AND id_producto = " & Me.txt_idBUSCAR.Text
                     End If
                     tabla = SoporteBD.leerBD_simple(sql)
-
                     Me.cargar_grilla(tabla)
-
                 End If
 
             End If
@@ -496,20 +502,19 @@ Public Class FormProductos
                     If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                         Dim sql As String = ""
                         Dim tabla As New DataTable
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE dado_de_baja = 0"
                         If txt_idBUSCAR.Text <> "" Then
                             sql &= " AND id_producto = " & Me.txt_idBUSCAR.Text
                         End If
                         tabla = SoporteBD.leerBD_simple(sql)
-
                         Me.cargar_grilla(tabla)
 
                     Else
                         Dim sql As String = ""
                         Dim tabla As New DataTable
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                         sql &= " AND dado_de_baja = 0"
@@ -517,9 +522,7 @@ Public Class FormProductos
                             sql &= " AND id_producto = " & Me.txt_idBUSCAR.Text
                         End If
                         tabla = SoporteBD.leerBD_simple(sql)
-
                         Me.cargar_grilla(tabla)
-
                     End If
 
                 Else
@@ -527,7 +530,7 @@ Public Class FormProductos
                     If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                         Dim sql As String = ""
                         Dim tabla As New DataTable
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
                         sql &= " AND dado_de_baja = 0"
@@ -535,13 +538,12 @@ Public Class FormProductos
                             sql &= " AND id_producto = " & Me.txt_idBUSCAR.Text
                         End If
                         tabla = SoporteBD.leerBD_simple(sql)
-
                         Me.cargar_grilla(tabla)
 
                     Else
                         Dim sql As String = ""
                         Dim tabla As New DataTable
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                         sql &= " AND f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
@@ -550,7 +552,6 @@ Public Class FormProductos
                             sql &= " AND id_producto = " & Me.txt_idBUSCAR.Text
                         End If
                         tabla = SoporteBD.leerBD_simple(sql)
-
                         Me.cargar_grilla(tabla)
 
                     End If
@@ -564,20 +565,19 @@ Public Class FormProductos
                     If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                         Dim sql As String = ""
                         Dim tabla As New DataTable
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE dado_de_baja = 1"
                         If txt_idBUSCAR.Text <> "" Then
                             sql &= " AND id_producto = " & Me.txt_idBUSCAR.Text
                         End If
                         tabla = SoporteBD.leerBD_simple(sql)
-
                         Me.cargar_grilla(tabla)
 
                     Else
                         Dim sql As String = ""
                         Dim tabla As New DataTable
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                         sql &= " AND dado_de_baja = 1"
@@ -585,9 +585,7 @@ Public Class FormProductos
                             sql &= " AND id_producto = " & Me.txt_idBUSCAR.Text
                         End If
                         tabla = SoporteBD.leerBD_simple(sql)
-
                         Me.cargar_grilla(tabla)
-
                     End If
 
                 Else
@@ -595,7 +593,7 @@ Public Class FormProductos
                     If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                         Dim sql As String = ""
                         Dim tabla As New DataTable
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
                         sql &= " AND dado_de_baja = 1"
@@ -603,13 +601,12 @@ Public Class FormProductos
                             sql &= " AND id_producto = " & Me.txt_idBUSCAR.Text
                         End If
                         tabla = SoporteBD.leerBD_simple(sql)
-
                         Me.cargar_grilla(tabla)
 
                     Else
                         Dim sql As String = ""
                         Dim tabla As New DataTable
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                         sql &= " AND f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
@@ -618,7 +615,6 @@ Public Class FormProductos
                             sql &= " AND id_producto = " & Me.txt_idBUSCAR.Text
                         End If
                         tabla = SoporteBD.leerBD_simple(sql)
-
                         Me.cargar_grilla(tabla)
 
                     End If
@@ -634,20 +630,19 @@ Public Class FormProductos
                 If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                     Dim sql As String = ""
                     Dim tabla As New DataTable
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE dado_de_baja in (0,1)"
                     If txt_idBUSCAR.Text <> "" Then
                         sql &= " AND id_producto = " & Me.txt_idBUSCAR.Text
                     End If
                     tabla = SoporteBD.leerBD_simple(sql)
-
                     Me.cargar_grilla(tabla)
 
                 Else
                     Dim sql As String = ""
                     Dim tabla As New DataTable
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                     sql &= " AND dado_de_baja in (0,1)"
@@ -655,7 +650,6 @@ Public Class FormProductos
                         sql &= " AND id_producto = " & Me.txt_idBUSCAR.Text
                     End If
                     tabla = SoporteBD.leerBD_simple(sql)
-
                     Me.cargar_grilla(tabla)
 
                 End If
@@ -665,7 +659,7 @@ Public Class FormProductos
                 If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                     Dim sql As String = ""
                     Dim tabla As New DataTable
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                     sql &= " AND dado_de_baja in (0,1)"
@@ -673,13 +667,12 @@ Public Class FormProductos
                         sql &= " AND id_producto = " & Me.txt_idBUSCAR.Text
                     End If
                     tabla = SoporteBD.leerBD_simple(sql)
-
                     Me.cargar_grilla(tabla)
 
                 Else
                     Dim sql As String = ""
                     Dim tabla As New DataTable
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, precio_compra, r.nombre AS 'n_rubro', f.nombre AS 'n_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                     sql &= " AND f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
@@ -688,9 +681,7 @@ Public Class FormProductos
                         sql &= " AND id_producto = " & Me.txt_idBUSCAR.Text
                     End If
                     tabla = SoporteBD.leerBD_simple(sql)
-
                     Me.cargar_grilla(tabla)
-
                 End If
 
             End If

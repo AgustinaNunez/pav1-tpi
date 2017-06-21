@@ -24,8 +24,11 @@ Partial Class FormCompras
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormCompras))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -36,17 +39,12 @@ Partial Class FormCompras
         Me.txt_hora = New System.Windows.Forms.TextBox()
         Me.txt_monto = New System.Windows.Forms.TextBox()
         Me.dgv_compras = New System.Windows.Forms.DataGridView()
-        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_precio_venta = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_precio_compra = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmb_producto = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt_cantidad = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txt_precio = New System.Windows.Forms.TextBox()
+        Me.txt_precio_venta = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cmb_fabrica = New System.Windows.Forms.ComboBox()
@@ -62,6 +60,11 @@ Partial Class FormCompras
         Me.btn_cancelar = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
+        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_precio_compra = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_precio_venta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv_compras, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -170,64 +173,30 @@ Partial Class FormCompras
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_compras.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_compras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_compras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_producto, Me.col_precio_venta, Me.col_precio_compra, Me.col_cantidad, Me.col_id_producto})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_compras.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgv_compras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_producto, Me.col_precio_compra, Me.col_precio_venta, Me.col_cantidad, Me.col_id_producto})
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_compras.DefaultCellStyle = DataGridViewCellStyle6
         Me.dgv_compras.Enabled = False
         Me.dgv_compras.Location = New System.Drawing.Point(18, 69)
         Me.dgv_compras.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgv_compras.Name = "dgv_compras"
         Me.dgv_compras.ReadOnly = True
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_compras.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_compras.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.dgv_compras.Size = New System.Drawing.Size(795, 199)
         Me.dgv_compras.TabIndex = 9
-        '
-        'col_producto
-        '
-        Me.col_producto.HeaderText = "Producto"
-        Me.col_producto.Name = "col_producto"
-        Me.col_producto.ReadOnly = True
-        Me.col_producto.Width = 300
-        '
-        'col_precio_venta
-        '
-        Me.col_precio_venta.HeaderText = "Precio de venta"
-        Me.col_precio_venta.Name = "col_precio_venta"
-        Me.col_precio_venta.ReadOnly = True
-        Me.col_precio_venta.Width = 150
-        '
-        'col_precio_compra
-        '
-        Me.col_precio_compra.HeaderText = "Precio de compra"
-        Me.col_precio_compra.Name = "col_precio_compra"
-        Me.col_precio_compra.ReadOnly = True
-        Me.col_precio_compra.Width = 150
-        '
-        'col_cantidad
-        '
-        Me.col_cantidad.HeaderText = "Cantidad"
-        Me.col_cantidad.Name = "col_cantidad"
-        Me.col_cantidad.ReadOnly = True
-        '
-        'col_id_producto
-        '
-        Me.col_id_producto.HeaderText = "id_producto"
-        Me.col_id_producto.Name = "col_id_producto"
-        Me.col_id_producto.ReadOnly = True
-        Me.col_id_producto.Visible = False
         '
         'cmb_producto
         '
@@ -286,16 +255,16 @@ Partial Class FormCompras
         Me.Label7.TabIndex = 3
         Me.Label7.Text = "Precio de venta"
         '
-        'txt_precio
+        'txt_precio_venta
         '
-        Me.txt_precio.Enabled = False
-        Me.txt_precio.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_precio.ForeColor = System.Drawing.Color.Black
-        Me.txt_precio.Location = New System.Drawing.Point(615, 35)
-        Me.txt_precio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txt_precio.Name = "txt_precio"
-        Me.txt_precio.Size = New System.Drawing.Size(78, 25)
-        Me.txt_precio.TabIndex = 4
+        Me.txt_precio_venta.Enabled = False
+        Me.txt_precio_venta.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_precio_venta.ForeColor = System.Drawing.Color.Black
+        Me.txt_precio_venta.Location = New System.Drawing.Point(615, 35)
+        Me.txt_precio_venta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_precio_venta.Name = "txt_precio_venta"
+        Me.txt_precio_venta.Size = New System.Drawing.Size(78, 25)
+        Me.txt_precio_venta.TabIndex = 4
         '
         'GroupBox1
         '
@@ -366,7 +335,7 @@ Partial Class FormCompras
         Me.GroupBox2.Controls.Add(Me.txt_precio_compra)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.dgv_compras)
-        Me.GroupBox2.Controls.Add(Me.txt_precio)
+        Me.GroupBox2.Controls.Add(Me.txt_precio_venta)
         Me.GroupBox2.Controls.Add(Me.btn_modificar)
         Me.GroupBox2.Controls.Add(Me.btn_agregar)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -527,6 +496,46 @@ Partial Class FormCompras
         Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_nuevo.UseVisualStyleBackColor = True
         '
+        'col_producto
+        '
+        Me.col_producto.HeaderText = "Producto"
+        Me.col_producto.Name = "col_producto"
+        Me.col_producto.ReadOnly = True
+        Me.col_producto.Width = 300
+        '
+        'col_precio_compra
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.col_precio_compra.DefaultCellStyle = DataGridViewCellStyle3
+        Me.col_precio_compra.HeaderText = "Precio de compra"
+        Me.col_precio_compra.Name = "col_precio_compra"
+        Me.col_precio_compra.ReadOnly = True
+        Me.col_precio_compra.Width = 150
+        '
+        'col_precio_venta
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.col_precio_venta.DefaultCellStyle = DataGridViewCellStyle4
+        Me.col_precio_venta.HeaderText = "Precio de venta"
+        Me.col_precio_venta.Name = "col_precio_venta"
+        Me.col_precio_venta.ReadOnly = True
+        Me.col_precio_venta.Width = 150
+        '
+        'col_cantidad
+        '
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.col_cantidad.DefaultCellStyle = DataGridViewCellStyle5
+        Me.col_cantidad.HeaderText = "Cantidad"
+        Me.col_cantidad.Name = "col_cantidad"
+        Me.col_cantidad.ReadOnly = True
+        '
+        'col_id_producto
+        '
+        Me.col_id_producto.HeaderText = "id_producto"
+        Me.col_id_producto.Name = "col_id_producto"
+        Me.col_id_producto.ReadOnly = True
+        Me.col_id_producto.Visible = False
+        '
         'FormCompras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -567,7 +576,7 @@ Partial Class FormCompras
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txt_cantidad As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents txt_precio As System.Windows.Forms.TextBox
+    Friend WithEvents txt_precio_venta As System.Windows.Forms.TextBox
     Friend WithEvents btn_agregar As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
@@ -584,8 +593,8 @@ Partial Class FormCompras
     Friend WithEvents Label11 As Label
     Friend WithEvents txt_precio_compra As TextBox
     Friend WithEvents col_producto As DataGridViewTextBoxColumn
-    Friend WithEvents col_precio_venta As DataGridViewTextBoxColumn
     Friend WithEvents col_precio_compra As DataGridViewTextBoxColumn
+    Friend WithEvents col_precio_venta As DataGridViewTextBoxColumn
     Friend WithEvents col_cantidad As DataGridViewTextBoxColumn
     Friend WithEvents col_id_producto As DataGridViewTextBoxColumn
 End Class
