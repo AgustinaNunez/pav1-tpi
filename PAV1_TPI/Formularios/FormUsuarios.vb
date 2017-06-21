@@ -23,7 +23,7 @@
         Dim tabla As New DataTable
         Dim sql_cargar_grilla As String = ""
 
-        sql_cargar_grilla &= " SELECT * FROM  usuarios "
+        sql_cargar_grilla &= " SELECT * FROM  usuarios WHERE id_usuario <> '(Seleccionar valor)' "
         tabla = SoporteBD.leerBD_simple(sql_cargar_grilla)
 
         Dim c As Integer
@@ -108,7 +108,7 @@
     'BOTON PARA BLANQUEAR NUEVO USUARIO
     Private Sub cmd_nuevo_Click_1(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
 
-        'If MessageBox.Show("¿Está seguro que desea eliminar los datos ingresados?", "Importante", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+
         Me.borrar_datos()
         Me.accion = tipo_grabacion.insertar
         Me.cmd_grabar.Enabled = True
@@ -122,7 +122,7 @@
         Me.txt_id_usuario.Focus()
         Me.cargar_grilla_usuarios()
         lbl_msj.Visible = False
-        'End If
+
 
     End Sub
 
@@ -134,15 +134,9 @@
             lbl_constraseñaERROR.Visible = True
             txt_contraseña1.Focus()
             rdo = respuesta_validacion._error
-            'MsgBox("La contraseña no fue ingresada", MsgBoxStyle.OkOnly, "Error")
+
         End If
 
-        'If txt_contraseña2.Text = "" Then
-        '    lbl_contraseña2ERROR.Visible = True
-        '    txt_contraseña2.Focus()
-        '    rdo = respuesta_validacion._error
-        '    MsgBox("La contraseña no fue ingresada", MsgBoxStyle.OkOnly, "Error")
-        'End If
 
         If Me.txt_contraseña1.Text <> Me.txt_contraseña2.Text Then
             MessageBox.Show("Error al repetir la contraseña, vuelva a ingresarla", "Carga Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -152,29 +146,24 @@
             lbl_contraseña2ERROR.Visible = True
             Me.txt_contraseña1.Focus()
         End If
-        'If txt_fecha_alta.Text = "" Then
-        '    lbl_fechaERROR.Visible = True
-        '    txt_fecha_alta.Focus()
-        '    rdo = respuesta_validacion._error
-        '    MsgBox("La fecha de alta no fue ingresada", MsgBoxStyle.OkOnly, "Error")
-        'End If
+
         If txt_apellido.Text = "" Then
             lbl_apellidoERROR.Visible = True
             txt_apellido.Focus()
             rdo = respuesta_validacion._error
-            'MsgBox("El apellido no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+
         End If
         If txt_nombre.Text = "" Then
             lbl_nombreERROR.Visible = True
             txt_nombre.Focus()
             rdo = respuesta_validacion._error
-            'MsgBox("El nombre no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+
         End If
         If txt_id_usuario.Text = "" Then
             lbl_usuarioERROR.Visible = True
             txt_id_usuario.Focus()
             rdo = respuesta_validacion._error
-            'MsgBox("El id de usuario no fue ingresado", MsgBoxStyle.OkOnly, "Error")
+
         End If
         Return rdo
     End Function
@@ -260,17 +249,6 @@
         Me.cmd_grabar.Enabled = True
         Me.cmd_nuevo.Enabled = True
     End Sub
-
-    'Private Sub txt_apellido_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_apellido.KeyPress
-    'If e.KeyChar() Like "*" Then
-    'Else
-    'e.KeyChar = ""
-    'MsgBox("Valor ingresado incorrecto, solo letras")
-    'End If
-
-    'End Sub
-
-    'FUNCION PARA VALIDAR DATOS A GUARDAR
 
     Private Function validar_datos() As respuesta_validacion
         For Each obj As Windows.Forms.Control In Me.Controls

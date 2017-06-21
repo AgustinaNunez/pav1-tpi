@@ -70,6 +70,7 @@ create table productos(
 id_producto integer,
 descripcion varchar(100),
 stock integer,
+precio_compra float,
 precio_lista float,
 id_rubro integer,
 id_fabrica integer,
@@ -248,6 +249,7 @@ INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fab
 INSERT INTO productos(id_producto,descripcion,stock,precio_lista,id_rubro,id_fabrica,dado_de_baja) VALUES (24,'Remera violeta',0, 275,3,10,0)
 
 
+INSERT INTO usuarios(id_usuario,nombre,apellido,contraseña,fecha_alta) VALUES ('(Seleccionar valor)','','','','2017-05-21')
 INSERT INTO usuarios(id_usuario,nombre,apellido,contraseña,fecha_alta) VALUES('62719','Juan Ignacio','Van Heerden','37665760',(convert(datetime,'21-05-17 10:34:09 PM',5)))
 INSERT INTO usuarios(id_usuario,nombre,apellido,contraseña,fecha_alta) VALUES('62809','Agustina','Nuñez Moreno','38036094',(convert(datetime,'21-05-17 10:34:09 PM',5)))
 INSERT INTO usuarios(id_usuario,nombre,apellido,contraseña,fecha_alta) VALUES('68582','Brian','Calcaterra','37665760',(convert(datetime,'21-05-17 10:34:09 PM',5)))

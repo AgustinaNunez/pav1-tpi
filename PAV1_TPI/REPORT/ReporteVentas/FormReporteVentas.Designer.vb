@@ -31,6 +31,10 @@ Partial Class FormReporteVentas
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cmb_mes = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmb_año = New System.Windows.Forms.ComboBox()
         CType(Me.t_ventaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSetVentas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -93,6 +97,48 @@ Partial Class FormReporteVentas
         Me.ReportViewer1.Size = New System.Drawing.Size(954, 490)
         Me.ReportViewer1.TabIndex = 56
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(257, 64)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(33, 17)
+        Me.Label2.TabIndex = 54
+        Me.Label2.Text = "Mes"
+        '
+        'cmb_mes
+        '
+        Me.cmb_mes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_mes.FormattingEnabled = True
+        Me.cmb_mes.Items.AddRange(New Object() {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"})
+        Me.cmb_mes.Location = New System.Drawing.Point(296, 61)
+        Me.cmb_mes.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cmb_mes.Name = "cmb_mes"
+        Me.cmb_mes.Size = New System.Drawing.Size(140, 25)
+        Me.cmb_mes.TabIndex = 55
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(456, 64)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(31, 17)
+        Me.Label3.TabIndex = 54
+        Me.Label3.Text = "Año"
+        '
+        'cmb_año
+        '
+        Me.cmb_año.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_año.FormattingEnabled = True
+        Me.cmb_año.Items.AddRange(New Object() {"2017", "2018", "2019", "2020", "2021"})
+        Me.cmb_año.Location = New System.Drawing.Point(493, 61)
+        Me.cmb_año.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cmb_año.Name = "cmb_año"
+        Me.cmb_año.Size = New System.Drawing.Size(140, 25)
+        Me.cmb_año.TabIndex = 55
+        '
         'FormReporteVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -100,7 +146,11 @@ Partial Class FormReporteVentas
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1002, 597)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Controls.Add(Me.cmb_año)
+        Me.Controls.Add(Me.cmb_mes)
         Me.Controls.Add(Me.cmb_buscar_usuario)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label8)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -123,4 +173,8 @@ Partial Class FormReporteVentas
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents t_ventaBindingSource As BindingSource
     Friend WithEvents DataSetVentas As DataSetVentas
+    Friend WithEvents Label2 As Label
+    Friend WithEvents cmb_mes As ComboBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents cmb_año As ComboBox
 End Class

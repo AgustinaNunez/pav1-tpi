@@ -51,7 +51,7 @@ Public Class FormLogin
     Private Sub btn_iniciarSesion_Click(sender As Object, e As EventArgs) Handles btn_iniciarSesion.Click
         'VERIFICAR EXISTENCIA DEL USUARIO
         If Me.validar_campos() Then
-            Dim sql As String = "SELECT * FROM usuarios WHERE id_usuario = " & Me.txt_nombre.Text
+            Dim sql As String = "SELECT * FROM usuarios WHERE id_usuario = '" & Me.txt_nombre.Text & "'"
             Dim tabla As New DataTable
             tabla = SoporteBD.leerBD_simple(sql)
             'SI NO EXISTE EL USUARIO...
@@ -61,7 +61,7 @@ Public Class FormLogin
                 Me.txt_nombre.Focus()
             Else
                 'SI EXISTE EL USUARIO...
-                Dim sql2 As String = "SELECT * FROM usuarios WHERE id_usuario = " & Me.txt_nombre.Text & " AND contraseña = " & Me.txt_clave.Text & ""
+                Dim sql2 As String = "SELECT * FROM usuarios WHERE id_usuario = '" & Me.txt_nombre.Text & "' AND contraseña = " & Me.txt_clave.Text & ""
                 Dim tabla2 As New DataTable
                 tabla2 = SoporteBD.leerBD_simple(sql2)
                 'SI LA CLAVE ESTA MAL
