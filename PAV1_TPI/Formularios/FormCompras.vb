@@ -329,6 +329,7 @@ Public Class FormCompras
             For c = 0 To Me.dgv_compras.Rows.Count - 1
                 sql_actualizar_productos &= "UPDATE productos SET stock = stock + " & Convert.ToInt32(Me.dgv_compras.Rows(c).Cells(1).Value)
                 sql_actualizar_productos &= " WHERE id_producto = " & Me.dgv_compras.Rows(c).Cells(3).Value
+                SoporteBD.escribirBD_transaccion(sql_actualizar_productos)
             Next
 
 
