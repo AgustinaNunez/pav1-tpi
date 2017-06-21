@@ -247,8 +247,8 @@ Public Class FormCompras
 
     Private Sub dgv_compras_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_compras.CellContentClick
         Me.cmb_producto.SelectedValue = Me.dgv_compras.CurrentRow.Cells("col_id_producto").Value
-        Me.txt_precio_compra.Text = Me.dgv_compras.CurrentRow.Cells("col_precio_venta").Value
-        Me.txt_precio.Text = Me.dgv_compras.CurrentRow.Cells("col_precio").Value
+        Me.txt_precio_compra.Text = Me.dgv_compras.CurrentRow.Cells("col_precio_compra").Value
+        Me.txt_precio.Text = Me.dgv_compras.CurrentRow.Cells("col_precio_venta").Value
         Me.txt_cantidad.Text = Me.dgv_compras.CurrentRow.Cells("col_cantidad").Value
 
         Me.cmb_producto.Enabled = False
