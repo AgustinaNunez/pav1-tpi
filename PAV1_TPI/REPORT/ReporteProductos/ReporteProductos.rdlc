@@ -463,7 +463,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!precio_lista.Value</Value>
+                              <Value>=Fields!precio_venta.Value</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
                               </Style>
@@ -534,7 +534,7 @@
     <Height>0.94792in</Height>
     <Style />
   </Body>
-  <Width>8.76722in</Width>
+  <Width>8.77031in</Width>
   <Page>
     <PageHeader>
       <Height>2.39599cm</Height>
@@ -790,8 +790,8 @@
           <DataField>stock</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="precio_lista">
-          <DataField>precio_lista</DataField>
+        <Field Name="precio_venta">
+          <DataField>precio_venta</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="nombre_rubro">
@@ -805,7 +805,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSetProductos</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\ReporteProductos\DataSetProductos.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Luciana\Desktop\PAV 1\pav1-tpi\PAV1_TPI\REPORT\ReporteProductos\DataSetProductos.xsd</rd:SchemaPath>
         <rd:TableName>t_productos</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

@@ -7,7 +7,7 @@
     End Sub
 
     Private Sub cargar_productos()
-        Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica' FROM productos p"
+        Dim sql As String = "SELECT p.id_producto, p.descripcion, p.stock, p.precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica' FROM productos p"
         sql &= " JOIN rubros r ON p.id_rubro = r.id_rubro"
         sql &= " JOIN fabricas f ON p.id_fabrica = f.id_fabrica"
         sql &= " WHERE p.dado_de_baja = 0"
@@ -91,7 +91,7 @@
 
                     Dim sql As String = ""
 
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     If txt_nombre.Text <> "" Then
                         sql &= " WHERE descripcion LIKE '%" & Me.txt_nombre.Text & "%'"
@@ -102,7 +102,7 @@
                 Else
                     Dim sql As String = ""
 
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                     If txt_nombre.Text <> "" Then
@@ -119,7 +119,7 @@
                 If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                     Dim sql As String = ""
 
-                    sql &= "Select id_producto, descripcion, stock, precio_lista, r.nombre As 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                    sql &= "Select id_producto, descripcion, stock, precio_venta, r.nombre As 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
                     If txt_nombre.Text <> "" Then
@@ -132,7 +132,7 @@
                 Else
                     Dim sql As String = ""
 
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                     sql &= " AND f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
@@ -155,7 +155,7 @@
                     If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                         Dim sql As String = ""
 
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE dado_de_baja = 0"
                         sql &= " AND stock > 0"
@@ -169,7 +169,7 @@
                     Else
                         Dim sql As String = ""
 
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                         sql &= " AND dado_de_baja = 0"
@@ -188,7 +188,7 @@
                     If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                         Dim sql As String = ""
 
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
                         sql &= " AND dado_de_baja = 0"
@@ -203,7 +203,7 @@
                     Else
                         Dim sql As String = ""
 
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                         sql &= " AND f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
@@ -227,7 +227,7 @@
                     If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                         Dim sql As String = ""
 
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE dado_de_baja = 0"
                         sql &= " AND stock = 0"
@@ -241,7 +241,7 @@
                     Else
                         Dim sql As String = ""
 
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                         sql &= " AND dado_de_baja = 0"
@@ -260,7 +260,7 @@
                     If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                         Dim sql As String = ""
 
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
                         sql &= " AND dado_de_baja = 0"
@@ -275,7 +275,7 @@
                     Else
                         Dim sql As String = ""
 
-                        sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                        sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                         sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                         sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                         sql &= " AND f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue
@@ -301,7 +301,7 @@
                 If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                     Dim sql As String = ""
 
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE dado_de_baja = 0"
                     sql &= " AND stock >= 0"
@@ -315,7 +315,7 @@
                 Else
                     Dim sql As String = ""
 
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                     sql &= " AND dado_de_baja = 0"
@@ -334,7 +334,7 @@
                 If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
                     Dim sql As String = ""
 
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                     sql &= " AND dado_de_baja = 0"
@@ -349,7 +349,7 @@
                 Else
                     Dim sql As String = ""
 
-                    sql &= "SELECT id_producto, descripcion, stock, precio_lista, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                    sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
                     sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
                     sql &= " WHERE r.id_rubro = " & Me.cbo_rubroBUSCAR.SelectedValue
                     sql &= " AND f.id_fabrica = " & Me.cbo_fabricaBUSCAR.SelectedValue

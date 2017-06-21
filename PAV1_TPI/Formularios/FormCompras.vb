@@ -60,13 +60,15 @@ Public Class FormCompras
 
                 If Convert.ToInt32(Me.txt_precio_compra.Text) > Convert.ToInt32(Me.txt_precio_venta.Text) Then
                     MessageBox.Show("El precio de venta no puede ser menor que el precio de compra.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Me.dgv_compras.Rows.Remove(Me.dgv_compras.CurrentRow)
+                    Me.limpiar_campos_detalle()
                 End If
 
             Else
                 If producto_cargado() = False Then
                     If Convert.ToInt32(Me.txt_cantidad.Text) > 0 Then
                         If Convert.ToDouble(Me.txt_precio_venta.Text) > 0 Then
-                            Me.dgv_compras.Rows.Add(cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio_venta.Text, cmb_producto.SelectedValue)
+                            Me.dgv_compras.Rows.Add(cmb_producto.Text, Me.txt_precio_compra.Text, Me.txt_precio_venta.Text, Me.txt_cantidad.Text, cmb_producto.SelectedValue)
                             Me.calcular_total()
                             Me.btn_guardar.Enabled = True
                         End If
@@ -80,8 +82,10 @@ Public Class FormCompras
                         MessageBox.Show("La cantidad ingresada no puede ser cero.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
 
-                    If Convert.ToInt32(Me.txt_precio_compra) > Convert.ToInt32(Me.txt_precio_venta) Then
+                    If Convert.ToInt32(Me.txt_precio_compra.Text) > Convert.ToInt32(Me.txt_precio_venta.Text) Then
                         MessageBox.Show("El precio de venta no puede ser menor que el precio de compra.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        Me.dgv_compras.Rows.Remove(Me.dgv_compras.CurrentRow)
+                        Me.limpiar_campos_detalle()
                     End If
                 End If
 
@@ -270,7 +274,9 @@ Public Class FormCompras
             MessageBox.Show("No se admite la cantidad ingresada.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return
         Else
-            Me.dgv_compras.CurrentRow.Cells(1).Value = Me.txt_cantidad.Text
+            Me.dgv_compras.CurrentRow.Cells(3).Value = Me.txt_cantidad.Text
+            Me.dgv_compras.CurrentRow.Cells(1).Value = Me.txt_precio_compra.Text
+            Me.dgv_compras.CurrentRow.Cells(2).Value = Me.txt_precio_venta.Text
         End If
 
         Me.calcular_total()
@@ -362,7 +368,7 @@ Public Class FormCompras
             'ACTUALIZAR PRECIO DE VENTA PRODUCTO
             Dim sql_actualizar_precioventa As String = ""
             For c = 0 To Me.dgv_compras.Rows.Count - 1
-                sql_actualizar_precioventa &= "UPDATE productos SET precio_compra = " & Me.dgv_compras.Rows(c).Cells(2).Value
+                sql_actualizar_precioventa &= "UPDATE productos SET precio_venta = " & Me.dgv_compras.Rows(c).Cells(2).Value
                 sql_actualizar_precioventa &= " WHERE id_producto = " & Me.dgv_compras.Rows(c).Cells(4).Value
                 SoporteBD.escribirBD_transaccion(sql_actualizar_precioventa)
             Next
@@ -389,20 +395,12 @@ Public Class FormCompras
         End If
     End Sub
 
-    Private Sub cmb_fabrica_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_fabrica.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub cmb_producto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_producto.SelectedIndexChanged
-
-    End Sub
-
     Private Sub cmb_producto_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_producto.SelectionChangeCommitted
-        Dim sql As String = "SELECT precio_lista FROM productos"
+        Dim sql As String = "SELECT precio_venta FROM productos"
         sql &= " WHERE id_producto = " & Me.cmb_producto.SelectedValue
         Dim tabla As New DataTable
         tabla = SoporteBD.leerBD_simple(sql)
         'Me.txt_precio_compra.Text = tabla.Rows(0)("precio_compra")
-        Me.txt_precio_venta.Text = tabla.Rows(0)("precio_lista")
+        Me.txt_precio_venta.Text = tabla.Rows(0)("precio_venta")
     End Sub
 End Class

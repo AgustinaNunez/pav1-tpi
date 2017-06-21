@@ -5,7 +5,7 @@ Public Class SoporteBD
     Public Shared cadena_conexion_agus As String = "Provider=SQLNCLI11;Data Source=AGUSTINA-PC;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
     Public Shared cadena_conexion_georgi As String = "Provider=SQLNCLI10;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
     Public Shared cadena_conexion_brian As String = "Provider=SQLNCLI11;Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=BD_CLOTTA"
-    Public Shared cadena_conexion As String = cadena_conexion_agus
+    Public Shared cadena_conexion As String = cadena_conexion_juan
 
     'VARIABLES QUE YA CONOCEMOS
     Public Shared conexion As New Data.OleDb.OleDbConnection

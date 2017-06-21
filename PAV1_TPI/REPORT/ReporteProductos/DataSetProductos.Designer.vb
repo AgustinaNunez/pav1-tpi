@@ -289,7 +289,7 @@ Partial Public Class DataSetProductos
         
         Private columnstock As Global.System.Data.DataColumn
         
-        Private columnprecio_lista As Global.System.Data.DataColumn
+        Private columnprecio_venta As Global.System.Data.DataColumn
         
         Private columnnombre_rubro As Global.System.Data.DataColumn
         
@@ -356,9 +356,9 @@ Partial Public Class DataSetProductos
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property precio_listaColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property precio_ventaColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnprecio_lista
+                Return Me.columnprecio_venta
             End Get
         End Property
         
@@ -415,9 +415,9 @@ Partial Public Class DataSetProductos
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addt_productosRow(ByVal id_producto As Integer, ByVal descripcion As String, ByVal stock As Integer, ByVal precio_lista As Double, ByVal nombre_rubro As String, ByVal nombre_fabrica As String) As t_productosRow
+        Public Overloads Function Addt_productosRow(ByVal id_producto As Integer, ByVal descripcion As String, ByVal stock As Integer, ByVal precio_venta As Double, ByVal nombre_rubro As String, ByVal nombre_fabrica As String) As t_productosRow
             Dim rowt_productosRow As t_productosRow = CType(Me.NewRow,t_productosRow)
-            Dim columnValuesArray() As Object = New Object() {id_producto, descripcion, stock, precio_lista, nombre_rubro, nombre_fabrica}
+            Dim columnValuesArray() As Object = New Object() {id_producto, descripcion, stock, precio_venta, nombre_rubro, nombre_fabrica}
             rowt_productosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowt_productosRow)
             Return rowt_productosRow
@@ -443,7 +443,7 @@ Partial Public Class DataSetProductos
             Me.columnid_producto = MyBase.Columns("id_producto")
             Me.columndescripcion = MyBase.Columns("descripcion")
             Me.columnstock = MyBase.Columns("stock")
-            Me.columnprecio_lista = MyBase.Columns("precio_lista")
+            Me.columnprecio_venta = MyBase.Columns("precio_venta")
             Me.columnnombre_rubro = MyBase.Columns("nombre_rubro")
             Me.columnnombre_fabrica = MyBase.Columns("nombre_fabrica")
         End Sub
@@ -457,8 +457,8 @@ Partial Public Class DataSetProductos
             MyBase.Columns.Add(Me.columndescripcion)
             Me.columnstock = New Global.System.Data.DataColumn("stock", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnstock)
-            Me.columnprecio_lista = New Global.System.Data.DataColumn("precio_lista", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnprecio_lista)
+            Me.columnprecio_venta = New Global.System.Data.DataColumn("precio_venta", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnprecio_venta)
             Me.columnnombre_rubro = New Global.System.Data.DataColumn("nombre_rubro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnombre_rubro)
             Me.columnnombre_fabrica = New Global.System.Data.DataColumn("nombre_fabrica", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -654,16 +654,16 @@ Partial Public Class DataSetProductos
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property precio_lista() As Double
+        Public Property precio_venta() As Double
             Get
                 Try 
-                    Return CType(Me(Me.tablet_productos.precio_listaColumn),Double)
+                    Return CType(Me(Me.tablet_productos.precio_ventaColumn),Double)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'precio_lista' de la tabla 't_productos' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'precio_venta' de la tabla 't_productos' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablet_productos.precio_listaColumn) = value
+                Me(Me.tablet_productos.precio_ventaColumn) = value
             End Set
         End Property
         
@@ -735,14 +735,14 @@ Partial Public Class DataSetProductos
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function Isprecio_listaNull() As Boolean
-            Return Me.IsNull(Me.tablet_productos.precio_listaColumn)
+        Public Function Isprecio_ventaNull() As Boolean
+            Return Me.IsNull(Me.tablet_productos.precio_ventaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub Setprecio_listaNull()
-            Me(Me.tablet_productos.precio_listaColumn) = Global.System.Convert.DBNull
+        Public Sub Setprecio_ventaNull()
+            Me(Me.tablet_productos.precio_ventaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

@@ -60,7 +60,7 @@ Partial Class ReporteCupones
         Me.ReportCupon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ReportCupon.Name = "ReportCupon"
         Me.ReportCupon.ServerReport.BearerToken = Nothing
-        Me.ReportCupon.Size = New System.Drawing.Size(884, 393)
+        Me.ReportCupon.Size = New System.Drawing.Size(741, 393)
         Me.ReportCupon.TabIndex = 0
         '
         'cmb_bancoBUSCAR
@@ -106,7 +106,7 @@ Partial Class ReporteCupones
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(0, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(912, 47)
+        Me.Label8.Size = New System.Drawing.Size(777, 47)
         Me.Label8.TabIndex = 50
         Me.Label8.Text = "  Listado de Cupones"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -116,7 +116,7 @@ Partial Class ReporteCupones
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(912, 500)
+        Me.ClientSize = New System.Drawing.Size(777, 500)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lbl_banco)

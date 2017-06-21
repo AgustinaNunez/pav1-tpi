@@ -26,10 +26,10 @@ Partial Class FormProductos
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormProductos))
         Me.dgv_productos = New System.Windows.Forms.DataGridView()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -44,6 +44,8 @@ Partial Class FormProductos
         Me.lbl_id = New System.Windows.Forms.Label()
         Me.gb_listado = New System.Windows.Forms.GroupBox()
         Me.gb_datos = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txt_precio_compra = New System.Windows.Forms.MaskedTextBox()
         Me.txt_id = New System.Windows.Forms.TextBox()
         Me.lbl_descripcionERROR = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -67,16 +69,14 @@ Partial Class FormProductos
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.btn_habilitar = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.txt_precio_compra = New System.Windows.Forms.MaskedTextBox()
-        Me.id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descrip = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio_venta = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio_compra = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_rubro = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_fabrica = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_dado_de_baja = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_fabrica = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_rubro = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio_compra = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio_venta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descrip = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_listado.SuspendLayout()
         Me.gb_datos.SuspendLayout()
@@ -204,11 +204,11 @@ Partial Class FormProductos
         Me.lbl_precio.Enabled = False
         Me.lbl_precio.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_precio.ForeColor = System.Drawing.Color.Black
-        Me.lbl_precio.Location = New System.Drawing.Point(19, 158)
+        Me.lbl_precio.Location = New System.Drawing.Point(11, 163)
         Me.lbl_precio.Name = "lbl_precio"
-        Me.lbl_precio.Size = New System.Drawing.Size(107, 17)
+        Me.lbl_precio.Size = New System.Drawing.Size(115, 17)
         Me.lbl_precio.TabIndex = 6
-        Me.lbl_precio.Text = "Precio de lista (*)"
+        Me.lbl_precio.Text = "Precio de venta (*)"
         '
         'txt_descrip
         '
@@ -288,6 +288,31 @@ Partial Class FormProductos
         Me.gb_datos.TabIndex = 4
         Me.gb_datos.TabStop = False
         Me.gb_datos.Text = "Datos del Producto"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Enabled = False
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.Black
+        Me.Label9.Location = New System.Drawing.Point(14, 127)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(112, 17)
+        Me.Label9.TabIndex = 28
+        Me.Label9.Text = "Precio de compra"
+        '
+        'txt_precio_compra
+        '
+        Me.txt_precio_compra.BackColor = System.Drawing.Color.White
+        Me.txt_precio_compra.Enabled = False
+        Me.txt_precio_compra.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_precio_compra.ForeColor = System.Drawing.Color.Black
+        Me.txt_precio_compra.Location = New System.Drawing.Point(132, 124)
+        Me.txt_precio_compra.Mask = "99999"
+        Me.txt_precio_compra.Name = "txt_precio_compra"
+        Me.txt_precio_compra.Size = New System.Drawing.Size(124, 25)
+        Me.txt_precio_compra.TabIndex = 29
+        Me.txt_precio_compra.ValidatingType = GetType(Integer)
         '
         'txt_id
         '
@@ -575,64 +600,26 @@ Partial Class FormProductos
         Me.btn_habilitar.UseVisualStyleBackColor = True
         Me.btn_habilitar.Visible = False
         '
-        'Label9
+        'col_dado_de_baja
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Enabled = False
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.Black
-        Me.Label9.Location = New System.Drawing.Point(14, 127)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(112, 17)
-        Me.Label9.TabIndex = 28
-        Me.Label9.Text = "Precio de compra"
+        Me.col_dado_de_baja.HeaderText = "dado_de_baja"
+        Me.col_dado_de_baja.Name = "col_dado_de_baja"
+        Me.col_dado_de_baja.ReadOnly = True
+        Me.col_dado_de_baja.Visible = False
         '
-        'txt_precio_compra
+        'id_fabrica
         '
-        Me.txt_precio_compra.BackColor = System.Drawing.Color.White
-        Me.txt_precio_compra.Enabled = False
-        Me.txt_precio_compra.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_precio_compra.ForeColor = System.Drawing.Color.Black
-        Me.txt_precio_compra.Location = New System.Drawing.Point(132, 124)
-        Me.txt_precio_compra.Mask = "99999"
-        Me.txt_precio_compra.Name = "txt_precio_compra"
-        Me.txt_precio_compra.Size = New System.Drawing.Size(124, 25)
-        Me.txt_precio_compra.TabIndex = 29
-        Me.txt_precio_compra.ValidatingType = GetType(Integer)
+        Me.id_fabrica.HeaderText = "Fábrica"
+        Me.id_fabrica.Name = "id_fabrica"
+        Me.id_fabrica.ReadOnly = True
+        Me.id_fabrica.Width = 120
         '
-        'id_producto
+        'id_rubro
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.id_producto.DefaultCellStyle = DataGridViewCellStyle2
-        Me.id_producto.HeaderText = "Id."
-        Me.id_producto.Name = "id_producto"
-        Me.id_producto.ReadOnly = True
-        Me.id_producto.Width = 50
-        '
-        'descrip
-        '
-        Me.descrip.HeaderText = "Descripción"
-        Me.descrip.Name = "descrip"
-        Me.descrip.ReadOnly = True
-        Me.descrip.Width = 210
-        '
-        'stock
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.stock.DefaultCellStyle = DataGridViewCellStyle3
-        Me.stock.HeaderText = "Stock"
-        Me.stock.Name = "stock"
-        Me.stock.ReadOnly = True
-        Me.stock.Width = 50
-        '
-        'precio_venta
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.precio_venta.DefaultCellStyle = DataGridViewCellStyle4
-        Me.precio_venta.HeaderText = "Precio venta"
-        Me.precio_venta.Name = "precio_venta"
-        Me.precio_venta.ReadOnly = True
-        Me.precio_venta.Width = 70
+        Me.id_rubro.HeaderText = "Rubro"
+        Me.id_rubro.Name = "id_rubro"
+        Me.id_rubro.ReadOnly = True
+        Me.id_rubro.Width = 120
         '
         'precio_compra
         '
@@ -643,26 +630,39 @@ Partial Class FormProductos
         Me.precio_compra.ReadOnly = True
         Me.precio_compra.Width = 70
         '
-        'id_rubro
+        'precio_venta
         '
-        Me.id_rubro.HeaderText = "Rubro"
-        Me.id_rubro.Name = "id_rubro"
-        Me.id_rubro.ReadOnly = True
-        Me.id_rubro.Width = 120
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.precio_venta.DefaultCellStyle = DataGridViewCellStyle4
+        Me.precio_venta.HeaderText = "Precio venta"
+        Me.precio_venta.Name = "precio_venta"
+        Me.precio_venta.ReadOnly = True
+        Me.precio_venta.Width = 70
         '
-        'id_fabrica
+        'stock
         '
-        Me.id_fabrica.HeaderText = "Fábrica"
-        Me.id_fabrica.Name = "id_fabrica"
-        Me.id_fabrica.ReadOnly = True
-        Me.id_fabrica.Width = 120
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.stock.DefaultCellStyle = DataGridViewCellStyle3
+        Me.stock.HeaderText = "Stock"
+        Me.stock.Name = "stock"
+        Me.stock.ReadOnly = True
+        Me.stock.Width = 50
         '
-        'col_dado_de_baja
+        'descrip
         '
-        Me.col_dado_de_baja.HeaderText = "dado_de_baja"
-        Me.col_dado_de_baja.Name = "col_dado_de_baja"
-        Me.col_dado_de_baja.ReadOnly = True
-        Me.col_dado_de_baja.Visible = False
+        Me.descrip.HeaderText = "Descripción"
+        Me.descrip.Name = "descrip"
+        Me.descrip.ReadOnly = True
+        Me.descrip.Width = 210
+        '
+        'id_producto
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.id_producto.DefaultCellStyle = DataGridViewCellStyle2
+        Me.id_producto.HeaderText = "Id."
+        Me.id_producto.Name = "id_producto"
+        Me.id_producto.ReadOnly = True
+        Me.id_producto.Width = 50
         '
         'FormProductos
         '

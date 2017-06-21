@@ -214,8 +214,8 @@ Public Class FormVentas
             Me.txt_precio.Text = "0,00"
         Else
             Dim tabla As New DataTable
-            tabla = SoporteBD.leerBD_simple("SELECT precio_lista FROM productos WHERE id_producto = " & Me.cmb_producto.SelectedValue)
-            Me.txt_precio.Text = tabla.Rows(0)("precio_lista")
+            tabla = SoporteBD.leerBD_simple("SELECT precio_venta FROM productos WHERE id_producto = " & Me.cmb_producto.SelectedValue)
+            Me.txt_precio.Text = tabla.Rows(0)("precio_venta")
         End If
     End Sub
 
