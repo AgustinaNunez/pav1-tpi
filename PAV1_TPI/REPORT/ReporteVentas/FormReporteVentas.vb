@@ -12,17 +12,16 @@
     End Sub
 
     Private Sub buscador_general()
-        If cmb_buscar_usuario.SelectedIndex = 0 Then
+        If cmb_buscar_usuario.SelectedIndex = -1 Then
+            If cmb_año.SelectedIndex = -1 Then
+                If cmb_mes.SelectedIndex = -1 Then
+                    Return
+                End If
+            End If
             Return
         End If
 
-        If cmb_año.SelectedIndex = -1 Then
-            Return
-        End If
 
-        If cmb_mes.SelectedIndex = -1 Then
-            Return
-        End If
 
         If cmb_buscar_usuario.Text = "(Seleccionar valor)" Then
             If cmb_año.SelectedIndex = -1 Then
@@ -50,15 +49,27 @@
                 Me.cargar_grilla(sql)
             End If
         Else
-            Dim sql As String = ""
-            sql &= " SELECT v.id_venta, convert(char(10), v.fecha_venta,103) as fecha_venta, v.id_usuario, u.nombre, u.apellido, v.total"
-            sql &= " FROM ventas v "
-            sql &= " JOIN usuarios u ON v.id_usuario = u.id_usuario "
-            sql &= " WHERE u.id_usuario = '" & Me.cmb_buscar_usuario.Text & "'"
-            sql &= " AND YEAR(v.fecha_venta) = " & Me.cmb_año.Text
-            sql &= " AND MONTH(v.fecha_venta) = " & mes_seleccionado
-            Me.cargar_grilla(sql)
+            If cmb_año.SelectedIndex = -1 Then
+                If cmb_mes.SelectedIndex = -1 Then
+                    Dim sql As String = ""
+                    sql &= " SELECT v.id_venta, convert(char(10), v.fecha_venta,103) as fecha_venta, v.id_usuario, u.nombre, u.apellido, v.total"
+                    sql &= " FROM ventas v "
+                    sql &= " JOIN usuarios u ON v.id_usuario = u.id_usuario "
+                    sql &= " WHERE u.id_usuario = '" & Me.cmb_buscar_usuario.Text & "'"
+                    Me.cargar_grilla(sql)
+                End If
+            Else
+                Dim sql As String = ""
+                sql &= " SELECT v.id_venta, convert(char(10), v.fecha_venta,103) as fecha_venta, v.id_usuario, u.nombre, u.apellido, v.total"
+                sql &= " FROM ventas v "
+                sql &= " JOIN usuarios u ON v.id_usuario = u.id_usuario "
+                sql &= " WHERE u.id_usuario = '" & Me.cmb_buscar_usuario.Text & "'"
+                sql &= " AND YEAR(v.fecha_venta) = " & Me.cmb_año.Text
+                sql &= " AND MONTH(v.fecha_venta) = " & mes_seleccionado
+                Me.cargar_grilla(sql)
+            End If
         End If
+
 
     End Sub
 
@@ -119,15 +130,6 @@
     End Sub
 
     Private Sub cmb_buscar_usuario_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_buscar_usuario.SelectedIndexChanged
-        If cmb_buscar_usuario.Text = "(Seleccionar valor)" Then
-            Dim sql As String = ""
-            sql &= " SELECT v.id_venta, convert(char(10), v.fecha_venta,103) as fecha_venta, v.id_usuario, u.nombre, u.apellido, v.total"
-            sql &= " FROM ventas v "
-            sql &= " JOIN usuarios u ON v.id_usuario = u.id_usuario "
-            Me.cargar_grilla(sql)
-        Else
-            buscador_general()
-        End If
-
+        buscador_general()
     End Sub
 End Class
