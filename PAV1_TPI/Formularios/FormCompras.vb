@@ -43,9 +43,11 @@ Public Class FormCompras
             If Me.dgv_compras.Rows.Count = 0 Then
                 If Convert.ToInt32(Me.txt_cantidad.Text) > 0 Then
                     If Convert.ToDouble(Me.txt_precio.Text) > 0 Then
-                        Me.dgv_compras.Rows.Add(cmb_producto.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
-                        Me.calcular_total()
-                        Me.btn_guardar.Enabled = True
+                        If Convert.ToDouble(Me.txt_precio_venta.Text) > 0 Then
+                            Me.dgv_compras.Rows.Add(cmb_producto.Text, Me.txt_precio_venta.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
+                            Me.calcular_total()
+                            Me.btn_guardar.Enabled = True
+                        End If
                     End If
                 End If
                 If Convert.ToDouble(Me.txt_monto.Text) = 0 Then
@@ -159,6 +161,7 @@ Public Class FormCompras
     Private Sub limpiar_campos_detalle()
         Me.txt_cantidad.Text = ""
         Me.cmb_producto.SelectedIndex = -1
+        Me.txt_precio_venta.Text = ""
         'Me.cmb_fabrica.SelectedIndex = -1
         Me.txt_precio.Text = ""
     End Sub
@@ -229,12 +232,13 @@ Public Class FormCompras
         Fabrica.id = Me.cmb_fabrica.SelectedValue
         Fabrica.nombre = Me.cmb_fabrica.Text
         Me.limpiar_campos_detalle()
-        SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos WHERE dado_de_baja = 0 AND id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
+        SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("Select * FROM productos WHERE dado_de_baja = 0 And id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
         Me.cmb_producto.SelectedIndex = -1
     End Sub
 
     Private Sub dgv_compras_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_compras.CellContentClick
         Me.cmb_producto.SelectedValue = Me.dgv_compras.CurrentRow.Cells("col_id_producto").Value
+        Me.txt_precio_venta.Text = Me.dgv_compras.CurrentRow.Cells("col_precio_venta").Value
         Me.txt_precio.Text = Me.dgv_compras.CurrentRow.Cells("col_precio").Value
         Me.txt_cantidad.Text = Me.dgv_compras.CurrentRow.Cells("col_cantidad").Value
 
@@ -273,6 +277,7 @@ Public Class FormCompras
         Me.txt_cantidad.Enabled = False
         Me.dgv_compras.Enabled = False
         Me.btn_agregar.Enabled = False
+        Me.txt_precio_venta.Enabled = False
     End Sub
 
     Private Sub habilitar_detalle()
@@ -281,6 +286,7 @@ Public Class FormCompras
         Me.txt_cantidad.Enabled = True
         Me.dgv_compras.Enabled = True
         Me.btn_agregar.Enabled = True
+        Me.txt_precio_venta.Enabled = True
     End Sub
 
     Private Sub txt_monto_TextChanged(sender As Object, e As EventArgs) Handles txt_monto.TextChanged
@@ -314,7 +320,7 @@ Public Class FormCompras
             SoporteBD.iniciar_conexion_con_transaccion()
 
             Dim sql_insertar_compra As String = ""
-            sql_insertar_compra &= "INSERT INTO compras(id_compra,fecha_compra,hora_compra,monto) VALUES(" & txt_id_compra.Text
+            sql_insertar_compra &= "INSERT INTO compras(id_compra, fecha_compra, hora_compra, monto) VALUES(" & txt_id_compra.Text
             sql_insertar_compra &= ", '" & txt_fecha.Text & "'"
             sql_insertar_compra &= ", '" & txt_hora.Text & "'"
             sql_insertar_compra &= "," & txt_monto.Text & ")"
@@ -335,12 +341,19 @@ Public Class FormCompras
 
 
             'ACTUALIZAR STOCK DE PRODUCTOS
-            Dim tabla_productos As New DataTable
             Dim sql_actualizar_productos As String = ""
             For c = 0 To Me.dgv_compras.Rows.Count - 1
-                sql_actualizar_productos &= "UPDATE productos SET stock = stock + " & Convert.ToInt32(Me.dgv_compras.Rows(c).Cells(1).Value)
-                sql_actualizar_productos &= " WHERE id_producto = " & Me.dgv_compras.Rows(c).Cells(3).Value
+                sql_actualizar_productos &= "UPDATE productos SET stock = stock + " & Convert.ToInt32(Me.dgv_compras.Rows(c).Cells(3).Value)
+                sql_actualizar_productos &= " WHERE id_producto = " & Me.dgv_compras.Rows(c).Cells(4).Value
                 SoporteBD.escribirBD_transaccion(sql_actualizar_productos)
+            Next
+
+            'ACTUALIZAR PRECIO DE VENTA PRODUCTO
+            Dim sql_actualizar_precioventa As String = ""
+            For c = 0 To Me.dgv_compras.Rows.Count - 1
+                sql_actualizar_precioventa &= "UPDATE productos SET precio_venta = " & Me.dgv_compras.Rows(c).Cells(1).Value
+                sql_actualizar_precioventa &= " WHERE id_producto = " & Me.dgv_compras.Rows(c).Cells(4).Value
+                SoporteBD.escribirBD_transaccion(sql_actualizar_precioventa)
             Next
 
 
@@ -365,7 +378,5 @@ Public Class FormCompras
         End If
     End Sub
 
-    Private Sub cmb_fabrica_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_fabrica.SelectedIndexChanged
 
-    End Sub
 End Class
