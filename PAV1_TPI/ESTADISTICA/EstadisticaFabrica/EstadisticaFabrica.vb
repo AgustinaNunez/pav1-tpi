@@ -1,5 +1,17 @@
 ﻿Public Class EstadisticaFabrica
     Private Sub EstadisticaFabrica_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.load_temporada()
+        Me.cargar_grafico()
+    End Sub
+
+    Private Sub load_temporada()
+        Dim fecha = Today
+        If fecha.Month >= 3 And fecha.Month <= 9 Then
+            Me.cmb_temporadas.Text = "Otoño-Invierno"
+        Else
+            Me.cmb_temporadas.Text = "Primavera-Verano"
+        End If
+        Me.cmb_año.Text = fecha.Year
     End Sub
 
     Private Sub cargar_grafico()
