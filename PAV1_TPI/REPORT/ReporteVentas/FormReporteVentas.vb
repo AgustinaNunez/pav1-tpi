@@ -22,7 +22,6 @@
         End If
 
 
-
         If cmb_buscar_usuario.Text = "(Seleccionar valor)" Then
             If cmb_año.SelectedIndex = -1 Then
                 If cmb_mes.SelectedIndex = -1 Then
