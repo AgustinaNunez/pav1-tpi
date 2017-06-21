@@ -12,13 +12,15 @@
   <xs:element name="DataSetVentas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetVentas" msprop:Generator_UserDSName="DataSetVentas">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="t_venta" msprop:Generator_TableClassName="t_ventaDataTable" msprop:Generator_TableVarName="tablet_venta" msprop:Generator_TablePropName="t_venta" msprop:Generator_RowDeletingName="t_ventaRowDeleting" msprop:Generator_RowChangingName="t_ventaRowChanging" msprop:Generator_RowEvHandlerName="t_ventaRowChangeEventHandler" msprop:Generator_RowDeletedName="t_ventaRowDeleted" msprop:Generator_UserTableName="t_venta" msprop:Generator_RowChangedName="t_ventaRowChanged" msprop:Generator_RowEvArgName="t_ventaRowChangeEvent" msprop:Generator_RowClassName="t_ventaRow">
+        <xs:element name="t_venta" msprop:Generator_TableClassName="t_ventaDataTable" msprop:Generator_TableVarName="tablet_venta" msprop:Generator_RowChangedName="t_ventaRowChanged" msprop:Generator_TablePropName="t_venta" msprop:Generator_RowDeletingName="t_ventaRowDeleting" msprop:Generator_RowChangingName="t_ventaRowChanging" msprop:Generator_RowEvHandlerName="t_ventaRowChangeEventHandler" msprop:Generator_RowDeletedName="t_ventaRowDeleted" msprop:Generator_RowClassName="t_ventaRow" msprop:Generator_UserTableName="t_venta" msprop:Generator_RowEvArgName="t_ventaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_venta" msprop:Generator_ColumnVarNameInTable="columnid_venta" msprop:Generator_ColumnPropNameInRow="id_venta" msprop:Generator_ColumnPropNameInTable="id_ventaColumn" msprop:Generator_UserColumnName="id_venta" type="xs:int" minOccurs="0" />
               <xs:element name="fecha_venta" msprop:Generator_ColumnVarNameInTable="columnfecha_venta" msprop:Generator_ColumnPropNameInRow="fecha_venta" msprop:Generator_ColumnPropNameInTable="fecha_ventaColumn" msprop:Generator_UserColumnName="fecha_venta" type="xs:dateTime" minOccurs="0" />
               <xs:element name="id_usuario" msprop:Generator_ColumnVarNameInTable="columnid_usuario" msprop:Generator_ColumnPropNameInRow="id_usuario" msprop:Generator_ColumnPropNameInTable="id_usuarioColumn" msprop:Generator_UserColumnName="id_usuario" type="xs:string" minOccurs="0" />
               <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:double" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_UserColumnName="apellido" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

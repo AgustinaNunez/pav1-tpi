@@ -16,7 +16,7 @@
             Return
         Else
             Dim sql As String = ""
-            sql &= " SELECT v.id_venta, convert(char(10), v.fecha_venta,103) as fecha_venta, v.id_usuario, v.total"
+            sql &= " SELECT v.id_venta, convert(char(10), v.fecha_venta,103) as fecha_venta, v.id_usuario, u.nombre, u.apellido, v.total"
             sql &= " FROM ventas v "
             sql &= " JOIN usuarios u ON v.id_usuario = u.id_usuario "
             sql &= " WHERE u.id_usuario = '" & Me.cmb_buscar_usuario.Text & "'"

@@ -264,7 +264,19 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!id_usuario.Value</Value>
+                              <Value>=Fields!apellido.Value</Value>
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>, </Value>
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>=Fields!nombre.Value</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
                               </Style>
@@ -630,10 +642,18 @@
           <DataField>total</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
+        <Field Name="nombre">
+          <DataField>nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="apellido">
+          <DataField>apellido</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSetVentas</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Georgina\Desktop\Clotaa 13-06\pav1-tpi\PAV1_TPI\ReporteVentas\DataSetVentas.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\pav1-tpi\PAV1_TPI\REPORT\ReporteVentas\DataSetVentas.xsd</rd:SchemaPath>
         <rd:TableName>t_venta</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
