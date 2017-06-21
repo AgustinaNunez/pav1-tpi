@@ -39,13 +39,13 @@
 
     Private Sub buscador_general()
 
-        If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
-            cargar_productos()
-        End If
+        'If cbo_fabricaBUSCAR.Text = "(Seleccionar valor)" Then
+        '    cargar_productos()
+        'End If
 
-        If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
-            cargar_productos()
-        End If
+        'If cbo_rubroBUSCAR.Text = "(Seleccionar valor)" Then
+        '    cargar_productos()
+        'End If
 
         If txt_nombre.Text = "" Then
 
@@ -78,7 +78,15 @@
 
             If cbo_rubroBUSCAR.SelectedIndex = 0 Then
                 If cbo_fabricaBUSCAR.SelectedIndex = 0 Then
-                    Return
+                    Dim sql As String = ""
+
+                    sql &= "SELECT id_producto, descripcion, stock, precio_venta, r.nombre AS 'nombre_rubro', f.nombre AS 'nombre_fabrica', dado_de_baja"
+                    sql &= " FROM productos p JOIN rubros r ON r.id_rubro = p.id_rubro JOIN fabricas f ON f.id_fabrica = p.id_fabrica "
+                    If txt_nombre.Text <> "" Then
+                        sql &= " WHERE descripcion LIKE '%" & Me.txt_nombre.Text & "%'"
+                    End If
+
+                    Me.cargar_grilla(sql)
                 End If
             End If
         End If
