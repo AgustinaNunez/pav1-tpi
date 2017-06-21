@@ -36,6 +36,11 @@ Partial Class FormCompras
         Me.txt_hora = New System.Windows.Forms.TextBox()
         Me.txt_monto = New System.Windows.Forms.TextBox()
         Me.dgv_compras = New System.Windows.Forms.DataGridView()
+        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_precio_venta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_precio_compra = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmb_producto = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -49,19 +54,14 @@ Partial Class FormCompras
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btn_nuevo_producto = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.txt_precio_compra = New System.Windows.Forms.TextBox()
         Me.btn_modificar = New System.Windows.Forms.Button()
         Me.btn_agregar = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btn_cancelar = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
-        Me.txt_precio_venta = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.col_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_precio_venta = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_precio_compra = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv_compras, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -195,6 +195,40 @@ Partial Class FormCompras
         Me.dgv_compras.Size = New System.Drawing.Size(851, 199)
         Me.dgv_compras.TabIndex = 9
         '
+        'col_producto
+        '
+        Me.col_producto.HeaderText = "Producto"
+        Me.col_producto.Name = "col_producto"
+        Me.col_producto.ReadOnly = True
+        Me.col_producto.Width = 300
+        '
+        'col_precio_venta
+        '
+        Me.col_precio_venta.HeaderText = "Precio de venta"
+        Me.col_precio_venta.Name = "col_precio_venta"
+        Me.col_precio_venta.ReadOnly = True
+        Me.col_precio_venta.Width = 150
+        '
+        'col_precio_compra
+        '
+        Me.col_precio_compra.HeaderText = "Precio de compra"
+        Me.col_precio_compra.Name = "col_precio_compra"
+        Me.col_precio_compra.ReadOnly = True
+        Me.col_precio_compra.Width = 150
+        '
+        'col_cantidad
+        '
+        Me.col_cantidad.HeaderText = "Cantidad"
+        Me.col_cantidad.Name = "col_cantidad"
+        Me.col_cantidad.ReadOnly = True
+        '
+        'col_id_producto
+        '
+        Me.col_id_producto.HeaderText = "id_producto"
+        Me.col_id_producto.Name = "col_id_producto"
+        Me.col_id_producto.ReadOnly = True
+        Me.col_id_producto.Visible = False
+        '
         'cmb_producto
         '
         Me.cmb_producto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -246,18 +280,18 @@ Partial Class FormCompras
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Black
-        Me.Label7.Location = New System.Drawing.Point(515, 35)
+        Me.Label7.Location = New System.Drawing.Point(304, 36)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(112, 17)
+        Me.Label7.Size = New System.Drawing.Size(98, 17)
         Me.Label7.TabIndex = 3
-        Me.Label7.Text = "Precio de compra"
+        Me.Label7.Text = "Precio de venta"
         '
         'txt_precio
         '
         Me.txt_precio.Enabled = False
         Me.txt_precio.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_precio.ForeColor = System.Drawing.Color.Black
-        Me.txt_precio.Location = New System.Drawing.Point(628, 31)
+        Me.txt_precio.Location = New System.Drawing.Point(408, 33)
         Me.txt_precio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_precio.Name = "txt_precio"
         Me.txt_precio.Size = New System.Drawing.Size(96, 25)
@@ -329,10 +363,10 @@ Partial Class FormCompras
         Me.GroupBox2.Controls.Add(Me.Label11)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.txt_cantidad)
-        Me.GroupBox2.Controls.Add(Me.txt_precio_venta)
-        Me.GroupBox2.Controls.Add(Me.txt_precio)
+        Me.GroupBox2.Controls.Add(Me.txt_precio_compra)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.dgv_compras)
+        Me.GroupBox2.Controls.Add(Me.txt_precio)
         Me.GroupBox2.Controls.Add(Me.btn_modificar)
         Me.GroupBox2.Controls.Add(Me.btn_agregar)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -376,6 +410,28 @@ Partial Class FormCompras
         Me.btn_eliminar.Text = "Eliminar"
         Me.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_eliminar.UseVisualStyleBackColor = True
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.Black
+        Me.Label11.Location = New System.Drawing.Point(510, 34)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(112, 17)
+        Me.Label11.TabIndex = 3
+        Me.Label11.Text = "Precio de compra"
+        '
+        'txt_precio_compra
+        '
+        Me.txt_precio_compra.Enabled = False
+        Me.txt_precio_compra.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_precio_compra.ForeColor = System.Drawing.Color.Black
+        Me.txt_precio_compra.Location = New System.Drawing.Point(628, 31)
+        Me.txt_precio_compra.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txt_precio_compra.Name = "txt_precio_compra"
+        Me.txt_precio_compra.Size = New System.Drawing.Size(96, 25)
+        Me.txt_precio_compra.TabIndex = 4
         '
         'btn_modificar
         '
@@ -471,62 +527,6 @@ Partial Class FormCompras
         Me.btn_nuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_nuevo.UseVisualStyleBackColor = True
         '
-        'txt_precio_venta
-        '
-        Me.txt_precio_venta.Enabled = False
-        Me.txt_precio_venta.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_precio_venta.ForeColor = System.Drawing.Color.Black
-        Me.txt_precio_venta.Location = New System.Drawing.Point(413, 32)
-        Me.txt_precio_venta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txt_precio_venta.Name = "txt_precio_venta"
-        Me.txt_precio_venta.Size = New System.Drawing.Size(96, 25)
-        Me.txt_precio_venta.TabIndex = 4
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.Black
-        Me.Label11.Location = New System.Drawing.Point(309, 35)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(98, 17)
-        Me.Label11.TabIndex = 3
-        Me.Label11.Text = "Precio de venta"
-        '
-        'col_producto
-        '
-        Me.col_producto.HeaderText = "Producto"
-        Me.col_producto.Name = "col_producto"
-        Me.col_producto.ReadOnly = True
-        Me.col_producto.Width = 300
-        '
-        'col_precio_venta
-        '
-        Me.col_precio_venta.HeaderText = "Precio de venta"
-        Me.col_precio_venta.Name = "col_precio_venta"
-        Me.col_precio_venta.ReadOnly = True
-        Me.col_precio_venta.Width = 150
-        '
-        'col_precio_compra
-        '
-        Me.col_precio_compra.HeaderText = "Precio de compra"
-        Me.col_precio_compra.Name = "col_precio_compra"
-        Me.col_precio_compra.ReadOnly = True
-        Me.col_precio_compra.Width = 150
-        '
-        'col_cantidad
-        '
-        Me.col_cantidad.HeaderText = "Cantidad"
-        Me.col_cantidad.Name = "col_cantidad"
-        Me.col_cantidad.ReadOnly = True
-        '
-        'col_id_producto
-        '
-        Me.col_id_producto.HeaderText = "id_producto"
-        Me.col_id_producto.Name = "col_id_producto"
-        Me.col_id_producto.ReadOnly = True
-        Me.col_id_producto.Visible = False
-        '
         'FormCompras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -582,7 +582,7 @@ Partial Class FormCompras
     Friend WithEvents btn_nuevo As Button
     Friend WithEvents btn_guardar As Button
     Friend WithEvents Label11 As Label
-    Friend WithEvents txt_precio_venta As TextBox
+    Friend WithEvents txt_precio_compra As TextBox
     Friend WithEvents col_producto As DataGridViewTextBoxColumn
     Friend WithEvents col_precio_venta As DataGridViewTextBoxColumn
     Friend WithEvents col_precio_compra As DataGridViewTextBoxColumn

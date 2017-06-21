@@ -18,7 +18,7 @@ Public Class FormCompras
     'LOADER DE COMPRAS
     Private Sub form_compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SoporteGUI.tipo_form_ACTUAL = SoporteGUI.tipo_form.transaccion
-        SoporteGUI.cargar_combo(cmb_fabrica, SoporteBD.leerBD_simple("SELECT * FROM fabricas"), "id_fabrica", "nombre")
+        SoporteGUI.cargar_combo(cmb_fabrica, SoporteBD.leerBD_simple("SELECT * FROM fabricas WHERE id_fabrica <> 0"), "id_fabrica", "nombre")
         'Me.cmb_fabrica.SelectedIndex = -1
         Me.limpiar_campos_detalle()
         Me.deshabilitar_campos()
@@ -43,8 +43,8 @@ Public Class FormCompras
             If Me.dgv_compras.Rows.Count = 0 Then
                 If Convert.ToInt32(Me.txt_cantidad.Text) > 0 Then
                     If Convert.ToDouble(Me.txt_precio.Text) > 0 Then
-                        If Convert.ToDouble(Me.txt_precio_venta.Text) > 0 Then
-                            Me.dgv_compras.Rows.Add(cmb_producto.Text, Me.txt_precio_venta.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
+                        If Convert.ToDouble(Me.txt_precio_compra.Text) > 0 Then
+                            Me.dgv_compras.Rows.Add(cmb_producto.Text, Me.txt_precio_compra.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
                             Me.calcular_total()
                             Me.btn_guardar.Enabled = True
                         End If
@@ -56,6 +56,11 @@ Public Class FormCompras
                 If Convert.ToInt32(Me.txt_cantidad.Text) = 0 Then
                     MessageBox.Show("La cantidad ingresada no puede ser cero.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
+
+                If Convert.ToInt32(Me.txt_precio_compra) > Convert.ToInt32(Me.txt_precio) Then
+                    MessageBox.Show("El precio de venta no puede ser menor que el precio de compra.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End If
+
             Else
                 If producto_cargado() = False Then
                     If Convert.ToInt32(Me.txt_cantidad.Text) > 0 Then
@@ -74,10 +79,14 @@ Public Class FormCompras
                         MessageBox.Show("La cantidad ingresada no puede ser cero.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
 
+                    If Convert.ToInt32(Me.txt_precio_compra) > Convert.ToInt32(Me.txt_precio) Then
+                        MessageBox.Show("El precio de venta no puede ser menor que el precio de compra.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    End If
                 End If
+
             End If
-            Me.limpiar_campos_detalle()
-        End If
+                Me.limpiar_campos_detalle()
+            End If
     End Sub
 
     Private Function validar_campos_detalle()
@@ -161,7 +170,7 @@ Public Class FormCompras
     Private Sub limpiar_campos_detalle()
         Me.txt_cantidad.Text = ""
         Me.cmb_producto.SelectedIndex = -1
-        Me.txt_precio_venta.Text = ""
+        Me.txt_precio_compra.Text = ""
         'Me.cmb_fabrica.SelectedIndex = -1
         Me.txt_precio.Text = ""
     End Sub
@@ -238,7 +247,7 @@ Public Class FormCompras
 
     Private Sub dgv_compras_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_compras.CellContentClick
         Me.cmb_producto.SelectedValue = Me.dgv_compras.CurrentRow.Cells("col_id_producto").Value
-        Me.txt_precio_venta.Text = Me.dgv_compras.CurrentRow.Cells("col_precio_venta").Value
+        Me.txt_precio_compra.Text = Me.dgv_compras.CurrentRow.Cells("col_precio_venta").Value
         Me.txt_precio.Text = Me.dgv_compras.CurrentRow.Cells("col_precio").Value
         Me.txt_cantidad.Text = Me.dgv_compras.CurrentRow.Cells("col_cantidad").Value
 
@@ -277,7 +286,7 @@ Public Class FormCompras
         Me.txt_cantidad.Enabled = False
         Me.dgv_compras.Enabled = False
         Me.btn_agregar.Enabled = False
-        Me.txt_precio_venta.Enabled = False
+        Me.txt_precio_compra.Enabled = False
     End Sub
 
     Private Sub habilitar_detalle()
@@ -286,7 +295,7 @@ Public Class FormCompras
         Me.txt_cantidad.Enabled = True
         Me.dgv_compras.Enabled = True
         Me.btn_agregar.Enabled = True
-        Me.txt_precio_venta.Enabled = True
+        Me.txt_precio_compra.Enabled = True
     End Sub
 
     Private Sub txt_monto_TextChanged(sender As Object, e As EventArgs) Handles txt_monto.TextChanged
@@ -351,7 +360,7 @@ Public Class FormCompras
             'ACTUALIZAR PRECIO DE VENTA PRODUCTO
             Dim sql_actualizar_precioventa As String = ""
             For c = 0 To Me.dgv_compras.Rows.Count - 1
-                sql_actualizar_precioventa &= "UPDATE productos SET precio_venta = " & Me.dgv_compras.Rows(c).Cells(1).Value
+                sql_actualizar_precioventa &= "UPDATE productos SET precio_compra = " & Me.dgv_compras.Rows(c).Cells(2).Value
                 sql_actualizar_precioventa &= " WHERE id_producto = " & Me.dgv_compras.Rows(c).Cells(4).Value
                 SoporteBD.escribirBD_transaccion(sql_actualizar_precioventa)
             Next
