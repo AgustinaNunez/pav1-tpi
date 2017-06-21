@@ -19,7 +19,7 @@ Public Class FormCompras
     Private Sub form_compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SoporteGUI.tipo_form_ACTUAL = SoporteGUI.tipo_form.transaccion
         SoporteGUI.cargar_combo(cmb_fabrica, SoporteBD.leerBD_simple("SELECT * FROM fabricas"), "id_fabrica", "nombre")
-        Me.cmb_fabrica.SelectedIndex = -1
+        'Me.cmb_fabrica.SelectedIndex = -1
         Me.limpiar_campos_detalle()
         Me.deshabilitar_campos()
         txt_id_compra.Text = Format(SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_compras"), "000")
@@ -152,7 +152,7 @@ Public Class FormCompras
         Me.txt_precio.Text = ""
         Me.cmb_producto.Text = ""
         Me.dgv_compras.Rows.Clear()
-        Me.cmb_fabrica.SelectedIndex = -1
+        Me.cmb_fabrica.SelectedIndex = 0
     End Sub
 
     'LIMPIAR EL CONTENIDO DE LOS CAMPOS DE LOS PRODUCTOS A CARGAR DE LA COMPRA
@@ -294,13 +294,14 @@ Public Class FormCompras
     End Sub
 
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
-        If estado_actual_transaccion = estado_transaccion._iniciada Then
+        If Me.dgv_compras.Rows.Count > 0 Then
             If MessageBox.Show("¿Está seguro que desea cancelar la transacción actual?", "Gestión de Compras", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = DialogResult.Cancel Then
                 Return
             End If
         End If
         estado_actual_transaccion = estado_transaccion._iniciada
         Me.limpiar_campos_compra()
+        Me.limpiar_campos_detalle()
         Me.deshabilitar_detalle()
         Me.cmb_fabrica.Enabled = True
         Me.txt_id_compra.Text = SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_compras")
