@@ -19,7 +19,8 @@ Public Class FormCompras
     Private Sub form_compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SoporteGUI.tipo_form_ACTUAL = SoporteGUI.tipo_form.transaccion
         SoporteGUI.cargar_combo(cmb_fabrica, SoporteBD.leerBD_simple("SELECT * FROM fabricas WHERE id_fabrica <> 0"), "id_fabrica", "nombre")
-        'Me.cmb_fabrica.SelectedIndex = -1
+        Me.cmb_fabrica.SelectedIndex = -1
+        Fabrica.id = -1
         Me.limpiar_campos_detalle()
         Me.deshabilitar_campos()
         txt_id_compra.Text = Format(SoporteBD.autogenerar_codigo("AUTOGENERARCODIGO_compras"), "000")
@@ -163,7 +164,8 @@ Public Class FormCompras
         Me.txt_precio.Text = ""
         Me.cmb_producto.Text = ""
         Me.dgv_compras.Rows.Clear()
-        Me.cmb_fabrica.SelectedIndex = 0
+        Me.cmb_fabrica.SelectedIndex = -1
+        Fabrica.id = -1
     End Sub
 
     'LIMPIAR EL CONTENIDO DE LOS CAMPOS DE LOS PRODUCTOS A CARGAR DE LA COMPRA
@@ -219,7 +221,7 @@ Public Class FormCompras
     End Sub
 
     Private Sub cmb_fabrica_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_fabrica.SelectionChangeCommitted
-        If Fabrica.id = 0 Then
+        If Fabrica.id = -1 Then
             Me.cargar_fabrica()
         Else
             If Me.dgv_compras.Rows.Count > 0 And Fabrica.id <> Me.cmb_fabrica.SelectedValue Then
@@ -387,5 +389,20 @@ Public Class FormCompras
         End If
     End Sub
 
+    Private Sub cmb_fabrica_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_fabrica.SelectedIndexChanged
 
+    End Sub
+
+    Private Sub cmb_producto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_producto.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub cmb_producto_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_producto.SelectionChangeCommitted
+        Dim sql As String = "SELECT precio_lista FROM productos"
+        sql &= " WHERE id_producto = " & Me.cmb_producto.SelectedValue
+        Dim tabla As New DataTable
+        tabla = SoporteBD.leerBD_simple(sql)
+        'Me.txt_precio_compra.Text = tabla.Rows(0)("precio_compra")
+        Me.txt_precio.Text = tabla.Rows(0)("precio_lista")
+    End Sub
 End Class
