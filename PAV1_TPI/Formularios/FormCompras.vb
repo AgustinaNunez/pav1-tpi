@@ -44,7 +44,7 @@ Public Class FormCompras
                 If Convert.ToInt32(Me.txt_cantidad.Text) > 0 Then
                     If Convert.ToDouble(Me.txt_precio.Text) > 0 Then
                         If Convert.ToDouble(Me.txt_precio_compra.Text) > 0 Then
-                            Me.dgv_compras.Rows.Add(cmb_producto.Text, Me.txt_precio_compra.Text, Me.txt_cantidad.Text, Me.txt_precio.Text, cmb_producto.SelectedValue)
+                            Me.dgv_compras.Rows.Add(cmb_producto.Text, Me.txt_precio_compra.Text, Me.txt_precio.Text, Me.txt_cantidad.Text, cmb_producto.SelectedValue)
                             Me.calcular_total()
                             Me.btn_guardar.Enabled = True
                         End If
