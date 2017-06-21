@@ -23,18 +23,14 @@ Partial Class FormProductos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormProductos))
         Me.dgv_productos = New System.Windows.Forms.DataGridView()
-        Me.id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descrip = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio_lista = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_rubro = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_fabrica = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_dado_de_baja = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.cbo_fabrica = New System.Windows.Forms.ComboBox()
         Me.cbo_rubro = New System.Windows.Forms.ComboBox()
@@ -70,6 +66,13 @@ Partial Class FormProductos
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.btn_habilitar = New System.Windows.Forms.Button()
+        Me.id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descrip = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio_lista = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_rubro = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_fabrica = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_dado_de_baja = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_listado.SuspendLayout()
         Me.gb_datos.SuspendLayout()
@@ -93,78 +96,29 @@ Partial Class FormProductos
         Me.dgv_productos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_productos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_producto, Me.descrip, Me.stock, Me.precio_lista, Me.id_rubro, Me.id_fabrica, Me.col_dado_de_baja})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_productos.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer))
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_productos.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgv_productos.Location = New System.Drawing.Point(19, 24)
         Me.dgv_productos.Name = "dgv_productos"
         Me.dgv_productos.ReadOnly = True
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_productos.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgv_productos.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_productos.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgv_productos.RowsDefaultCellStyle = DataGridViewCellStyle7
         Me.dgv_productos.Size = New System.Drawing.Size(689, 531)
         Me.dgv_productos.TabIndex = 3
-        '
-        'id_producto
-        '
-        Me.id_producto.HeaderText = "Id."
-        Me.id_producto.Name = "id_producto"
-        Me.id_producto.ReadOnly = True
-        Me.id_producto.Width = 50
-        '
-        'descrip
-        '
-        Me.descrip.HeaderText = "Descripción"
-        Me.descrip.Name = "descrip"
-        Me.descrip.ReadOnly = True
-        Me.descrip.Width = 210
-        '
-        'stock
-        '
-        Me.stock.HeaderText = "Stock"
-        Me.stock.Name = "stock"
-        Me.stock.ReadOnly = True
-        Me.stock.Width = 60
-        '
-        'precio_lista
-        '
-        Me.precio_lista.HeaderText = "Precio"
-        Me.precio_lista.Name = "precio_lista"
-        Me.precio_lista.ReadOnly = True
-        Me.precio_lista.Width = 60
-        '
-        'id_rubro
-        '
-        Me.id_rubro.HeaderText = "Rubro"
-        Me.id_rubro.Name = "id_rubro"
-        Me.id_rubro.ReadOnly = True
-        Me.id_rubro.Width = 120
-        '
-        'id_fabrica
-        '
-        Me.id_fabrica.HeaderText = "Fábrica"
-        Me.id_fabrica.Name = "id_fabrica"
-        Me.id_fabrica.ReadOnly = True
-        Me.id_fabrica.Width = 120
-        '
-        'col_dado_de_baja
-        '
-        Me.col_dado_de_baja.HeaderText = "dado_de_baja"
-        Me.col_dado_de_baja.Name = "col_dado_de_baja"
-        Me.col_dado_de_baja.ReadOnly = True
-        Me.col_dado_de_baja.Visible = False
         '
         'Label7
         '
@@ -613,6 +567,61 @@ Partial Class FormProductos
         Me.btn_habilitar.UseVisualStyleBackColor = True
         Me.btn_habilitar.Visible = False
         '
+        'id_producto
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.id_producto.DefaultCellStyle = DataGridViewCellStyle2
+        Me.id_producto.HeaderText = "Id."
+        Me.id_producto.Name = "id_producto"
+        Me.id_producto.ReadOnly = True
+        Me.id_producto.Width = 50
+        '
+        'descrip
+        '
+        Me.descrip.HeaderText = "Descripción"
+        Me.descrip.Name = "descrip"
+        Me.descrip.ReadOnly = True
+        Me.descrip.Width = 210
+        '
+        'stock
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.stock.DefaultCellStyle = DataGridViewCellStyle3
+        Me.stock.HeaderText = "Stock"
+        Me.stock.Name = "stock"
+        Me.stock.ReadOnly = True
+        Me.stock.Width = 60
+        '
+        'precio_lista
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.precio_lista.DefaultCellStyle = DataGridViewCellStyle4
+        Me.precio_lista.HeaderText = "Precio"
+        Me.precio_lista.Name = "precio_lista"
+        Me.precio_lista.ReadOnly = True
+        Me.precio_lista.Width = 60
+        '
+        'id_rubro
+        '
+        Me.id_rubro.HeaderText = "Rubro"
+        Me.id_rubro.Name = "id_rubro"
+        Me.id_rubro.ReadOnly = True
+        Me.id_rubro.Width = 120
+        '
+        'id_fabrica
+        '
+        Me.id_fabrica.HeaderText = "Fábrica"
+        Me.id_fabrica.Name = "id_fabrica"
+        Me.id_fabrica.ReadOnly = True
+        Me.id_fabrica.Width = 120
+        '
+        'col_dado_de_baja
+        '
+        Me.col_dado_de_baja.HeaderText = "dado_de_baja"
+        Me.col_dado_de_baja.Name = "col_dado_de_baja"
+        Me.col_dado_de_baja.ReadOnly = True
+        Me.col_dado_de_baja.Visible = False
+        '
         'FormProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -680,13 +689,13 @@ Partial Class FormProductos
     Friend WithEvents txt_stock As MaskedTextBox
     Friend WithEvents cmb_habilitado As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents id_producto As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents descrip As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents stock As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents precio_lista As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents id_rubro As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents id_fabrica As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents col_dado_de_baja As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents txt_idBUSCAR As System.Windows.Forms.TextBox
     Friend WithEvents btn_habilitar As System.Windows.Forms.Button
+    Friend WithEvents id_producto As DataGridViewTextBoxColumn
+    Friend WithEvents descrip As DataGridViewTextBoxColumn
+    Friend WithEvents stock As DataGridViewTextBoxColumn
+    Friend WithEvents precio_lista As DataGridViewTextBoxColumn
+    Friend WithEvents id_rubro As DataGridViewTextBoxColumn
+    Friend WithEvents id_fabrica As DataGridViewTextBoxColumn
+    Friend WithEvents col_dado_de_baja As DataGridViewTextBoxColumn
 End Class

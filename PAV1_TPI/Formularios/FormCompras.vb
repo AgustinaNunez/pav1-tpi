@@ -207,18 +207,33 @@ Public Class FormCompras
     End Sub
 
     Private Sub cmb_fabrica_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_fabrica.SelectionChangeCommitted
-        If MessageBox.Show("¿La fábrica seleccionada es " & Me.cmb_fabrica.Text & "?", "Gestión de Compras", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-            Me.habilitar_detalle()
-            Me.cmb_fabrica.Enabled = False
-            Me.btn_nuevo_producto.Enabled = True
-            Fabrica.id = Me.cmb_fabrica.SelectedValue
-            Fabrica.nombre = Me.cmb_fabrica.Text
-            SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos WHERE dado_de_baja = 0 AND id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
+        If Fabrica.id = 0 Then
+            Me.cargar_fabrica()
+        Else
+            If Me.dgv_compras.Rows.Count > 0 And Fabrica.id <> Me.cmb_fabrica.SelectedValue Then
+                If MessageBox.Show("¿Está seguro que desea cambiar la fábrica?", "Gestión de Compras", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+                    Me.cargar_fabrica()
+                    Me.dgv_compras.Rows.Clear()
+                    Me.txt_monto.Text = "0"
+                End If
+            Else
+                Me.cargar_fabrica()
+            End If
         End If
     End Sub
 
-    Private Sub dgv_compras_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_compras.CellContentClick
+    Private Sub cargar_fabrica()
+        Me.habilitar_detalle()
+        'Me.cmb_fabrica.Enabled = False
+        Me.btn_nuevo_producto.Enabled = True
+        Fabrica.id = Me.cmb_fabrica.SelectedValue
+        Fabrica.nombre = Me.cmb_fabrica.Text
+        Me.limpiar_campos_detalle()
+        SoporteGUI.cargar_combo(cmb_producto, SoporteBD.leerBD_simple("SELECT * FROM productos WHERE dado_de_baja = 0 AND id_fabrica = " & Me.cmb_fabrica.SelectedValue), "id_producto", "descripcion")
+        Me.cmb_producto.SelectedIndex = -1
+    End Sub
 
+    Private Sub dgv_compras_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_compras.CellContentClick
         Me.cmb_producto.SelectedValue = Me.dgv_compras.CurrentRow.Cells("col_id_producto").Value
         Me.txt_precio.Text = Me.dgv_compras.CurrentRow.Cells("col_precio").Value
         Me.txt_cantidad.Text = Me.dgv_compras.CurrentRow.Cells("col_cantidad").Value
@@ -228,18 +243,14 @@ Public Class FormCompras
         Me.btn_modificar.Visible = True
         Me.btn_agregar.Enabled = False
         Me.btn_eliminar.Enabled = True
-
     End Sub
 
     Private Sub btn_modificar_Click(sender As Object, e As EventArgs) Handles btn_modificar.Click
-
         If Math.Round(Convert.ToDouble(txt_precio.Text)) = 0 Then
             MessageBox.Show("No se admite el precio ingresado.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return
-        Else
-            Me.dgv_compras.CurrentRow.Cells(2).Value = Me.txt_precio.Text
+        Else Me.dgv_compras.CurrentRow.Cells(2).Value = Me.txt_precio.Text
         End If
-
         If txt_cantidad.Text = 0 Then
             MessageBox.Show("No se admite la cantidad ingresada.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return
@@ -254,7 +265,6 @@ Public Class FormCompras
         Me.btn_agregar.Enabled = True
         Me.btn_eliminar.Enabled = False
         Me.limpiar_campos_detalle()
-
     End Sub
 
     Private Sub deshabilitar_detalle()
@@ -337,9 +347,9 @@ Public Class FormCompras
             SoporteBD.cerrar_conexion_con_transaccion()
             estado_actual_transaccion = estado_transaccion._sin_iniciar
             Me.deshabilitar_campos()
-        End If
-
-        If dgv_compras.Rows.Count = 0 Then
+            Me.limpiar_campos_compra()
+            Me.limpiar_campos_detalle()
+        Else
             MessageBox.Show("No hay datos para guardar.", "Gestión de Compras", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
@@ -348,5 +358,7 @@ Public Class FormCompras
         Me.Close()
     End Sub
 
+    Private Sub cmb_fabrica_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_fabrica.SelectedIndexChanged
 
+    End Sub
 End Class
