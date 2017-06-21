@@ -819,7 +819,6 @@ D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI
 D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormCompras.resources
 D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormFabrica.resources
 D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormLogin.resources
-D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormCupones_Buscar.resources
 D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.Frm_Principal.resources
 D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormProductos.resources
 D:\Agus\Agus Drive\Académico\3° AÑO\PAV1\pav1-tpi\PAV1_TPI\obj\Debug\PAV1_TPI.FormUsuarios.resources

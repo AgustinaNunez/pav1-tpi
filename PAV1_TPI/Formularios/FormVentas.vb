@@ -60,7 +60,7 @@ Public Class FormVentas
         Me.txt_cantidad.Enabled = True
         Me.btn_agregarDETALLE.Enabled = True
         'PAGO
-        Me.btn_dtoVENTA.Enabled = True
+        'Me.btn_dtoVENTA.Enabled = True
         Me.txt_dtoVENTA.Enabled = True
     End Sub
 
@@ -84,6 +84,7 @@ Public Class FormVentas
             Me.txt_dtoVENTA.Enabled = True
             Me.chk_descuento.Enabled = True
             Me.btn_cancelarVENTA.Enabled = True
+            Me.btn_formasPago.Enabled = True
         End If
     End Sub
 
@@ -203,6 +204,9 @@ Public Class FormVentas
         Me.limpiar_camposDETALLE()
         Me.cmb_producto.Enabled = True
 
+        If Me.dgv_detalle.Rows.Count = 0 Then
+            Me.btn_formasPago.Enabled = False
+        End If
     End Sub
 
     Private Sub cmb_producto_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_producto.SelectionChangeCommitted
@@ -409,7 +413,6 @@ Public Class FormVentas
         Me.deshabilitar_detalle_venta()
     End Sub
 
-
     Private Sub btn_cancelarVENTA_Click_1(sender As Object, e As EventArgs) Handles btn_cancelarVENTA.Click
         If Me.transaccion_iniciada Then
             If MessageBox.Show("¿Está seguro que desea cancelar la venta actual?", "Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Cancel Then
@@ -480,6 +483,13 @@ Public Class FormVentas
     End Sub
 
     Private Sub btn_formasPago_Click(sender As Object, e As EventArgs) Handles btn_formasPago.Click
+        total_con_descuento_sinfp = Math.Round(Convert.ToDouble(Me.txt_totalVENTA.Text))
+        Venta.total = total_con_descuento_sinfp
+        Me.txt_dtoVENTA.Enabled = False
+        'Me.btn_dtoVENTA.Enabled = False
+        Me.deshabilitar_camposDETALLE()
+        Me.btn_formasPago.Enabled = True
+
         Venta.subtotal = Me.txt_totalVENTA.Text
         Dim frmFormaPago = New FormVentasFORMASPAGO
         frmFormaPago.ShowDialog()
@@ -489,7 +499,7 @@ Public Class FormVentas
         End If
     End Sub
 
-    Private Sub btn_guardarDESCUENTO_Click(sender As Object, e As EventArgs) Handles btn_dtoVENTA.Click
+    Private Sub btn_guardarDESCUENTO_Click(sender As Object, e As EventArgs)
         If dgv_detalle.Rows.Count = 0 Then
             MessageBox.Show("No hay productos agregados", "Gestión de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
@@ -497,7 +507,7 @@ Public Class FormVentas
                 total_con_descuento_sinfp = Math.Round(Convert.ToDouble(Me.txt_totalVENTA.Text))
                 Venta.total = total_con_descuento_sinfp
                 Me.txt_dtoVENTA.Enabled = False
-                Me.btn_dtoVENTA.Enabled = False
+                'Me.btn_dtoVENTA.Enabled = False
                 Me.deshabilitar_camposDETALLE()
                 Me.btn_formasPago.Enabled = True
             End If

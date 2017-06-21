@@ -11,11 +11,6 @@ Public Class Frm_Principal
         frmFabrica.ShowDialog()
     End Sub
 
-    Private Sub btn_cupones_Click(sender As Object, e As EventArgs)
-        Dim frmCupones = New FormCupones_Buscar
-        frmCupones.ShowDialog()
-    End Sub
-
     Private Sub btn_usuarios_Click(sender As Object, e As EventArgs) Handles btn_usuarios.Click
         Dim frmUsuarios = New FormUsuarios
         frmUsuarios.ShowDialog()
